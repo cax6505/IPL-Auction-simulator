@@ -1,0 +1,76 @@
+id,name,nationality,is_overseas,capped_status,role,batting_style,bowling_style,ipl_team_2026,ipl_team_2025,contract_type_2026,base_price_cr,sold_price_cr,auction_year,auction_set,retention_cost_cr,rtm_used
+rishabh-pant,Rishabh Pant,India,false,capped,WK,LHB,,LSG,LSG,RETAINED,2.0,27.0,2025,MARQUEE_SET1,,false
+virat-kohli,Virat Kohli,India,false,capped,BAT,RHB,OB,RCB,RCB,RETAINED,,,,,21.0,false
+rohit-sharma,Rohit Sharma,India,false,capped,BAT,RHB,OB,MI,MI,RETAINED,,,,,16.30,false
+jasprit-bumrah,Jasprit Bumrah,India,false,capped,BOWL,RHB,RAF,MI,MI,RETAINED,,,,,18.0,false
+ms-dhoni,MS Dhoni,India,false,uncapped,WK,RHB,,CSK,CSK,RETAINED,,,,,4.0,false
+shreyas-iyer,Shreyas Iyer,India,false,capped,BAT,RHB,OB,PBKS,PBKS,RETAINED,2.0,26.75,2025,MARQUEE_SET1,,false
+yashasvi-jaiswal,Yashasvi Jaiswal,India,false,capped,BAT,LHB,SLA,RR,RR,RETAINED,,,,,18.0,false
+suryakumar-yadav,Suryakumar Yadav,India,false,capped,BAT,RHB,,MI,MI,RETAINED,,,,,16.35,false
+hardik-pandya,Hardik Pandya,India,false,capped,AR,RHB,RAF,MI,MI,RETAINED,,,,,16.35,false
+rashid-khan,Rashid Khan,Afghanistan,true,capped,BOWL,RHB,LB,GT,GT,RETAINED,,,,,18.0,false
+shubman-gill,Shubman Gill,India,false,capped,BAT,RHB,OB,GT,GT,RETAINED,,,,,16.50,false
+ruturaj-gaikwad,Ruturaj Gaikwad,India,false,capped,BAT,RHB,OB,CSK,CSK,RETAINED,,,,,18.0,false
+ravindra-jadeja,Ravindra Jadeja,India,false,capped,AR,LHB,SLA,RR,CSK,TRADED,,,,,14.0,false
+sanju-samson,Sanju Samson,India,false,capped,WK,RHB,,CSK,RR,TRADED,,,,,18.0,false
+arshdeep-singh,Arshdeep Singh,India,false,capped,BOWL,LHB,LAF,PBKS,PBKS,RETAINED,2.0,18.0,2025,MARQUEE_SET1,,false
+yuzvendra-chahal,Yuzvendra Chahal,India,false,capped,BOWL,RHB,LB,PBKS,PBKS,RETAINED,2.0,18.0,2025,MARQUEE_SET2,,false
+kl-rahul,KL Rahul,India,false,capped,WK,RHB,,DC,DC,RETAINED,2.0,14.0,2025,MARQUEE_SET2,,false
+axar-patel,Axar Patel,India,false,capped,AR,LHB,SLA,DC,DC,RETAINED,,,,,16.50,false
+kuldeep-yadav,Kuldeep Yadav,India,false,capped,BOWL,LHB,LB,DC,DC,RETAINED,,,,,13.25,false
+cameron-green,Cameron Green,Australia,true,capped,AR,RHB,RAF,KKR,,AUCTION,2.0,25.20,2026,CAPPED,,false
+matheesha-pathirana,Matheesha Pathirana,Sri Lanka,true,capped,BOWL,RHB,RAF,KKR,CSK,AUCTION,2.0,18.0,2026,CAPPED,,false
+prashant-veer,Prashant Veer,India,false,uncapped,AR,RHB,RFM,CSK,,AUCTION,0.30,14.20,2026,UNCAPPED,,false
+kartik-sharma,Kartik Sharma,India,false,uncapped,AR,LHB,LFM,CSK,,AUCTION,0.30,14.20,2026,UNCAPPED,,false
+jos-buttler,Jos Buttler,England,true,capped,WK,RHB,,GT,RR,RETAINED,2.0,15.75,2025,MARQUEE_SET1,,false
+kagiso-rabada,Kagiso Rabada,South Africa,true,capped,BOWL,RHB,RAF,GT,PBKS,RETAINED,2.0,10.75,2025,MARQUEE_SET1,,false
+rinku-singh,Rinku Singh,India,false,capped,BAT,LHB,,KKR,KKR,RETAINED,,,,,13.0,false
+sunil-narine,Sunil Narine,West Indies,true,capped,AR,LHB,OB,KKR,KKR,RETAINED,,,,,12.0,false
+nicholas-pooran,Nicholas Pooran,West Indies,true,capped,WK,LHB,,LSG,LSG,RETAINED,,,,,21.0,false
+heinrich-klaasen,Heinrich Klaasen,South Africa,true,capped,WK,RHB,,SRH,SRH,RETAINED,,,,,23.0,false
+pat-cummins,Pat Cummins,Australia,true,capped,AR,RHB,RAF,SRH,SRH,RETAINED,,,,,18.0,false
+abhishek-sharma,Abhishek Sharma,India,false,capped,AR,LHB,SLA,SRH,SRH,RETAINED,,,,,14.0,false
+travis-head,Travis Head,Australia,true,capped,BAT,LHB,OB,SRH,SRH,RETAINED,,,,,14.0,false
+mayank-yadav,Mayank Yadav,India,false,capped,BOWL,RHB,RAF,LSG,LSG,RETAINED,,,,,11.0,false
+jofra-archer,Jofra Archer,England,true,capped,BOWL,RHB,RAF,RR,MI,RETAINED,2.0,12.50,2025,CAPPED,,false
+trent-boult,Trent Boult,New Zealand,true,capped,BOWL,RHB,LAF,MI,MI,RETAINED,,,,,12.5,false
+shivam-dube,Shivam Dube,India,false,capped,AR,LHB,RFM,CSK,CSK,RETAINED,,,,,12.0,false
+sai-sudarshan,Sai Sudarshan,India,false,capped,BAT,LHB,SLA,GT,GT,RETAINED,,,,,8.5,false
+varun-chakravarthy,Varun Chakravarthy,India,false,capped,BOWL,RHB,OB,KKR,KKR,RETAINED,,,,,12.0,false
+dhruv-jurel,Dhruv Jurel,India,false,capped,WK,RHB,,RR,RR,RETAINED,,,,,14.0,false
+mohammed-shami,Mohammed Shami,India,false,capped,BOWL,RHB,RFM,LSG,SRH,TRADED,2.0,10.0,2025,MARQUEE_SET2,,false
+mitchell-starc,Mitchell Starc,Australia,true,capped,BOWL,LHB,LAF,DC,KKR,RETAINED,2.0,24.75,2024,CAPPED,,false
+riyan-parag,Riyan Parag,India,false,capped,AR,RHB,LB,RR,RR,RETAINED,,,,,14.0,false
+noor-ahmad,Noor Ahmad,Afghanistan,true,capped,BOWL,LHB,SLA,CSK,CSK,RETAINED,,,,,10.0,false
+mohammed-siraj,Mohammed Siraj,India,false,capped,BOWL,RHB,RAF,GT,RCB,AUCTION,2.0,12.25,2025,CAPPED,,false
+prasidh-krishna,Prasidh Krishna,India,false,capped,BOWL,RHB,RAF,GT,RR,AUCTION,2.0,9.50,2025,CAPPED,,false
+tilak-varma,Tilak Varma,India,false,capped,BAT,LHB,,MI,MI,RETAINED,,,,,8.0,false
+rajat-patidar,Rajat Patidar,India,false,capped,BAT,RHB,,RCB,RCB,RETAINED,,,,,11.0,false
+yash-dayal,Yash Dayal,India,false,capped,BOWL,LHB,LAF,RCB,RCB,RETAINED,,,,,5.0,false
+liam-livingstone,Liam Livingstone,England,true,capped,AR,RHB,LB,RCB,PBKS,AUCTION,2.0,8.75,2025,MARQUEE_SET2,,false
+david-miller,David Miller,South Africa,true,capped,BAT,LHB,,GT,GT,AUCTION,2.0,7.50,2025,MARQUEE_SET2,,false
+shimron-hetmyer,Shimron Hetmyer,West Indies,true,capped,BAT,LHB,,RR,RR,RETAINED,,,,,11.0,false
+sandeep-sharma,Sandeep Sharma,India,false,capped,BOWL,RHB,RFM,RR,RR,RETAINED,,,,,4.0,false
+harshit-rana,Harshit Rana,India,false,capped,BOWL,RHB,RAF,KKR,KKR,RETAINED,,,,,4.0,false
+ramandeep-singh,Ramandeep Singh,India,false,uncapped,AR,RHB,RAF,KKR,KKR,RETAINED,,,,,4.0,false
+avesh-khan,Avesh Khan,India,false,capped,BOWL,RHB,RAF,LSG,LSG,RETAINED,,,,,9.75,false
+deepak-chahar,Deepak Chahar,India,false,capped,BOWL,RHB,RFM,MI,MI,AUCTION,2.0,9.25,2025,CAPPED,,false
+t-natarajan,T. Natarajan,India,false,capped,BOWL,LHB,LAF,DC,SRH,AUCTION,1.0,10.75,2025,CAPPED,,false
+tristan-stubbs,Tristan Stubbs,South Africa,true,capped,BAT,RHB,,DC,DC,RETAINED,,,,,10.0,false
+mukesh-kumar,Mukesh Kumar,India,false,capped,BOWL,RHB,RFM,DC,DC,RETAINED,,,,,8.0,false
+nitish-rana,Nitish Rana,India,false,capped,BAT,LHB,OB,DC,RR,TRADED,,,,,4.2,false
+will-jacks,Will Jacks,England,true,capped,AR,RHB,OB,MI,RCB,AUCTION,1.0,5.25,2025,CAPPED,,false
+mitchell-marsh,Mitchell Marsh,Australia,true,capped,AR,LHB,RAF,LSG,DC,AUCTION,2.0,3.40,2026,CAPPED,,false
+aiden-markram,Aiden Markram,South Africa,true,capped,AR,RHB,OB,LSG,SRH,AUCTION,2.0,2.0,2026,CAPPED,,false
+marcus-stoinis,Marcus Stoinis,Australia,true,capped,AR,RHB,RAF,PBKS,PBKS,RETAINED,,,,,11.0,false
+marco-jansen,Marco Jansen,South Africa,true,capped,AR,LHB,LAF,PBKS,MI,AUCTION,2.0,7.0,2025,CAPPED,,false
+rahul-tewatia,Rahul Tewatia,India,false,capped,AR,LHB,LB,GT,GT,RETAINED,,,,,4.0,false
+shahrukh-khan,Shahrukh Khan,India,false,capped,BAT,RHB,,GT,GT,RETAINED,,,,,4.0,false
+washington-sundar,Washington Sundar,India,false,capped,AR,RHB,OB,GT,SRH,AUCTION,1.0,3.2,2026,CAPPED,,false
+ayush-badoni,Ayush Badoni,India,false,uncapped,BAT,LHB,,LSG,LSG,RETAINED,,,,,4.0,false
+ravi-bishnoi,Ravi Bishnoi,India,false,capped,BOWL,RHB,LB,RR,LSG,AUCTION,2.0,7.20,2026,CAPPED,,false
+venkatesh-iyer,Venkatesh Iyer,India,false,capped,AR,LHB,RFM,RCB,KKR,AUCTION,2.0,7.0,2026,CAPPED,,false
+shardul-thakur,Shardul Thakur,India,false,capped,AR,RHB,RAF,MI,LSG,TRADED,,,,,2.0,false
+naman-dhir,Naman Dhir,India,false,capped,BAT,RHB,,MI,MI,RETAINED,,,,,5.25,false
+allah-ghazanfar,Allah Ghazanfar,Afghanistan,true,uncapped,BOWL,LHB,OB,MI,MI,RETAINED,,,,,4.8,false
+lokesh-rahul,Abhishek Porel,India,false,uncapped,WK,LHB,,DC,DC,RETAINED,,,,,4.0,false

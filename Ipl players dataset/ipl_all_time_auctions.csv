@@ -1,0 +1,123 @@
+year,player_id,player_name,nationality,is_overseas,capped_status,role,team_sold_to,base_price_cr,sold_price_cr,auction_type,auction_set,status,notes
+2008,ms-dhoni,MS Dhoni,India,false,capped,WK,CSK,,,MEGA,ICON_PLAYER,RETAINED,Icon Player - original squad
+2008,sachin-tendulkar,Sachin Tendulkar,India,false,capped,BAT,MI,,,MEGA,ICON_PLAYER,RETAINED,Icon Player - original squad
+2008,sourav-ganguly,Sourav Ganguly,India,false,capped,BAT,KKR,,,MEGA,ICON_PLAYER,RETAINED,Icon Player
+2008,rahul-dravid,Rahul Dravid,India,false,capped,BAT,RR,,,MEGA,ICON_PLAYER,RETAINED,Icon Player
+2008,virender-sehwag,Virender Sehwag,India,false,capped,BAT,DC,,,MEGA,ICON_PLAYER,RETAINED,Icon Player
+2008,yuvraj-singh,Yuvraj Singh,India,false,capped,AR,PBKS,,,MEGA,ICON_PLAYER,RETAINED,Icon Player
+2008,rohit-sharma,Rohit Sharma,India,false,capped,BAT,DC,0.30,3.50,MEGA,CAPPED,SOLD,
+2008,harbhajan-singh,Harbhajan Singh,India,false,capped,BOWL,MI,,,MEGA,CAPPED,SOLD,
+2008,andrew-flintoff,Andrew Flintoff,England,true,capped,AR,CSK,,,MEGA,CAPPED,SOLD,
+2008,shane-bond,Shane Bond,New Zealand,true,capped,BOWL,KKR,,,MEGA,CAPPED,SOLD,
+2008,brett-lee,Brett Lee,Australia,true,capped,BOWL,KKR,,,MEGA,CAPPED,SOLD,
+2008,matthew-hayden,Matthew Hayden,Australia,true,capped,BAT,CSK,,,MEGA,CAPPED,SOLD,
+2008,adam-gilchrist,Adam Gilchrist,Australia,true,capped,WK,DC,,,MEGA,CAPPED,SOLD,
+2011,virat-kohli,Virat Kohli,India,false,capped,BAT,RCB,,9.70,MEGA,CAPPED,RETAINED,
+2011,rohit-sharma,Rohit Sharma,India,false,capped,BAT,MI,,2.00,MEGA,CAPPED,SOLD,Traded to MI
+2011,harbhajan-singh,Harbhajan Singh,India,false,capped,BOWL,MI,,4.50,MEGA,CAPPED,SOLD,
+2011,gautam-gambhir,Gautam Gambhir,India,false,capped,BAT,KKR,,2.40,MEGA,CAPPED,SOLD,
+2011,yusuf-pathan,Yusuf Pathan,India,false,capped,AR,KKR,,2.10,MEGA,CAPPED,SOLD,
+2012,sunil-narine,Sunil Narine,West Indies,true,capped,AR,KKR,0.30,11.50,MINI,CAPPED,SOLD,Debut at IPL auction
+2012,kuldeep-yadav,Kuldeep Yadav,India,false,uncapped,BOWL,MI,0.10,0.10,MINI,UNCAPPED,SOLD,
+2012,suryakumar-yadav,Suryakumar Yadav,India,false,uncapped,BAT,MI,0.10,0.19,MINI,UNCAPPED,SOLD,
+2013,jasprit-bumrah,Jasprit Bumrah,India,false,uncapped,BOWL,MI,0.10,0.10,MINI,UNCAPPED,SOLD,Debut at IPL auction
+2013,sanju-samson,Sanju Samson,India,false,uncapped,WK,RR,0.30,0.35,MINI,UNCAPPED,SOLD,
+2013,rashid-khan,Rashid Khan,Afghanistan,true,capped,BOWL,SRH,0.30,4.00,MINI,CAPPED,SOLD,First auction
+2014,shreyas-iyer,Shreyas Iyer,India,false,uncapped,BAT,DC,0.10,2.60,MEGA,UNCAPPED,SOLD,
+2014,kl-rahul,KL Rahul,India,false,uncapped,WK,RCB,0.10,1.00,MEGA,UNCAPPED,SOLD,
+2014,yuzvendra-chahal,Yuzvendra Chahal,India,false,uncapped,BOWL,MI,0.10,0.10,MEGA,UNCAPPED,SOLD,Traded to RCB later
+2014,pat-cummins,Pat Cummins,Australia,true,capped,AR,KKR,1.00,3.00,MEGA,CAPPED,SOLD,
+2014,axar-patel,Axar-Patel,India,false,uncapped,AR,PBKS,0.30,2.50,MEGA,UNCAPPED,SOLD,
+2014,kuldeep-yadav,Kuldeep Yadav,India,false,uncapped,BOWL,KKR,0.10,0.25,MEGA,UNCAPPED,SOLD,
+2014,mitchell-starc,Mitchell Starc,Australia,true,capped,BOWL,RCB,1.00,3.00,MEGA,CAPPED,SOLD,
+2015,yuzvendra-chahal,Yuzvendra Chahal,India,false,uncapped,BOWL,RCB,0.10,0.30,MINI,UNCAPPED,SOLD,
+2015,suryakumar-yadav,Suryakumar Yadav,India,false,uncapped,BAT,MI,0.20,3.20,MINI,UNCAPPED,SOLD,Retained
+2015,trent-boult,Trent Boult,New Zealand,true,capped,BOWL,DC,1.50,2.00,MEGA,CAPPED,SOLD,
+2015,shreyas-iyer,Shreyas Iyer,India,false,uncapped,BAT,DC,0.10,2.60,MINI,UNCAPPED,SOLD,
+2016,rishabh-pant,Rishabh Pant,India,false,uncapped,WK,DC,0.10,1.90,MEGA,UNCAPPED,SOLD,Debut
+2016,jofra-archer,Jofra Archer,England,true,capped,BOWL,RR,0.20,7.20,MEGA,CAPPED,SOLD,
+2016,jos-buttler,Jos Buttler,England,true,capped,WK,MI,1.00,3.00,MEGA,CAPPED,SOLD,
+2016,mohammed-shami,Mohammed Shami,India,false,capped,BOWL,DC,0.50,4.00,MEGA,CAPPED,SOLD,
+2017,kagiso-rabada,Kagiso Rabada,South Africa,true,capped,BOWL,DC,0.50,4.20,MINI,CAPPED,SOLD,Debut IPL
+2017,rashid-khan,Rashid Khan,Afghanistan,true,capped,BOWL,SRH,0.30,4.00,MINI,CAPPED,SOLD,
+2017,yashasvi-jaiswal,Yashasvi Jaiswal,India,false,uncapped,BAT,RR,,,MINI,UNCAPPED,UNSOLD,Did not sell
+2018,rishabh-pant,Rishabh Pant,India,false,capped,WK,DC,0.50,8.00,MEGA,CAPPED,SOLD,
+2018,hardik-pandya,Hardik Pandya,India,false,capped,AR,MI,0.10,1.00,MEGA,CAPPED,RETAINED,
+2018,kl-rahul,KL Rahul,India,false,capped,WK,PBKS,2.00,11.00,MEGA,CAPPED,SOLD,
+2018,sanju-samson,Sanju Samson,India,false,capped,WK,RR,1.00,8.00,MEGA,CAPPED,SOLD,
+2018,jasprit-bumrah,Jasprit Bumrah,India,false,capped,BOWL,MI,,,MEGA,CAPPED,RETAINED,Retained @7cr
+2018,pat-cummins,Pat Cummins,Australia,true,capped,AR,KKR,2.00,15.50,MINI,CAPPED,SOLD,
+2018,shubman-gill,Shubman Gill,India,false,uncapped,BAT,KKR,0.20,1.80,MEGA,UNCAPPED,SOLD,Debut
+2018,abhishek-sharma,Abhishek Sharma,India,false,uncapped,AR,PBKS,0.20,0.20,MEGA,UNCAPPED,SOLD,Debut
+2019,ruturaj-gaikwad,Ruturaj Gaikwad,India,false,uncapped,BAT,CSK,0.20,0.20,MINI,UNCAPPED,SOLD,
+2019,arshdeep-singh,Arshdeep Singh,India,false,uncapped,BOWL,PBKS,0.20,0.20,MINI,UNCAPPED,SOLD,Debut
+2019,rinku-singh,Rinku Singh,India,false,uncapped,BAT,KKR,0.20,0.80,MINI,UNCAPPED,SOLD,
+2019,deepak-chahar,Deepak Chahar,India,false,uncapped,BOWL,CSK,0.20,0.20,MINI,UNCAPPED,SOLD,
+2019,shivam-dube,Shivam Dube,India,false,uncapped,AR,MI,0.50,5.00,MINI,UNCAPPED,SOLD,
+2019,nicholas-pooran,Nicholas Pooran,West Indies,true,capped,WK,PBKS,0.60,4.80,MINI,CAPPED,SOLD,
+2019,riyan-parag,Riyan Parag,India,false,uncapped,AR,RR,0.20,3.80,MINI,UNCAPPED,SOLD,
+2019,varun-chakravarthy,Varun Chakravarthy,India,false,uncapped,BOWL,PBKS,0.20,8.40,MINI,UNCAPPED,SOLD,Sensational debut bid
+2020,yashasvi-jaiswal,Yashasvi Jaiswal,India,false,uncapped,BAT,RR,0.20,2.40,MINI,UNCAPPED,SOLD,
+2020,kagiso-rabada,Kagiso Rabada,South Africa,true,capped,BOWL,PBKS,2.00,9.25,MINI,CAPPED,SOLD,
+2020,trent-boult,Trent Boult,New Zealand,true,capped,BOWL,MI,2.00,14.00,MINI,CAPPED,SOLD,Trade from DC
+2020,pat-cummins,Pat Cummins,Australia,true,capped,AR,KKR,2.00,15.50,MINI,CAPPED,SOLD,
+2021,mohammed-shami,Mohammed Shami,India,false,capped,BOWL,PBKS,2.00,6.25,MINI,CAPPED,SOLD,
+2022,virat-kohli,Virat Kohli,India,false,capped,BAT,RCB,,,MEGA,RETAINED,RETAINED,Retained @15cr
+2022,rohit-sharma,Rohit Sharma,India,false,capped,BAT,MI,,,MEGA,RETAINED,RETAINED,Retained
+2022,rishabh-pant,Rishabh Pant,India,false,capped,WK,DC,2.00,16.00,MEGA,CAPPED,SOLD,
+2022,shreyas-iyer,Shreyas Iyer,India,false,capped,BAT,KKR,2.00,12.25,MEGA,CAPPED,SOLD,
+2022,kl-rahul,KL Rahul,India,false,capped,WK,LSG,2.00,17.00,MEGA,CAPPED,SOLD,
+2022,rashid-khan,Rashid Khan,Afghanistan,true,capped,BOWL,GT,2.00,15.00,MEGA,CAPPED,SOLD,
+2022,shubman-gill,Shubman Gill,India,false,capped,BAT,GT,2.00,8.00,MEGA,CAPPED,SOLD,
+2022,hardik-pandya,Hardik Pandya,India,false,capped,AR,GT,2.00,15.00,MEGA,CAPPED,SOLD,
+2022,nicholas-pooran,Nicholas Pooran,West Indies,true,capped,WK,SRH,1.50,10.75,MEGA,CAPPED,SOLD,
+2022,kuldeep-yadav,Kuldeep Yadav,India,false,capped,BOWL,DC,2.00,2.00,MEGA,CAPPED,SOLD,
+2022,varun-chakravarthy,Varun Chakravarthy,India,false,capped,BOWL,KKR,2.00,8.00,MEGA,CAPPED,SOLD,
+2022,trent-boult,Trent Boult,New Zealand,true,capped,BOWL,RR,2.00,8.00,MEGA,CAPPED,SOLD,
+2022,jofra-archer,Jofra Archer,England,true,capped,BOWL,MI,2.00,8.00,MEGA,CAPPED,SOLD,
+2022,yuzvendra-chahal,Yuzvendra Chahal,India,false,capped,BOWL,RR,2.00,6.50,MEGA,CAPPED,SOLD,
+2022,mayank-yadav,Mayank Yadav,India,false,uncapped,BOWL,LSG,0.20,0.20,MEGA,UNCAPPED,SOLD,
+2022,sai-sudarshan,Sai Sudarshan,India,false,uncapped,BAT,GT,0.20,0.20,MEGA,UNCAPPED,SOLD,
+2022,dhruv-jurel,Dhruv Jurel,India,false,uncapped,WK,RR,0.20,0.20,MEGA,UNCAPPED,SOLD,
+2022,yashasvi-jaiswal,Yashasvi Jaiswal,India,false,uncapped,BAT,RR,,,MEGA,RETAINED,RETAINED,Retained
+2022,ruturaj-gaikwad,Ruturaj Gaikwad,India,false,capped,BAT,CSK,,,MEGA,RETAINED,RETAINED,Retained @6cr
+2022,axar-patel,Axar Patel,India,false,capped,AR,DC,,,MEGA,RETAINED,RETAINED,Retained @9cr
+2023,cameron-green,Cameron Green,Australia,true,capped,AR,MI,2.00,17.50,MINI,CAPPED,SOLD,Debut IPL
+2023,matheesha-pathirana,Matheesha Pathirana,Sri Lanka,true,uncapped,BOWL,CSK,0.20,0.20,MINI,UNCAPPED,SOLD,
+2023,mayank-yadav,Mayank Yadav,India,false,uncapped,BOWL,LSG,0.20,0.20,MINI,UNCAPPED,SOLD,
+2024,pat-cummins,Pat Cummins,Australia,true,capped,AR,SRH,2.00,20.50,MINI,CAPPED,SOLD,Record for overseas at the time
+2024,mitchell-starc,Mitchell Starc,Australia,true,capped,BOWL,KKR,2.00,24.75,MINI,CAPPED,SOLD,Most expensive overseas till 2026
+2024,travis-head,Travis Head,Australia,true,capped,BAT,SRH,2.00,6.80,MINI,CAPPED,SOLD,
+2024,heinrich-klaasen,Heinrich Klaasen,South Africa,true,capped,WK,SRH,1.00,5.25,MINI,CAPPED,SOLD,
+2024,marco-jansen,Marco Jansen,South Africa,true,capped,AR,MI,2.00,13.00,MINI,CAPPED,SOLD,
+2025,rishabh-pant,Rishabh Pant,India,false,capped,WK,LSG,2.00,27.00,MEGA,MARQUEE_SET1,SOLD,Most expensive player ever
+2025,shreyas-iyer,Shreyas Iyer,India,false,capped,BAT,PBKS,2.00,26.75,MEGA,MARQUEE_SET1,SOLD,
+2025,jos-buttler,Jos Buttler,England,true,capped,WK,RR,2.00,15.75,MEGA,MARQUEE_SET1,SOLD,
+2025,arshdeep-singh,Arshdeep Singh,India,false,capped,BOWL,PBKS,2.00,18.00,MEGA,MARQUEE_SET1,SOLD,
+2025,kagiso-rabada,Kagiso Rabada,South Africa,true,capped,BOWL,PBKS,2.00,10.75,MEGA,MARQUEE_SET1,SOLD,
+2025,mitchell-starc,Mitchell Starc,Australia,true,capped,BOWL,PBKS,2.00,11.00,MEGA,MARQUEE_SET1,SOLD,
+2025,yuzvendra-chahal,Yuzvendra Chahal,India,false,capped,BOWL,PBKS,2.00,18.00,MEGA,MARQUEE_SET2,SOLD,
+2025,kl-rahul,KL Rahul,India,false,capped,WK,DC,2.00,14.00,MEGA,MARQUEE_SET2,SOLD,
+2025,mohammed-shami,Mohammed Shami,India,false,capped,BOWL,SRH,2.00,10.00,MEGA,MARQUEE_SET2,SOLD,
+2025,david-miller,David Miller,South Africa,true,capped,BAT,GT,2.00,7.50,MEGA,MARQUEE_SET2,SOLD,
+2025,liam-livingstone,Liam Livingstone,England,true,capped,AR,RCB,2.00,8.75,MEGA,MARQUEE_SET2,SOLD,
+2025,jofra-archer,Jofra Archer,England,true,capped,BOWL,MI,2.00,12.50,MEGA,CAPPED,SOLD,
+2025,trent-boult,Trent Boult,New Zealand,true,capped,BOWL,MI,2.00,12.50,MEGA,CAPPED,SOLD,
+2025,deepak-chahar,Deepak Chahar,India,false,capped,BOWL,MI,2.00,9.25,MEGA,CAPPED,SOLD,
+2025,mohammed-siraj,Mohammed Siraj,India,false,capped,BOWL,GT,2.00,12.25,MEGA,CAPPED,SOLD,
+2025,prasidh-krishna,Prasidh Krishna,India,false,capped,BOWL,GT,2.00,9.50,MEGA,CAPPED,SOLD,
+2025,t-natarajan,T. Natarajan,India,false,capped,BOWL,SRH,1.00,10.75,MEGA,CAPPED,SOLD,
+2025,will-jacks,Will Jacks,England,true,capped,AR,RCB,1.00,5.25,MEGA,CAPPED,SOLD,
+2025,marco-jansen,Marco Jansen,South Africa,true,capped,AR,PBKS,2.00,7.00,MEGA,CAPPED,SOLD,
+2026,cameron-green,Cameron Green,Australia,true,capped,AR,KKR,2.00,25.20,MINI,CAPPED,SOLD,Record overseas player
+2026,matheesha-pathirana,Matheesha Pathirana,Sri Lanka,true,capped,BOWL,KKR,2.00,18.00,MINI,CAPPED,SOLD,
+2026,prashant-veer,Prashant Veer,India,false,uncapped,AR,CSK,0.30,14.20,MINI,UNCAPPED,SOLD,Joint record uncapped
+2026,kartik-sharma,Kartik Sharma,India,false,uncapped,AR,CSK,0.30,14.20,MINI,UNCAPPED,SOLD,Joint record uncapped
+2026,ravi-bishnoi,Ravi Bishnoi,India,false,capped,BOWL,RR,2.00,7.20,MINI,CAPPED,SOLD,
+2026,venkatesh-iyer,Venkatesh Iyer,India,false,capped,AR,RCB,2.00,7.00,MINI,CAPPED,SOLD,
+2026,mitchell-marsh,Mitchell Marsh,Australia,true,capped,AR,LSG,2.00,3.40,MINI,CAPPED,SOLD,
+2026,aiden-markram,Aiden Markram,South Africa,true,capped,AR,LSG,2.00,2.00,MINI,CAPPED,SOLD,
+2026,washington-sundar,Washington Sundar,India,false,capped,AR,GT,1.00,3.20,MINI,CAPPED,SOLD,
+2026,david-miller,David Miller,South Africa,true,capped,BAT,RR,2.00,2.00,MINI,CAPPED,SOLD,First player sold 2026
+2026,kyle-jamieson,Kyle Jamieson,New Zealand,true,capped,AR,DC,1.00,1.25,MINI,CAPPED,SOLD,Last player sold 2026
+2026,auqib-nabi-dar,Auqib Nabi Dar,India,false,uncapped,BOWL,SRH,0.30,8.40,MINI,UNCAPPED,SOLD,Surprise buy

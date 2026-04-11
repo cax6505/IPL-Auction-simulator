@@ -1,0 +1,226 @@
+{
+  "auction_config": {
+    "version": "2026",
+    "purse_per_team_cr": 125,
+    "squad_min": 18,
+    "squad_max": 25,
+    "overseas_max": 8,
+    "base_prices_cr": [0.20, 0.30, 0.50, 0.75, 1.00, 2.00],
+    "bid_increments": {
+      "up_to_1cr": 0.05,
+      "1cr_to_2cr": 0.10,
+      "2cr_to_5cr": 0.25,
+      "5cr_to_10cr": 0.50,
+      "above_10cr": 1.00
+    },
+    "match_fee_per_game_lakh": 7.5,
+    "rtm_available": false,
+    "auction_type": "MINI"
+  },
+  "auction_config_2025": {
+    "version": "2025",
+    "purse_per_team_cr": 120,
+    "squad_min": 18,
+    "squad_max": 25,
+    "overseas_max": 8,
+    "base_prices_cr": [0.20, 0.30, 0.50, 0.75, 1.00, 2.00],
+    "bid_increments": {
+      "up_to_1cr": 0.05,
+      "1cr_to_2cr": 0.10,
+      "2cr_to_5cr": 0.25,
+      "5cr_to_10cr": 0.50,
+      "above_10cr": 1.00
+    },
+    "match_fee_per_game_lakh": 7.5,
+    "rtm_available": true,
+    "max_rtm_cards": 6,
+    "rtm_rule": "Team holding RTM can match highest bid. After RTM invoked, highest bidder gets one final chance to raise the bid. RTM team can then accept or decline at the raised price.",
+    "auction_type": "MEGA",
+    "marquee_sets": [
+      {
+        "set": 1,
+        "players": ["rishabh-pant", "shreyas-iyer", "jos-buttler", "arshdeep-singh", "kagiso-rabada", "mitchell-starc"]
+      },
+      {
+        "set": 2,
+        "players": ["yuzvendra-chahal", "liam-livingstone", "david-miller", "kl-rahul", "mohammed-shami", "mohammed-siraj"]
+      }
+    ],
+    "auction_order": [
+      "MARQUEE_SET_1",
+      "MARQUEE_SET_2",
+      "CAPPED_BATTERS",
+      "CAPPED_ALL_ROUNDERS",
+      "CAPPED_WICKETKEEPERS",
+      "CAPPED_FAST_BOWLERS",
+      "CAPPED_SPINNERS",
+      "UNCAPPED_BATTERS",
+      "UNCAPPED_ALL_ROUNDERS",
+      "UNCAPPED_WICKETKEEPERS",
+      "UNCAPPED_FAST_BOWLERS",
+      "UNCAPPED_SPINNERS",
+      "ACCELERATED_AUCTION"
+    ]
+  },
+  "retention_rules_2025": {
+    "max_retentions_total": 6,
+    "max_capped_players": 5,
+    "max_uncapped_players": 2,
+    "uncapped_player_cost_cr": 4.0,
+    "capped_player_salary_slabs_cr": [18, 14, 11, 18, 14],
+    "note": "Slabs apply in order: 1st retained = 18cr, 2nd = 14cr, 3rd = 11cr, 4th = 18cr, 5th = 14cr. Sequence resets for 4th & 5th.",
+    "rtm_cards_formula": "RTM cards = 6 - number_of_direct_retentions"
+  },
+  "teams_2026": {
+    "CSK": {
+      "full_name": "Chennai Super Kings",
+      "purse_cr": 125,
+      "retained_count": 16,
+      "retained_spend_cr": 57.90,
+      "auction_spend_cr": 60.75,
+      "remaining_cr": 6.35,
+      "squad_size": 20,
+      "overseas_count": 3
+    },
+    "DC": {
+      "full_name": "Delhi Capitals",
+      "purse_cr": 125,
+      "retained_count": 11,
+      "retained_spend_cr": 100.95,
+      "auction_spend_cr": 23.25,
+      "remaining_cr": 0.80,
+      "squad_size": 17,
+      "overseas_count": 4
+    },
+    "GT": {
+      "full_name": "Gujarat Titans",
+      "purse_cr": 125,
+      "retained_count": 14,
+      "retained_spend_cr": 103.30,
+      "auction_spend_cr": 18.25,
+      "remaining_cr": 3.45,
+      "squad_size": 20,
+      "overseas_count": 5
+    },
+    "KKR": {
+      "full_name": "Kolkata Knight Riders",
+      "purse_cr": 125,
+      "retained_count": 12,
+      "retained_spend_cr": 57.15,
+      "auction_spend_cr": 67.20,
+      "remaining_cr": 0.65,
+      "squad_size": 25,
+      "overseas_count": 8
+    },
+    "LSG": {
+      "full_name": "Lucknow Super Giants",
+      "purse_cr": 125,
+      "retained_count": 13,
+      "retained_spend_cr": 97.45,
+      "auction_spend_cr": 23.35,
+      "remaining_cr": 4.20,
+      "squad_size": 19,
+      "overseas_count": 5
+    },
+    "MI": {
+      "full_name": "Mumbai Indians",
+      "purse_cr": 125,
+      "retained_count": 14,
+      "retained_spend_cr": 110.65,
+      "auction_spend_cr": 10.50,
+      "remaining_cr": 3.85,
+      "squad_size": 20,
+      "overseas_count": 7
+    },
+    "PBKS": {
+      "full_name": "Punjab Kings",
+      "purse_cr": 125,
+      "retained_count": 17,
+      "retained_spend_cr": 121.65,
+      "auction_spend_cr": 2.25,
+      "remaining_cr": 1.10,
+      "squad_size": 21,
+      "overseas_count": 7
+    },
+    "RR": {
+      "full_name": "Rajasthan Royals",
+      "purse_cr": 125,
+      "retained_count": 17,
+      "retained_spend_cr": 112.50,
+      "auction_spend_cr": 12.00,
+      "remaining_cr": 0.50,
+      "squad_size": 22,
+      "overseas_count": 6
+    },
+    "RCB": {
+      "full_name": "Royal Challengers Bengaluru",
+      "purse_cr": 125,
+      "retained_count": 16,
+      "retained_spend_cr": 110.00,
+      "auction_spend_cr": 12.30,
+      "remaining_cr": 2.70,
+      "squad_size": 21,
+      "overseas_count": 5
+    },
+    "SRH": {
+      "full_name": "Sunrisers Hyderabad",
+      "purse_cr": 125,
+      "retained_count": 16,
+      "retained_spend_cr": 110.00,
+      "auction_spend_cr": 11.20,
+      "remaining_cr": 3.80,
+      "squad_size": 21,
+      "overseas_count": 5
+    }
+  },
+  "all_time_records": {
+    "most_expensive_overall": {
+      "player": "Rishabh Pant",
+      "price_cr": 27.00,
+      "team": "LSG",
+      "year": 2025
+    },
+    "most_expensive_overseas": {
+      "player": "Cameron Green",
+      "price_cr": 25.20,
+      "team": "KKR",
+      "year": 2026
+    },
+    "most_expensive_uncapped": {
+      "players": ["Prashant Veer", "Kartik Sharma"],
+      "price_cr": 14.20,
+      "team": "CSK",
+      "year": 2026
+    },
+    "previous_overseas_record": {
+      "player": "Mitchell Starc",
+      "price_cr": 24.75,
+      "team": "KKR",
+      "year": 2024
+    },
+    "base_price_categories_cr": [0.20, 0.30, 0.50, 0.75, 1.00, 2.00]
+  },
+  "player_roles": {
+    "BAT": "Batter",
+    "BOWL": "Bowler",
+    "AR": "All-Rounder",
+    "WK": "Wicket-Keeper"
+  },
+  "bowling_styles": {
+    "RAF": "Right-arm Fast",
+    "LAF": "Left-arm Fast",
+    "RFM": "Right-arm Fast Medium",
+    "LFM": "Left-arm Fast Medium",
+    "OB": "Off-Break (Off Spin)",
+    "LB": "Leg-Break (Leg Spin)",
+    "SLA": "Slow Left-arm Orthodox",
+    "LB": "Leg Break Googly"
+  },
+  "game_notes": {
+    "impact_player_rule": "Active until IPL 2027. Each team can substitute 1 player mid-match from 4 designated substitutes.",
+    "overseas_rule": "Max 4 overseas players in playing XI at any time.",
+    "squad_composition": "Min 18, Max 25 players. Max 8 overseas in squad.",
+    "mini_auction_no_rtm": "RTM cards are only available in Mega Auctions, not Mini Auctions.",
+    "salary_cap_components": "Total cap = Auction purse + Incremental Performance Pay + Match Fees (7.5L/match)"
+  }
+}
