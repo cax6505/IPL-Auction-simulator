@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PlayerCard } from "./PlayerCard";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Search, User } from "lucide-react";
+import { Search, UserX } from "lucide-react";
 import type { PlayerRecord } from "@/lib/types/player";
 
 export function ClientDashboard({ initialPlayers }: { initialPlayers: PlayerRecord[] }) {
@@ -27,48 +27,52 @@ export function ClientDashboard({ initialPlayers }: { initialPlayers: PlayerReco
   return (
     <div className="flex flex-col gap-8 w-full">
       {/* Controls Section */}
-      <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-slate-900/50 p-4 rounded-xl border border-white/5 backdrop-blur-sm">
+      <div className="flex flex-col lg:flex-row gap-4 items-center justify-between glass-card p-4 rounded-2xl animate-slide-down">
         
-        <div className="relative w-full md:w-96 text-slate-400">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4" />
+        <div className="relative w-full lg:w-[400px]">
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500" />
           <Input 
             placeholder="Search players by name..." 
-            className="pl-10 bg-black/40 border-slate-800 text-slate-100 placeholder:text-slate-500 h-11 focus-visible:ring-amber-500/50"
+            className="pl-10 h-12 bg-black/60 font-medium"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
 
-        <Tabs defaultValue="ALL" onValueChange={setActiveTab} className="w-full md:w-auto">
-          <TabsList className="grid w-full grid-cols-5 bg-black/40 border border-slate-800 h-11">
-            <TabsTrigger value="ALL" className="data-[state=active]:bg-slate-800 data-[state=active]:text-white">All</TabsTrigger>
-            <TabsTrigger value="BAT" className="data-[state=active]:bg-blue-500/20 data-[state=active]:text-blue-400">BAT</TabsTrigger>
-            <TabsTrigger value="BOWL" className="data-[state=active]:bg-red-500/20 data-[state=active]:text-red-400">BOWL</TabsTrigger>
-            <TabsTrigger value="AR" className="data-[state=active]:bg-green-500/20 data-[state=active]:text-green-400">AR</TabsTrigger>
-            <TabsTrigger value="WK" className="data-[state=active]:bg-purple-500/20 data-[state=active]:text-purple-400">WK</TabsTrigger>
+        <Tabs defaultValue="ALL" onValueChange={setActiveTab} className="w-full lg:w-auto overflow-x-auto no-scrollbar">
+          <TabsList className="h-12 w-full lg:w-auto p-1 bg-black/60 rounded-[10px]">
+             <TabsTrigger value="ALL" className="h-full rounded-md data-[state=active]:bg-zinc-800 text-xs px-4">ALL PLAYERS</TabsTrigger>
+             <TabsTrigger value="BAT" className="h-full rounded-md data-[state=active]:bg-blue-500/20 data-[state=active]:text-blue-400 text-xs px-4">BAT</TabsTrigger>
+             <TabsTrigger value="BOWL" className="h-full rounded-md data-[state=active]:bg-red-500/20 data-[state=active]:text-red-400 text-xs px-4">BOWL</TabsTrigger>
+             <TabsTrigger value="AR" className="h-full rounded-md data-[state=active]:bg-green-500/20 data-[state=active]:text-green-400 text-xs px-4">ALL-ROUNDER</TabsTrigger>
+             <TabsTrigger value="WK" className="h-full rounded-md data-[state=active]:bg-purple-500/20 data-[state=active]:text-purple-400 text-xs px-4">WICKET KEEPER</TabsTrigger>
           </TabsList>
         </Tabs>
         
       </div>
 
       {/* Results Meta */}
-      <div className="text-sm text-slate-400 font-medium">
-        Showing <span className="text-white">{filteredPlayers.length}</span> players
+      <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest px-1">
+        Showing <span className="text-zinc-200">{filteredPlayers.length}</span> players
       </div>
 
       {/* Players Grid */}
       {filteredPlayers.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredPlayers.map((player) => (
-            <PlayerCard key={player.id} player={player} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-20">
+          {filteredPlayers.map((player, index) => (
+            <div key={player.id} className="animate-scale-in" style={{ animationDelay: `${Math.min(index * 0.05, 0.5)}s` }}>
+               <PlayerCard player={player} />
+            </div>
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center p-20 text-center bg-slate-900/30 rounded-2xl border border-white/5 border-dashed">
-          <User className="h-16 w-16 text-slate-700 mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-slate-300">No players found</h3>
-          <p className="text-slate-500 mt-2 max-w-sm">
-            We couldn't find any players matching "{searchQuery}" in the {activeTab === 'ALL' ? 'database' : activeTab + ' category'}.
+        <div className="flex flex-col items-center justify-center py-32 text-center glass-card rounded-2xl border-dashed">
+          <div className="h-16 w-16 bg-white/[0.03] rounded-full flex items-center justify-center mb-4">
+             <UserX className="h-8 w-8 text-zinc-600" />
+          </div>
+          <h3 className="text-xl font-bold text-white tracking-tight">No players found</h3>
+          <p className="text-zinc-500 mt-2 text-sm font-medium">
+            No matches for "{searchQuery}" in the {activeTab === 'ALL' ? 'database' : activeTab + ' category'}.
           </p>
         </div>
       )}

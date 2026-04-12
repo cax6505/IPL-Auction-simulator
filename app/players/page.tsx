@@ -12,24 +12,34 @@ export default async function PlayersPage() {
 
   if (error) {
     return (
-      <div className="container mx-auto p-8">
-        <div className="bg-red-500/10 border border-red-500/50 text-red-500 p-6 rounded-xl">
-          <h2 className="text-2xl font-bold mb-2">Database Error</h2>
-          <p>Failed to fetch players: {error.message}</p>
+      <div className="mx-auto max-w-7xl p-8">
+        <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-6 rounded-xl flex items-start gap-4">
+          <span className="text-2xl">⚠️</span>
+          <div>
+            <h2 className="text-lg font-bold mb-1 text-red-500">Database Connection Error</h2>
+            <p className="text-sm font-mono opacity-80">{error.message}</p>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 px-4 sm:px-6 lg:px-8 py-10">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
-            Player <span className="text-amber-400">Database</span>
+    <div className="min-h-screen surface-0 overflow-hidden">
+      
+      {/* Ambient background glow */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
+        <div className="mb-10 text-center sm:text-left">
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-3 py-1 text-xs text-purple-400 mb-4 font-bold tracking-widest uppercase">
+            Database
+          </div>
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">
+            Player <span className="text-amber-500">Registry</span>
           </h1>
-          <p className="text-lg text-slate-400 max-w-2xl">
-            Browse the centralized database of all players available in the Mega Auction. Filter by roles, search for specific names, and review base prices and IPL statistics.
+          <p className="text-base text-zinc-400 max-w-2xl font-medium">
+            Browse the comprehensive registry of all players available in the Mega Auction. Filter by role, search targets, and build your strategy.
           </p>
         </div>
 

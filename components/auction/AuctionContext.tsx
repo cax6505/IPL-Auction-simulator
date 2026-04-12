@@ -17,6 +17,7 @@ interface AuctionContextType {
   allPlayers: any[];
   currentPlayer: any;
   logs: any[];
+  chatMessages: { id: string; sender: string; text: string; timestamp: number }[];
   timeLeft: number | null;
   showSoldFlash: { team: string; name: string; amount: number } | null;
   showSquadsModal: string | null;
@@ -34,6 +35,7 @@ interface AuctionContextType {
   handleBid: () => Promise<void>;
   loadSquad: (teamId: string) => Promise<void>;
   addLog: (text: string, type: "bid" | "join" | "sys") => void;
+  sendChatMessage: (text: string) => void;
   advanceAuction: () => Promise<void>;
   setPlayerName: (val: string) => void;
   setPlayerTeam: (val: string | null) => void;
@@ -76,6 +78,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const [allPlayers, setAllPlayers] = useState<any[]>([]);
   const [currentPlayer, setCurrentPlayer] = useState<any>(null);
   const [logs, setLogs] = useState<{ id: string; text: string; type: "bid" | "join" | "sys" }[]>([]);
+  const [chatMessages, setChatMessages] = useState<{ id: string; sender: string; text: string; timestamp: number }[]>([]);
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
   const [showSoldFlash, setShowSoldFlash] = useState<{ team: string; name: string; amount: number } | null>(null);
   const [showSquadsModal, setShowSquadsModal] = useState<string | null>(null);
@@ -90,6 +93,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const playerTeamRef = useRef<string | null>(null);
   const roomRef = useRef<any>(null);
   const advanceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const activeChannelRef = useRef<any>(null);
 
   // Sync refs
   useEffect(() => { allPlayersRef.current = allPlayers; }, [allPlayers]);
@@ -100,6 +104,17 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const addLog = useCallback((text: string, type: "bid" | "join" | "sys") => {
     setLogs(prev => [...prev, { id: crypto.randomUUID(), text, type }]);
   }, []);
+
+  const sendChatMessage = useCallback((text: string) => {
+    if (!activeChannelRef.current || !playerName) return;
+    const msg = { id: crypto.randomUUID(), sender: playerName, text, timestamp: Date.now() };
+    activeChannelRef.current.send({
+      type: "broadcast",
+      event: "chat_message",
+      payload: msg
+    });
+    setChatMessages(prev => [...prev, msg]);
+  }, [playerName]);
 
   // Hydrate Identity
   useEffect(() => {
@@ -252,6 +267,13 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
           const active: any[] = Object.values(state).map((arr: any) => arr[0]);
           setOnlineUsers(active);
         })
+        .on("broadcast", { event: "chat_message" }, (payload) => {
+          setChatMessages(prev => {
+             const newMsg = payload.payload;
+             if (prev.some(m => m.id === newMsg.id)) return prev;
+             return [...prev, newMsg];
+          });
+        })
         .subscribe(async (status: string) => {
           if (status === "SUBSCRIBED" && isMounted) {
             await activeChannel.track({
@@ -262,6 +284,8 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
             });
           }
         });
+        
+      activeChannelRef.current = activeChannel;
     };
 
     fetchInit();
@@ -272,6 +296,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
         activeChannel.untrack();
         supabase.removeChannel(activeChannel);
       }
+      activeChannelRef.current = null;
     };
   }, [playerName, playerTeam, roomCode, router, addLog, isSpectator]);
 
@@ -530,10 +555,10 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
 
   const value: AuctionContextType = {
     roomCode, loading, room, playerTeam, playerName, isSpectator, claimedTeams,
-    onlineUsers, allPlayers, currentPlayer, logs, timeLeft, showSoldFlash,
-    showSquadsModal, squadsMap, isAuctionComplete, isBidding,
+    onlineUsers, allPlayers, currentPlayer, logs, chatMessages, timeLeft, showSoldFlash,
+    setShowSquadsModal, squadsMap, isAuctionComplete, isBidding,
     setShowSoldFlash, setShowSquadsModal, handleClaim, handleStartAuction,
-    handlePause, handleEndAuction, handleBid, loadSquad, addLog, advanceAuction,
+    handlePause, handleEndAuction, handleBid, loadSquad, addLog, sendChatMessage, advanceAuction,
     setPlayerName, setJoinName, setPlayerTeam, joinName,
     currentBid, isHighest, safeBasePrice, nextCalculated, myRecord, myPurse,
     mySquadSize, myOverseas, isFinanciallyValid, isRosterValid, canLegallyBid,

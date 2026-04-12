@@ -1,8 +1,8 @@
 "use client";
 
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { User, Plane } from "lucide-react";
+import { Plane } from "lucide-react";
 import type { PlayerRecord } from "@/lib/types/player";
 
 export function PlayerCard({ player }: { player: PlayerRecord }) {
@@ -10,89 +10,90 @@ export function PlayerCard({ player }: { player: PlayerRecord }) {
   const priceDisplay = player.sold_price_cr 
     ? `₹${player.sold_price_cr} Cr` 
     : player.base_price_cr 
-      ? `₹${player.base_price_cr} Cr Base` 
+      ? `₹${player.base_price_cr} Cr` 
       : "TBD";
 
-  // Determine role color styling based on real playauctiongame.com inspiration
-  const roleColorMap: Record<string, string> = {
-    BAT: "bg-blue-500/10 text-blue-500 border-blue-500/20",
-    BOWL: "bg-red-500/10 text-red-500 border-red-500/20",
-    AR: "bg-green-500/10 text-green-500 border-green-500/20",
-    WK: "bg-purple-500/10 text-purple-500 border-purple-500/20",
+  // Determine role styling based on exact matches used in ClientDashboard
+  const roleStyles: Record<string, { bg: string, border: string, text: string }> = {
+    BAT: { bg: "bg-blue-500/10", border: "border-blue-500/20", text: "text-blue-400" },
+    BOWL: { bg: "bg-red-500/10", border: "border-red-500/20", text: "text-red-400" },
+    AR: { bg: "bg-green-500/10", border: "border-green-500/20", text: "text-green-400" },
+    WK: { bg: "bg-purple-500/10", border: "border-purple-500/20", text: "text-purple-400" },
   };
 
-  const roleStyle = roleColorMap[player.role.toUpperCase()] || "bg-slate-500/10 text-slate-400 border-slate-500/20";
+  const roleUpper = player.role.toUpperCase();
+  // Safe fallback to 'BOWL' or whatever if unknown string enters
+  const rStyle = roleStyles[roleUpper] || { bg: "bg-zinc-500/10", border: "border-zinc-500/20", text: "text-zinc-400" };
+
+  // Simple initials generator
+  const getInitials = (name: string) => {
+    const parts = name.split(" ");
+    if (parts.length >= 2) {
+      return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+    return (name[0] || "?").toUpperCase();
+  };
 
   return (
-    <Card className="group overflow-hidden bg-slate-900/40 backdrop-blur-md border-slate-800 transition-all hover:bg-slate-900/60 hover:border-slate-700 hover:shadow-[0_0_20px_-5px_rgba(251,191,36,0.15)] flex flex-col h-full">
-      <CardHeader className="p-0">
-        <div className="relative h-48 w-full bg-slate-950 flex items-end justify-center border-b border-white/5 overflow-hidden">
-          {/* Aesthetic deterministic placeholder image based on Player Name */}
-          <img 
-            src={`https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(player.name)}&backgroundColor=0f172a,1e293b,334155&textColor=cbd5e1&fontSize=40`}
-            alt={player.name}
-            className="absolute inset-0 h-full w-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500 z-0"
-          />
-          {/* Fade gradient from image to card body */}
-          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-slate-900/90 to-transparent z-10" />
-          
-          <div className="absolute top-3 left-3 flex gap-2 z-20">
-            <Badge variant="outline" className={`${roleStyle} backdrop-blur-md`}>
-              {player.role.toUpperCase()}
-            </Badge>
-          </div>
+    <Card className="hover:glass-card-hover group border-l-4 border-l-transparent transition-all h-full p-4 gap-0" style={{ borderLeftColor: rStyle.text.replace('text-', '') }}>
+      <div className="flex items-start justify-between gap-4 w-full mb-4">
+        {/* Compact Horizontal Identity */}
+        <div className="flex items-center gap-3.5">
+           <div className={`shrink-0 h-12 w-12 rounded-[10px] flex items-center justify-center font-black text-lg ${rStyle.bg} ${rStyle.border} border shadow-inner`}>
+             <span className={rStyle.text}>{getInitials(player.name)}</span>
+           </div>
+           <div className="flex flex-col">
+              <h3 className="font-bold text-white text-base tracking-tight leading-tight group-hover:text-white transition-colors line-clamp-1">
+                {player.name}
+              </h3>
+              <span className="text-[11px] font-medium text-zinc-500">{player.nationality}</span>
+           </div>
+        </div>
 
+        {/* Badges Right */}
+        <div className="flex flex-col items-end gap-1.5 align-top">
+          <Badge className={`${rStyle.bg} ${rStyle.text} ${rStyle.border} shadow-none`}>
+            {player.role}
+          </Badge>
           {player.is_overseas && (
-            <div className="absolute top-3 right-3 text-white bg-slate-900/60 p-1.5 rounded-full backdrop-blur-md border border-white/10 z-20" title="Overseas Player">
-              <Plane className="h-4 w-4" />
-            </div>
+            <Badge variant="outline" className="border-orange-500/20 bg-orange-500/10 text-orange-400 flex items-center gap-1 shadow-none">
+              <Plane className="h-2.5 w-2.5" /> OS
+            </Badge>
           )}
         </div>
-      </CardHeader>
+      </div>
       
-      <CardContent className="flex-1 p-5">
-        <div className="flex flex-col h-full justify-between">
-          <div>
-            <h3 className="text-xl font-bold tracking-tight text-white mb-1 group-hover:text-amber-400 transition-colors line-clamp-1">
-              {player.name}
-            </h3>
-            <p className="text-sm font-medium text-slate-400 mb-4">{player.nationality}</p>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            <div className="flex flex-col bg-black/20 p-2 rounded-md border border-white/5">
-              <span className="text-slate-500 uppercase font-mono text-[10px]">Capped</span>
-              <span className="text-slate-300 font-medium capitalize">{player.capped_status}</span>
-            </div>
-            <div className="flex flex-col bg-black/20 p-2 rounded-md border border-white/5">
-              <span className="text-slate-500 uppercase font-mono text-[10px]">Set</span>
-              <span className="text-slate-300 font-medium truncate">{player.auction_set || 'Unassigned'}</span>
-            </div>
-          </div>
+      {/* Data Row */}
+      <div className="grid grid-cols-2 gap-2 mt-auto mb-4 bg-black/20 p-2.5 rounded-lg border border-white/[0.03]">
+        <div className="flex flex-col">
+           <span className="text-[9px] uppercase tracking-widest text-zinc-500 font-bold">Status</span>
+           <span className="text-xs font-semibold text-zinc-300 capitalize">{player.capped_status}</span>
         </div>
-      </CardContent>
-      
-      <CardFooter className="p-5 pt-0 border-t border-white/5 bg-slate-950/20 mt-auto">
-        <div className="flex w-full items-center justify-between pt-4">
-          <div className="flex flex-col">
-            <span className="text-[10px] uppercase tracking-wider text-slate-500 font-mono mb-0.5">
-              {player.contract_type_2026 === 'RETAINED' ? 'Retained Value' : 'Base Price'}
-            </span>
-            <span className="text-lg font-bold text-amber-400">
-              {priceDisplay}
-            </span>
-          </div>
+        <div className="flex flex-col">
+           <span className="text-[9px] uppercase tracking-widest text-zinc-500 font-bold">Set</span>
+           <span className="text-xs font-semibold text-zinc-300 truncate">{player.auction_set || '—'}</span>
+        </div>
+      </div>
 
-          <div className="flex flex-col text-right">
-             <span className="text-[10px] uppercase tracking-wider text-slate-500 font-mono mb-0.5">
-               2025 Team
-             </span>
-             <span className="text-sm font-bold text-slate-300">
-               {player.ipl_team_2025 || 'None'}
-             </span>
-          </div>
+      {/* Footer Info Row */}
+      <div className="flex items-center justify-between pt-3 border-t border-white/[0.04]">
+        <div className="flex flex-col">
+          <span className="text-[9px] uppercase tracking-widest text-zinc-500 font-bold mb-0.5">
+            {player.contract_type_2026 === 'RETAINED' ? 'Retained Value' : 'Base Price'}
+          </span>
+          <span className={`text-sm font-black font-mono ${player.contract_type_2026 === 'RETAINED' ? 'text-zinc-300' : 'text-amber-500'}`}>
+            {priceDisplay}
+          </span>
         </div>
-      </CardFooter>
+        <div className="flex flex-col text-right">
+          <span className="text-[9px] uppercase tracking-widest text-zinc-500 font-bold mb-0.5">
+            2025 Team
+          </span>
+          <span className="text-xs font-bold text-zinc-400">
+            {player.ipl_team_2025 || 'Unassigned'}
+          </span>
+        </div>
+      </div>
     </Card>
   );
 }

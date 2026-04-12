@@ -14,6 +14,8 @@ import {
   RefreshCw,
   Trophy,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 interface RoomData {
   id: string;
@@ -26,8 +28,8 @@ interface RoomData {
 }
 
 const MODE_LABELS: Record<string, string> = {
-  mock_2026: "Mock 2026",
-  mega_auction: "Mega Auction",
+  mock_2026: "Priced Retentions",
+  mega_auction: "Full Draft",
   legends_upgraded: "Legends",
 };
 
@@ -82,93 +84,115 @@ export default function BrowseRoomsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#060609]">
-      <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="min-h-screen surface-0 text-zinc-300">
+      <div className="relative mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8 animate-fade-in">
+        
+        {/* Ambient Top Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-64 w-[600px] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none -z-10" />
+
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div>
-            <h1 className="text-3xl font-black text-white flex items-center gap-3">
-              <Globe2 className="h-7 w-7 text-blue-400" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs text-blue-400 mb-4 font-bold tracking-widest uppercase">
+              <Globe2 className="h-3.5 w-3.5" /> Discovery
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
               Browse Rooms
             </h1>
-            <p className="text-slate-500 text-sm mt-1">Find an open game or watch a live auction</p>
+            <p className="text-zinc-400 text-base mt-2 font-medium">Find an open drafted game or spectate a live auction.</p>
           </div>
+          
           <div className="flex items-center gap-3">
-            <button
+            <Button
+              variant="outline"
               onClick={() => { setLoading(true); fetchRooms(); }}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.04] border border-white/[0.08] text-slate-400 hover:text-white hover:bg-white/[0.08] transition-all text-xs font-medium"
+              className="text-zinc-400"
             >
-              <RefreshCw className={`h-3.5 w-3.5 ${loading ? "animate-spin" : ""}`} />
+              <RefreshCw className={`h-4 w-4 mr-2 ${loading ? "animate-spin text-amber-500" : ""}`} />
               Refresh
-            </button>
-            <Link
-              href="/"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500 text-black font-bold text-xs hover:bg-amber-400 transition-all"
-            >
-              <Plus className="h-3.5 w-3.5" />
-              Create Room
+            </Button>
+            <Link href="/">
+              <Button variant="primary">
+                <Plus className="h-4 w-4 mr-2" />
+                Create Room
+              </Button>
             </Link>
           </div>
         </div>
 
         {loading && rooms.length === 0 ? (
-          <div className="flex items-center justify-center py-32">
-            <Loader2 className="h-8 w-8 animate-spin text-amber-500" />
+          <div className="flex flex-col items-center justify-center py-40">
+            <Loader2 className="h-10 w-10 animate-spin text-amber-500 mb-4" />
+            <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Scanning network...</span>
           </div>
         ) : rooms.length === 0 ? (
           /* Empty State */
-          <div className="flex flex-col items-center justify-center py-24 px-6 border-2 border-dashed border-white/[0.08] rounded-2xl">
-            <Globe2 className="h-16 w-16 text-slate-700 mb-4" />
-            <h2 className="text-xl font-bold text-white mb-2">No active rooms right now</h2>
-            <p className="text-slate-500 text-sm mb-6 text-center max-w-md">
-              Be the first to create a room! Share your room code with friends and start an auction.
+          <div className="glass-card flex flex-col items-center justify-center py-28 px-6 rounded-2xl border-dashed border-white/[0.08] text-center animate-scale-in">
+            <div className="h-20 w-20 bg-white/[0.02] rounded-full flex items-center justify-center mb-6 shadow-inner border border-white/[0.05]">
+              <Globe2 className="h-10 w-10 text-zinc-600" />
+            </div>
+            <h2 className="text-2xl font-bold text-white mb-2">No active rooms right now</h2>
+            <p className="text-zinc-500 text-sm mb-8 max-w-md font-medium">
+              Be the first to create a room! Share your 6-digit access code with friends to start an auction.
             </p>
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 bg-amber-500 text-black font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-all"
-            >
-              <Plus className="h-4 w-4" />
-              Create a Room
+            <Link href="/">
+              <Button variant="primary" size="lg" className="shimmer-btn">
+                <Plus className="h-5 w-5 mr-2" />
+                Create a Room
+              </Button>
             </Link>
           </div>
         ) : (
-          <div className="space-y-8">
+          <div className="space-y-12">
             {/* Open Rooms */}
             {openRooms.length > 0 && (
-              <div>
-                <h2 className="flex items-center gap-2 text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">
-                  <Users className="h-4 w-4 text-green-400" />
-                  Open Rooms ({openRooms.length})
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <section className="animate-fade-up">
+                <div className="flex items-center justify-between border-b border-white/[0.05] pb-4 mb-6">
+                  <h2 className="flex items-center gap-2.5 text-base font-bold text-white">
+                    <div className="h-8 w-8 rounded-full bg-green-500/10 flex items-center justify-center border border-green-500/20">
+                      <Users className="h-4 w-4 text-green-400" />
+                    </div>
+                    Waiting in Lobby
+                  </h2>
+                  <Badge variant="outline">{openRooms.length} Open</Badge>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {openRooms.map((room) => (
-                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code)} actionLabel="Join" actionIcon={<LogIn className="h-3.5 w-3.5" />} />
+                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code)} isLive={false} />
                   ))}
                 </div>
-              </div>
+              </section>
             )}
 
             {/* Live Auctions */}
             {liveRooms.length > 0 && (
-              <div>
-                <h2 className="flex items-center gap-2 text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">
-                  <Trophy className="h-4 w-4 text-amber-400" />
-                  Live Auctions ({liveRooms.length})
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <section className="animate-fade-up" style={{ animationDelay: '0.1s' }}>
+                <div className="flex items-center justify-between border-b border-white/[0.05] pb-4 mb-6">
+                  <h2 className="flex items-center gap-2.5 text-base font-bold text-white">
+                    <div className="h-8 w-8 rounded-full bg-amber-500/10 flex items-center justify-center border border-amber-500/20">
+                      <Trophy className="h-4 w-4 text-amber-500" />
+                    </div>
+                    Live Auctions
+                  </h2>
+                  <Badge variant="outline">{liveRooms.length} Active</Badge>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {liveRooms.map((room) => (
-                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code)} actionLabel="Watch" actionIcon={<Eye className="h-3.5 w-3.5" />} isLive />
+                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code)} isLive={true} />
                   ))}
                 </div>
-              </div>
+              </section>
             )}
           </div>
         )}
 
         {/* Auto-refresh indicator */}
-        <p className="text-center text-[11px] text-slate-700 mt-8">
-          Auto-refreshing every 5 seconds
-        </p>
+        <div className="flex justify-center mt-12 mb-8">
+          <div className="inline-flex items-center gap-2 bg-white/[0.02] border border-white/[0.05] px-3 py-1.5 rounded-full text-[10px] font-medium uppercase tracking-widest text-zinc-500">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-500/50 animate-pulse" />
+            Auto-syncing data
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -177,53 +201,54 @@ export default function BrowseRoomsPage() {
 function RoomCard({
   room,
   onAction,
-  actionLabel,
-  actionIcon,
   isLive,
 }: {
   room: RoomData;
   onAction: () => void;
-  actionLabel: string;
-  actionIcon: React.ReactNode;
-  isLive?: boolean;
+  isLive: boolean;
 }) {
   return (
-    <div className="flex items-center justify-between bg-white/[0.02] border border-white/[0.06] rounded-xl p-4 hover:bg-white/[0.04] hover:border-white/[0.1] transition-all group">
-      <div className="flex flex-col gap-1.5">
-        <div className="flex items-center gap-2">
-          <span className="text-amber-500 font-mono font-black text-base tracking-wider">{room.room_code}</span>
-          {isLive && (
-            <span className="flex items-center gap-1 text-[10px] font-bold text-green-400 bg-green-500/20 px-2 py-0.5 rounded-full">
-              <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+    <div className="glass-card hover:glass-card-hover rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-5 transition-all group border-l-4 border-l-transparent hover:border-l-amber-500">
+      <div className="flex flex-col gap-2.5">
+        <div className="flex items-center gap-3">
+          <span className="text-xl font-mono font-black tracking-wider text-white group-hover:text-amber-400 transition-colors">{room.room_code}</span>
+          {isLive ? (
+            <Badge dot dotColor="bg-amber-400" className="bg-amber-500/10 text-amber-400 border border-amber-500/20 animate-glow">
               LIVE
-            </span>
+            </Badge>
+          ) : (
+            <Badge variant="success" dot dotColor="bg-green-400">
+              OPEN
+            </Badge>
           )}
         </div>
-        <div className="flex items-center gap-3 text-xs text-slate-500">
-          <span className="flex items-center gap-1">
-            <Users className="h-3 w-3" />
-            {room.playerCount}/10
+        
+        <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-zinc-400">
+          <span className="flex items-center gap-1.5 bg-black/30 px-2 py-1 rounded bg-white/[0.03]">
+            <Users className="h-3.5 w-3.5 text-zinc-500" />
+            <span className="text-zinc-200 font-bold">{room.playerCount}</span>/10
           </span>
           {room.auction_mode && (
-            <span>{MODE_LABELS[room.auction_mode] || room.auction_mode}</span>
+            <span className="flex items-center gap-1.5">
+              <span className="h-1 w-1 bg-zinc-600 rounded-full" />
+              {MODE_LABELS[room.auction_mode] || room.auction_mode}
+            </span>
           )}
-          <span className="flex items-center gap-1">
-            <Clock className="h-3 w-3" />
+          <span className="flex items-center gap-1.5">
+            <span className="h-1 w-1 bg-zinc-600 rounded-full" />
             {timeAgo(room.created_at)}
           </span>
         </div>
       </div>
-      <button
+      
+      <Button
         onClick={onAction}
-        className={`flex items-center gap-1.5 px-4 py-2 rounded-lg font-bold text-xs transition-all ${
-          isLive
-            ? "bg-white/[0.06] text-slate-300 hover:bg-white/[0.1] border border-white/[0.08]"
-            : "bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 border border-amber-500/20"
-        }`}
+        variant={isLive ? "outline" : "default"}
+        className={!isLive ? "bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 hover:text-amber-300 border border-amber-500/20 shadow-none w-full sm:w-auto" : "w-full sm:w-auto"}
       >
-        {actionIcon}
-        {actionLabel}
-      </button>
+        {isLive ? <Eye className="h-4 w-4 mr-2" /> : <LogIn className="h-4 w-4 mr-2" />}
+        {isLive ? "Spectate" : "Join Room"}
+      </Button>
     </div>
   );
 }
