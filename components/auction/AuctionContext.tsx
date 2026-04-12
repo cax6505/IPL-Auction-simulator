@@ -268,7 +268,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
           const active: any[] = Object.values(state).map((arr: any) => arr[0]);
           setOnlineUsers(active);
         })
-        .on("broadcast", { event: "chat_message" }, (payload) => {
+        .on("broadcast", { event: "chat_message" }, (payload: any) => {
           setChatMessages(prev => {
              const newMsg = payload.payload;
              if (prev.some(m => m.id === newMsg.id)) return prev;
