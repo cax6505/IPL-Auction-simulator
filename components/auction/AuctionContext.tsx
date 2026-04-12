@@ -40,6 +40,7 @@ interface AuctionContextType {
   setPlayerName: (val: string) => void;
   setPlayerTeam: (val: string | null) => void;
   setJoinName: (val: string) => void;
+  handleSpectate: () => void;
   joinName: string;
 
   // Derived
@@ -450,6 +451,10 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  const handleSpectate = () => {
+    setIsSpectator(true);
+  };
+
   const handleStartAuction = async () => {
     const currentRoom = roomRef.current;
     const players = allPlayersRef.current;
@@ -558,7 +563,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
     onlineUsers, allPlayers, currentPlayer, logs, chatMessages, timeLeft, showSoldFlash,
     setShowSquadsModal, squadsMap, isAuctionComplete, isBidding,
     setShowSoldFlash, setShowSquadsModal, handleClaim, handleStartAuction,
-    handlePause, handleEndAuction, handleBid, loadSquad, addLog, sendChatMessage, advanceAuction,
+    handlePause, handleEndAuction, handleBid, loadSquad, addLog, sendChatMessage, advanceAuction, handleSpectate,
     setPlayerName, setJoinName, setPlayerTeam, joinName,
     currentBid, isHighest, safeBasePrice, nextCalculated, myRecord, myPurse,
     mySquadSize, myOverseas, isFinanciallyValid, isRosterValid, canLegallyBid,

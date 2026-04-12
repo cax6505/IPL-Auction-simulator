@@ -2,10 +2,24 @@
 
 import { useAuction } from "./AuctionContext";
 import { Badge } from "@/components/ui/badge";
-import { Play, Pause, Square, Activity } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Play, Pause, Square, Activity, Settings2, X, Check } from "lucide-react";
+import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export function AuctionHeader() {
   const { room, roomCode, isHost, isAuctionComplete, handleStartAuction, handlePause, handleEndAuction } = useAuction();
+  const [showSettings, setShowSettings] = useState(false);
+  const [timerVal, setTimerVal] = useState(room?.timer_duration || 10);
+  const [isSaving, setIsSaving] = useState(false);
+
+  const handleSaveSettings = async () => {
+    if (!room?.id) return;
+    setIsSaving(true);
+    await supabase.from("rooms").update({ timer_duration: timerVal }).eq("id", room.id);
+    setIsSaving(false);
+    setShowSettings(false);
+  };
 
   return (
     <header className="h-[72px] border-b border-white/[0.04] bg-[#09090b] flex items-center justify-between px-6 z-10 shrink-0 sticky top-0">
@@ -49,9 +63,65 @@ export function AuctionHeader() {
       </div>
 
       <div className="flex items-center gap-3">
+        {isHost && (
+          <>
+            <button 
+              onClick={() => setShowSettings(true)}
+              className="h-8 w-8 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-colors mr-2"
+              title="Room Settings"
+            >
+              <Settings2 className="h-4 w-4" />
+            </button>
+
+            {/* Settings Modal */}
+            {showSettings && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4">
+                <div className="glass-card max-w-sm w-full p-6 text-left relative shadow-2xl rounded-[20px] animate-scale-in border border-white/10">
+                  <div className="flex justify-between items-center mb-6">
+                    <h3 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                       <Settings2 className="h-5 w-5 text-amber-500" /> Room Configuration
+                    </h3>
+                    <button onClick={() => setShowSettings(false)} className="text-zinc-500 hover:text-white transition-colors">
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div>
+                      <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-3 block">Bid Timer Duration (Seconds)</label>
+                      <div className="flex gap-2">
+                         {[5, 10, 15, 20].map(val => (
+                           <button
+                             key={val}
+                             onClick={() => setTimerVal(val)}
+                             className={`flex-1 py-3 px-2 rounded-xl border text-sm font-black transition-all ${
+                               timerVal === val 
+                                 ? "bg-amber-500/10 border-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.2)] text-amber-500" 
+                                 : "bg-black/40 border-white/10 text-zinc-400 hover:text-zinc-200"
+                             }`}
+                           >
+                             {val}s
+                           </button>
+                         ))}
+                      </div>
+                      <p className="text-[10px] text-zinc-500 mt-2 leading-tight">Controls exactly how long bidders have to respond before the system auto-sells the active player.</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-8">
+                    <Button onClick={handleSaveSettings} disabled={isSaving || timerVal === room?.timer_duration} variant="primary" className="w-full h-12 font-bold text-sm tracking-wide hover:shadow-[0_0_20px_rgba(245,158,11,0.4)]">
+                      {isSaving ? "Saving..." : <span className="flex items-center gap-2"><Check className="h-4 w-4" /> APPLY SETTINGS</span>}
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
+        )}
+
         {isHost && room?.status === "waiting" && !isAuctionComplete && (
-          <Button onClick={handleStartAuction} variant="primary" size="sm" className="shimmer-btn">
-            <Play className="h-4 w-4 mr-1.5" /> Start Draft
+          <Button onClick={handleStartAuction} variant="primary" size="sm" className="shimmer-btn hidden sm:flex">
+            <Play className="h-4 w-4 mr-1.5" /> Start Auction
           </Button>
         )}
         {isHost && room?.status === "active" && (

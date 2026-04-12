@@ -7,10 +7,14 @@ import { Share2, Users, AlertCircle } from "lucide-react";
 import { TEAM_MAP } from "@/lib/auction-engine";
 
 export function AuctionLobby() {
-  const { room, roomCode, joinName, setJoinName, playerTeam, claimedTeams, handleClaim } = useAuction();
+  const { room, roomCode, joinName, setJoinName, playerTeam, claimedTeams, handleClaim, isSpectator, handleSpectate } = useAuction();
   
-  if (room?.status !== "waiting" || (playerTeam && room?.status === "waiting")) {
-    return null; // Shown as full page in waiting if no team selected
+  if (room?.status !== "waiting" || (playerTeam && room?.status === "waiting") || isSpectator) {
+    return (
+      <div className="flex flex-col items-center justify-center p-16 text-zinc-500 animate-pulse">
+        {room?.status === "waiting" && <p className="uppercase tracking-widest font-bold text-sm">Waiting for host to start...</p>}
+      </div>
+    );
   }
 
   const roomUrl = typeof window !== "undefined" ? window.location.href : "";
@@ -109,12 +113,25 @@ export function AuctionLobby() {
               </div>
             </div>
             
-            {!joinName.trim() && (
+            {!joinName.trim() && claimedTeams.length < (room?.max_players || 10) && (
                <div className="flex items-center gap-2 text-xs font-semibold text-amber-500/80 bg-amber-500/10 p-3 rounded-lg border border-amber-500/20">
                  <AlertCircle className="h-4 w-4" /> 
                  Enter a manager alias above before selecting a team.
                </div>
             )}
+            
+            <div className="mt-4 border-t border-white/[0.05] pt-6 flex flex-col gap-3">
+               {claimedTeams.length >= (room?.max_players || 10) ? (
+                 <div className="text-center">
+                   <p className="text-sm font-bold text-amber-500 mb-3 bg-amber-500/10 py-2 border border-amber-500/20 rounded-lg">All franchises have been claimed!</p>
+                 </div>
+               ) : (
+                 <p className="text-[10px] text-zinc-500 text-center font-bold uppercase tracking-widest">or</p>
+               )}
+               <Button onClick={handleSpectate} variant="ghost" className="w-full text-zinc-400 border border-white/5 hover:border-white/10 hover:bg-white/5 transition-colors h-12 font-bold tracking-widest">
+                  {claimedTeams.length >= (room?.max_players || 10) ? "PROCEED TO SPECTATE" : "JUST SPECTATE"}
+               </Button>
+            </div>
             
           </div>
         </div>
