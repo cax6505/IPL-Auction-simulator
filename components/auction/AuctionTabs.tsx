@@ -22,9 +22,6 @@ export function AuctionTabs() {
     setChatInput("");
   };
 
-  // Helper to strip emojis for a cleaner feed
-  const stripEmojis = (str: string) => str.replace(/[\u1000-\uFFFF]+/g, '').trim();
-
   return (
     <div className="flex-1 glass-card rounded-[20px] flex flex-col overflow-hidden min-h-[300px] animate-fade-in shadow-2xl">
       
