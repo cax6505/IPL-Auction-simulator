@@ -87,6 +87,7 @@ export default function RoomPage() {
   const playerTeamRef = useRef<string | null>(null);
   const roomRef = useRef<any>(null);
   const channelRef = useRef<any>(null);
+  const advanceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => { allPlayersRef.current = allPlayers; }, [allPlayers]);
   useEffect(() => { claimedTeamsRef.current = claimedTeams; }, [claimedTeams]);
@@ -345,6 +346,12 @@ export default function RoomPage() {
     let interval: NodeJS.Timeout;
 
     if (room?.status === "active" && room?.timer_ends_at) {
+      if (advanceTimeoutRef.current) {
+        clearTimeout(advanceTimeoutRef.current);
+        advanceTimeoutRef.current = null;
+      }
+      soldFiredRef.current = false;
+
       const timerEnd = new Date(room.timer_ends_at).getTime();
 
       const tick = () => {
@@ -367,7 +374,7 @@ export default function RoomPage() {
             } else {
               addLog("❌ UNSOLD", "sys");
             }
-            setTimeout(advanceAuction, 2000);
+            advanceTimeoutRef.current = setTimeout(advanceAuction, 2000);
           }
         }
       };

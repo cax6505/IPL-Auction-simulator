@@ -54,6 +54,7 @@ export default function LiveRoomCompact() {
   const myTeamIdRef = useRef<string | null>(null);
   const roomRef = useRef<any>(null);
   const channelRef = useRef<any>(null);
+  const advanceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Keep refs in sync
   useEffect(() => { allPlayersRef.current = allPlayersForHost; }, [allPlayersForHost]);
@@ -281,6 +282,12 @@ export default function LiveRoomCompact() {
     let interval: NodeJS.Timeout;
 
     if (room?.status === 'active' && room?.timer_ends_at) {
+      if (advanceTimeoutRef.current) {
+        clearTimeout(advanceTimeoutRef.current);
+        advanceTimeoutRef.current = null;
+      }
+      soldFiredRef.current = false;
+
       const timerEnd = new Date(room.timer_ends_at).getTime();
 
       const tick = () => {
@@ -306,8 +313,8 @@ export default function LiveRoomCompact() {
               addLog('UNSOLD.', 'sys');
             }
 
-            // 2-second wait then advance (host only — checked inside advanceAuction)
-            setTimeout(advanceAuction, 2000);
+            // 2-second wait then advance
+            advanceTimeoutRef.current = setTimeout(advanceAuction, 2000);
           }
         }
       };

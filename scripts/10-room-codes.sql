@@ -33,11 +33,12 @@ DECLARE
     v_overseas_count INTEGER;
     v_is_overseas BOOLEAN;
     v_timer_ends TIMESTAMPTZ;
+    v_timer_duration INTEGER;
     v_new_timer TIMESTAMPTZ;
 BEGIN
     -- 1. Lock the room row
-    SELECT current_bid_cr, current_highest_bidder_id, timer_ends_at
-    INTO v_current_bid, v_current_team, v_timer_ends
+    SELECT current_bid_cr, current_highest_bidder_id, timer_ends_at, timer_duration
+    INTO v_current_bid, v_current_team, v_timer_ends, v_timer_duration
     FROM rooms
     WHERE id = p_room_id
     FOR UPDATE;
@@ -81,11 +82,8 @@ BEGIN
     INSERT INTO bids (room_id, player_id, team_id, amount_cr)
     VALUES (p_room_id, p_player_id, p_team_id, p_bid_amount);
 
-    -- 6. Calculate new timer: add 5 seconds, but never less than 5s from now
-    v_new_timer := GREATEST(
-        COALESCE(v_timer_ends, now()) + interval '5 seconds',
-        now() + interval '5 seconds'
-    );
+    -- 6. Calculate new timer: reset to full timer_duration (default 10s) on EVERY bid
+    v_new_timer := now() + (COALESCE(v_timer_duration, 10) || ' seconds')::interval;
 
     -- 7. Update room
     UPDATE rooms
