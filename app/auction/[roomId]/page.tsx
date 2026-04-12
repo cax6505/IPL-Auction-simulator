@@ -68,6 +68,9 @@ export default function LiveRoomCompact() {
 
   // ── INIT ────────────────────────────────────────────────────────────────────
   useEffect(() => {
+    let isMounted = true;
+    let activeChannel: any = null;
+
     const fetchInit = async () => {
       const storedTeam = sessionStorage.getItem(`auction_${roomId}_team`);
       if (storedTeam) {
@@ -127,75 +130,80 @@ export default function LiveRoomCompact() {
         const bidLogs = (bData.data || []).map((b: any) => ({
           id: crypto.randomUUID(),
           text: `${b.team_id} bid ₹${Number(b.amount_cr).toFixed(2)} Cr`,
-          type: 'bid' as const
-        }));
-        setLogs([...joinLogs, ...bidLogs]);
+      if (!isMounted) return;
+
+      // ── REALTIME CHANNEL ───────────────────────────────────────────────────
+      const channelName = `room_${roomId}`;
+      // Cleanup any pre-existing channel collision if React Strict Mode double-mounted
+      const existingChannel = supabase.getChannels().find((c: any) => c.topic === `realtime:${channelName}`);
+      if (existingChannel) {
+        supabase.removeChannel(existingChannel);
       }
 
-      setLoading(false);
+      activeChannel = supabase.channel(channelName);
+      channelRef.current = activeChannel;
+
+      activeChannel
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'rooms', filter: `id=eq.${roomId}` }, (p: any) => {
+          setRoom(p.new);
+          roomRef.current = p.new;
+        })
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'room_franchises', filter: `room_id=eq.${roomId}` }, (p: any) => {
+          setClaimedTeams(prev => {
+            const exists = prev.some(t => t.team_id === p.new.team_id);
+            const updated = exists ? prev : [...prev, p.new];
+            claimedTeamsRef.current = updated;
+            return updated;
+          });
+          addLog(`${p.new.user_name} claimed ${p.new.team_id}`, 'join');
+        })
+        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'room_franchises', filter: `room_id=eq.${roomId}` }, (p: any) => {
+          // Real-time purse update for all clients
+          setClaimedTeams(prev => {
+            const updated = prev.map(t => t.team_id === p.new.team_id ? { ...t, ...p.new } : t);
+            claimedTeamsRef.current = updated;
+            return updated;
+          });
+        })
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'bids', filter: `room_id=eq.${roomId}` }, (p: any) => {
+          addLog(`${p.new.team_id} bid ₹${Number(p.new.amount_cr).toFixed(2)} Cr`, 'bid');
+        })
+        // BUG FIX: Listen for sold player inserts to invalidate squad cache
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'room_sold_players', filter: `room_id=eq.${roomId}` }, (p: any) => {
+          const sale = p.new as any;
+          // Invalidate cached squad for the buying team so it reloads fresh
+          setSquadsMap(prev => {
+            const updated = { ...prev };
+            delete updated[sale.team_id];
+            return updated;
+          });
+        })
+        .on('presence', { event: 'sync' }, () => {
+          const state = activeChannel.presenceState();
+          const active: any[] = Object.values(state).map((arr: any) => arr[0]);
+          setOnlineUsers(active);
+        })
+        .subscribe(async (status: string) => {
+          if (status === 'SUBSCRIBED' && isMounted) {
+            const cachedTeam = sessionStorage.getItem(`auction_${roomId}_team`);
+            await activeChannel.track({
+              online_at: new Date().toISOString(),
+              team: cachedTeam || 'Spectator'
+            });
+          }
+        });
     };
 
     fetchInit();
 
-    // ── REALTIME CHANNEL ───────────────────────────────────────────────────
-    const channel = supabase.channel(`room_${roomId}`);
-    channelRef.current = channel;
-
-    channel
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'rooms', filter: `id=eq.${roomId}` }, (p) => {
-        setRoom(p.new);
-        roomRef.current = p.new;
-      })
-      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'room_franchises', filter: `room_id=eq.${roomId}` }, (p) => {
-        setClaimedTeams(prev => {
-          const exists = prev.some(t => t.team_id === p.new.team_id);
-          const updated = exists ? prev : [...prev, p.new];
-          claimedTeamsRef.current = updated;
-          return updated;
-        });
-        addLog(`${p.new.user_name} claimed ${p.new.team_id}`, 'join');
-      })
-      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'room_franchises', filter: `room_id=eq.${roomId}` }, (p) => {
-        // Real-time purse update for all clients
-        setClaimedTeams(prev => {
-          const updated = prev.map(t => t.team_id === p.new.team_id ? { ...t, ...p.new } : t);
-          claimedTeamsRef.current = updated;
-          return updated;
-        });
-      })
-      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'bids', filter: `room_id=eq.${roomId}` }, (p) => {
-        addLog(`${p.new.team_id} bid ₹${Number(p.new.amount_cr).toFixed(2)} Cr`, 'bid');
-      })
-      // BUG FIX: Listen for sold player inserts to invalidate squad cache
-      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'room_sold_players', filter: `room_id=eq.${roomId}` }, (p) => {
-        const sale = p.new as any;
-        // Invalidate cached squad for the buying team so it reloads fresh
-        setSquadsMap(prev => {
-          const updated = { ...prev };
-          delete updated[sale.team_id];
-          return updated;
-        });
-      })
-      .on('presence', { event: 'sync' }, () => {
-        const state = channel.presenceState();
-        const active: any[] = Object.values(state).map((arr: any) => arr[0]);
-        setOnlineUsers(active);
-      })
-      .subscribe(async (status) => {
-        if (status === 'SUBSCRIBED') {
-          const cachedTeam = sessionStorage.getItem(`auction_${roomId}_team`);
-          await channel.track({
-            online_at: new Date().toISOString(),
-            team: cachedTeam || 'Spectator'
-          });
-        }
-      });
-
     return () => {
-      channel.untrack();
-      supabase.removeChannel(channel);
+      isMounted = false;
+      if (activeChannel) {
+        activeChannel.untrack();
+        supabase.removeChannel(activeChannel);
+      }
     };
-  }, [roomId]);
+  }, [roomId, addLog]);
 
   // ── PLAYER SYNC ─────────────────────────────────────────────────────────────
   useEffect(() => {

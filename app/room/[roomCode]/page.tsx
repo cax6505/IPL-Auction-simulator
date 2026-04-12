@@ -115,6 +115,9 @@ export default function RoomPage() {
   useEffect(() => {
     if (!playerName || !playerTeam) return;
 
+    let isMounted = true;
+    let activeChannel: any = null;
+
     const fetchInit = async () => {
       // Find room by code
       const { data: roomData, error: roomErr } = await supabase
@@ -203,17 +206,26 @@ export default function RoomPage() {
 
       setLoading(false);
 
-      // ── Realtime channel ─────────────────────────────────────
-      const channel = supabase.channel(`room_${roomData.id}`);
-      channelRef.current = channel;
+      if (!isMounted) return;
 
-      channel
-        .on("postgres_changes", { event: "*", schema: "public", table: "rooms", filter: `id=eq.${roomData.id}` }, (p) => {
+      // ── Realtime channel ─────────────────────────────────────
+      const channelName = `room_${roomData.id}`;
+      // Cleanup any pre-existing channel collision if React Strict Mode double-mounted
+      const existingChannel = supabase.getChannels().find((c: any) => c.topic === `realtime:${channelName}`);
+      if (existingChannel) {
+        supabase.removeChannel(existingChannel);
+      }
+
+      activeChannel = supabase.channel(channelName);
+      channelRef.current = activeChannel;
+
+      activeChannel
+        .on("postgres_changes", { event: "*", schema: "public", table: "rooms", filter: `id=eq.${roomData.id}` }, (p: any) => {
           setRoom(p.new);
           roomRef.current = p.new;
           if ((p.new as any).status === "completed") setIsAuctionComplete(true);
         })
-        .on("postgres_changes", { event: "INSERT", schema: "public", table: "room_franchises", filter: `room_id=eq.${roomData.id}` }, (p) => {
+        .on("postgres_changes", { event: "INSERT", schema: "public", table: "room_franchises", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
           setClaimedTeams(prev => {
             const exists = prev.some(t => t.team_id === (p.new as any).team_id);
             const updated = exists ? prev : [...prev, p.new];
@@ -222,18 +234,18 @@ export default function RoomPage() {
           });
           addLog(`${(p.new as any).user_name} joined as ${(p.new as any).team_id}`, "join");
         })
-        .on("postgres_changes", { event: "UPDATE", schema: "public", table: "room_franchises", filter: `room_id=eq.${roomData.id}` }, (p) => {
+        .on("postgres_changes", { event: "UPDATE", schema: "public", table: "room_franchises", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
           setClaimedTeams(prev => {
             const updated = prev.map(t => t.team_id === (p.new as any).team_id ? { ...t, ...p.new } : t);
             claimedTeamsRef.current = updated;
             return updated;
           });
         })
-        .on("postgres_changes", { event: "INSERT", schema: "public", table: "bids", filter: `room_id=eq.${roomData.id}` }, (p) => {
+        .on("postgres_changes", { event: "INSERT", schema: "public", table: "bids", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
           addLog(`${(p.new as any).team_id} bid ${formatPriceCr(Number((p.new as any).amount_cr))}`, "bid");
         })
         // BUG FIX: Listen for sold player inserts to invalidate squad cache for all clients
-        .on("postgres_changes", { event: "INSERT", schema: "public", table: "room_sold_players", filter: `room_id=eq.${roomData.id}` }, (p) => {
+        .on("postgres_changes", { event: "INSERT", schema: "public", table: "room_sold_players", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
           const sale = p.new as any;
           setSquadsMap(prev => {
             const updated = { ...prev };
@@ -242,13 +254,13 @@ export default function RoomPage() {
           });
         })
         .on("presence", { event: "sync" }, () => {
-          const state = channel.presenceState();
+          const state = activeChannel.presenceState();
           const active: any[] = Object.values(state).map((arr: any) => arr[0]);
           setOnlineUsers(active);
         })
-        .subscribe(async (status) => {
-          if (status === "SUBSCRIBED") {
-            await channel.track({
+        .subscribe(async (status: string) => {
+          if (status === "SUBSCRIBED" && isMounted) {
+            await activeChannel.track({
               online_at: new Date().toISOString(),
               team: playerTeam || "Spectator",
               name: playerName,
@@ -256,14 +268,17 @@ export default function RoomPage() {
             });
           }
         });
-
-      return () => {
-        channel.untrack();
-        supabase.removeChannel(channel);
-      };
     };
 
     fetchInit();
+
+    return () => {
+      isMounted = false;
+      if (activeChannel) {
+        activeChannel.untrack();
+        supabase.removeChannel(activeChannel);
+      }
+    };
   }, [playerName, playerTeam, roomCode, router, addLog, isSpectator]);
 
   /* ─── Player Sync ───────────────────────────────────────────────────── */
