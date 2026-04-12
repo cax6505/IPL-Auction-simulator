@@ -231,6 +231,15 @@ export default function RoomPage() {
         .on("postgres_changes", { event: "INSERT", schema: "public", table: "bids", filter: `room_id=eq.${roomData.id}` }, (p) => {
           addLog(`${(p.new as any).team_id} bid ${formatPriceCr(Number((p.new as any).amount_cr))}`, "bid");
         })
+        // BUG FIX: Listen for sold player inserts to invalidate squad cache for all clients
+        .on("postgres_changes", { event: "INSERT", schema: "public", table: "room_sold_players", filter: `room_id=eq.${roomData.id}` }, (p) => {
+          const sale = p.new as any;
+          setSquadsMap(prev => {
+            const updated = { ...prev };
+            delete updated[sale.team_id];
+            return updated;
+          });
+        })
         .on("presence", { event: "sync" }, () => {
           const state = channel.presenceState();
           const active: any[] = Object.values(state).map((arr: any) => arr[0]);
@@ -284,7 +293,7 @@ export default function RoomPage() {
     const winnerId = currentRoom?.current_highest_bidder_id;
     const currentPid = currentRoom?.current_player_id;
 
-    // Phase 1: award player
+    // Phase 1: award player — write to room_sold_players (room-scoped)
     if (finalBid > 0 && winnerId) {
       const winnerRecord = teams.find(c => c.team_id === winnerId);
       if (winnerRecord) {
@@ -300,7 +309,14 @@ export default function RoomPage() {
           overseas_count: newOverseasCount,
         }).eq("room_id", currentRoom.id).eq("team_id", winnerId);
 
-        await supabase.from("players").update({ sold_price_cr: finalBid, ipl_team_2026: winnerId }).eq("id", currentPid);
+        // BUG FIX: Write to room_sold_players instead of global players table
+        await supabase.from("room_sold_players").upsert([{
+          room_id: currentRoom.id,
+          player_id: currentPid,
+          team_id: winnerId,
+          sold_price_cr: finalBid,
+          is_overseas: isOs,
+        }], { onConflict: 'room_id,player_id' });
       }
     }
 
@@ -436,12 +452,34 @@ export default function RoomPage() {
 
   const loadSquad = async (teamId: string) => {
     if (!squadsMap[teamId] && room?.id) {
-      const { data } = await supabase
-        .from("players")
-        .select("id, name, role, is_overseas, sold_price_cr")
-        .eq("ipl_team_2026", teamId)
-        .not("sold_price_cr", "is", null);
-      if (data) setSquadsMap(prev => ({ ...prev, [teamId]: data }));
+      // BUG FIX: Query room_sold_players (room-scoped) instead of global players table
+      const { data: sales } = await supabase
+        .from('room_sold_players')
+        .select('player_id, team_id, sold_price_cr, is_overseas')
+        .eq('room_id', room.id)
+        .eq('team_id', teamId);
+
+      if (sales && sales.length > 0) {
+        const playerIds = sales.map(s => s.player_id);
+        const { data: playerDetails } = await supabase
+          .from('players')
+          .select('id, name, role, is_overseas')
+          .in('id', playerIds);
+
+        const merged = sales.map(sale => {
+          const detail = playerDetails?.find(p => p.id === sale.player_id);
+          return {
+            id: sale.player_id,
+            name: detail?.name || 'Unknown',
+            role: detail?.role || 'N/A',
+            is_overseas: detail?.is_overseas || sale.is_overseas,
+            sold_price_cr: sale.sold_price_cr,
+          };
+        });
+        setSquadsMap(prev => ({ ...prev, [teamId]: merged }));
+      } else {
+        setSquadsMap(prev => ({ ...prev, [teamId]: [] }));
+      }
     }
   };
 

@@ -1,0 +1,9570 @@
+[
+  {
+    "id": "P0606",
+    "name": "MS Dhoni",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0102",
+    "name": "Andrew Symonds",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0965",
+    "name": "Sanath Jayasuriya",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0403",
+    "name": "Ishant Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0611",
+    "name": "Mahela Jayawardene",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0822",
+    "name": "RP Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0399",
+    "name": "Irfan Pathan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0846",
+    "name": "Robin Uthappa",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0346",
+    "name": "Gautam Gambhir",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0919",
+    "name": "S Sreesanth",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1177",
+    "name": "Yusuf Pathan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0796",
+    "name": "Praveen Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1016",
+    "name": "Shikhar Dhawan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1193",
+    "name": "Zaheer Khan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0372",
+    "name": "Harbhajan Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0692",
+    "name": "Munaf Patel",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0782",
+    "name": "Piyush Chawla",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0786",
+    "name": "Pragyan Ojha",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0881",
+    "name": "Ravindra Jadeja",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0276",
+    "name": "Daniel Vettori",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0670",
+    "name": "Mohammed Kaif",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0853",
+    "name": "Rohit Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0353",
+    "name": "Glenn McGrath",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0020",
+    "name": "Adam Gilchrist",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0110",
+    "name": "Anil Kumble",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0202",
+    "name": "Brett Lee",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0212",
+    "name": "Chris Gayle",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0357",
+    "name": "Graeme Smith",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0432",
+    "name": "Jacques Kallis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0465",
+    "name": "Joginder Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0538",
+    "name": "Kumar Sangakkara",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0642",
+    "name": "Matthew Hayden",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0651",
+    "name": "Michael Hussey",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0667",
+    "name": "Mohammed Asif",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0693",
+    "name": "Murali Kartik",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0700",
+    "name": "Muttiah Muralitharan",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0852",
+    "name": "Rahul Dravid",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0950",
+    "name": "Sachin Tendulkar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1004",
+    "name": "Shane Warne",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1010",
+    "name": "Shaun Pollock",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1024",
+    "name": "Shoaib Malik",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1043",
+    "name": "Sourav Ganguly",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1047",
+    "name": "Stephen Fleming",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1062",
+    "name": "Suresh Raina",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1122",
+    "name": "VVS Laxman",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1149",
+    "name": "Virender Sehwag",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1190",
+    "name": "Yuvraj Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0018",
+    "name": "AB de Villiers",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0015",
+    "name": "Ajit Agarkar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0135",
+    "name": "Ashish Nehra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0307",
+    "name": "Dinesh Karthik",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0869",
+    "name": "Ramesh Powar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0989",
+    "name": "Scott Styris",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1157",
+    "name": "Wasim Jaffer",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0770",
+    "name": "Parthiv Patel",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0223",
+    "name": "Cameron White",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0387",
+    "name": "Herschelle Gibbs",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0437",
+    "name": "James Hopes",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0608",
+    "name": "Mark Boucher",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1041",
+    "name": "Simon Katich",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0259",
+    "name": "David Hussey",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1005",
+    "name": "Shane Watson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1009",
+    "name": "Shaun Marsh",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0272",
+    "name": "Dale Steyn",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0657",
+    "name": "Misbah-ul-Haq",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0900",
+    "name": "Ross Taylor",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1042",
+    "name": "Sohail Tanvir",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0561",
+    "name": "Lasith Malinga",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0886",
+    "name": "Ricky Ponting",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1052",
+    "name": "Subramaniam Badrinath",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1095",
+    "name": "Tillakaratne Dilshan",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0086",
+    "name": "Albie Morkel",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0096",
+    "name": "Ambati Rayudu",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0166",
+    "name": "Brendon McCullum",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1115",
+    "name": "Virat Kohli",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0995",
+    "name": "Shahid Afridi",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0983",
+    "name": "Saurabh Tiwary",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0621",
+    "name": "Manish Pandey",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1171",
+    "name": "Wriddhiman Saha",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0100",
+    "name": "Andrew Flintoff",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 4.56
+  },
+  {
+    "id": "P0522",
+    "name": "Kevin Pietersen",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 6.48
+  },
+  {
+    "id": "P0424",
+    "name": "JP Duminy",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.44
+  },
+  {
+    "id": "P1108",
+    "name": "Tyron Henderson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.48
+  },
+  {
+    "id": "P0637",
+    "name": "Mashrafe Mortaza",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.24
+  },
+  {
+    "id": "P0844",
+    "name": "Ravi Bopara",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.72
+  },
+  {
+    "id": "P1011",
+    "name": "Shaun Tait",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.2
+  },
+  {
+    "id": "P0739",
+    "name": "Owais Shah",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.72
+  },
+  {
+    "id": "P0774",
+    "name": "Paul Collingwood",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.2
+  },
+  {
+    "id": "P0456",
+    "name": "Jesse Ryder",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.48
+  },
+  {
+    "id": "P0335",
+    "name": "Fidel Edwards",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.72
+  },
+  {
+    "id": "P0455",
+    "name": "Jerome Taylor",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.72
+  },
+  {
+    "id": "P0546",
+    "name": "Kyle Mills",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.72
+  },
+  {
+    "id": "P1093",
+    "name": "Thilan Thushara",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.48
+  },
+  {
+    "id": "P0322",
+    "name": "Dwayne Smith",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.48
+  },
+  {
+    "id": "P0666",
+    "name": "Mohammed Ashraful",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.36
+  },
+  {
+    "id": "P0347",
+    "name": "George Bailey",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.24
+  },
+  {
+    "id": "P0598",
+    "name": "ML Hayden",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0926",
+    "name": "SK Raina",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1080",
+    "name": "TM Dilshan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0365",
+    "name": "HH Gibbs",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0169",
+    "name": "BJ Hodge",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0938",
+    "name": "SR Tendulkar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0828",
+    "name": "RG Sharma",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0419",
+    "name": "JH Kallis",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0489",
+    "name": "KC Sangakkara",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0831",
+    "name": "RA Jadeja",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0490",
+    "name": "KD Karthik",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0339",
+    "name": "G Gambhir",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0555",
+    "name": "LRPL Taylor",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0821",
+    "name": "R Dravid",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0011",
+    "name": "A Symonds",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0943",
+    "name": "ST Jayasuriya",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0265",
+    "name": "DPMD Jayawardene",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0257",
+    "name": "DJ Bravo",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0341",
+    "name": "GC Smith",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1116",
+    "name": "V Sehwag",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0392",
+    "name": "IK Pathan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0032",
+    "name": "AM Nayar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0923",
+    "name": "SC Ganguly",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0910",
+    "name": "S Badrinath",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0931",
+    "name": "SM Katich",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0033",
+    "name": "AM Rahane",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0753",
+    "name": "PA Patel",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0478",
+    "name": "K Goel",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1175",
+    "name": "Y Venugopal Rao",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0918",
+    "name": "S Sohal",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0928",
+    "name": "SK Warne",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0920",
+    "name": "SA Asnodkar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0412",
+    "name": "JA Morkel",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0417",
+    "name": "JDP Oram",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0554",
+    "name": "LR Shukla",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1160",
+    "name": "WP Saha",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0253",
+    "name": "DB Ravi Teja",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0749",
+    "name": "P Kumar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0762",
+    "name": "PR Shah",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0935",
+    "name": "SP Goswami",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0830",
+    "name": "R Vinay Kumar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0551",
+    "name": "LA Pomersbach",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0022",
+    "name": "AD Mascarenhas",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0600",
+    "name": "MM Patel",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0759",
+    "name": "PP Chawla",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1158",
+    "name": "WA Mota",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1161",
+    "name": "WPUJC Vaas",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0159",
+    "name": "B Lee",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0007",
+    "name": "A Mishra",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0841",
+    "name": "RR Powar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0573",
+    "name": "M Kartik",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0591",
+    "name": "MF Maharoof",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0707",
+    "name": "NK Patel",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1179",
+    "name": "YV Takawale",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0156",
+    "name": "B Akhil",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0005",
+    "name": "A Kumble",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0390",
+    "name": "I Sharma",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0580",
+    "name": "M Rawat",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0922",
+    "name": "SB Styris",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0607",
+    "name": "MS Gony",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0942",
+    "name": "SS Tiwary",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0842",
+    "name": "RR Raje",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0004",
+    "name": "A Chopra",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0268",
+    "name": "DS Kulkarni",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0597",
+    "name": "MK Tiwary",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0927",
+    "name": "SK Trivedi",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0577",
+    "name": "M Muralitharan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0819",
+    "name": "R Bhatia",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0757",
+    "name": "PJ Sangwan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0547",
+    "name": "L Balaji",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0016",
+    "name": "AB Dinda",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0760",
+    "name": "PP Ojha",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0270",
+    "name": "DW Steyn",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0550",
+    "name": "L Ronchi",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1082",
+    "name": "TM Srivastava",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0525",
+    "name": "Kieron Pollard",
+    "nationality": "Unknown",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P1003",
+    "name": "Shane Bond",
+    "nationality": "Unknown",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0520",
+    "name": "Kemar Roach",
+    "nationality": "Unknown",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P1165",
+    "name": "Wayne Parnell",
+    "nationality": "Unknown",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P0327",
+    "name": "Eoin Morgan",
+    "nationality": "Unknown",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P0273",
+    "name": "Damien Martyn",
+    "nationality": "Unknown",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0475",
+    "name": "Justin Kemp",
+    "nationality": "Unknown",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0060",
+    "name": "Adam Voges",
+    "nationality": "Unknown",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P1094",
+    "name": "Thissara Perera",
+    "nationality": "Unknown",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P1188",
+    "name": "Yusuf Abdulla",
+    "nationality": "Unknown",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P0584",
+    "name": "M Vijay",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0711",
+    "name": "NV Ojha",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1079",
+    "name": "TL Suman",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0251",
+    "name": "DA Warner",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0596",
+    "name": "MK Pandey",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0499",
+    "name": "KP Pietersen",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0023",
+    "name": "AD Mathews",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0911",
+    "name": "S Dhawan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0574",
+    "name": "M Manhas",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0017",
+    "name": "AB McDonald",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0038",
+    "name": "AS Raut",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0836",
+    "name": "RJ Harris",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0263",
+    "name": "DL Vettori",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0818",
+    "name": "R Ashwin",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1192",
+    "name": "Z Khan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0008",
+    "name": "A Nehra",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0267",
+    "name": "DR Smith",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0342",
+    "name": "GJ Bailey",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1075",
+    "name": "T Thushara",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0576",
+    "name": "M Morkel",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0013",
+    "name": "AA Bilakhia",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0498",
+    "name": "KP Appanna",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0165",
+    "name": "BAW Mendis",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0766",
+    "name": "Pankaj Singh",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0835",
+    "name": "RE van der Merwe",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0929",
+    "name": "SL Malinga",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1174",
+    "name": "Y Nagar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1121",
+    "name": "VRV Singh",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1123",
+    "name": "VY Mahesh",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0105",
+    "name": "Angelo Mathews",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0466",
+    "name": "Johan Botha",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P0694",
+    "name": "Murali Vijay",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0269",
+    "name": "Dan Christian",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0880",
+    "name": "Ravichandran Ashwin",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P0054",
+    "name": "Abhishek Nayar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P0231",
+    "name": "Cheteshwar Pujara",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P1110",
+    "name": "Umesh Yadav",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P1135",
+    "name": "Venugopal Rao",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 1.35
+  },
+  {
+    "id": "P0309",
+    "name": "Dirk Nannes",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.8
+  },
+  {
+    "id": "P0316",
+    "name": "Doug Bollinger",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P0558",
+    "name": "Lakshmipathy Balaji",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0625",
+    "name": "Manoj Tiwary",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0684",
+    "name": "Morn\u00e9 Morkel",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.8
+  },
+  {
+    "id": "P1145",
+    "name": "Vinay Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P0198",
+    "name": "Brad Hodge",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P0999",
+    "name": "Shakib Al Hasan",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P1050",
+    "name": "Stuart Broad",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.35
+  },
+  {
+    "id": "P0905",
+    "name": "Ryan Harris",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P0042",
+    "name": "Aaron Finch",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0197",
+    "name": "Brad Haddin",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P0220",
+    "name": "Callum Ferguson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0659",
+    "name": "Mitchell Marsh",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P0626",
+    "name": "Manpreet Gony",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0714",
+    "name": "Naman Ojha",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P1096",
+    "name": "Tim Paine",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0049",
+    "name": "Abhimanyu Mithun",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P0452",
+    "name": "Jaydev Unadkat",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P1053",
+    "name": "Sudeep Tyagi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0321",
+    "name": "Dwayne Bravo",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P1049",
+    "name": "Steven Smith",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.9
+  },
+  {
+    "id": "P0287",
+    "name": "Davy Jacobs",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0838",
+    "name": "Ryan ten Doeschate",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0229",
+    "name": "Charl Langeveldt",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0337",
+    "name": "Francois du Plessis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0089",
+    "name": "Alfonso Thomas",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0242",
+    "name": "Clint McKay",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0243",
+    "name": "Colin Ingram",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0304",
+    "name": "Dimitri Mascarenhas",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0418",
+    "name": "James Franklin",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0439",
+    "name": "James Pattinson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P0644",
+    "name": "Matthew Wade",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0719",
+    "name": "Nathan McCullum",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0736",
+    "name": "Nuwan Kulasekara",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.45
+  },
+  {
+    "id": "P0181",
+    "name": "Ben Hilfenhaus",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P0101",
+    "name": "Andrew McDonald",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P0468",
+    "name": "John Hastings",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P0903",
+    "name": "Rusty Theron",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P0653",
+    "name": "Michael Lumb",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.09
+  },
+  {
+    "id": "P0467",
+    "name": "Johan van der Wath",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P0652",
+    "name": "Michael Klinger",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P0681",
+    "name": "Moises Henriques",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.23
+  },
+  {
+    "id": "P0066",
+    "name": "Aiden Blizzard",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.09
+  },
+  {
+    "id": "P0236",
+    "name": "Chris Lynn",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.09
+  },
+  {
+    "id": "P0470",
+    "name": "Jonathan Vandiar",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.09
+  },
+  {
+    "id": "P0720",
+    "name": "Nathan Rimmington",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.09
+  },
+  {
+    "id": "P0737",
+    "name": "Nuwan Pradeep",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.09
+  },
+  {
+    "id": "P0887",
+    "name": "Rilee Rossouw",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.09
+  },
+  {
+    "id": "P0893",
+    "name": "Robert Frylinck",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.09
+  },
+  {
+    "id": "P1061",
+    "name": "Suraj Randiv",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.09
+  },
+  {
+    "id": "P1102",
+    "name": "Travis Birt",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.09
+  },
+  {
+    "id": "P1048",
+    "name": "Stephen O'Keefe",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1060",
+    "name": "Sunil Narine",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.25
+  },
+  {
+    "id": "P0025",
+    "name": "Andre Russell",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.25
+  },
+  {
+    "id": "P0658",
+    "name": "Mitchell Johnson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.5
+  },
+  {
+    "id": "P0153",
+    "name": "Azhar Mahmood",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0436",
+    "name": "James Faulkner",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0199",
+    "name": "Brad Hogg",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0279",
+    "name": "Darren Bravo",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0895",
+    "name": "Robin Peterson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0274",
+    "name": "Daniel Harris",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.25
+  },
+  {
+    "id": "P0306",
+    "name": "Dinesh Chandimal",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.25
+  },
+  {
+    "id": "P0317",
+    "name": "Doug Bracewell",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.25
+  },
+  {
+    "id": "P0523",
+    "name": "Kevon Cooper",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.25
+  },
+  {
+    "id": "P0631",
+    "name": "Marchant de Lange",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.25
+  },
+  {
+    "id": "P0217",
+    "name": "CL White",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0617",
+    "name": "Mandeep Singh",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0925",
+    "name": "SE Marsh",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0040",
+    "name": "AT Rayudu",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0590",
+    "name": "MEK Hussey",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0415",
+    "name": "JD Ryder",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0939",
+    "name": "SR Watson",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0586",
+    "name": "MA Agarwal",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0030",
+    "name": "AL Menaria",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0488",
+    "name": "KA Pollard",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0605",
+    "name": "MS Bisla",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0944",
+    "name": "STR Binny",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0195",
+    "name": "Bipul Sharma",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0924",
+    "name": "SD Chitnis",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0407",
+    "name": "J Botha",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0027",
+    "name": "AJ Finch",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0215",
+    "name": "CJ Ferguson",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0158",
+    "name": "B Kumar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0157",
+    "name": "B Chipli",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1109",
+    "name": "UBT Chand",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0755",
+    "name": "PC Valthaty",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0256",
+    "name": "DH Yagnik",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0021",
+    "name": "AC Thomas",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0908",
+    "name": "S Anirudha",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1159",
+    "name": "WD Parnell",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0211",
+    "name": "CA Pujara",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0393",
+    "name": "IR Jaggi",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0572",
+    "name": "M Kaif",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0909",
+    "name": "S Aravind",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0014",
+    "name": "AA Chavan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0041",
+    "name": "AUK Pathan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0163",
+    "name": "BA Bhatt",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0376",
+    "name": "Harpreet Singh",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0410",
+    "name": "J Syed Mohammed",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0589",
+    "name": "MD Mishra",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0254",
+    "name": "DE Bollinger",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0397",
+    "name": "Iqbal Abdulla",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1119",
+    "name": "VR Aaron",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0010",
+    "name": "A Singh",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0019",
+    "name": "AC Blizzard",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0099",
+    "name": "Anand Rajan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0260",
+    "name": "DJ Jacobs",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0416",
+    "name": "JD Unadkat",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0916",
+    "name": "S Nadeem",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0352",
+    "name": "Glenn Maxwell",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0067",
+    "name": "Ajantha Mendis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0507",
+    "name": "Kane Richardson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0237",
+    "name": "Christopher Morris",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0951",
+    "name": "Sachithra Senanayaka",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0718",
+    "name": "Nathan Coulter-Nile",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0280",
+    "name": "Darren Sammy",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0650",
+    "name": "Michael Clarke",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0902",
+    "name": "Rudra Pratap Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0877",
+    "name": "Ravi Rampaul",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0781",
+    "name": "Philip Hughes",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0240",
+    "name": "Christopher Barnwell",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0431",
+    "name": "Jacob Oram",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0454",
+    "name": "Jeevan Mendis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0906",
+    "name": "Ryan McLaren",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0079",
+    "name": "Akila Dananjaya",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0182",
+    "name": "Ben Laughlin",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0423",
+    "name": "Jason Holder",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0540",
+    "name": "Kusal Janith Perera",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0817",
+    "name": "Quinton De Kock",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0250",
+    "name": "DA Miller",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0937",
+    "name": "SPD Smith",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0359",
+    "name": "Gurkeerat Singh",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0252",
+    "name": "DB Das",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0493",
+    "name": "KK Cooper",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0936",
+    "name": "SP Narine",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0602",
+    "name": "MN Samuels",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0026",
+    "name": "AG Murtaza",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0003",
+    "name": "A Chandila",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0487",
+    "name": "K Upadhyay",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0748",
+    "name": "P Awana",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0034",
+    "name": "AN Ahmed",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0070",
+    "name": "Ajinkya Rahane",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0971",
+    "name": "Sanju Samson",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0662",
+    "name": "Mitchell Starc",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0330",
+    "name": "Faf Du Plessis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0247",
+    "name": "Corey Anderson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0191",
+    "name": "Bhuvneshwar Kumar",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0672",
+    "name": "Mohammed Shami",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0615",
+    "name": "Manan Vohra",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0510",
+    "name": "Karn Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0820",
+    "name": "Rishi Dhawan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0870",
+    "name": "Ranganath Vinay Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0453",
+    "name": "Jean-Paul Duminy",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0518",
+    "name": "Kedar Jadhav",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0679",
+    "name": "Mohit Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1129",
+    "name": "Varun Aaron",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0168",
+    "name": "Beuran Hendricks",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0861",
+    "name": "Rajat Bhatia",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0064",
+    "name": "Aditya Tare",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0645",
+    "name": "Mayank Agarwal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0404",
+    "name": "Ishwar Chandra Pandey",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0562",
+    "name": "Laxmi Ratan Shukla",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0360",
+    "name": "Gurkeerat Singh Mann",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0446",
+    "name": "Jasprit Bumrah",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1077",
+    "name": "Tim Southee",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0299",
+    "name": "Dhawal Kulkarni",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0438",
+    "name": "James Neesham",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0496",
+    "name": "KL Rahul",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0756",
+    "name": "Pat Cummins",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0771",
+    "name": "Parveez Rasool",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0435",
+    "name": "Jalaj Saxena",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0968",
+    "name": "Sandeep Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0994",
+    "name": "Shahbaz Nadeem",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0167",
+    "name": "Ben Cutting",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0081",
+    "name": "Akshar Rajesh Patel",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0514",
+    "name": "Karun Nair",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1063",
+    "name": "Suryakumar Yadav",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0398",
+    "name": "Iqbal Abdullah",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0772",
+    "name": "Parvinder Awana",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0629",
+    "name": "Manvinder Bisla",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0426",
+    "name": "Josh Hazlewood",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0706",
+    "name": "Nic Maddinson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1037",
+    "name": "Siddarth Kaul",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0291",
+    "name": "Deepak Hooda",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0383",
+    "name": "Harshal Patel",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0534",
+    "name": "Kuldeep Yadav",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0854",
+    "name": "Rahul Shukla",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1132",
+    "name": "Veer Pratap Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0058",
+    "name": "Abu Nechim Ahmed",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0201",
+    "name": "Brendan Taylor",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0310",
+    "name": "Dishant Yagnik",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0531",
+    "name": "Krismar Santokie",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0639",
+    "name": "Matt Henry",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0663",
+    "name": "Mithun Manhas",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0789",
+    "name": "Prasanth Parameswaran",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0963",
+    "name": "Samuel Badree",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1141",
+    "name": "Vijay Zol",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0098",
+    "name": "Amit Paunikar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0118",
+    "name": "Anureet Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0001",
+    "name": "Ashish Reddy",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0179",
+    "name": "Ben Dunk",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0207",
+    "name": "C M Gautam",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0289",
+    "name": "Debabrata Das",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0949",
+    "name": "Sachin Rana",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0991",
+    "name": "Shadab Jakati",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1007",
+    "name": "Shardul Thakur",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1046",
+    "name": "Srikkanth Anirudha",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1144",
+    "name": "Vikramjeet Malik",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0114",
+    "name": "Ankit Nagendra Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0116",
+    "name": "Ankush Bains",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0124",
+    "name": "Apoorv Vijay Wankhade",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0170",
+    "name": "Baba Aparajith",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0226",
+    "name": "Chama Milind",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0369",
+    "name": "HS Sharath",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0450",
+    "name": "Jayant Yadav",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0511",
+    "name": "Karanveer Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0627",
+    "name": "Manprit Juneja",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0655",
+    "name": "Milind Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0777",
+    "name": "Pawan Negi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0778",
+    "name": "Pawan Suyal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0797",
+    "name": "Pravin Tambe",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0855",
+    "name": "Rahul Tewatia",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0837",
+    "name": "Ricky Bhui",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0899",
+    "name": "Ronit More",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0917",
+    "name": "Sandeep Warrier",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0986",
+    "name": "Sayan Sekhar Mandal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1019",
+    "name": "Shivam Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1026",
+    "name": "Shreyas Gopal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1065",
+    "name": "Sushant Marathe",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1089",
+    "name": "Tanmay Mishra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1140",
+    "name": "Vijay Shankar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1191",
+    "name": "Yuzvendra Singh Chahal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1104",
+    "name": "Trent Boult",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0285",
+    "name": "David Wiese",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1028",
+    "name": "Shreyas Iyer",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0477",
+    "name": "K C Cariappa",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0358",
+    "name": "Gurinder Sandhu",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0990",
+    "name": "Sean Abbott",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0314",
+    "name": "Domnic Joseph Muthuswamy",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0059",
+    "name": "Adam Milne",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0502",
+    "name": "Kane Williamson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0975",
+    "name": "Sarfaraz Naushad Khan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0474",
+    "name": "Juan Theron",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0543",
+    "name": "Kyle Abbott",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0660",
+    "name": "Mitchell McClenaghan",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0729",
+    "name": "Nikhil Shankar Naik",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1103",
+    "name": "Travis Head",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0063",
+    "name": "Aditya Garhwal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0632",
+    "name": "Marcus Stoinis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0103",
+    "name": "Andrew Tye",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1013",
+    "name": "Sheldon Jackson",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0084",
+    "name": "Akshay Wakhare",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0174",
+    "name": "Barinder Singh Saran",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0308",
+    "name": "Dinesh Salunkhe",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0326",
+    "name": "Eklavya Dwivedi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0371",
+    "name": "Hanuma Vihari",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0373",
+    "name": "Hardik Pandya",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0409",
+    "name": "J Suchith",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0480",
+    "name": "K K Jiyaz",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0527",
+    "name": "Kona Srikar Bharat",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0734",
+    "name": "Nitish Rana",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0769",
+    "name": "Pardeep Sahu",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0788",
+    "name": "Prasanth Padmanabhan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0794",
+    "name": "Pratyush Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0952",
+    "name": "Sagar Trivedi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1018",
+    "name": "Shishir Bhavane",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1038",
+    "name": "Siddhesh Dinesh Lad",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1059",
+    "name": "Sumit Narwal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1125",
+    "name": "Vaibhav Rawal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1185",
+    "name": "Yogesh Gowalkar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0553",
+    "name": "LMP Simmons",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0588",
+    "name": "MC Henriques",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0036",
+    "name": "AR Patel",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0945",
+    "name": "SV Samson",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0497",
+    "name": "KM Jadhav",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0494",
+    "name": "KK Nair",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0921",
+    "name": "SA Yadav",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0343",
+    "name": "GJ Maxwell",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0425",
+    "name": "JP Faulkner",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0814",
+    "name": "Q de Kock",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0214",
+    "name": "CJ Anderson",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0503",
+    "name": "KV Sharma",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0585",
+    "name": "M Vohra",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0592",
+    "name": "MG Johnson",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0601",
+    "name": "MM Sharma",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0370",
+    "name": "HV Patel",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0035",
+    "name": "AP Tare",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0843",
+    "name": "RR Rossouw",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0587",
+    "name": "MA Starc",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0396",
+    "name": "Imran Tahir",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0763",
+    "name": "PV Tambe",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0913",
+    "name": "S Gopal",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1178",
+    "name": "YS Chahal",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0391",
+    "name": "IC Pandey",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0752",
+    "name": "P Suyal",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0570",
+    "name": "M Ashwin",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0224",
+    "name": "Carlos Brathwaite",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0414",
+    "name": "Jos Buttler",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0721",
+    "name": "Nathu Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0532",
+    "name": "Krunal Pandya",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0890",
+    "name": "Rishabh Pant",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0115",
+    "name": "Ankit Singh Rajpoot",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0526",
+    "name": "Kishore Pramod Kamath",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0698",
+    "name": "Mustafizur Rahman",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0175",
+    "name": "Barinder Singh Sran",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0987",
+    "name": "Scott Boland",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0400",
+    "name": "Ishan Kishan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0795",
+    "name": "Praveen Dubey",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0061",
+    "name": "Adam Zampa",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0244",
+    "name": "Colin Munro",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0333",
+    "name": "Farhaan Behardien",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0463",
+    "name": "Joel Paris",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0779",
+    "name": "Peter Handscomb",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0946",
+    "name": "Sam Billings",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0451",
+    "name": "Jaydev Shah",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0783",
+    "name": "Pradeep Sangwan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0859",
+    "name": "Rajagopal Sathish",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0077",
+    "name": "Akhil Arvind Herwadkar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0083",
+    "name": "Akshay Karnewar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0085",
+    "name": "Akshdeep Nath",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0127",
+    "name": "Armaan Jaffer",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0290",
+    "name": "Deepak Chahar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0292",
+    "name": "Deepak Punia",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0442",
+    "name": "Jaskaran Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0460",
+    "name": "Jitesh Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0613",
+    "name": "Mahipal Lomror",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0614",
+    "name": "Manan Ajay Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0768",
+    "name": "Paras Dogra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0947",
+    "name": "Sachin Baby",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0973",
+    "name": "Sarabjit Ladda",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1023",
+    "name": "Shivil Kaushik",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0972",
+    "name": "Swapnil Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1071",
+    "name": "Syed Khaleel Ahmed",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1098",
+    "name": "Tirumalasetti Suman",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1111",
+    "name": "Umang Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1143",
+    "name": "Vikas Tokas",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0324",
+    "name": "EJG Morgan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0932",
+    "name": "SN Khan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0366",
+    "name": "HH Pandya",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0593",
+    "name": "MJ McClenaghan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0940",
+    "name": "SS Iyer",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0708",
+    "name": "NM Coulter-Nile",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0249",
+    "name": "D Wiese",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1076",
+    "name": "TA Boult",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0164",
+    "name": "Benjamin Stokes",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1107",
+    "name": "Tymal Mills",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0504",
+    "name": "Kagiso Rabada",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0238",
+    "name": "Chris Woakes",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0871",
+    "name": "Rashid Khan Arman",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1073",
+    "name": "T Natarajan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0673",
+    "name": "Mohammed Siraj",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0107",
+    "name": "Aniket Choudhary",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0530",
+    "name": "Krishnappa Gowtham",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0445",
+    "name": "Jason Roy",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0176",
+    "name": "Basil Thampi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0235",
+    "name": "Chris Jordan",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0565",
+    "name": "Lockie Ferguson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0636",
+    "name": "Martin Guptill",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0134",
+    "name": "Asela Gunarathna",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0193",
+    "name": "Billy Stanlake",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0671",
+    "name": "Mohammed Nabi",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0702",
+    "name": "Nicolas Pooran",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0901",
+    "name": "Rovman Powell",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0112",
+    "name": "Ankeet Bawane",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0233",
+    "name": "Chirag Suri",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0402",
+    "name": "Ishank Jaggi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0535",
+    "name": "Kulwant Khejroliya",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0656",
+    "name": "Milind Tandon",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0723",
+    "name": "Navdeep Saini",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0751",
+    "name": "Pratham Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0827",
+    "name": "R Sanjay Yadav",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0832",
+    "name": "Rahul Ajay Tripathi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0851",
+    "name": "Rahul Chahar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0878",
+    "name": "Rinku Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0982",
+    "name": "Saurabh Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0985",
+    "name": "Sayan Ghosh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1008",
+    "name": "Shashank Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1014",
+    "name": "Shelley Shaurya",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1030",
+    "name": "Shubam Agrawal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1088",
+    "name": "Tanmay Agarwal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1091",
+    "name": "Tejas Singh Baroka",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0367",
+    "name": "HM Amla",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0840",
+    "name": "RR Pant",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0703",
+    "name": "N Rana",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0210",
+    "name": "CA Lynn",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0491",
+    "name": "KH Pandya",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0213",
+    "name": "CH Morris",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1081",
+    "name": "TM Head",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0258",
+    "name": "DJ Hooda",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0603",
+    "name": "MP Stoinis",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0420",
+    "name": "JJ Bumrah",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0218",
+    "name": "CR Brathwaite",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0012",
+    "name": "A Zampa",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0024",
+    "name": "AD Nath",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0464",
+    "name": "Jofra Archer",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0976",
+    "name": "Sarfraz Khan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0278",
+    "name": "Darcy Short",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0687",
+    "name": "Mujeeb Zadran",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0329",
+    "name": "Evin Lewis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0506",
+    "name": "Kamlesh Nagarkoti",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1164",
+    "name": "Washington Sundar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1021",
+    "name": "Shivam Mavi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0209",
+    "name": "Colin De Grandhomme",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0241",
+    "name": "Christopher Gayle",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1036",
+    "name": "Shubman Gill",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0664",
+    "name": "Moeen Ali",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0444",
+    "name": "Jason Behrendorff",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0634",
+    "name": "Mark Wood",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0180",
+    "name": "Ben Dwarshuis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0807",
+    "name": "Prithvi Shaw",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1025",
+    "name": "Shreevats Goswami",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0149",
+    "name": "Avesh Khan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1194",
+    "name": "Zahir Khan Pakteen",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0056",
+    "name": "Abhishek Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1085",
+    "name": "Tajinder Dhillon",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0080",
+    "name": "Akila Dhananjaya",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0319",
+    "name": "Dushmantha Chameera",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0568",
+    "name": "Lungisani Ngidi",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0661",
+    "name": "Mitchell Santner",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0142",
+    "name": "Asif K M",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0132",
+    "name": "Aryaman Vikram Birla",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0221",
+    "name": "Cameron Delport",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0449",
+    "name": "Javon Searless",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0111",
+    "name": "Anirudha Ashok Joshi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0123",
+    "name": "Anukul Roy",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0225",
+    "name": "Chaitanya Bishnoi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0266",
+    "name": "Dhruv Shorey",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0448",
+    "name": "Jatin Saxena",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0509",
+    "name": "Kanishk Seth",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0501",
+    "name": "Kshitiz Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0623",
+    "name": "Manjot Kalra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0630",
+    "name": "Manzoor Dar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0646",
+    "name": "Mayank Dagar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0647",
+    "name": "Mayank Markande",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0654",
+    "name": "Midhun S",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0680",
+    "name": "Mohsin Khan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0683",
+    "name": "Monu Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0701",
+    "name": "N Jagadeesan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0726",
+    "name": "Nidheesh M D Dinesan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0776",
+    "name": "Pavan Deshpande",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0790",
+    "name": "Prashant Chopra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0967",
+    "name": "Sandeep Lamichhane",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1006",
+    "name": "Sharad Lumba",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1072",
+    "name": "Syed Mehdi Hasan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1130",
+    "name": "Varun Chakaravarthy",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0930",
+    "name": "Sam Curran",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1020",
+    "name": "Shivam Dube",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1017",
+    "name": "Shimron Hetmyer",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0421",
+    "name": "Jonny Bairstow",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1015",
+    "name": "Sherfane Rutherford",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0798",
+    "name": "Prayas Ray Barman",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0745",
+    "name": "Oshane Thomas",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0461",
+    "name": "Joe Denly",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0374",
+    "name": "Hardus Viljoen",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0380",
+    "name": "Harry Gurney",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0138",
+    "name": "Ashton Turner",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0386",
+    "name": "Heinrich Klaasen",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0519",
+    "name": "Keemo Paul",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0556",
+    "name": "Liam Livingstone",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0282",
+    "name": "Darshan Nalkande",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0065",
+    "name": "Agnivesh Ayachi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0119",
+    "name": "Anrich Nortje",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0130",
+    "name": "Arshdeep Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0173",
+    "name": "Bandaru Ayyappa",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0295",
+    "name": "Devdutt Padikkal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0378",
+    "name": "Harpreet Brar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0765",
+    "name": "Pankaj Jaswal",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0806",
+    "name": "Prithvi Raj Yarra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0872",
+    "name": "Rasikh Dar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0892",
+    "name": "Riyan Parag",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0904",
+    "name": "Ruturaj Gaikwad",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1029",
+    "name": "Shrikant Mundhe",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1033",
+    "name": "Shubham Ranjane",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0761",
+    "name": "PP Shaw",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0599",
+    "name": "MM Ali",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0208",
+    "name": "C Munro",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0413",
+    "name": "JC Archer",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0323",
+    "name": "E Lewis",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0829",
+    "name": "R Tewatia",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0479",
+    "name": "K Gowtham",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0933",
+    "name": "SN Thakur",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0750",
+    "name": "P Negi",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0595",
+    "name": "MK Lomror",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0262",
+    "name": "DL Chahar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0394",
+    "name": "IS Sodhi",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0575",
+    "name": "M Markande",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0028",
+    "name": "AJ Tye",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0482",
+    "name": "K Khejroliya",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0579",
+    "name": "M Prasidh Krishna",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0686",
+    "name": "Mujeeb Ur Rahman",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0914",
+    "name": "S Kaul",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1012",
+    "name": "Sheldon Cottrell",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0087",
+    "name": "Alex Carey",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1184",
+    "name": "Yashasvi Jaiswal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0875",
+    "name": "Ravi Bishnoi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0808",
+    "name": "Priyam Garg",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1148",
+    "name": "Virat Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0513",
+    "name": "Kartik Tyagi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1099",
+    "name": "Tom Banton",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1100",
+    "name": "Tom Curran",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0122",
+    "name": "Anuj Rawat",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0331",
+    "name": "Fabian Allen",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0405",
+    "name": "Isuru Udana",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0045",
+    "name": "Abdul Samad",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0074",
+    "name": "Akash Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0234",
+    "name": "Chris Green",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0302",
+    "name": "Digvijay Deshmukh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0473",
+    "name": "Joshua Philippe",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0559",
+    "name": "Lalit Yadav",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0582",
+    "name": "M Siddharth",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0802",
+    "name": "Prince Balwant Rai Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0825",
+    "name": "R Sai Kishore",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0966",
+    "name": "Sandeep Bavanaka",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0970",
+    "name": "Sanjay Yadav",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0992",
+    "name": "Shahbaz Ahamad",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1083",
+    "name": "Tushar Deshpande",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0912",
+    "name": "S Dube",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1117",
+    "name": "V Shankar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0823",
+    "name": "R Parag",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0485",
+    "name": "K Rabada",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0833",
+    "name": "RD Chahar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0709",
+    "name": "NS Naik",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0039",
+    "name": "AS Roy",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0411",
+    "name": "J Yadav",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0492",
+    "name": "KK Ahmed",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0888",
+    "name": "Riley Meredith",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.4
+  },
+  {
+    "id": "P0996",
+    "name": "Shahrukh Khan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0433",
+    "name": "Jagadeesha Suchith",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0126",
+    "name": "Arjun Tendulkar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0187",
+    "name": "Bhagath Verma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0206",
+    "name": "Hari Nishanth",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0375",
+    "name": "Harishankar Reddy",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0567",
+    "name": "Lukman Meriwala",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0620",
+    "name": "Manimaran Siddharth",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0571",
+    "name": "Marco Jansen",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0668",
+    "name": "Mohammed Azharuddeen",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0863",
+    "name": "Rajat Patidar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0889",
+    "name": "Ripal Patel",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1045",
+    "name": "Srikar Bharat",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1067",
+    "name": "Suyash Prabhudessai",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1114",
+    "name": "Utkarsh Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1124",
+    "name": "Vaibhav Arora",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1133",
+    "name": "Venkatesh Iyer",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1153",
+    "name": "Vishnu Vinod",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1187",
+    "name": "Yudhvir Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0544",
+    "name": "Kyle Jamieson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.75
+  },
+  {
+    "id": "P0458",
+    "name": "Jhye Richardson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 1.0
+  },
+  {
+    "id": "P0230",
+    "name": "Chetan Sakariya",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0288",
+    "name": "Dawid Malan",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.0
+  },
+  {
+    "id": "P0062",
+    "name": "Adil Rashid",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 1.0
+  },
+  {
+    "id": "P0068",
+    "name": "Ajay Dev Goud",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0088",
+    "name": "Alex Hales",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.0
+  },
+  {
+    "id": "P0146",
+    "name": "Atit Sheth",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0150",
+    "name": "Avi Barot",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0002",
+    "name": "Ayush Badoni",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0183",
+    "name": "Ben McDermott",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0297",
+    "name": "Devon Conway",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0340",
+    "name": "G Periyaswamy",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0344",
+    "name": "Gahlaut Rahul Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0349",
+    "name": "George Linde",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0351",
+    "name": "Gerald Coetzee",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0354",
+    "name": "Glenn Phillips",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0382",
+    "name": "Harsh Tyagi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0388",
+    "name": "Himanshu Rana",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0428",
+    "name": "Jack Wildermuth",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0472",
+    "name": "Josh Inglis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0483",
+    "name": "KL Shrijith",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0517",
+    "name": "Kedar Devdhar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0533",
+    "name": "Kuldeep Sen",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0635",
+    "name": "Marnus Labuschagne",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 1.0
+  },
+  {
+    "id": "P0724",
+    "name": "Naveen-ul-Haq",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0800",
+    "name": "Prerak Mankad",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0816",
+    "name": "Qais Ahmad",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0874",
+    "name": "Rassie van der Dussen",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0882",
+    "name": "Reece Topley",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0988",
+    "name": "Scott Kuggeleijn",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1040",
+    "name": "Simarjeet Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1054",
+    "name": "Sudhesan Midhun",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1086",
+    "name": "Tajinder Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1078",
+    "name": "Tim David",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1152",
+    "name": "Vishnu Solanki",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0476",
+    "name": "K Bhagath Varma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1186",
+    "name": "Yudhvir Charak",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0834",
+    "name": "RD Gaikwad",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0248",
+    "name": "D Padikkal",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1176",
+    "name": "YBK Jaiswal",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0934",
+    "name": "SO Hetmyer",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0758",
+    "name": "PK Garg",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0993",
+    "name": "Shahbaz Ahmed",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0216",
+    "name": "CJ Jordan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0552",
+    "name": "LH Ferguson",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0219",
+    "name": "CV Varun",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0495",
+    "name": "KL Nagarkoti",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0548",
+    "name": "L Ngidi",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0594",
+    "name": "MJ Santner",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1162",
+    "name": "Wanindu Hasaranga",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0793",
+    "name": "Prasidh Krishna",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1131",
+    "name": "Varun Chakravarthy",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0898",
+    "name": "Romario Shepherd",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0741",
+    "name": "Odean Smith",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1112",
+    "name": "Umran Malik",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1180",
+    "name": "Yash Dayal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0298",
+    "name": "Dewald Brevis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0053",
+    "name": "Abhinav Sadarangani",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0029",
+    "name": "Aiden Markram",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0275",
+    "name": "Daniel Sams",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0092",
+    "name": "Alzarri Joseph",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0286",
+    "name": "David Willey",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0486",
+    "name": "K S Bharat",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0856",
+    "name": "Raj Angad Bawa",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0704",
+    "name": "N Tilak Varma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0695",
+    "name": "Murugan Ashwin",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0864",
+    "name": "Rajvardhan Hangargekar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0791",
+    "name": "Prashant Solanki",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0313",
+    "name": "Dominic Drakes",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0336",
+    "name": "Finn Allen",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0283",
+    "name": "Daryl Mitchell",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0710",
+    "name": "Nathan Ellis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0740",
+    "name": "Obed Mccoy",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0610",
+    "name": "Maheesh Theekshana",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0136",
+    "name": "Ashok Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0189",
+    "name": "Bhanuka Rajapaksa",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0227",
+    "name": "Chamika Karunaratne",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0320",
+    "name": "Dwaine Pretorius",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0334",
+    "name": "Fazalhaq Farooqi",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0545",
+    "name": "Kyle Mayers",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1097",
+    "name": "Tim Seifert",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1181",
+    "name": "Yash Dhull",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0046",
+    "name": "Abhijeet Tomar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0184",
+    "name": "Benny Howell",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0735",
+    "name": "Noor Ahmad",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0401",
+    "name": "Ishan Porel",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0071",
+    "name": "Akash Deep",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0093",
+    "name": "Aman Khan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0104",
+    "name": "Aneeshwar Gautam",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0133",
+    "name": "Aryan Juyal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0141",
+    "name": "Ashwin Hebbar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0145",
+    "name": "Atharva Taide",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0161",
+    "name": "B Sai Sudharsan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0171",
+    "name": "Baba Indrajith",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0172",
+    "name": "Baltej Dhanda",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0300",
+    "name": "Dhruv Jurel",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0368",
+    "name": "Hrithik Shokeen",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0484",
+    "name": "K M Asif",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0569",
+    "name": "Luvnith Sisodia",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0665",
+    "name": "Mohammed Arshad Khan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0689",
+    "name": "Mukesh Choudhary",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0826",
+    "name": "R Samarth",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0850",
+    "name": "Rahul Buddhi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0868",
+    "name": "Ramesh Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0981",
+    "name": "Saurabh Dubey",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1031",
+    "name": "Shubham Garhwal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1051",
+    "name": "Subhranshu Senapati",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1136",
+    "name": "Vicky Ostwal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1172",
+    "name": "Writtick Chatterjee",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0222",
+    "name": "Cameron Green",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 2.0
+  },
+  {
+    "id": "P0379",
+    "name": "Harry Brook",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.5
+  },
+  {
+    "id": "P0690",
+    "name": "Mukesh Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0408",
+    "name": "Joshua Little",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1168",
+    "name": "Will Jacks",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.5
+  },
+  {
+    "id": "P1156",
+    "name": "Vivrant Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0780",
+    "name": "Phil Salt",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 2.0
+  },
+  {
+    "id": "P0076",
+    "name": "Akeal Hosein",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 1.0
+  },
+  {
+    "id": "P0462",
+    "name": "Joe Root",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 1.0
+  },
+  {
+    "id": "P0860",
+    "name": "Rajan Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0151",
+    "name": "Avinash Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0731",
+    "name": "Nishant Sindhu",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0315",
+    "name": "Donovan Ferreira",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0563",
+    "name": "Litton Das",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1039",
+    "name": "Sikandar Raza",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1183",
+    "name": "Yash Thakur",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0377",
+    "name": "Harpreet Bhatia",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0069",
+    "name": "Ajay Mandal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0075",
+    "name": "Akash Vashisht",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0186",
+    "name": "Bhagath Varma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0318",
+    "name": "Duan Jansen",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0389",
+    "name": "Himanshu Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0539",
+    "name": "Kunal Rathore",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0624",
+    "name": "Manoj Bhandage",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0677",
+    "name": "Mohit Rathee",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0725",
+    "name": "Nehal Wadhera",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0733",
+    "name": "Nitish Kumar Reddy",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0848",
+    "name": "Raghav Goyal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0961",
+    "name": "Samarth Vyas",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0998",
+    "name": "Shaik Rasheed",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1002",
+    "name": "Shams Mulani",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1068",
+    "name": "Suyash Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1113",
+    "name": "Urvil Patel",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P1137",
+    "name": "Vidwath Kaverappa",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.2
+  },
+  {
+    "id": "P0264",
+    "name": "DP Conway",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1120",
+    "name": "VR Iyer",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0422",
+    "name": "JM Sharma",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0581",
+    "name": "M Shahrukh Khan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0604",
+    "name": "MR Marsh",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0006",
+    "name": "A Manohar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0754",
+    "name": "PBB Rajapaksa",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0845",
+    "name": "RV Patel",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0009",
+    "name": "A Nortje",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0261",
+    "name": "DJ Willey",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0941",
+    "name": "SS Prabhudessai",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0764",
+    "name": "PWH de Silva",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1074",
+    "name": "T Stubbs",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0037",
+    "name": "AS Joseph",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0824",
+    "name": "R Powell",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0481",
+    "name": "K Kartikeya",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0384",
+    "name": "Harshit Rana",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0578",
+    "name": "M Pathirana",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0839",
+    "name": "RP Meredith",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1044",
+    "name": "Spencer Johnson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0962",
+    "name": "Sameer Rizvi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0537",
+    "name": "Kumar Kushagra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0738",
+    "name": "Nuwan Thushara",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0303",
+    "name": "Dilshan Madushanka",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0894",
+    "name": "Robin Minz",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1066",
+    "name": "Sushant Mishra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0178",
+    "name": "Ben Duckett",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0440",
+    "name": "James Vince",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0441",
+    "name": "Jamie Overton",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0847",
+    "name": "Rachin Ravindra",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0137",
+    "name": "Ashton Agar",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0362",
+    "name": "Gus Atkinson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0649",
+    "name": "Michael Bracewell",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1058",
+    "name": "Sumit Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0560",
+    "name": "Lance Morris",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0742",
+    "name": "Ollie Robinson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0743",
+    "name": "Olly Stone",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0997",
+    "name": "Shai Hope",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0090",
+    "name": "Alick Athanaze",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0155",
+    "name": "Azmatullah Omarzai",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0196",
+    "name": "Blessing Muzarabani",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0200",
+    "name": "Brandon King",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0204",
+    "name": "Brydon Carse",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0228",
+    "name": "Charith Asalanka",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0284",
+    "name": "Dasun Shanaka",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0332",
+    "name": "Fareed Ahmad",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0348",
+    "name": "George Garton",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0350",
+    "name": "George Scrimshaw",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0395",
+    "name": "Ibrahim Zadran",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0469",
+    "name": "Johnson Charles",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0521",
+    "name": "Keshav Maharaj",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0541",
+    "name": "Kusal Mendis",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0557",
+    "name": "Lahiru Kumara",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0564",
+    "name": "Lizaad Williams",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0566",
+    "name": "Luke Wood",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0633",
+    "name": "Mark Chapman",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0641",
+    "name": "Matthew Forde",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0643",
+    "name": "Matthew Short",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0674",
+    "name": "Mohammed Waqar Salamkheil",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0712",
+    "name": "Najibullah Zadran",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0716",
+    "name": "Nandre Burger",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0815",
+    "name": "Qais Ahamad",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0883",
+    "name": "Reeza Hendricks",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0884",
+    "name": "Richard Gleeson",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0885",
+    "name": "Richard Ngarava",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0964",
+    "name": "Samuel Hain",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1084",
+    "name": "Tabraiz Shamsi",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1106",
+    "name": "Tristan Stubbs",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1166",
+    "name": "Wesley Agar",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1167",
+    "name": "Wiaan Mulder",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1101",
+    "name": "Tom Kohler-Cadmore",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0246",
+    "name": "Corbin Bosch",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0406",
+    "name": "Izharulhuq Naveed",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0915",
+    "name": "S Midhun",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0044",
+    "name": "Aarya Desai",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0047",
+    "name": "Abhilash Shetty",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0048",
+    "name": "Abhimanyu Easwaran",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0050",
+    "name": "Abhimanyusingh Rajput",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0057",
+    "name": "Abid Mushtaq",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0073",
+    "name": "Akash Sengupta",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0078",
+    "name": "Akhin Sathar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0082",
+    "name": "Akshat Raghuwanshi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0091",
+    "name": "Allah Ghazanfar",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0095",
+    "name": "Amandeep Khare",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0106",
+    "name": "Angkrish Raghuvanshi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0109",
+    "name": "Aniketh Reddy",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0113",
+    "name": "Ankit Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0117",
+    "name": "Anmol Malhotra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0120",
+    "name": "Ansh Gosai",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0121",
+    "name": "Anshul Kamboj",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0125",
+    "name": "Aradhya Shukla",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0128",
+    "name": "Arpit Guleria",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0131",
+    "name": "Arshin Kulkarni",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0139",
+    "name": "Ashwani Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0140",
+    "name": "Ashwin Das",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0143",
+    "name": "Atal Rai",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0144",
+    "name": "Atharva Ankolekar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0148",
+    "name": "Avanish Rao Aravelly",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0152",
+    "name": "Avneesh Sudha",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0154",
+    "name": "Azim Kazi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0160",
+    "name": "B R Sharath",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0162",
+    "name": "B Surya",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0177",
+    "name": "Basit Bashir",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0188",
+    "name": "Bhagmender Lather",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0190",
+    "name": "Bhupen Lalwani",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0192",
+    "name": "Bhuwan Rohilla",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0194",
+    "name": "Bipin Saurabh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0232",
+    "name": "Chintal Gandhi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0239",
+    "name": "Chris Wood",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0281",
+    "name": "Darshan Misal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0293",
+    "name": "Dev Lakra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0294",
+    "name": "Devang Karamta",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0296",
+    "name": "Devendra Singh Bora",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0301",
+    "name": "Digvesh Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0305",
+    "name": "Dinesh Bana",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0311",
+    "name": "Divesh Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0312",
+    "name": "Divij Mehra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0325",
+    "name": "Ekant Sen",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0338",
+    "name": "G Ajitesh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0345",
+    "name": "Ganesh Chaudhary",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0355",
+    "name": "Gourav Choudhary",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0356",
+    "name": "Gourav Yadav",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0361",
+    "name": "Gurnoor Singh Brar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0381",
+    "name": "Harsh Dubey",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0385",
+    "name": "Harvik Desai",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0434",
+    "name": "Jake Fraser-Mcgurk",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0443",
+    "name": "Jasmer Dhankhar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0447",
+    "name": "Jass Inder Baidwan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0457",
+    "name": "Jhathavedh Subramanyan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0459",
+    "name": "Jitender Pal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0515",
+    "name": "Kaushal Tambe",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0516",
+    "name": "Kaushik Maity",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0542",
+    "name": "Kwena Maphaka",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0549",
+    "name": "L R Chethan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0612",
+    "name": "Mahesh Pithiya",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0616",
+    "name": "Manav Suthar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0619",
+    "name": "Mani Sankar Mura Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0622",
+    "name": "Manish Reddy",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0628",
+    "name": "Manvanth Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0675",
+    "name": "Mohit Ahlawat",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0676",
+    "name": "Mohit Avasthi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0678",
+    "name": "Mohit Redkar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0682",
+    "name": "Money Grewal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0685",
+    "name": "Mrinmoy Dutta",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0688",
+    "name": "Mujtaba Yousuf",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0691",
+    "name": "Mukhtar Hussain",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0696",
+    "name": "Murugan Abhishek",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0697",
+    "name": "Musheer Khan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0699",
+    "name": "Mustaq Beg",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0713",
+    "name": "Naman Dhir",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0717",
+    "name": "Nasir Lone",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0722",
+    "name": "Naushad Shaikh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0727",
+    "name": "Nihal Ullal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0728",
+    "name": "Nikhil Gangta",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0730",
+    "name": "Ninad Rathva",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0732",
+    "name": "Nitin Verma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0746",
+    "name": "Ottneil Baartman",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0747",
+    "name": "P A Abdul",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0767",
+    "name": "Pankaj Yadav",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0775",
+    "name": "Paul Van Meekeren",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0784",
+    "name": "Pradosh Paul",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0787",
+    "name": "Prasad Pawar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0799",
+    "name": "Prenelan Subrayen",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0801",
+    "name": "Prerit Dutta",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0803",
+    "name": "Prince Choudhary",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0809",
+    "name": "Priyank Panchal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0810",
+    "name": "Priyansh Arya",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0811",
+    "name": "Pukhraj Mann",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0812",
+    "name": "Pulkit Narang",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0857",
+    "name": "Raj Chaudhary",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0858",
+    "name": "Raj Limbani",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0862",
+    "name": "Rajat Dey",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0865",
+    "name": "Rakshan Readdi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0867",
+    "name": "Ramandeep Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0876",
+    "name": "Ravi Chauhan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0879",
+    "name": "Ravi Teja",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0891",
+    "name": "Rithik Easwaran",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0896",
+    "name": "Rohan Kunnummal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0897",
+    "name": "Rohit Rayudu",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0948",
+    "name": "Sachin Bhosale",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0953",
+    "name": "Sahil Dhiwan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0957",
+    "name": "Sairaj Patil",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0958",
+    "name": "Sakib Hussain",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0960",
+    "name": "Salman Nizar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0969",
+    "name": "Sanjay Pahal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0974",
+    "name": "Saransh Jain",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0980",
+    "name": "Saumy Pandey",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0984",
+    "name": "Saurav Chuahan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1000",
+    "name": "Shakir Gandhi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1001",
+    "name": "Shamar Joseph",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1027",
+    "name": "Shreyas Gurav",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1032",
+    "name": "Shubham Kapse",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1034",
+    "name": "Shubham Singh Pundir",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1035",
+    "name": "Shubhang Hegde",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1055",
+    "name": "Sudip Gharami",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1056",
+    "name": "Sumeet Verma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1057",
+    "name": "Sumit Ghadigaonkar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1064",
+    "name": "Suryansh Shedge",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1069",
+    "name": "Swastik Chhikara",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1087",
+    "name": "Tanay Thyagarajann",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1090",
+    "name": "Tanush Kotian",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1127",
+    "name": "Vaisakh Chandran",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1134",
+    "name": "Venkatesh Muralidhara",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1146",
+    "name": "Vineet Dhankhar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1150",
+    "name": "Vishal Godara",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1154",
+    "name": "Vishu Kashyap",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1155",
+    "name": "Vishwanath Pratap Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1163",
+    "name": "Waseem Bashir",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1169",
+    "name": "William O'Rourke",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1170",
+    "name": "William Salzmann",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1189",
+    "name": "Yuvraj Chudasama",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0363",
+    "name": "H Klaasen",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0055",
+    "name": "Abishek Porel",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0705",
+    "name": "N Wadhera",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0849",
+    "name": "Rahmanullah Gurbaz",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0255",
+    "name": "DG Nalkande",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1118",
+    "name": "VG Arora",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1142",
+    "name": "Vijaykumar Vyshak",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0364",
+    "name": "H Sharma",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0500",
+    "name": "KR Sen",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0583",
+    "name": "M Theekshana",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0638",
+    "name": "Matheesha Pathirana",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0618",
+    "name": "Mayank Yadav",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0956",
+    "name": "Sai Sudharsan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0873",
+    "name": "Rasikh Salam",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0031",
+    "name": "AM Ghazanfar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.75
+  },
+  {
+    "id": "P0524",
+    "name": "Khaleel Ahmed",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 2.0
+  },
+  {
+    "id": "P0052",
+    "name": "Abhinav Manohar",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0429",
+    "name": "Jacob Bethell",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 1.25
+  },
+  {
+    "id": "P0955",
+    "name": "Sai Kishore",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.75
+  },
+  {
+    "id": "P0129",
+    "name": "Arshad Khan",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0043",
+    "name": "Aaron Hardie",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 1.25
+  },
+  {
+    "id": "P0072",
+    "name": "Akash Madhwal",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0328",
+    "name": "Eshan Malinga",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P1126",
+    "name": "Vaibhav Suryavanshi",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0907",
+    "name": "Ryan Rickelton",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 1.0
+  },
+  {
+    "id": "P1173",
+    "name": "Xavier Bartlett",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.75
+  },
+  {
+    "id": "P0505",
+    "name": "Kamindu Mendis",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.75
+  },
+  {
+    "id": "P0512",
+    "name": "Karim Janat",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.75
+  },
+  {
+    "id": "P0640",
+    "name": "Matthew Breetzke",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.75
+  },
+  {
+    "id": "P1128",
+    "name": "Vansh Bedi",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P1147",
+    "name": "Vipraj Nigam",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0609",
+    "name": "Madhav Tiwari",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P1196",
+    "name": "Zeeshan Ansari",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0051",
+    "name": "Abhinandan Singh",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0108",
+    "name": "Aniket Verma",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0185",
+    "name": "Bevon Jacobs",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0205",
+    "name": "C Andre Siddarth",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0529",
+    "name": "Krishnan Shrijith",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0536",
+    "name": "Kumar Kartikeya",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0804",
+    "name": "Prince Yadav",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0813",
+    "name": "Pyla Avinash",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0866",
+    "name": "Ramakrishna Ghosh",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0979",
+    "name": "Satyanarayana Raju",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P1070",
+    "name": "Swastik Chikara",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P1105",
+    "name": "Tripurana Vijay",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P1138",
+    "name": "Vignesh Puthur",
+    "nationality": "India",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.3
+  },
+  {
+    "id": "P0792",
+    "name": "Prashant Veer",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0147",
+    "name": "Auqib Nabi",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0773",
+    "name": "Pathum Nissanka",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0245",
+    "name": "Cooper Connolly",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0427",
+    "name": "Jack Edwards",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1092",
+    "name": "Tejasvi Singh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0430",
+    "name": "Jacob Duffy",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0959",
+    "name": "Salil Arora",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0715",
+    "name": "Naman Tiwari",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0471",
+    "name": "Jordan Cox",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "WK",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1195",
+    "name": "Zak Foulkes",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0094",
+    "name": "Aman Rao",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0097",
+    "name": "Amit Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0203",
+    "name": "Brijesh Sharma",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0271",
+    "name": "Daksh Kamra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0277",
+    "name": "Danish Malewar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0508",
+    "name": "Kanishk Chouhan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0528",
+    "name": "Krains Fuletra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0648",
+    "name": "Mayank Rawat",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0669",
+    "name": "Mohammed Izhar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0744",
+    "name": "Onkar Tarmale",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0785",
+    "name": "Praful Hinge",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0805",
+    "name": "Prithvi Raj",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BOWL",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0954",
+    "name": "Sahil Parekh",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0977",
+    "name": "Sarthak Ranjan",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P0978",
+    "name": "Satvik Deswal",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1022",
+    "name": "Shivang Kumar",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1139",
+    "name": "Vihaan Malhotra",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1151",
+    "name": "Vishal Nishad",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "AR",
+    "base_price_cr": 0.5
+  },
+  {
+    "id": "P1182",
+    "name": "Yash Raj Punja",
+    "nationality": "Indian",
+    "is_overseas": false,
+    "role": "BAT",
+    "base_price_cr": 0.5
+  }
+]
