@@ -1,7 +1,5 @@
 # IPL Auction Pro - Real-time Simulator
 
-![Banner](./public/images/readme_banner.png)
-
 ## Overview
 **IPL Auction Pro** is a high-performance, real-time web application designed to simulate the high-stakes environment of an IPL Mega Auction. Built with **Next.js 15**, **TypeScript**, and **Supabase**, it allows friends to create private rooms, compete for world-class players, and manage their franchises with sub-second synchronization.
 
@@ -10,7 +8,7 @@ Inspired by industry-standard platforms, this project features a premium glassmo
 ---
 
 ## 🚀 LIVE DEMO
-[View Live Site (Vercel)](https://ipl-auction-simulator-delta.vercel.app) *(Update with your specific Vercel URL)*
+[https://auction-simulator-six.vercel.app/](https://auction-simulator-six.vercel.app/)
 
 ---
 
