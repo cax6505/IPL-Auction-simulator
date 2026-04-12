@@ -7,6 +7,19 @@ export const IPL_RULES = {
   MAX_OVERSEAS: 8,
 };
 
+export const TEAM_MAP = [
+  { id: "MI", name: "Mumbai Indians", color: "bg-blue-600", border: "border-blue-500" },
+  { id: "CSK", name: "Chennai Super Kings", color: "bg-yellow-500", border: "border-yellow-400", textDark: true },
+  { id: "RCB", name: "Royal Challengers Bengaluru", color: "bg-red-600", border: "border-red-500" },
+  { id: "KKR", name: "Kolkata Knight Riders", color: "bg-[#3a225d]", border: "border-purple-500" },
+  { id: "DC", name: "Delhi Capitals", color: "bg-[#0077B6]", border: "border-blue-400" },
+  { id: "PBKS", name: "Punjab Kings", color: "bg-[#ED1B24]", border: "border-red-400" },
+  { id: "RR", name: "Rajasthan Royals", color: "bg-[#EA1A85]", border: "border-pink-500" },
+  { id: "SRH", name: "Sunrisers Hyderabad", color: "bg-[#F26522]", border: "border-orange-500" },
+  { id: "GT", name: "Gujarat Titans", color: "bg-[#1B2133]", border: "border-slate-500" },
+  { id: "LSG", name: "Lucknow Super Giants", color: "bg-[#A72056]", border: "border-fuchsia-600" },
+];
+
 /**
  * Calculates the next minimum required bid based on official IPL Mega Auction increment rules.
  *
