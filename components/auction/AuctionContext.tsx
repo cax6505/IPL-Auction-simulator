@@ -561,7 +561,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const value: AuctionContextType = {
     roomCode, loading, room, playerTeam, playerName, isSpectator, claimedTeams,
     onlineUsers, allPlayers, currentPlayer, logs, chatMessages, timeLeft, showSoldFlash,
-    setShowSquadsModal, squadsMap, isAuctionComplete, isBidding,
+    showSquadsModal, squadsMap, isAuctionComplete, isBidding,
     setShowSoldFlash, setShowSquadsModal, handleClaim, handleStartAuction,
     handlePause, handleEndAuction, handleBid, loadSquad, addLog, sendChatMessage, advanceAuction, handleSpectate,
     setPlayerName, setJoinName, setPlayerTeam, joinName,
