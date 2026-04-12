@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IPL Auction Pro - Real-time Simulator
 
-## Getting Started
+![Banner](./public/images/readme_banner.png)
 
-First, run the development server:
+## Overview
+**IPL Auction Pro** is a high-performance, real-time web application designed to simulate the high-stakes environment of an IPL Mega Auction. Built with **Next.js 15**, **TypeScript**, and **Supabase**, it allows friends to create private rooms, compete for world-class players, and manage their franchises with sub-second synchronization.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Inspired by industry-standard platforms, this project features a premium glassmorphic UI, dynamic host controls, and a robust real-time bidding engine.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 LIVE DEMO
+[View Live Site (Vercel)](https://ipl-auction-simulator-delta.vercel.app) *(Update with your specific Vercel URL)*
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Key Features
 
-To learn more about Next.js, take a look at the following resources:
+- **⚡ Real-time Bidding**: Experience sub-second bid updates using Supabase Realtime (Postgres CDC & Broadcast).
+- **🏟️ Live Room Chat**: Strategize and banter in real-time with a built-in messaging system.
+- **📊 Professional Squad Dashboard**: View your team's depth with categorized role views (BAT, WK, AR, BOWL) and Overseas counts.
+- **⚙️ Dynamic Host Controls**: Room hosts can adjust the bid timer (5s - 20s) and manage auction states (Pause/Resume/End).
+- **🌐 Public Lobby Browser**: Discover and join active public auctions as a Manager or Spectator.
+- **📱 Responsive Design**: Fully optimized for mobile, tablet, and desktop viewing.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tech Stack
 
-## Deploy on Vercel
+- **Frontend**: [Next.js 15](https://nextjs.org/) (App Router), React 19, TypeScript
+- **Styling**: Tailwind CSS v4 (Custom Modern UI Tokens)
+- **Backend**: [Supabase](https://supabase.com/) (PostgreSQL, Authentication & Realtime)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🏁 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- A Supabase Project
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/cax6505/IPL-Auction-simulator.git
+   cd IPL-Auction-simulator
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Variables**
+   Create a `.env.local` file in the root directory and add your Supabase credentials:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Local Production Build**
+   ```bash
+   npm run build
+   npm run start
+   ```
+
+---
+
+## 📜 Auction Rules & Limits
+- **Squad Size**: 18 Min / 25 Max
+- **Overseas Limit**: Maximum 8 players per squad
+- **Starting Purse**: ₹120.00 Cr
+- **Retention Mode**: Mock 2026 mode pre-loads real retention data for authentic team states.
+
+---
+
+## 🤝 Contributing
+Contributions are welcome! If you have ideas for new features or improvements, feel free to open an issue or submit a pull request.
+
+---
+
+## 📄 License
+MIT License. Created with ❤️ for the Cricket community.
