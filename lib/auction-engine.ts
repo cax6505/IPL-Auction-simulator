@@ -3,27 +3,51 @@
 export const IPL_RULES = {
   STARTING_PURSE_CR: 120.0,
   MAX_SQUAD_SIZE: 25,
+  MIN_SQUAD_SIZE: 18,
   MAX_OVERSEAS: 8,
 };
 
 /**
- * Calculates the next minimum required bid based on IPL standard increment rules.
- * 
- * Rules:
- * Base Price < 1.00 Cr -> Increments of 0.10 Cr or 0.20 Cr
- * 1.00 Cr to 2.00 Cr -> Increments of 0.25 Cr
- * > 2.00 Cr -> Increments of 0.50 Cr
+ * Calculates the next minimum required bid based on official IPL Mega Auction increment rules.
+ *
+ * Official IPL Auction Increment Table:
+ *   Current bid < ₹50 Lakhs (0.50 Cr)    → Increment = ₹5 Lakhs  (0.05 Cr)
+ *   ₹50 Lakhs ≤ bid < ₹1 Crore           → Increment = ₹10 Lakhs (0.10 Cr)
+ *   ₹1 Crore ≤ bid < ₹2 Crore            → Increment = ₹25 Lakhs (0.25 Cr)
+ *   bid ≥ ₹2 Crore                        → Increment = ₹25 Lakhs (0.25 Cr)
  */
-export function calculateNextBid(currentBidCr: number, basePriceCr: number): number {
-  if (currentBidCr === 0) return basePriceCr;
-  
-  if (currentBidCr < 1.00) {
-    return Number((currentBidCr + 0.10).toFixed(2));
-  } else if (currentBidCr >= 1.00 && currentBidCr < 2.00) {
-    return Number((currentBidCr + 0.25).toFixed(2));
+export function calculateNextBid(currentBidCr: number | string, basePriceCr: number | string): number {
+  const current = Number(currentBidCr) || 0;
+  const base = Number(basePriceCr) || 0.20;
+
+  if (current === 0) return base;
+
+  let increment: number;
+
+  if (current < 0.50) {
+    increment = 0.05; // ₹5 Lakhs
+  } else if (current < 1.00) {
+    increment = 0.10; // ₹10 Lakhs
   } else {
-    return Number((currentBidCr + 0.50).toFixed(2));
+    increment = 0.25; // ₹25 Lakhs (same for 1-2 Cr and 2+ Cr)
   }
+
+  return Number((current + increment).toFixed(2));
+}
+
+/**
+ * Formats a Crore value into a human-readable display
+ * e.g. 0.20 → "₹20L", 1.50 → "₹1.50 Cr", 2.00 → "₹2 Cr"
+ */
+export function formatPriceCr(valueCr: number): string {
+  if (valueCr < 1.0) {
+    const lakhs = Math.round(valueCr * 100);
+    return `₹${lakhs}L`;
+  }
+  if (valueCr % 1 === 0) {
+    return `₹${valueCr} Cr`;
+  }
+  return `₹${valueCr.toFixed(2)} Cr`;
 }
 
 /**
@@ -32,13 +56,14 @@ export function calculateNextBid(currentBidCr: number, basePriceCr: number): num
 export function canAffordBid(purseRemainingCr: number, requiredBidCr: number, currentSquadSize: number): boolean {
   // Check strict purse boundary
   if (purseRemainingCr < requiredBidCr) return false;
-  
+
   // Calculate minimum required to complete the rest of the squad
   // Assuming minimum base price of remaining players is roughly 0.20 Cr
-  // (In the mega auction, standard minimum for uncapped is 0.30 Cr)
   const remainingSlots = IPL_RULES.MAX_SQUAD_SIZE - currentSquadSize;
-  const minimumRemainingReserve = (remainingSlots - 1) * 0.30; 
-  
+  if (remainingSlots <= 1) return purseRemainingCr >= requiredBidCr;
+
+  const minimumRemainingReserve = (remainingSlots - 1) * 0.20;
+
   if (purseRemainingCr - requiredBidCr < minimumRemainingReserve) {
     return false; // They would bankrupt themselves and fail squad reqs
   }
