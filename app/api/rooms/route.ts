@@ -17,7 +17,7 @@ function generateRoomCode(): string {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { playerName, playerTeam } = body;
+    const { playerName, playerTeam, auctionMode } = body;
 
     if (!playerName || !playerTeam) {
       return NextResponse.json(
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
       .insert([{
         status: "waiting",
         room_code: roomCode,
-        auction_mode: null,
+        auction_mode: auctionMode || null,
         timer_duration: 10,
       }])
       .select()

@@ -28,9 +28,10 @@ interface RoomData {
 }
 
 const MODE_LABELS: Record<string, string> = {
-  mock_2026: "Priced Retentions",
-  mega_auction: "Full Draft",
-  legends_upgraded: "Legends",
+  mock_2026: "Mock 2026",
+  mega_auction: "Mega Auction",
+  legends_upgraded: "Legends Upgraded",
+  legends_auction: "Legends Auction",
 };
 
 function timeAgo(dateStr: string): string {

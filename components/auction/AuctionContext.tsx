@@ -194,21 +194,39 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
         setLogs(prev => [...prev, ...bidLogs]);
       }
 
-      // Mode-aware player fetch
+      // Mode-aware player fetch — 4 auction modes matching playauctiongame.com
+      // mock_2026       → 177 current IPL 2026 players, real retentions & purse
+      // legends_upgraded → 248 top legends + current stars (all players)
+      // legends_auction  → Top 100 legend batters & bowlers (IPL history 2008-2025)
+      // mega_auction     → All current active players, full ₹120Cr, no retentions
       const mode = roomData.auction_mode || "mega_auction";
       let playerQuery = supabase
         .from("players")
-        .select("id, name, base_price_cr, role, is_overseas, nationality, contract_type_2026, auction_set");
+        .select("id, name, base_price_cr, role, is_overseas, nationality, contract_type_2026, auction_set, is_legend");
 
       if (mode === "mock_2026") {
+        // Mock 2026: only current IPL 2026 retained players (no legends)
         playerQuery = playerQuery
-          .or("contract_type_2026.is.null,contract_type_2026.eq.AUCTION")
+          .eq("is_legend", false)
           .order("base_price_cr", { ascending: false })
           .limit(350);
       } else if (mode === "legends_upgraded") {
-        playerQuery = playerQuery.eq("is_overseas", true).order("base_price_cr", { ascending: false }).limit(248);
+        // Legends Upgraded: ALL players — current stars + retired legends
+        playerQuery = playerQuery
+          .order("base_price_cr", { ascending: false })
+          .limit(248);
+      } else if (mode === "legends_auction") {
+        // IPL Legends Auction: top 100 legend batters & bowlers from IPL history
+        playerQuery = playerQuery
+          .eq("is_legend", true)
+          .in("role", ["BAT", "BOWL"])
+          .order("base_price_cr", { ascending: false })
+          .limit(100);
       } else {
-        playerQuery = playerQuery.order("base_price_cr", { ascending: false });
+        // Mega Auction: all current active players (no legends), clean slate
+        playerQuery = playerQuery
+          .eq("is_legend", false)
+          .order("base_price_cr", { ascending: false });
       }
 
       const { data: players } = await playerQuery;

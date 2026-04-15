@@ -53,11 +53,12 @@ async function main() {
     const chunk = players.slice(i, i + BATCH_SIZE);
     
     // Ensure `ipl_team_2026` or `2025` is purely null instead of empty string or unreferenced items
-    // (the dataset looks clean but it's safe to map)
+    // Legend players have no team assignment
     const sanitizedChunk = chunk.map((p) => ({
       ...p,
       ipl_team_2026: p.ipl_team_2026 || null,
       ipl_team_2025: p.ipl_team_2025 || null,
+      is_legend: p.is_legend ?? false,
     }));
 
     const { error: playerError } = await supabase.from("players").upsert(sanitizedChunk);

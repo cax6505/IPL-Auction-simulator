@@ -7,6 +7,7 @@ import { ActivePlayerCard } from "@/components/auction/ActivePlayerCard";
 import { BidControls } from "@/components/auction/BidControls";
 import { AuctionTabs } from "@/components/auction/AuctionTabs";
 import { AuctionOverlays } from "@/components/auction/AuctionOverlays";
+import { AuctionStatsButton } from "@/components/auction/AuctionStats";
 import { Loader2 } from "lucide-react";
 
 function AuctionRoomInner() {
@@ -38,6 +39,7 @@ function AuctionRoomInner() {
       </main>
 
       <AuctionOverlays />
+      <AuctionStatsButton />
     </div>
   );
 }

@@ -40,6 +40,7 @@ export interface RawPlayer {
   auction_set: string | null;
   retention_cost_cr: number | null;
   rtm_used: boolean;
+  is_legend: boolean;
   all_time_auctions: any[]; // JSON array
 }
 

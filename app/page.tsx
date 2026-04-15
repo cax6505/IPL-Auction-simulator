@@ -14,6 +14,9 @@ import {
   LogIn,
   BookOpen,
   Globe2,
+  Calendar,
+  Crown,
+  Star,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,6 +38,7 @@ export default function Home() {
   const router = useRouter();
   const [playerName, setPlayerName] = useState("");
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
+  const [auctionMode, setAuctionMode] = useState<string>("mega_auction");
   const [roomCode, setRoomCode] = useState("");
   const [isCreating, setIsCreating] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
@@ -66,7 +70,7 @@ export default function Home() {
       const res = await fetch("/api/rooms", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ playerName: playerName.trim(), playerTeam: selectedTeam }),
+        body: JSON.stringify({ playerName: playerName.trim(), playerTeam: selectedTeam, auctionMode }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to create room");
@@ -216,10 +220,95 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Step 3: Actions */}
+            {/* Step 3: Auction Mode */}
+            <div className="p-6 sm:p-8 border-b border-white/[0.04]">
+              <label className="flex items-center gap-3 text-xs font-bold text-zinc-400 uppercase tracking-[0.15em] mb-4">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 text-[11px] font-black border border-amber-500/30">3</span>
+                Auction Mode
+              </label>
+              <div className="space-y-2.5">
+                {[
+                  {
+                    id: "mock_2026",
+                    label: "IPL 2026 Mock Auction",
+                    desc: `${177} players • Real retentions • Dec 2025`,
+                    badge: "🔥 Official List",
+                    badgeClass: "bg-amber-500/20 text-amber-400 border-amber-500/30",
+                    borderClass: "border-amber-500/40",
+                    icon: <Calendar className="h-5 w-5 text-amber-400" />,
+                  },
+                  {
+                    id: "legends_upgraded",
+                    label: "Legends Upgraded",
+                    desc: "248 legends • Marquee to spinners",
+                    badge: "⭐ NEW",
+                    badgeClass: "bg-amber-500/20 text-amber-400 border-amber-500/30",
+                    borderClass: "border-amber-500/40",
+                    icon: <Crown className="h-5 w-5 text-amber-400" />,
+                  },
+                  {
+                    id: "legends_auction",
+                    label: "IPL Legends Auction",
+                    desc: "Top 100 batters & bowlers • IPL history 2008-2025",
+                    badge: null,
+                    badgeClass: "",
+                    borderClass: "border-purple-500/40",
+                    icon: <Trophy className="h-5 w-5 text-purple-400" />,
+                  },
+                  {
+                    id: "mega_auction",
+                    label: "Mega Auction",
+                    desc: "All players in auction • ₹120 Cr purse • 230+ players",
+                    badge: null,
+                    badgeClass: "",
+                    borderClass: "border-zinc-500/30",
+                    icon: <Star className="h-5 w-5 text-zinc-400" />,
+                  },
+                ].map((mode) => {
+                  const isSelected = auctionMode === mode.id;
+                  return (
+                    <button
+                      key={mode.id}
+                      onClick={() => setAuctionMode(mode.id)}
+                      className={`w-full flex items-center gap-4 p-4 rounded-xl border transition-all duration-200 text-left ${
+                        isSelected
+                          ? `${mode.borderClass} bg-white/[0.05] ring-1 ring-white/10`
+                          : "border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/[0.1]"
+                      }`}
+                    >
+                      <div className={`h-10 w-10 rounded-xl flex items-center justify-center shrink-0 ${
+                        isSelected ? "bg-white/[0.08]" : "bg-white/[0.03]"
+                      }`}>
+                        {mode.icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2">
+                          <span className={`text-sm font-bold ${isSelected ? "text-white" : "text-zinc-300"}`}>
+                            {mode.label}
+                          </span>
+                          {mode.badge && (
+                            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full border ${mode.badgeClass}`}>
+                              {mode.badge}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-[11px] text-zinc-500 mt-0.5 font-medium">{mode.desc}</p>
+                      </div>
+                      {isSelected && (
+                        <div className="h-5 w-5 rounded-full bg-amber-500 flex items-center justify-center shrink-0">
+                          <Check className="h-3 w-3 text-amber-950" />
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Step 4: Actions */}
             <div className="p-6 sm:p-8 space-y-6">
               <label className="flex items-center gap-3 text-xs font-bold text-zinc-400 uppercase tracking-[0.15em] mb-2">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 text-[11px] font-black border border-amber-500/30">3</span>
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 text-[11px] font-black border border-amber-500/30">4</span>
                 Enter the War Room
               </label>
 

@@ -1,76 +1,1224 @@
-id,name,nationality,is_overseas,capped_status,role,batting_style,bowling_style,ipl_team_2026,ipl_team_2025,contract_type_2026,base_price_cr,sold_price_cr,auction_year,auction_set,retention_cost_cr,rtm_used
-rishabh-pant,Rishabh Pant,India,false,capped,WK,LHB,,LSG,LSG,RETAINED,2.0,27.0,2025,MARQUEE_SET1,,false
-virat-kohli,Virat Kohli,India,false,capped,BAT,RHB,OB,RCB,RCB,RETAINED,,,,,21.0,false
-rohit-sharma,Rohit Sharma,India,false,capped,BAT,RHB,OB,MI,MI,RETAINED,,,,,16.30,false
-jasprit-bumrah,Jasprit Bumrah,India,false,capped,BOWL,RHB,RAF,MI,MI,RETAINED,,,,,18.0,false
-ms-dhoni,MS Dhoni,India,false,uncapped,WK,RHB,,CSK,CSK,RETAINED,,,,,4.0,false
-shreyas-iyer,Shreyas Iyer,India,false,capped,BAT,RHB,OB,PBKS,PBKS,RETAINED,2.0,26.75,2025,MARQUEE_SET1,,false
-yashasvi-jaiswal,Yashasvi Jaiswal,India,false,capped,BAT,LHB,SLA,RR,RR,RETAINED,,,,,18.0,false
-suryakumar-yadav,Suryakumar Yadav,India,false,capped,BAT,RHB,,MI,MI,RETAINED,,,,,16.35,false
-hardik-pandya,Hardik Pandya,India,false,capped,AR,RHB,RAF,MI,MI,RETAINED,,,,,16.35,false
-rashid-khan,Rashid Khan,Afghanistan,true,capped,BOWL,RHB,LB,GT,GT,RETAINED,,,,,18.0,false
-shubman-gill,Shubman Gill,India,false,capped,BAT,RHB,OB,GT,GT,RETAINED,,,,,16.50,false
-ruturaj-gaikwad,Ruturaj Gaikwad,India,false,capped,BAT,RHB,OB,CSK,CSK,RETAINED,,,,,18.0,false
-ravindra-jadeja,Ravindra Jadeja,India,false,capped,AR,LHB,SLA,RR,CSK,TRADED,,,,,14.0,false
-sanju-samson,Sanju Samson,India,false,capped,WK,RHB,,CSK,RR,TRADED,,,,,18.0,false
-arshdeep-singh,Arshdeep Singh,India,false,capped,BOWL,LHB,LAF,PBKS,PBKS,RETAINED,2.0,18.0,2025,MARQUEE_SET1,,false
-yuzvendra-chahal,Yuzvendra Chahal,India,false,capped,BOWL,RHB,LB,PBKS,PBKS,RETAINED,2.0,18.0,2025,MARQUEE_SET2,,false
-kl-rahul,KL Rahul,India,false,capped,WK,RHB,,DC,DC,RETAINED,2.0,14.0,2025,MARQUEE_SET2,,false
-axar-patel,Axar Patel,India,false,capped,AR,LHB,SLA,DC,DC,RETAINED,,,,,16.50,false
-kuldeep-yadav,Kuldeep Yadav,India,false,capped,BOWL,LHB,LB,DC,DC,RETAINED,,,,,13.25,false
-cameron-green,Cameron Green,Australia,true,capped,AR,RHB,RAF,KKR,,AUCTION,2.0,25.20,2026,CAPPED,,false
-matheesha-pathirana,Matheesha Pathirana,Sri Lanka,true,capped,BOWL,RHB,RAF,KKR,CSK,AUCTION,2.0,18.0,2026,CAPPED,,false
-prashant-veer,Prashant Veer,India,false,uncapped,AR,RHB,RFM,CSK,,AUCTION,0.30,14.20,2026,UNCAPPED,,false
-kartik-sharma,Kartik Sharma,India,false,uncapped,AR,LHB,LFM,CSK,,AUCTION,0.30,14.20,2026,UNCAPPED,,false
-jos-buttler,Jos Buttler,England,true,capped,WK,RHB,,GT,RR,RETAINED,2.0,15.75,2025,MARQUEE_SET1,,false
-kagiso-rabada,Kagiso Rabada,South Africa,true,capped,BOWL,RHB,RAF,GT,PBKS,RETAINED,2.0,10.75,2025,MARQUEE_SET1,,false
-rinku-singh,Rinku Singh,India,false,capped,BAT,LHB,,KKR,KKR,RETAINED,,,,,13.0,false
-sunil-narine,Sunil Narine,West Indies,true,capped,AR,LHB,OB,KKR,KKR,RETAINED,,,,,12.0,false
-nicholas-pooran,Nicholas Pooran,West Indies,true,capped,WK,LHB,,LSG,LSG,RETAINED,,,,,21.0,false
-heinrich-klaasen,Heinrich Klaasen,South Africa,true,capped,WK,RHB,,SRH,SRH,RETAINED,,,,,23.0,false
-pat-cummins,Pat Cummins,Australia,true,capped,AR,RHB,RAF,SRH,SRH,RETAINED,,,,,18.0,false
-abhishek-sharma,Abhishek Sharma,India,false,capped,AR,LHB,SLA,SRH,SRH,RETAINED,,,,,14.0,false
-travis-head,Travis Head,Australia,true,capped,BAT,LHB,OB,SRH,SRH,RETAINED,,,,,14.0,false
-mayank-yadav,Mayank Yadav,India,false,capped,BOWL,RHB,RAF,LSG,LSG,RETAINED,,,,,11.0,false
-jofra-archer,Jofra Archer,England,true,capped,BOWL,RHB,RAF,RR,MI,RETAINED,2.0,12.50,2025,CAPPED,,false
-trent-boult,Trent Boult,New Zealand,true,capped,BOWL,RHB,LAF,MI,MI,RETAINED,,,,,12.5,false
-shivam-dube,Shivam Dube,India,false,capped,AR,LHB,RFM,CSK,CSK,RETAINED,,,,,12.0,false
-sai-sudarshan,Sai Sudarshan,India,false,capped,BAT,LHB,SLA,GT,GT,RETAINED,,,,,8.5,false
-varun-chakravarthy,Varun Chakravarthy,India,false,capped,BOWL,RHB,OB,KKR,KKR,RETAINED,,,,,12.0,false
-dhruv-jurel,Dhruv Jurel,India,false,capped,WK,RHB,,RR,RR,RETAINED,,,,,14.0,false
-mohammed-shami,Mohammed Shami,India,false,capped,BOWL,RHB,RFM,LSG,SRH,TRADED,2.0,10.0,2025,MARQUEE_SET2,,false
-mitchell-starc,Mitchell Starc,Australia,true,capped,BOWL,LHB,LAF,DC,KKR,RETAINED,2.0,24.75,2024,CAPPED,,false
-riyan-parag,Riyan Parag,India,false,capped,AR,RHB,LB,RR,RR,RETAINED,,,,,14.0,false
-noor-ahmad,Noor Ahmad,Afghanistan,true,capped,BOWL,LHB,SLA,CSK,CSK,RETAINED,,,,,10.0,false
-mohammed-siraj,Mohammed Siraj,India,false,capped,BOWL,RHB,RAF,GT,RCB,AUCTION,2.0,12.25,2025,CAPPED,,false
-prasidh-krishna,Prasidh Krishna,India,false,capped,BOWL,RHB,RAF,GT,RR,AUCTION,2.0,9.50,2025,CAPPED,,false
-tilak-varma,Tilak Varma,India,false,capped,BAT,LHB,,MI,MI,RETAINED,,,,,8.0,false
-rajat-patidar,Rajat Patidar,India,false,capped,BAT,RHB,,RCB,RCB,RETAINED,,,,,11.0,false
-yash-dayal,Yash Dayal,India,false,capped,BOWL,LHB,LAF,RCB,RCB,RETAINED,,,,,5.0,false
-liam-livingstone,Liam Livingstone,England,true,capped,AR,RHB,LB,RCB,PBKS,AUCTION,2.0,8.75,2025,MARQUEE_SET2,,false
-david-miller,David Miller,South Africa,true,capped,BAT,LHB,,GT,GT,AUCTION,2.0,7.50,2025,MARQUEE_SET2,,false
-shimron-hetmyer,Shimron Hetmyer,West Indies,true,capped,BAT,LHB,,RR,RR,RETAINED,,,,,11.0,false
-sandeep-sharma,Sandeep Sharma,India,false,capped,BOWL,RHB,RFM,RR,RR,RETAINED,,,,,4.0,false
-harshit-rana,Harshit Rana,India,false,capped,BOWL,RHB,RAF,KKR,KKR,RETAINED,,,,,4.0,false
-ramandeep-singh,Ramandeep Singh,India,false,uncapped,AR,RHB,RAF,KKR,KKR,RETAINED,,,,,4.0,false
-avesh-khan,Avesh Khan,India,false,capped,BOWL,RHB,RAF,LSG,LSG,RETAINED,,,,,9.75,false
-deepak-chahar,Deepak Chahar,India,false,capped,BOWL,RHB,RFM,MI,MI,AUCTION,2.0,9.25,2025,CAPPED,,false
-t-natarajan,T. Natarajan,India,false,capped,BOWL,LHB,LAF,DC,SRH,AUCTION,1.0,10.75,2025,CAPPED,,false
-tristan-stubbs,Tristan Stubbs,South Africa,true,capped,BAT,RHB,,DC,DC,RETAINED,,,,,10.0,false
-mukesh-kumar,Mukesh Kumar,India,false,capped,BOWL,RHB,RFM,DC,DC,RETAINED,,,,,8.0,false
-nitish-rana,Nitish Rana,India,false,capped,BAT,LHB,OB,DC,RR,TRADED,,,,,4.2,false
-will-jacks,Will Jacks,England,true,capped,AR,RHB,OB,MI,RCB,AUCTION,1.0,5.25,2025,CAPPED,,false
-mitchell-marsh,Mitchell Marsh,Australia,true,capped,AR,LHB,RAF,LSG,DC,AUCTION,2.0,3.40,2026,CAPPED,,false
-aiden-markram,Aiden Markram,South Africa,true,capped,AR,RHB,OB,LSG,SRH,AUCTION,2.0,2.0,2026,CAPPED,,false
-marcus-stoinis,Marcus Stoinis,Australia,true,capped,AR,RHB,RAF,PBKS,PBKS,RETAINED,,,,,11.0,false
-marco-jansen,Marco Jansen,South Africa,true,capped,AR,LHB,LAF,PBKS,MI,AUCTION,2.0,7.0,2025,CAPPED,,false
-rahul-tewatia,Rahul Tewatia,India,false,capped,AR,LHB,LB,GT,GT,RETAINED,,,,,4.0,false
-shahrukh-khan,Shahrukh Khan,India,false,capped,BAT,RHB,,GT,GT,RETAINED,,,,,4.0,false
-washington-sundar,Washington Sundar,India,false,capped,AR,RHB,OB,GT,SRH,AUCTION,1.0,3.2,2026,CAPPED,,false
-ayush-badoni,Ayush Badoni,India,false,uncapped,BAT,LHB,,LSG,LSG,RETAINED,,,,,4.0,false
-ravi-bishnoi,Ravi Bishnoi,India,false,capped,BOWL,RHB,LB,RR,LSG,AUCTION,2.0,7.20,2026,CAPPED,,false
-venkatesh-iyer,Venkatesh Iyer,India,false,capped,AR,LHB,RFM,RCB,KKR,AUCTION,2.0,7.0,2026,CAPPED,,false
-shardul-thakur,Shardul Thakur,India,false,capped,AR,RHB,RAF,MI,LSG,TRADED,,,,,2.0,false
-naman-dhir,Naman Dhir,India,false,capped,BAT,RHB,,MI,MI,RETAINED,,,,,5.25,false
-allah-ghazanfar,Allah Ghazanfar,Afghanistan,true,uncapped,BOWL,LHB,OB,MI,MI,RETAINED,,,,,4.8,false
-lokesh-rahul,Abhishek Porel,India,false,uncapped,WK,LHB,,DC,DC,RETAINED,,,,,4.0,false
+id,name,nationality,is_overseas,capped_status,role,batting_style,bowling_style,ipl_team_2026,ipl_team_2025,contract_type_2026,base_price_cr,sold_price_cr,auction_year,auction_set,retention_cost_cr,rtm_used,is_legend
+rishabh-pant,Rishabh Pant,India,False,capped,WK,LHB,,LSG,LSG,RETAINED,2.0,27.0,2025,MARQUEE_SET1,,False,False
+shreyas-iyer,Shreyas Iyer,India,False,capped,BAT,RHB,OB,PBKS,PBKS,RETAINED,2.0,26.75,2025,MARQUEE_SET1,,False,False
+cameron-green,Cameron Green,Australia,True,capped,AR,RHB,RAF,KKR,,AUCTION,2.0,25.2,2026,CAPPED,,False,False
+mitchell-starc,Mitchell Starc,Australia,True,capped,BOWL,LHB,LAF,DC,KKR,AUCTION,2.0,24.75,2024,CAPPED,,False,False
+heinrich-klaasen,Heinrich Klaasen,South Africa,True,capped,WK,RHB,,SRH,SRH,RETAINED,2.0,,,RETAINED,23.0,False,False
+nicholas-pooran,Nicholas Pooran,West Indies,True,capped,WK,LHB,,LSG,LSG,RETAINED,2.0,,,RETAINED,21.0,False,False
+virat-kohli,Virat Kohli,India,False,capped,BAT,RHB,OB,RCB,RCB,RETAINED,2.0,,,RETAINED,21.0,False,False
+arshdeep-singh,Arshdeep Singh,India,False,capped,BOWL,LHB,LAF,PBKS,PBKS,RETAINED,2.0,18.0,2025,MARQUEE_SET1,,False,False
+jasprit-bumrah,Jasprit Bumrah,India,False,capped,BOWL,RHB,RAF,MI,MI,RETAINED,2.0,,,RETAINED,18.0,False,False
+matheesha-pathirana,Matheesha Pathirana,Sri Lanka,True,capped,BOWL,RHB,RAF,KKR,CSK,AUCTION,2.0,18.0,2026,CAPPED,,False,False
+pat-cummins,Pat Cummins,Australia,True,capped,BOWL,RHB,RAF,SRH,SRH,RETAINED,2.0,,,RETAINED,18.0,False,False
+rashid-khan,Rashid Khan,Afghanistan,True,capped,BOWL,RHB,LB,GT,GT,RETAINED,2.0,,,RETAINED,18.0,False,False
+ruturaj-gaikwad,Ruturaj Gaikwad,India,False,capped,BAT,RHB,OB,CSK,CSK,RETAINED,2.0,,,RETAINED,18.0,False,False
+sanju-samson,Sanju Samson,India,False,capped,WK,RHB,,CSK,RR,TRADED,2.0,,,RETAINED,18.0,False,False
+yashasvi-jaiswal,Yashasvi Jaiswal,India,False,capped,BAT,LHB,SLA,RR,RR,RETAINED,2.0,,,RETAINED,18.0,False,False
+yuzvendra-chahal,Yuzvendra Chahal,India,False,capped,BOWL,RHB,LB,PBKS,PBKS,RETAINED,2.0,18.0,2025,MARQUEE_SET2,,False,False
+axar-patel,Axar Patel,India,False,capped,AR,LHB,SLA,DC,DC,RETAINED,2.0,,,RETAINED,16.5,False,False
+shubman-gill,Shubman Gill,India,False,capped,BAT,RHB,OB,GT,GT,RETAINED,2.0,,,RETAINED,16.5,False,False
+hardik-pandya,Hardik Pandya,India,False,capped,AR,RHB,RAF,MI,MI,RETAINED,2.0,,,RETAINED,16.35,False,False
+suryakumar-yadav,Suryakumar Yadav,India,False,capped,BAT,RHB,,MI,MI,RETAINED,2.0,,,RETAINED,16.35,False,False
+rohit-sharma,Rohit Sharma,India,False,capped,BAT,RHB,OB,MI,MI,RETAINED,2.0,,,RETAINED,16.3,False,False
+jos-buttler,Jos Buttler,England,True,capped,WK,RHB,,GT,RR,AUCTION,2.0,15.75,2025,MARQUEE_SET1,,False,False
+kartik-sharma,Kartik Sharma,India,False,uncapped,AR,LHB,LFM,CSK,,AUCTION,0.3,14.2,2026,UNCAPPED,,False,False
+prashant-veer,Prashant Veer,India,False,uncapped,AR,RHB,RFM,CSK,,AUCTION,0.3,14.2,2026,UNCAPPED,,False,False
+abhishek-sharma,Abhishek Sharma,India,False,capped,AR,LHB,SLA,SRH,SRH,RETAINED,2.0,,,RETAINED,14.0,False,False
+dhruv-jurel,Dhruv Jurel,India,False,capped,WK,RHB,,RR,RR,RETAINED,2.0,,,RETAINED,14.0,False,False
+kl-rahul,KL Rahul,India,False,capped,WK,RHB,,DC,DC,RETAINED,2.0,14.0,2025,MARQUEE_SET2,,False,False
+ravindra-jadeja,Ravindra Jadeja,India,False,capped,AR,LHB,SLA,RR,CSK,TRADED,2.0,,,RETAINED,14.0,False,False
+riyan-parag,Riyan Parag,India,False,capped,AR,RHB,LB,RR,RR,RETAINED,2.0,,,RETAINED,14.0,False,False
+travis-head,Travis Head,Australia,True,capped,BAT,LHB,OB,SRH,SRH,RETAINED,2.0,,,RETAINED,14.0,False,False
+kuldeep-yadav,Kuldeep Yadav,India,False,capped,BOWL,LHB,LB,DC,DC,RETAINED,2.0,,,RETAINED,13.25,False,False
+rinku-singh,Rinku Singh,India,False,capped,BAT,LHB,,KKR,KKR,RETAINED,2.0,,,RETAINED,13.0,False,False
+jofra-archer,Jofra Archer,England,True,capped,BOWL,RHB,RAF,RR,MI,AUCTION,2.0,12.5,2025,CAPPED,,False,False
+josh-hazlewood,Josh Hazlewood,Australia,True,capped,BOWL,,,RCB,,AUCTION,2.0,12.5,2025,CAPPED,,False,False
+trent-boult,Trent Boult,New Zealand,True,capped,BOWL,RHB,LAF,MI,MI,RETAINED,2.0,,,RETAINED,12.5,False,False
+mohammad-siraj,Mohammad Siraj,India,False,capped,BOWL,,,GT,,AUCTION,2.0,12.25,2025,CAPPED,,False,False
+shivam-dube,Shivam Dube,India,False,capped,AR,LHB,RFM,CSK,CSK,RETAINED,2.0,,,RETAINED,12.0,False,False
+sunil-narine,Sunil Narine,West Indies,True,capped,AR,LHB,OB,KKR,KKR,RETAINED,2.0,,,RETAINED,12.0,False,False
+varun-chakravarthy,Varun Chakravarthy,India,False,capped,BOWL,RHB,OB,KKR,KKR,RETAINED,2.0,,,RETAINED,12.0,False,False
+phil-salt,Phil Salt,England,True,capped,WK,,,RCB,,AUCTION,2.0,11.5,2025,CAPPED,,False,False
+ishan-kishan,Ishan Kishan,India,False,capped,WK,,,SRH,,AUCTION,2.0,11.25,2025,CAPPED,,False,False
+jitesh-sharma,Jitesh Sharma,India,False,capped,WK,,,RCB,,AUCTION,0.5,11.0,2025,CAPPED,,False,False
+marcus-stoinis,Marcus Stoinis,Australia,True,capped,AR,,,PBKS,,AUCTION,2.0,11.0,2025,CAPPED,,False,False
+mayank-yadav,Mayank Yadav,India,False,capped,BOWL,RHB,RAF,LSG,LSG,RETAINED,2.0,,,RETAINED,11.0,False,False
+rajat-patidar,Rajat Patidar,India,False,capped,BAT,,,RCB,,AUCTION,1.0,11.0,2025,CAPPED,,False,False
+shimron-hetmyer,Shimron Hetmyer,West Indies,True,capped,BAT,,,RR,,AUCTION,2.0,11.0,2025,CAPPED,,False,False
+bhuvneshwar-kumar,Bhuvneshwar Kumar,India,False,capped,BOWL,,,RCB,,AUCTION,2.0,10.75,2025,CAPPED,,False,False
+kagiso-rabada,Kagiso Rabada,South Africa,True,capped,BOWL,RHB,RAF,GT,PBKS,AUCTION,2.0,10.75,2025,MARQUEE_SET1,,False,False
+t-natarajan,T. Natarajan,India,False,capped,BOWL,,,DC,,AUCTION,1.0,10.75,2025,CAPPED,,False,False
+mohammed-shami,Mohammed Shami,India,False,capped,BOWL,RHB,RFM,LSG,SRH,TRADED,2.0,10.0,2025,MARQUEE_SET2,,False,False
+noor-ahmad,Noor Ahmad,Afghanistan,True,capped,BOWL,,,CSK,,AUCTION,2.0,10.0,2025,CAPPED,,False,False
+tristan-stubbs,Tristan Stubbs,South Africa,True,capped,BAT,,,DC,,AUCTION,1.0,10.0,2025,CAPPED,,False,False
+avesh-khan,Avesh Khan,India,False,capped,BOWL,,,LSG,,AUCTION,1.0,9.75,2025,CAPPED,,False,False
+prasidh-krishna,Prasidh Krishna,India,False,capped,BOWL,,,GT,,AUCTION,1.0,9.5,2025,CAPPED,,False,False
+deepak-chahar,Deepak Chahar,India,False,capped,BOWL,,,MI,,AUCTION,1.0,9.25,2025,CAPPED,,False,False
+sai-sudarshan,Sai Sudarshan,India,False,capped,BAT,LHB,SLA,GT,GT,RETAINED,2.0,,,RETAINED,8.5,False,False
+harshal-patel,Harshal Patel,India,False,capped,BOWL,,,SRH,,AUCTION,1.0,8.0,2025,CAPPED,,False,False
+mukesh-kumar,Mukesh Kumar,India,False,capped,BOWL,,,DC,,AUCTION,0.75,8.0,2025,CAPPED,,False,False
+tilak-varma,Tilak Varma,India,False,capped,BAT,,,MI,,AUCTION,1.0,8.0,2025,CAPPED,,False,False
+marco-jansen,Marco Jansen,South Africa,True,capped,AR,,,PBKS,,AUCTION,2.0,7.0,2025,CAPPED,,False,False
+tushar-deshpande,Tushar Deshpande,India,False,capped,BOWL,,,RR,,AUCTION,0.5,6.5,2025,CAPPED,,False,False
+nitish-kumar-reddy,Nitish Kumar Reddy,India,False,capped,AR,,,SRH,,AUCTION,0.5,6.0,2025,CAPPED,,False,False
+rasikh-salam,Rasikh Salam,India,False,uncapped,BOWL,,,RCB,,AUCTION,0.3,6.0,2025,UNCAPPED,,False,False
+krunal-pandya,Krunal Pandya,India,False,capped,AR,,,RCB,,AUCTION,1.0,5.75,2025,CAPPED,,False,False
+shashank-singh,Shashank Singh,India,False,uncapped,AR,,,PBKS,,AUCTION,0.3,5.5,2025,UNCAPPED,,False,False
+naman-dhir,Naman Dhir,India,False,uncapped,BAT,,,MI,,AUCTION,0.3,5.25,2025,UNCAPPED,,False,False
+will-jacks,Will Jacks,England,True,capped,AR,,,MI,,AUCTION,2.0,5.25,2025,CAPPED,,False,False
+yash-dayal,Yash Dayal,India,False,capped,BOWL,,,RCB,,AUCTION,0.5,5.0,2025,CAPPED,,False,False
+allah-ghazanfar,Allah Ghazanfar,Afghanistan,True,capped,BOWL,,,MI,,AUCTION,0.75,4.8,2025,CAPPED,,False,False
+khaleel-ahmed,Khaleel Ahmed,India,False,capped,BOWL,,,CSK,,AUCTION,1.0,4.8,2025,CAPPED,,False,False
+abdul-samad,Abdul Samad,India,False,uncapped,AR,,,LSG,,AUCTION,0.3,4.2,2025,UNCAPPED,,False,False
+nehal-wadhera,Nehal Wadhera,India,False,uncapped,BAT,,,PBKS,,AUCTION,0.3,4.2,2025,UNCAPPED,,False,False
+abhishek-porel,Abhishek Porel,India,False,uncapped,WK,,,DC,,AUCTION,0.3,4.0,2025,UNCAPPED,,False,False
+ayush-badoni,Ayush Badoni,India,False,uncapped,BAT,,,LSG,,AUCTION,0.3,4.0,2025,UNCAPPED,,False,False
+harshit-rana,Harshit Rana,India,False,capped,BOWL,,,KKR,,AUCTION,0.5,4.0,2025,CAPPED,,False,False
+ms-dhoni,MS Dhoni,India,False,uncapped,WK,RHB,,CSK,CSK,RETAINED,0.3,,,RETAINED,4.0,False,False
+prabhsimran-singh,Prabhsimran Singh,India,False,uncapped,WK,,,PBKS,,AUCTION,0.3,4.0,2025,UNCAPPED,,False,False
+rahul-tewatia,Rahul Tewatia,India,False,capped,AR,,,GT,,AUCTION,0.75,4.0,2025,CAPPED,,False,False
+ramandeep-singh,Ramandeep Singh,India,False,uncapped,AR,,,KKR,,AUCTION,0.3,4.0,2025,UNCAPPED,,False,False
+sandeep-sharma,Sandeep Sharma,India,False,capped,BOWL,,,RR,,AUCTION,0.5,4.0,2025,CAPPED,,False,False
+shahrukh-khan,Shahrukh Khan,India,False,uncapped,BAT,,,GT,,AUCTION,0.5,4.0,2025,UNCAPPED,,False,False
+ashutosh-sharma,Ashutosh Sharma,India,False,uncapped,AR,,,DC,,AUCTION,0.3,3.8,2025,UNCAPPED,,False,False
+priyansh-arya,Priyansh Arya,India,False,uncapped,BAT,,,PBKS,,AUCTION,0.3,3.8,2025,UNCAPPED,,False,False
+nandre-burger,Nandre Burger,South Africa,True,capped,BOWL,,,RR,,AUCTION,0.75,3.5,2025,CAPPED,,False,False
+anshul-kamboj,Anshul Kamboj,India,False,uncapped,BOWL,,,CSK,,AUCTION,0.3,3.4,2025,UNCAPPED,,False,False
+mitchell-marsh,Mitchell Marsh,Australia,True,capped,AR,,,LSG,,AUCTION,2.0,3.4,2025,CAPPED,,False,False
+washington-sundar,Washington Sundar,India,False,capped,AR,,,GT,,AUCTION,1.0,3.2,2025,CAPPED,,False,False
+angkrish-raghuvanshi,Angkrish Raghuvanshi,India,False,uncapped,BAT,,,KKR,,AUCTION,0.3,3.0,2025,UNCAPPED,,False,False
+mitchell-owen,Mitchell Owen,Australia,True,capped,BAT,,,PBKS,,AUCTION,0.75,3.0,2025,CAPPED,,False,False
+tim-david,Tim David,Australia,True,capped,BAT,,,RCB,,AUCTION,2.0,3.0,2025,CAPPED,,False,False
+jacob-bethell,Jacob Bethell,England,True,capped,AR,,,RCB,,AUCTION,0.75,2.6,2025,CAPPED,,False,False
+sherfane-rutherford,Sherfane Rutherford,West Indies,True,capped,BAT,,,MI,,AUCTION,1.0,2.6,2025,CAPPED,,False,False
+suyash-sharma,Suyash Sharma,India,False,uncapped,BOWL,,,RCB,,AUCTION,0.3,2.6,2025,UNCAPPED,,False,False
+azmatullah-omarzai,Azmatullah Omarzai,Afghanistan,True,capped,AR,,,PBKS,,AUCTION,1.0,2.4,2025,CAPPED,,False,False
+sam-curran,Sam Curran,England,True,capped,AR,,,RR,,AUCTION,2.0,2.4,2025,CAPPED,,False,False
+shahbaz-ahmed,Shahbaz Ahmed,India,False,capped,AR,,,LSG,,AUCTION,0.5,2.4,2025,CAPPED,,False,False
+dewald-brevis,Dewald Brevis,South Africa,True,capped,BAT,,,CSK,,AUCTION,0.75,2.2,2025,CAPPED,,False,False
+gurjapneet-singh,Gurjapneet Singh,India,False,uncapped,BOWL,,,CSK,,AUCTION,0.3,2.2,2025,UNCAPPED,,False,False
+aiden-markram,Aiden Markram,South Africa,True,capped,BAT,,,LSG,,AUCTION,2.0,2.0,2025,CAPPED,,False,False
+devdutt-padikkal,Devdutt Padikkal,India,False,capped,BAT,,,RCB,,AUCTION,0.5,2.0,2025,CAPPED,,False,False
+glenn-phillips,Glenn Phillips,New Zealand,True,capped,BAT,,,GT,,AUCTION,1.0,2.0,2025,CAPPED,,False,False
+lockie-ferguson,Lockie Ferguson,New Zealand,True,capped,BOWL,,,PBKS,,AUCTION,2.0,2.0,2025,CAPPED,,False,False
+mitchell-santner,Mitchell Santner,New Zealand,True,capped,AR,,,MI,,AUCTION,1.0,2.0,2025,CAPPED,,False,False
+nathan-ellis,Nathan Ellis,Australia,True,capped,BOWL,,,CSK,,AUCTION,0.75,2.0,2025,CAPPED,,False,False
+r-sai-kishore,R. Sai Kishore,India,False,capped,BOWL,,,GT,,AUCTION,0.5,2.0,2025,CAPPED,,False,False
+shardul-thakur,Shardul Thakur,India,False,capped,AR,,,MI,,AUCTION,1.0,2.0,2025,CAPPED,,False,False
+vaibhav-arora,Vaibhav Arora,India,False,uncapped,BOWL,,,KKR,,AUCTION,0.3,1.8,2025,UNCAPPED,,False,False
+vyshak-vijaykumar,Vyshak Vijaykumar,India,False,uncapped,BOWL,,,PBKS,,AUCTION,0.3,1.8,2025,UNCAPPED,,False,False
+nuwan-thushara,Nuwan Thushara,Sri Lanka,True,capped,BOWL,,,RCB,,AUCTION,0.75,1.6,2025,CAPPED,,False,False
+yash-thakur,Yash Thakur,India,False,uncapped,BOWL,,,PBKS,,AUCTION,0.3,1.6,2025,UNCAPPED,,False,False
+ajinkya-rahane,Ajinkya Rahane,India,False,capped,BAT,,,KKR,,AUCTION,0.5,1.5,2025,CAPPED,,False,False
+harpreet-brar,Harpreet Brar,India,False,uncapped,AR,,,PBKS,,AUCTION,0.3,1.5,2025,UNCAPPED,,False,False
+jamie-overton,Jamie Overton,England,True,capped,AR,,,CSK,,AUCTION,0.75,1.5,2025,CAPPED,,False,False
+kwena-maphaka,Kwena Maphaka,South Africa,True,uncapped,BOWL,,,RR,,AUCTION,0.3,1.5,2025,UNCAPPED,,False,False
+romario-shepherd,Romario Shepherd,West Indies,True,capped,AR,,,RCB,,AUCTION,1.0,1.5,2025,CAPPED,,False,False
+rovman-powell,Rovman Powell,West Indies,True,capped,BAT,,,KKR,,AUCTION,1.0,1.5,2025,CAPPED,,False,False
+gurnoor-brar,Gurnoor Brar,India,False,uncapped,BOWL,,,GT,,AUCTION,0.3,1.3,2025,UNCAPPED,,False,False
+mohd-arshad-khan,Mohd. Arshad Khan,India,False,uncapped,BOWL,,,GT,,AUCTION,0.3,1.3,2025,UNCAPPED,,False,False
+eshan-malinga,Eshan Malinga,Sri Lanka,True,uncapped,BOWL,,,SRH,,AUCTION,0.3,1.2,2025,UNCAPPED,,False,False
+vaibhav-suryavanshi,Vaibhav Suryavanshi,India,False,uncapped,BAT,,,RR,,AUCTION,0.3,1.1,2025,UNCAPPED,,False,False
+brydon-carse,Brydon Carse,England,True,capped,AR,,,SRH,,AUCTION,0.75,1.0,2025,CAPPED,,False,False
+jaydev-unadkat,Jaydev Unadkat,India,False,capped,BOWL,,,SRH,,AUCTION,0.75,1.0,2025,CAPPED,,False,False
+nitish-rana,Nitish Rana,India,False,capped,BAT,,,DC,,AUCTION,0.75,1.0,2025,CAPPED,,False,False
+ryan-rickelton,Ryan Rickelton,South Africa,True,capped,WK,,,MI,,AUCTION,0.75,1.0,2025,CAPPED,,False,False
+sameer-rizvi,Sameer Rizvi,India,False,uncapped,AR,,,DC,,AUCTION,0.3,0.95,2025,UNCAPPED,,False,False
+vishnu-vinod,Vishnu Vinod,India,False,uncapped,WK,,,PBKS,,AUCTION,0.3,0.95,2025,UNCAPPED,,False,False
+shubham-dubey,Shubham Dubey,India,False,uncapped,BAT,,,RR,,AUCTION,0.3,0.8,2025,UNCAPPED,,False,False
+xavier-bartlett,Xavier Bartlett,Australia,True,capped,BOWL,,,PBKS,,AUCTION,0.75,0.8,2025,CAPPED,,False,False
+corbin-bosch,Corbin Bosch,South Africa,True,capped,AR,,,MI,,AUCTION,0.75,0.75,2025,CAPPED,,False,False
+donovan-ferreira,Donovan Ferreira,South Africa,True,uncapped,AR,,,RR,,AUCTION,0.3,0.75,2025,UNCAPPED,,False,False
+dushmantha-chameera,Dushmantha Chameera,Sri Lanka,True,capped,BOWL,,,DC,,AUCTION,0.75,0.75,2025,CAPPED,,False,False
+ishant-sharma,Ishant Sharma,India,False,capped,BOWL,,,GT,,AUCTION,0.5,0.75,2025,CAPPED,,False,False
+jayant-yadav,Jayant Yadav,India,False,capped,AR,,,GT,,AUCTION,0.5,0.75,2025,CAPPED,,False,False
+kamindu-mendis,Kamindu Mendis,Sri Lanka,True,capped,AR,,,SRH,,AUCTION,0.75,0.75,2025,CAPPED,,False,False
+m-siddharth,M. Siddharth,India,False,uncapped,BOWL,,,LSG,,AUCTION,0.3,0.75,2025,UNCAPPED,,False,False
+manish-pandey,Manish Pandey,India,False,capped,BAT,,,KKR,,AUCTION,0.5,0.75,2025,CAPPED,,False,False
+matthew-breetzke,Matthew Breetzke,South Africa,True,capped,BAT,,,LSG,,AUCTION,0.75,0.75,2025,CAPPED,,False,False
+umran-malik,Umran Malik,India,False,capped,BOWL,,,KKR,,AUCTION,0.5,0.75,2025,CAPPED,,False,False
+kumar-kushagra,Kumar Kushagra,India,False,uncapped,WK,,,GT,,AUCTION,0.3,0.65,2025,UNCAPPED,,False,False
+robin-minz,Robin Minz,India,False,uncapped,WK,,,MI,,AUCTION,0.3,0.65,2025,UNCAPPED,,False,False
+karun-nair,Karun Nair,India,False,capped,BAT,,,DC,,AUCTION,0.5,0.5,2025,CAPPED,,False,False
+anukul-roy,Anukul Roy,India,False,uncapped,AR,,,KKR,,AUCTION,0.3,0.4,2025,UNCAPPED,,False,False
+madhav-tiwari,Madhav Tiwari,India,False,uncapped,BAT,,,DC,,AUCTION,0.3,0.4,2025,UNCAPPED,,False,False
+zeeshan-ansari,Zeeshan Ansari,India,False,uncapped,BOWL,,,SRH,,AUCTION,0.3,0.4,2025,UNCAPPED,,False,False
+yudhvir-charak,Yudhvir Charak,India,False,uncapped,AR,,,RR,,AUCTION,0.3,0.35,2025,UNCAPPED,,False,False
+abhinandan-singh,Abhinandan Singh,India,False,uncapped,BOWL,,,RCB,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+ajay-mandal,Ajay Mandal,India,False,uncapped,AR,,,DC,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+akash-singh,Akash Singh,India,False,uncapped,BOWL,,,LSG,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+aniket-verma,Aniket Verma,India,False,uncapped,BAT,,,SRH,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+anuj-rawat,Anuj Rawat,India,False,uncapped,WK,,,GT,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+arjun-tendulkar,Arjun Tendulkar,India,False,uncapped,AR,,,LSG,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+arshin-kulkarni,Arshin Kulkarni,India,False,uncapped,AR,,,LSG,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+ashwani-kumar,Ashwani Kumar,India,False,uncapped,BOWL,,,MI,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+ayush-mhatre,Ayush Mhatre,India,False,uncapped,BAT,,,CSK,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+digvesh-rathi,Digvesh Rathi,India,False,uncapped,BOWL,,,LSG,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+harnoor-pannu,Harnoor Pannu,India,False,uncapped,BAT,,,PBKS,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+harsh-dubey,Harsh Dubey,India,False,uncapped,BOWL,,,SRH,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+himmat-singh,Himmat Singh,India,False,uncapped,BAT,,,LSG,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+lhuan-dre-pretorious,Lhuan-Dre Pretorious,South Africa,True,uncapped,AR,,,RR,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+manav-suthar,Manav Suthar,India,False,uncapped,BOWL,,,GT,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+mayank-markande,Mayank Markande,India,False,uncapped,BOWL,,,MI,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+mohsin-khan,Mohsin Khan,India,False,uncapped,BOWL,,,LSG,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+mukesh-choudhary,Mukesh Choudhary,India,False,uncapped,BOWL,,,CSK,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+musheer-khan,Musheer Khan,India,False,uncapped,AR,,,PBKS,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+nishant-sindhu,Nishant Sindhu,India,False,uncapped,AR,,,GT,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+prince-yadav,Prince Yadav,India,False,uncapped,BOWL,,,LSG,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+pyla-avinash,Pyla Avinash,India,False,uncapped,BAT,,,PBKS,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+raghu-sharma,Raghu Sharma,India,False,uncapped,BOWL,,,MI,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+raj-angad-bawa,Raj Angad Bawa,India,False,uncapped,AR,,,MI,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+ramakrishna-ghosh,Ramakrishna Ghosh,India,False,uncapped,WK,,,CSK,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+shreyas-gopal,Shreyas Gopal,India,False,uncapped,BOWL,,,CSK,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+smaran-ravichandaran,Smaran Ravichandaran,India,False,uncapped,BAT,,,SRH,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+suryansh-shedge,Suryansh Shedge,India,False,uncapped,AR,,,PBKS,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+swapnil-singh,Swapnil Singh,India,False,uncapped,AR,,,RCB,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+tripurana-vijay,Tripurana Vijay,India,False,uncapped,BAT,,,DC,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+urvil-patel,Urvil Patel,India,False,uncapped,WK,,,CSK,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+vipraj-nigam,Vipraj Nigam,India,False,uncapped,AR,,,DC,,AUCTION,0.3,0.3,2025,UNCAPPED,,False,False
+P0003,A Chandila,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0004,A Chopra,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0005,A Kumble,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0006,A Manohar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0007,A Mishra,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0008,A Nehra,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0009,A Nortje,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0010,A Singh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0011,A Symonds,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0012,A Zampa,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0013,AA Bilakhia,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0014,AA Chavan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0016,AB Dinda,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0017,AB McDonald,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0018,AB de Villiers,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0019,AC Blizzard,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0021,AC Thomas,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0022,AD Mascarenhas,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0023,AD Mathews,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0024,AD Nath,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0026,AG Murtaza,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0027,AJ Finch,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0028,AJ Tye,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0030,AL Menaria,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0031,AM Ghazanfar,India,False,capped,BOWL,,,,,LEGEND,0.75,,,LEGENDS,,False,True
+P0032,AM Nayar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0033,AM Rahane,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0034,AN Ahmed,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0035,AP Tare,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0036,AR Patel,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0037,AS Joseph,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0038,AS Raut,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0039,AS Roy,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0040,AT Rayudu,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0041,AUK Pathan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0042,Aaron Finch,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0043,Aaron Hardie,India,False,capped,AR,,,,,LEGEND,1.25,,,LEGENDS,,False,True
+P0044,Aarya Desai,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0046,Abhijeet Tomar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0047,Abhilash Shetty,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0048,Abhimanyu Easwaran,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0049,Abhimanyu Mithun,India,False,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P0050,Abhimanyusingh Rajput,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0052,Abhinav Manohar,India,False,capped,BAT,,,,,LEGEND,0.3,,,LEGENDS,,False,True
+P0053,Abhinav Sadarangani,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0054,Abhishek Nayar,India,False,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P0057,Abid Mushtaq,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0055,Abishek Porel,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0058,Abu Nechim Ahmed,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0020,Adam Gilchrist,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0059,Adam Milne,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0060,Adam Voges,India,False,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P0061,Adam Zampa,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0062,Adil Rashid,Unknown,True,capped,BOWL,,,,,LEGEND,1.0,,,LEGENDS,,False,True
+P0063,Aditya Garhwal,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0064,Aditya Tare,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0065,Agnivesh Ayachi,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0066,Aiden Blizzard,Unknown,True,capped,BAT,,,,,LEGEND,0.09,,,LEGENDS,,False,True
+P0067,Ajantha Mendis,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0068,Ajay Dev Goud,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0015,Ajit Agarkar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0071,Akash Deep,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0072,Akash Madhwal,India,False,capped,BOWL,,,,,LEGEND,0.3,,,LEGENDS,,False,True
+P0073,Akash Sengupta,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0075,Akash Vashisht,India,False,capped,AR,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0076,Akeal Hosein,Unknown,True,capped,BOWL,,,,,LEGEND,1.0,,,LEGENDS,,False,True
+P0077,Akhil Arvind Herwadkar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0078,Akhin Sathar,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0079,Akila Dananjaya,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0080,Akila Dhananjaya,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0081,Akshar Rajesh Patel,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0082,Akshat Raghuwanshi,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0083,Akshay Karnewar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0084,Akshay Wakhare,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0085,Akshdeep Nath,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0086,Albie Morkel,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0087,Alex Carey,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0088,Alex Hales,Unknown,True,capped,BAT,,,,,LEGEND,1.0,,,LEGENDS,,False,True
+P0089,Alfonso Thomas,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0090,Alick Athanaze,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0092,Alzarri Joseph,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0093,Aman Khan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0094,Aman Rao,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0095,Amandeep Khare,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0096,Ambati Rayudu,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0097,Amit Kumar,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0098,Amit Paunikar,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0099,Anand Rajan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0025,Andre Russell,Unknown,True,capped,BAT,,,,,LEGEND,0.25,,,LEGENDS,,False,True
+P0100,Andrew Flintoff,Unknown,True,capped,BAT,,,,,LEGEND,4.56,,,LEGENDS,,False,True
+P0101,Andrew McDonald,Unknown,True,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P0102,Andrew Symonds,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0103,Andrew Tye,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0104,Aneeshwar Gautam,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0105,Angelo Mathews,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0107,Aniket Choudhary,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0109,Aniketh Reddy,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0110,Anil Kumble,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0111,Anirudha Ashok Joshi,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0112,Ankeet Bawane,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0113,Ankit Kumar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0114,Ankit Nagendra Sharma,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0115,Ankit Singh Rajpoot,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0116,Ankush Bains,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0117,Anmol Malhotra,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0119,Anrich Nortje,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0120,Ansh Gosai,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0118,Anureet Singh,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0124,Apoorv Vijay Wankhade,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0125,Aradhya Shukla,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0127,Armaan Jaffer,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0128,Arpit Guleria,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0129,Arshad Khan,India,False,capped,AR,,,,,LEGEND,0.3,,,LEGENDS,,False,True
+P0132,Aryaman Vikram Birla,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0133,Aryan Juyal,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0134,Asela Gunarathna,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0135,Ashish Nehra,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0001,Ashish Reddy,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0136,Ashok Sharma,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0137,Ashton Agar,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0138,Ashton Turner,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0140,Ashwin Das,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0141,Ashwin Hebbar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0142,Asif K M,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0143,Atal Rai,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0144,Atharva Ankolekar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0145,Atharva Taide,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0146,Atit Sheth,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0147,Auqib Nabi,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0148,Avanish Rao Aravelly,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0150,Avi Barot,India,False,capped,BAT,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0151,Avinash Singh,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0152,Avneesh Sudha,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0153,Azhar Mahmood,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0154,Azim Kazi,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0156,B Akhil,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0157,B Chipli,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0158,B Kumar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0159,B Lee,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0160,B R Sharath,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0161,B Sai Sudharsan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0162,B Surya,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0163,BA Bhatt,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0165,BAW Mendis,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0169,BJ Hodge,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0170,Baba Aparajith,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0171,Baba Indrajith,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0172,Baltej Dhanda,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0173,Bandaru Ayyappa,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0174,Barinder Singh Saran,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0175,Barinder Singh Sran,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0176,Basil Thampi,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0177,Basit Bashir,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0167,Ben Cutting,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0178,Ben Duckett,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0179,Ben Dunk,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0180,Ben Dwarshuis,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0181,Ben Hilfenhaus,Unknown,True,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P0182,Ben Laughlin,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0183,Ben McDermott,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0164,Benjamin Stokes,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0184,Benny Howell,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0168,Beuran Hendricks,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0185,Bevon Jacobs,India,False,capped,BAT,,,,,LEGEND,0.3,,,LEGENDS,,False,True
+P0186,Bhagath Varma,India,False,capped,AR,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0187,Bhagath Verma,India,False,capped,AR,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0188,Bhagmender Lather,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0189,Bhanuka Rajapaksa,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0190,Bhupen Lalwani,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0192,Bhuwan Rohilla,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0193,Billy Stanlake,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0194,Bipin Saurabh,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0195,Bipul Sharma,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0196,Blessing Muzarabani,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0197,Brad Haddin,Unknown,True,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P0198,Brad Hodge,Unknown,True,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P0199,Brad Hogg,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0200,Brandon King,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0201,Brendan Taylor,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0166,Brendon McCullum,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0202,Brett Lee,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0203,Brijesh Sharma,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0205,C Andre Siddarth,India,False,capped,BAT,,,,,LEGEND,0.3,,,LEGENDS,,False,True
+P0207,C M Gautam,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0208,C Munro,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0210,CA Lynn,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0211,CA Pujara,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0213,CH Morris,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0214,CJ Anderson,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0215,CJ Ferguson,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0216,CJ Jordan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0217,CL White,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0218,CR Brathwaite,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0219,CV Varun,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0220,Callum Ferguson,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0221,Cameron Delport,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0223,Cameron White,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0224,Carlos Brathwaite,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0225,Chaitanya Bishnoi,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0226,Chama Milind,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0227,Chamika Karunaratne,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0228,Charith Asalanka,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0229,Charl Langeveldt,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0230,Chetan Sakariya,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0231,Cheteshwar Pujara,India,False,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P0232,Chintal Gandhi,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0233,Chirag Suri,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0212,Chris Gayle,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0234,Chris Green,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0235,Chris Jordan,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0236,Chris Lynn,Unknown,True,capped,BAT,,,,,LEGEND,0.09,,,LEGENDS,,False,True
+P0238,Chris Woakes,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0239,Chris Wood,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0240,Christopher Barnwell,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0241,Christopher Gayle,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0237,Christopher Morris,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0242,Clint McKay,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0209,Colin De Grandhomme,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0243,Colin Ingram,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0244,Colin Munro,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0245,Cooper Connolly,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0247,Corey Anderson,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0248,D Padikkal,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0249,D Wiese,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0250,DA Miller,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0251,DA Warner,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0252,DB Das,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0253,DB Ravi Teja,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0254,DE Bollinger,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0255,DG Nalkande,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0256,DH Yagnik,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0257,DJ Bravo,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0258,DJ Hooda,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0260,DJ Jacobs,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0261,DJ Willey,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0262,DL Chahar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0263,DL Vettori,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0264,DP Conway,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0265,DPMD Jayawardene,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0267,DR Smith,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0268,DS Kulkarni,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0270,DW Steyn,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0271,Daksh Kamra,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0272,Dale Steyn,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0273,Damien Martyn,India,False,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0269,Dan Christian,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0274,Daniel Harris,Unknown,True,capped,BAT,,,,,LEGEND,0.25,,,LEGENDS,,False,True
+P0275,Daniel Sams,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0276,Daniel Vettori,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0277,Danish Malewar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0278,Darcy Short,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0279,Darren Bravo,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0280,Darren Sammy,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0281,Darshan Misal,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0282,Darshan Nalkande,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0283,Daryl Mitchell,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0284,Dasun Shanaka,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0259,David Hussey,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0285,David Wiese,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0286,David Willey,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0287,Davy Jacobs,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0288,Dawid Malan,Unknown,True,capped,BAT,,,,,LEGEND,1.0,,,LEGENDS,,False,True
+P0289,Debabrata Das,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0291,Deepak Hooda,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0292,Deepak Punia,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0293,Dev Lakra,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0294,Devang Karamta,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0296,Devendra Singh Bora,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0297,Devon Conway,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0299,Dhawal Kulkarni,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0266,Dhruv Shorey,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0301,Digvesh Singh,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0302,Digvijay Deshmukh,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0303,Dilshan Madushanka,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0304,Dimitri Mascarenhas,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0305,Dinesh Bana,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0306,Dinesh Chandimal,Unknown,True,capped,BAT,,,,,LEGEND,0.25,,,LEGENDS,,False,True
+P0307,Dinesh Karthik,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0308,Dinesh Salunkhe,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0309,Dirk Nannes,Unknown,True,capped,BAT,,,,,LEGEND,1.8,,,LEGENDS,,False,True
+P0310,Dishant Yagnik,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0311,Divesh Sharma,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0312,Divij Mehra,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0313,Dominic Drakes,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0314,Domnic Joseph Muthuswamy,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0316,Doug Bollinger,Unknown,True,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P0317,Doug Bracewell,Unknown,True,capped,BAT,,,,,LEGEND,0.25,,,LEGENDS,,False,True
+P0318,Duan Jansen,Unknown,True,capped,AR,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0320,Dwaine Pretorius,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0321,Dwayne Bravo,Unknown,True,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P0322,Dwayne Smith,Unknown,True,capped,BAT,,,,,LEGEND,0.48,,,LEGENDS,,False,True
+P0323,E Lewis,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0324,EJG Morgan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0325,Ekant Sen,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0326,Eklavya Dwivedi,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0327,Eoin Morgan,India,False,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P0329,Evin Lewis,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0331,Fabian Allen,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0330,Faf Du Plessis,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0332,Fareed Ahmad,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0333,Farhaan Behardien,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0334,Fazalhaq Farooqi,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0335,Fidel Edwards,Unknown,True,capped,BAT,,,,,LEGEND,0.72,,,LEGENDS,,False,True
+P0336,Finn Allen,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0337,Francois du Plessis,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0338,G Ajitesh,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0339,G Gambhir,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0340,G Periyaswamy,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0341,GC Smith,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0342,GJ Bailey,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0343,GJ Maxwell,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0344,Gahlaut Rahul Singh,India,False,capped,BAT,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0345,Ganesh Chaudhary,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0346,Gautam Gambhir,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0347,George Bailey,Unknown,True,capped,BAT,,,,,LEGEND,0.24,,,LEGENDS,,False,True
+P0348,George Garton,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0349,George Linde,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0350,George Scrimshaw,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0351,Gerald Coetzee,Unknown,True,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0352,Glenn Maxwell,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0353,Glenn McGrath,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0355,Gourav Choudhary,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0356,Gourav Yadav,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0357,Graeme Smith,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0358,Gurinder Sandhu,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0359,Gurkeerat Singh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0360,Gurkeerat Singh Mann,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0361,Gurnoor Singh Brar,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0362,Gus Atkinson,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0363,H Klaasen,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0364,H Sharma,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0365,HH Gibbs,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0366,HH Pandya,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0367,HM Amla,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0369,HS Sharath,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0370,HV Patel,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0371,Hanuma Vihari,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0372,Harbhajan Singh,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0374,Hardus Viljoen,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0206,Hari Nishanth,India,False,capped,BAT,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0375,Harishankar Reddy,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0377,Harpreet Bhatia,India,False,capped,BAT,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0376,Harpreet Singh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0379,Harry Brook,Unknown,True,capped,BAT,,,,,LEGEND,1.5,,,LEGENDS,,False,True
+P0380,Harry Gurney,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0382,Harsh Tyagi,India,False,capped,AR,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0385,Harvik Desai,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0387,Herschelle Gibbs,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0388,Himanshu Rana,India,False,capped,BAT,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0389,Himanshu Sharma,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0368,Hrithik Shokeen,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0390,I Sharma,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0391,IC Pandey,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0392,IK Pathan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0393,IR Jaggi,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0394,IS Sodhi,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0395,Ibrahim Zadran,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0396,Imran Tahir,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0397,Iqbal Abdulla,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0398,Iqbal Abdullah,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0399,Irfan Pathan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0401,Ishan Porel,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0402,Ishank Jaggi,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0404,Ishwar Chandra Pandey,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0405,Isuru Udana,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0406,Izharulhuq Naveed,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0407,J Botha,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0409,J Suchith,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0410,J Syed Mohammed,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0411,J Yadav,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0412,JA Morkel,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0413,JC Archer,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0415,JD Ryder,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0416,JD Unadkat,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0417,JDP Oram,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0419,JH Kallis,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0420,JJ Bumrah,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0422,JM Sharma,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0424,JP Duminy,Unknown,True,capped,BAT,,,,,LEGEND,1.44,,,LEGENDS,,False,True
+P0425,JP Faulkner,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0427,Jack Edwards,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0428,Jack Wildermuth,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0430,Jacob Duffy,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0431,Jacob Oram,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0432,Jacques Kallis,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0433,Jagadeesha Suchith,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0434,Jake Fraser-Mcgurk,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0435,Jalaj Saxena,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0436,James Faulkner,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0418,James Franklin,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0437,James Hopes,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0438,James Neesham,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0439,James Pattinson,Unknown,True,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P0440,James Vince,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0442,Jaskaran Singh,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0443,Jasmer Dhankhar,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0444,Jason Behrendorff,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0423,Jason Holder,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0445,Jason Roy,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0447,Jass Inder Baidwan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0448,Jatin Saxena,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0449,Javon Searless,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0451,Jaydev Shah,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0453,Jean-Paul Duminy,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0454,Jeevan Mendis,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0455,Jerome Taylor,Unknown,True,capped,BAT,,,,,LEGEND,0.72,,,LEGENDS,,False,True
+P0456,Jesse Ryder,Unknown,True,capped,BAT,,,,,LEGEND,0.48,,,LEGENDS,,False,True
+P0457,Jhathavedh Subramanyan,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0458,Jhye Richardson,Unknown,True,capped,AR,,,,,LEGEND,1.0,,,LEGENDS,,False,True
+P0459,Jitender Pal,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0461,Joe Denly,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0462,Joe Root,Unknown,True,capped,BAT,,,,,LEGEND,1.0,,,LEGENDS,,False,True
+P0463,Joel Paris,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0465,Joginder Sharma,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0466,Johan Botha,Unknown,True,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P0467,Johan van der Wath,Unknown,True,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P0468,John Hastings,Unknown,True,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P0469,Johnson Charles,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0470,Jonathan Vandiar,Unknown,True,capped,BAT,,,,,LEGEND,0.09,,,LEGENDS,,False,True
+P0421,Jonny Bairstow,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0471,Jordan Cox,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0472,Josh Inglis,Unknown,True,capped,WK,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0408,Joshua Little,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0473,Joshua Philippe,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0474,Juan Theron,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0475,Justin Kemp,India,False,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0476,K Bhagath Varma,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0477,K C Cariappa,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0478,K Goel,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0479,K Gowtham,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0480,K K Jiyaz,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0481,K Kartikeya,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0482,K Khejroliya,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0484,K M Asif,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0485,K Rabada,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0486,K S Bharat,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0487,K Upadhyay,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0488,KA Pollard,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0489,KC Sangakkara,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0490,KD Karthik,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0491,KH Pandya,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0492,KK Ahmed,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0493,KK Cooper,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0494,KK Nair,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0495,KL Nagarkoti,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0483,KL Shrijith,India,False,capped,WK,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0497,KM Jadhav,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0498,KP Appanna,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0499,KP Pietersen,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0500,KR Sen,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0503,KV Sharma,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0506,Kamlesh Nagarkoti,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0507,Kane Richardson,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0502,Kane Williamson,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0508,Kanishk Chouhan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0509,Kanishk Seth,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0511,Karanveer Singh,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0512,Karim Janat,India,False,capped,AR,,,,,LEGEND,0.75,,,LEGENDS,,False,True
+P0510,Karn Sharma,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0513,Kartik Tyagi,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0515,Kaushal Tambe,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0516,Kaushik Maity,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0517,Kedar Devdhar,India,False,capped,WK,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0518,Kedar Jadhav,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0519,Keemo Paul,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0520,Kemar Roach,India,False,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0521,Keshav Maharaj,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0522,Kevin Pietersen,Unknown,True,capped,BAT,,,,,LEGEND,6.48,,,LEGENDS,,False,True
+P0523,Kevon Cooper,Unknown,True,capped,BAT,,,,,LEGEND,0.25,,,LEGENDS,,False,True
+P0525,Kieron Pollard,India,False,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P0526,Kishore Pramod Kamath,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0527,Kona Srikar Bharat,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0528,Krains Fuletra,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0529,Krishnan Shrijith,India,False,capped,BAT,,,,,LEGEND,0.3,,,LEGENDS,,False,True
+P0530,Krishnappa Gowtham,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0531,Krismar Santokie,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0501,Kshitiz Sharma,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0533,Kuldeep Sen,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0535,Kulwant Khejroliya,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0536,Kumar Kartikeya,India,False,capped,BOWL,,,,,LEGEND,0.3,,,LEGENDS,,False,True
+P0538,Kumar Sangakkara,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0539,Kunal Rathore,India,False,capped,WK,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0540,Kusal Janith Perera,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0541,Kusal Mendis,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0543,Kyle Abbott,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0544,Kyle Jamieson,Unknown,True,capped,BOWL,,,,,LEGEND,0.75,,,LEGENDS,,False,True
+P0545,Kyle Mayers,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0546,Kyle Mills,Unknown,True,capped,BAT,,,,,LEGEND,0.72,,,LEGENDS,,False,True
+P0547,L Balaji,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0548,L Ngidi,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0549,L R Chethan,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0550,L Ronchi,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0551,LA Pomersbach,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0552,LH Ferguson,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0553,LMP Simmons,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0554,LR Shukla,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0555,LRPL Taylor,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0557,Lahiru Kumara,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0558,Lakshmipathy Balaji,India,False,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0559,Lalit Yadav,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0560,Lance Morris,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0561,Lasith Malinga,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0562,Laxmi Ratan Shukla,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0556,Liam Livingstone,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0563,Litton Das,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0564,Lizaad Williams,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0566,Luke Wood,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0567,Lukman Meriwala,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0568,Lungisani Ngidi,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0569,Luvnith Sisodia,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0570,M Ashwin,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0572,M Kaif,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0573,M Kartik,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0574,M Manhas,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0575,M Markande,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0576,M Morkel,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0577,M Muralitharan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0578,M Pathirana,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0579,M Prasidh Krishna,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0580,M Rawat,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0581,M Shahrukh Khan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0582,M Siddharth,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0583,M Theekshana,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0584,M Vijay,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0585,M Vohra,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0586,MA Agarwal,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0587,MA Starc,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0588,MC Henriques,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0589,MD Mishra,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0590,MEK Hussey,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0591,MF Maharoof,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0592,MG Johnson,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0593,MJ McClenaghan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0594,MJ Santner,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0595,MK Lomror,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0596,MK Pandey,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0597,MK Tiwary,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0598,ML Hayden,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0599,MM Ali,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0600,MM Patel,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0601,MM Sharma,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0602,MN Samuels,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0603,MP Stoinis,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0604,MR Marsh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0605,MS Bisla,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0607,MS Gony,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0610,Maheesh Theekshana,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0611,Mahela Jayawardene,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0612,Mahesh Pithiya,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0613,Mahipal Lomror,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0614,Manan Ajay Sharma,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0615,Manan Vohra,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0617,Mandeep Singh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0619,Mani Sankar Mura Singh,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0620,Manimaran Siddharth,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0622,Manish Reddy,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0623,Manjot Kalra,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0624,Manoj Bhandage,India,False,capped,AR,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0625,Manoj Tiwary,India,False,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0626,Manpreet Gony,India,False,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0627,Manprit Juneja,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0628,Manvanth Kumar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0629,Manvinder Bisla,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0630,Manzoor Dar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0631,Marchant de Lange,Unknown,True,capped,BAT,,,,,LEGEND,0.25,,,LEGENDS,,False,True
+P0608,Mark Boucher,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0633,Mark Chapman,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0634,Mark Wood,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0635,Marnus Labuschagne,Unknown,True,capped,AR,,,,,LEGEND,1.0,,,LEGENDS,,False,True
+P0636,Martin Guptill,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0637,Mashrafe Mortaza,Unknown,True,capped,BAT,,,,,LEGEND,0.24,,,LEGENDS,,False,True
+P0639,Matt Henry,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0641,Matthew Forde,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0642,Matthew Hayden,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0643,Matthew Short,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0644,Matthew Wade,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0645,Mayank Agarwal,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0646,Mayank Dagar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0648,Mayank Rawat,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0649,Michael Bracewell,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0650,Michael Clarke,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0651,Michael Hussey,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0652,Michael Klinger,Unknown,True,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P0653,Michael Lumb,Unknown,True,capped,BAT,,,,,LEGEND,0.09,,,LEGENDS,,False,True
+P0654,Midhun S,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0655,Milind Kumar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0656,Milind Tandon,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0657,Misbah-ul-Haq,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0658,Mitchell Johnson,Unknown,True,capped,BAT,,,,,LEGEND,1.5,,,LEGENDS,,False,True
+P0660,Mitchell McClenaghan,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0663,Mithun Manhas,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0664,Moeen Ali,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0665,Mohammed Arshad Khan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0666,Mohammed Ashraful,Unknown,True,capped,BAT,,,,,LEGEND,0.36,,,LEGENDS,,False,True
+P0667,Mohammed Asif,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0668,Mohammed Azharuddeen,India,False,capped,WK,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0669,Mohammed Izhar,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0670,Mohammed Kaif,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0671,Mohammed Nabi,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0673,Mohammed Siraj,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0674,Mohammed Waqar Salamkheil,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0675,Mohit Ahlawat,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0676,Mohit Avasthi,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0677,Mohit Rathee,India,False,capped,AR,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0678,Mohit Redkar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0679,Mohit Sharma,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0681,Moises Henriques,Unknown,True,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P0682,Money Grewal,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0683,Monu Singh,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0684,Morné Morkel,Unknown,True,capped,BAT,,,,,LEGEND,1.8,,,LEGENDS,,False,True
+P0685,Mrinmoy Dutta,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0686,Mujeeb Ur Rahman,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0687,Mujeeb Zadran,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0688,Mujtaba Yousuf,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0691,Mukhtar Hussain,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0692,Munaf Patel,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0693,Murali Kartik,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0694,Murali Vijay,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0696,Murugan Abhishek,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0695,Murugan Ashwin,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0698,Mustafizur Rahman,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0699,Mustaq Beg,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0700,Muttiah Muralitharan,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0701,N Jagadeesan,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0703,N Rana,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0704,N Tilak Varma,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0705,N Wadhera,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0707,NK Patel,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0708,NM Coulter-Nile,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0709,NS Naik,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0711,NV Ojha,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0712,Najibullah Zadran,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0714,Naman Ojha,India,False,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0715,Naman Tiwari,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0717,Nasir Lone,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0718,Nathan Coulter-Nile,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0719,Nathan McCullum,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0720,Nathan Rimmington,Unknown,True,capped,BAT,,,,,LEGEND,0.09,,,LEGENDS,,False,True
+P0721,Nathu Singh,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0722,Naushad Shaikh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0723,Navdeep Saini,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0724,Naveen-ul-Haq,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0706,Nic Maddinson,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0702,Nicolas Pooran,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0726,Nidheesh M D Dinesan,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0727,Nihal Ullal,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0728,Nikhil Gangta,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0729,Nikhil Shankar Naik,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0730,Ninad Rathva,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0732,Nitin Verma,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0736,Nuwan Kulasekara,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0737,Nuwan Pradeep,Unknown,True,capped,BAT,,,,,LEGEND,0.09,,,LEGENDS,,False,True
+P0740,Obed Mccoy,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0741,Odean Smith,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0742,Ollie Robinson,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0743,Olly Stone,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0744,Onkar Tarmale,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0745,Oshane Thomas,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0746,Ottneil Baartman,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0739,Owais Shah,Unknown,True,capped,BAT,,,,,LEGEND,0.72,,,LEGENDS,,False,True
+P0747,P A Abdul,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0748,P Awana,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0749,P Kumar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0750,P Negi,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0752,P Suyal,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0753,PA Patel,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0754,PBB Rajapaksa,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0755,PC Valthaty,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0757,PJ Sangwan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0758,PK Garg,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0759,PP Chawla,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0760,PP Ojha,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0761,PP Shaw,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0762,PR Shah,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0763,PV Tambe,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0764,PWH de Silva,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0765,Pankaj Jaswal,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0766,Pankaj Singh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0767,Pankaj Yadav,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0768,Paras Dogra,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0769,Pardeep Sahu,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0770,Parthiv Patel,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0771,Parveez Rasool,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0772,Parvinder Awana,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0773,Pathum Nissanka,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0774,Paul Collingwood,Unknown,True,capped,BAT,,,,,LEGEND,1.2,,,LEGENDS,,False,True
+P0775,Paul Van Meekeren,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0776,Pavan Deshpande,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0777,Pawan Negi,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0778,Pawan Suyal,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0779,Peter Handscomb,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0781,Philip Hughes,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0782,Piyush Chawla,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0783,Pradeep Sangwan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0784,Pradosh Paul,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0785,Praful Hinge,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0786,Pragyan Ojha,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0787,Prasad Pawar,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0788,Prasanth Padmanabhan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0789,Prasanth Parameswaran,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0790,Prashant Chopra,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0791,Prashant Solanki,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0751,Pratham Singh,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0794,Pratyush Singh,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0795,Praveen Dubey,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0796,Praveen Kumar,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0797,Pravin Tambe,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0798,Prayas Ray Barman,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0799,Prenelan Subrayen,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0800,Prerak Mankad,India,False,capped,BAT,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0801,Prerit Dutta,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0802,Prince Balwant Rai Singh,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0803,Prince Choudhary,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0805,Prithvi Raj,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0806,Prithvi Raj Yarra,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0807,Prithvi Shaw,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0808,Priyam Garg,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0809,Priyank Panchal,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0811,Pukhraj Mann,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0812,Pulkit Narang,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0814,Q de Kock,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0815,Qais Ahamad,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0816,Qais Ahmad,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0817,Quinton De Kock,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0818,R Ashwin,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0819,R Bhatia,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0821,R Dravid,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0823,R Parag,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0824,R Powell,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0825,R Sai Kishore,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0826,R Samarth,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0827,R Sanjay Yadav,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0829,R Tewatia,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0830,R Vinay Kumar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0831,RA Jadeja,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0833,RD Chahar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0834,RD Gaikwad,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0835,RE van der Merwe,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0828,RG Sharma,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0836,RJ Harris,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0839,RP Meredith,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0822,RP Singh,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0840,RR Pant,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0841,RR Powar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0842,RR Raje,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0843,RR Rossouw,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0845,RV Patel,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0847,Rachin Ravindra,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0848,Raghav Goyal,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0849,Rahmanullah Gurbaz,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0832,Rahul Ajay Tripathi,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0850,Rahul Buddhi,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0851,Rahul Chahar,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0852,Rahul Dravid,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0854,Rahul Shukla,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0857,Raj Chaudhary,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0858,Raj Limbani,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0859,Rajagopal Sathish,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0860,Rajan Kumar,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0861,Rajat Bhatia,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0862,Rajat Dey,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0864,Rajvardhan Hangargekar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0865,Rakshan Readdi,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0868,Ramesh Kumar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0869,Ramesh Powar,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0870,Ranganath Vinay Kumar,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0871,Rashid Khan Arman,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0872,Rasikh Dar,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0874,Rassie van der Dussen,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0875,Ravi Bishnoi,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0844,Ravi Bopara,Unknown,True,capped,BAT,,,,,LEGEND,0.72,,,LEGENDS,,False,True
+P0876,Ravi Chauhan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0877,Ravi Rampaul,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0879,Ravi Teja,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0880,Ravichandran Ashwin,India,False,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P0882,Reece Topley,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0883,Reeza Hendricks,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0884,Richard Gleeson,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0885,Richard Ngarava,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0837,Ricky Bhui,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0886,Ricky Ponting,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0887,Rilee Rossouw,Unknown,True,capped,BAT,,,,,LEGEND,0.09,,,LEGENDS,,False,True
+P0888,Riley Meredith,Unknown,True,capped,BOWL,,,,,LEGEND,0.4,,,LEGENDS,,False,True
+P0889,Ripal Patel,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0820,Rishi Dhawan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0891,Rithik Easwaran,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0893,Robert Frylinck,Unknown,True,capped,BAT,,,,,LEGEND,0.09,,,LEGENDS,,False,True
+P0895,Robin Peterson,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0846,Robin Uthappa,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0896,Rohan Kunnummal,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0897,Rohit Rayudu,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0899,Ronit More,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0900,Ross Taylor,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0902,Rudra Pratap Singh,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0903,Rusty Theron,Unknown,True,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P0905,Ryan Harris,Unknown,True,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P0906,Ryan McLaren,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0838,Ryan ten Doeschate,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P0908,S Anirudha,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0909,S Aravind,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0910,S Badrinath,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0911,S Dhawan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0912,S Dube,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0913,S Gopal,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0914,S Kaul,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0915,S Midhun,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0916,S Nadeem,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0918,S Sohal,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0919,S Sreesanth,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0920,SA Asnodkar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0921,SA Yadav,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0922,SB Styris,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0923,SC Ganguly,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0924,SD Chitnis,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0925,SE Marsh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0926,SK Raina,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0927,SK Trivedi,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0928,SK Warne,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0929,SL Malinga,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0931,SM Katich,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0932,SN Khan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0933,SN Thakur,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0934,SO Hetmyer,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0935,SP Goswami,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0936,SP Narine,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0937,SPD Smith,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0938,SR Tendulkar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0939,SR Watson,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0940,SS Iyer,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0941,SS Prabhudessai,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0942,SS Tiwary,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0943,ST Jayasuriya,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0944,STR Binny,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0945,SV Samson,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0947,Sachin Baby,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0948,Sachin Bhosale,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0949,Sachin Rana,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0950,Sachin Tendulkar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0951,Sachithra Senanayaka,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0952,Sagar Trivedi,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0953,Sahil Dhiwan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0954,Sahil Parekh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0955,Sai Kishore,India,False,capped,AR,,,,,LEGEND,0.75,,,LEGENDS,,False,True
+P0956,Sai Sudharsan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0957,Sairaj Patil,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0958,Sakib Hussain,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0959,Salil Arora,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0960,Salman Nizar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0946,Sam Billings,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0961,Samarth Vyas,India,False,capped,AR,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0963,Samuel Badree,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0964,Samuel Hain,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0965,Sanath Jayasuriya,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0966,Sandeep Bavanaka,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0967,Sandeep Lamichhane,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0917,Sandeep Warrier,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0969,Sanjay Pahal,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0970,Sanjay Yadav,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0973,Sarabjit Ladda,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0974,Saransh Jain,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0975,Sarfaraz Naushad Khan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0976,Sarfraz Khan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0977,Sarthak Ranjan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0978,Satvik Deswal,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0979,Satyanarayana Raju,India,False,capped,BOWL,,,,,LEGEND,0.3,,,LEGENDS,,False,True
+P0980,Saumy Pandey,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0981,Saurabh Dubey,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0982,Saurabh Kumar,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0983,Saurabh Tiwary,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0984,Saurav Chuahan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0985,Sayan Ghosh,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0986,Sayan Sekhar Mandal,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0987,Scott Boland,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0988,Scott Kuggeleijn,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0989,Scott Styris,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0990,Sean Abbott,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0991,Shadab Jakati,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0992,Shahbaz Ahamad,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0994,Shahbaz Nadeem,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0995,Shahid Afridi,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0997,Shai Hope,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P0998,Shaik Rasheed,India,False,capped,BAT,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P0999,Shakib Al Hasan,Unknown,True,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P1000,Shakir Gandhi,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1001,Shamar Joseph,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1002,Shams Mulani,India,False,capped,AR,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1003,Shane Bond,India,False,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P1004,Shane Warne,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1005,Shane Watson,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1006,Sharad Lumba,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1009,Shaun Marsh,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1010,Shaun Pollock,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1011,Shaun Tait,Unknown,True,capped,BAT,,,,,LEGEND,1.2,,,LEGENDS,,False,True
+P1012,Sheldon Cottrell,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1013,Sheldon Jackson,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1014,Shelley Shaurya,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1016,Shikhar Dhawan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1018,Shishir Bhavane,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1021,Shivam Mavi,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1019,Shivam Sharma,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1022,Shivang Kumar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1023,Shivil Kaushik,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1024,Shoaib Malik,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1025,Shreevats Goswami,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1027,Shreyas Gurav,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1029,Shrikant Mundhe,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1030,Shubam Agrawal,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1031,Shubham Garhwal,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1032,Shubham Kapse,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1033,Shubham Ranjane,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1034,Shubham Singh Pundir,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1035,Shubhang Hegde,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1037,Siddarth Kaul,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1038,Siddhesh Dinesh Lad,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1039,Sikandar Raza,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1040,Simarjeet Singh,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1041,Simon Katich,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1042,Sohail Tanvir,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1043,Sourav Ganguly,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1044,Spencer Johnson,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1045,Srikar Bharat,India,False,capped,WK,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1046,Srikkanth Anirudha,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1047,Stephen Fleming,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1048,Stephen O'Keefe,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1049,Steven Smith,Unknown,True,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P1050,Stuart Broad,Unknown,True,capped,BAT,,,,,LEGEND,1.35,,,LEGENDS,,False,True
+P1051,Subhranshu Senapati,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1052,Subramaniam Badrinath,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1053,Sudeep Tyagi,India,False,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P1054,Sudhesan Midhun,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1055,Sudip Gharami,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1056,Sumeet Verma,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1057,Sumit Ghadigaonkar,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1058,Sumit Kumar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1059,Sumit Narwal,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1061,Suraj Randiv,Unknown,True,capped,BAT,,,,,LEGEND,0.09,,,LEGENDS,,False,True
+P1062,Suresh Raina,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1065,Sushant Marathe,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1066,Sushant Mishra,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1067,Suyash Prabhudessai,India,False,capped,BAT,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1069,Swastik Chhikara,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1070,Swastik Chikara,India,False,capped,BAT,,,,,LEGEND,0.3,,,LEGENDS,,False,True
+P1071,Syed Khaleel Ahmed,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1072,Syed Mehdi Hasan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1073,T Natarajan,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1074,T Stubbs,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1075,T Thushara,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1076,TA Boult,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1079,TL Suman,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1080,TM Dilshan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1081,TM Head,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1082,TM Srivastava,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1084,Tabraiz Shamsi,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1085,Tajinder Dhillon,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1086,Tajinder Singh,India,False,capped,AR,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1087,Tanay Thyagarajann,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1088,Tanmay Agarwal,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1089,Tanmay Mishra,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1090,Tanush Kotian,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1091,Tejas Singh Baroka,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1092,Tejasvi Singh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1093,Thilan Thushara,Unknown,True,capped,BAT,,,,,LEGEND,0.48,,,LEGENDS,,False,True
+P1094,Thissara Perera,India,False,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P1095,Tillakaratne Dilshan,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1096,Tim Paine,Unknown,True,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P1097,Tim Seifert,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1077,Tim Southee,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1098,Tirumalasetti Suman,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1099,Tom Banton,Unknown,True,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1100,Tom Curran,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1101,Tom Kohler-Cadmore,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1102,Travis Birt,Unknown,True,capped,BAT,,,,,LEGEND,0.09,,,LEGENDS,,False,True
+P1107,Tymal Mills,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1108,Tyron Henderson,Unknown,True,capped,BAT,,,,,LEGEND,0.48,,,LEGENDS,,False,True
+P1109,UBT Chand,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1111,Umang Sharma,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1110,Umesh Yadav,India,False,capped,BAT,,,,,LEGEND,0.45,,,LEGENDS,,False,True
+P1114,Utkarsh Singh,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1116,V Sehwag,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1117,V Shankar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1118,VG Arora,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1119,VR Aaron,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1120,VR Iyer,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1121,VRV Singh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1122,VVS Laxman,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1123,VY Mahesh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1125,Vaibhav Rawal,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1127,Vaisakh Chandran,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1128,Vansh Bedi,India,False,capped,BAT,,,,,LEGEND,0.3,,,LEGENDS,,False,True
+P1129,Varun Aaron,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1130,Varun Chakaravarthy,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1132,Veer Pratap Singh,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1133,Venkatesh Iyer,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1134,Venkatesh Muralidhara,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1135,Venugopal Rao,India,False,capped,BAT,,,,,LEGEND,1.35,,,LEGENDS,,False,True
+P1136,Vicky Ostwal,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1137,Vidwath Kaverappa,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1138,Vignesh Puthur,India,False,capped,AR,,,,,LEGEND,0.3,,,LEGENDS,,False,True
+P1139,Vihaan Malhotra,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1140,Vijay Shankar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1141,Vijay Zol,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1142,Vijaykumar Vyshak,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1143,Vikas Tokas,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1144,Vikramjeet Malik,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1145,Vinay Kumar,India,False,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P1146,Vineet Dhankhar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1148,Virat Singh,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1149,Virender Sehwag,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1150,Vishal Godara,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1151,Vishal Nishad,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1152,Vishnu Solanki,India,False,capped,WK,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1154,Vishu Kashyap,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1155,Vishwanath Pratap Singh,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1156,Vivrant Sharma,India,False,capped,AR,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1158,WA Mota,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1159,WD Parnell,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1160,WP Saha,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1161,WPUJC Vaas,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1162,Wanindu Hasaranga,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1163,Waseem Bashir,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1157,Wasim Jaffer,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1165,Wayne Parnell,India,False,capped,BAT,,,,,LEGEND,0.9,,,LEGENDS,,False,True
+P1166,Wesley Agar,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1167,Wiaan Mulder,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1169,William O'Rourke,Unknown,True,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1170,William Salzmann,Unknown,True,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1171,Wriddhiman Saha,India,False,capped,WK,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1172,Writtick Chatterjee,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1174,Y Nagar,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1175,Y Venugopal Rao,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1176,YBK Jaiswal,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1178,YS Chahal,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1179,YV Takawale,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1181,Yash Dhull,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1182,Yash Raj Punja,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1185,Yogesh Gowalkar,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1187,Yudhvir Singh,India,False,capped,BOWL,,,,,LEGEND,0.2,,,LEGENDS,,False,True
+P1188,Yusuf Abdulla,India,False,capped,BAT,,,,,LEGEND,0.23,,,LEGENDS,,False,True
+P1177,Yusuf Pathan,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1189,Yuvraj Chudasama,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1190,Yuvraj Singh,India,False,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1191,Yuzvendra Singh Chahal,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1192,Z Khan,India,False,capped,BAT,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1193,Zaheer Khan,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1194,Zahir Khan Pakteen,India,False,capped,BOWL,,,,,LEGEND,0.5,,,LEGENDS,,False,True
+P1195,Zak Foulkes,Unknown,True,capped,AR,,,,,LEGEND,0.5,,,LEGENDS,,False,True
