@@ -14,7 +14,7 @@ export interface TeamRecord {
   purse_2026_cr: number;
   retained_spend_2026_cr: number;
   auction_purse_remaining_2026_cr: number;
-  titles: any[]; // JSON array
+  titles: string[]; // JSON array representing titles
   created_at?: string;
   updated_at?: string;
 }
@@ -41,7 +41,7 @@ export interface RawPlayer {
   retention_cost_cr: number | null;
   rtm_used: boolean;
   is_legend: boolean;
-  all_time_auctions: any[]; // JSON array
+  all_time_auctions: unknown[]; // JSON array
 }
 
 /**

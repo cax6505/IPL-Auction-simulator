@@ -95,7 +95,7 @@ export function AuctionTabs() {
                 </div>
               )}
               {/* React rendering reversed list so latest is always at the top */}
-              {[...logs].reverse().map((log: any) => (
+              {[...logs].reverse().map((log: LogMessage) => (
                 <div key={log.id} className="flex items-start gap-2 bg-transparent border-b border-border/5 px-2 py-1.5 hover:bg-white/[0.01] transition-colors rounded-none animate-fade-in">
                   <div className={`mt-0.5 shrink-0 flex items-center justify-center h-4 w-4 rounded-sm ${
                     log.type === "sys" ? "bg-amber-500/10 text-amber-500" :
@@ -118,7 +118,7 @@ export function AuctionTabs() {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-4">
-              {claimedTeams.map((teamData: any) => {
+              {claimedTeams.map((teamData: RoomFranchise) => {
                 const isOnline = onlineUsers.some(u => u.team === teamData.team_id);
                 const meta = TEAM_MAP.find(t => t.id === teamData.team_id);
                 return (

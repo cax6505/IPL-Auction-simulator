@@ -140,7 +140,7 @@ function UpcomingTab({
   groups,
   totalCount,
 }: {
-  groups: Record<string, any[]>;
+  groups: Record<string, Partial<RoomSoldPlayer & { name: string; role: string }>[]>;
   totalCount: number;
 }) {
   return (
@@ -174,7 +174,7 @@ function UpcomingTab({
   );
 }
 
-function PlayerRow({ player }: { player: any }) {
+function PlayerRow({ player }: { player: Partial<RoomSoldPlayer & { name: string; role: string }> }) {
   const roleStyle = ROLE_COLORS[player.role] || { bg: "bg-zinc-500/20", text: "text-zinc-400" };
   const roleLabel = player.role === "AR" ? "All-Rounder" : player.role === "WK" ? "Wicket-Keeper" : player.role === "BAT" ? "Batsman" : player.role === "BOWL" ? "Bowler" : player.role;
 

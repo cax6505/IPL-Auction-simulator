@@ -79,21 +79,43 @@ export async function POST(req: NextRequest) {
       roomCode: room.room_code,
       roomId: room.id,
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("POST /api/rooms error:", err);
-    return NextResponse.json({ error: err.message }, { status: 500 });
+    const msg = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json({ error: msg }, { status: 500 });
   }
 }
 
 /**
- * GET /api/rooms — List all public rooms
+ * GET /api/rooms — List all public rooms (waiting, active, recently completed)
  */
 export async function GET() {
   try {
+    // Auto-expire stale rooms:
+    // - Waiting rooms older than 2 hours → mark as completed
+    // - Active rooms older than 6 hours → mark as completed
+    const twoHoursAgo = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
+    const sixHoursAgo = new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString();
+
+    await supabase
+      .from("rooms")
+      .update({ status: "completed" })
+      .eq("status", "waiting")
+      .lt("created_at", twoHoursAgo);
+
+    await supabase
+      .from("rooms")
+      .update({ status: "completed" })
+      .eq("status", "active")
+      .lt("created_at", sixHoursAgo);
+
+    // Fetch all relevant rooms (waiting + active + recently completed)
+    const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+    
     const { data: rooms, error } = await supabase
       .from("rooms")
       .select("id, room_code, status, auction_mode, timer_duration, max_players, created_at")
-      .in("status", ["waiting", "active"])
+      .or(`status.eq.waiting,status.eq.active,and(status.eq.completed,created_at.gt.${oneDayAgo})`)
       .order("created_at", { ascending: false })
       .limit(50);
 
@@ -113,7 +135,8 @@ export async function GET() {
     );
 
     return NextResponse.json({ rooms: roomsWithCounts });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json({ error: msg }, { status: 500 });
   }
 }

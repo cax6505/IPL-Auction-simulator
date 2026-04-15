@@ -183,7 +183,7 @@ function StatCard({ value, label, desc }: { value: string; label: string; desc: 
 }
 
 // Simple icon missing from lucide import
-function BookOpenIcon(props: any) {
+function BookOpenIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

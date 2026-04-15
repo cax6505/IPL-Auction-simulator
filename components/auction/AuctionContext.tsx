@@ -4,29 +4,30 @@ import React, { createContext, useContext, useEffect, useState, useRef, useCallb
 import { useParams, useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { calculateNextBid, canAffordBid, formatPriceCr, IPL_RULES, TEAM_MAP } from "@/lib/auction-engine";
+import { Room, RoomFranchise, Bid, RoomSoldPlayer, ChatMessage, LogMessage, SoldFlashData, PlayerRecord } from "@/lib/types";
 
 interface AuctionContextType {
   roomCode: string;
   loading: boolean;
-  room: any;
+  room: Room | null;
   playerTeam: string | null;
   playerName: string;
   isSpectator: boolean;
-  claimedTeams: any[];
+  claimedTeams: RoomFranchise[];
   onlineUsers: any[];
-  allPlayers: any[];
-  currentPlayer: any;
-  logs: any[];
-  chatMessages: { id: string; sender: string; text: string; timestamp: number }[];
+  allPlayers: PlayerRecord[];
+  currentPlayer: PlayerRecord | null;
+  logs: LogMessage[];
+  chatMessages: ChatMessage[];
   timeLeft: number | null;
-  showSoldFlash: { team: string; name: string; amount: number } | null;
+  showSoldFlash: SoldFlashData | null;
   showSquadsModal: string | null;
-  squadsMap: Record<string, any[]>;
+  squadsMap: Record<string, Partial<RoomSoldPlayer & { name: string; role: string }>[]>;
   isAuctionComplete: boolean;
   isBidding: boolean;
 
   // Actions
-  setShowSoldFlash: (val: any) => void;
+  setShowSoldFlash: (val: SoldFlashData | null) => void;
   setShowSquadsModal: (val: string | null) => void;
   handleClaim: (teamId: string) => Promise<void>;
   handleStartAuction: () => Promise<void>;
@@ -48,7 +49,7 @@ interface AuctionContextType {
   isHighest: boolean;
   safeBasePrice: number;
   nextCalculated: number;
-  myRecord: any;
+  myRecord: RoomFranchise | undefined;
   myPurse: number;
   mySquadSize: number;
   myOverseas: number;
@@ -69,32 +70,32 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
 
   // State
   const [loading, setLoading] = useState(true);
-  const [room, setRoom] = useState<any>(null);
+  const [room, setRoom] = useState<Room | null>(null);
   const [playerTeam, setPlayerTeam] = useState<string | null>(null);
   const [playerName, setPlayerName] = useState("");
   const [joinName, setJoinName] = useState("");
   const [isSpectator, setIsSpectator] = useState(false);
-  const [claimedTeams, setClaimedTeams] = useState<any[]>([]);
-  const [onlineUsers, setOnlineUsers] = useState<any[]>([]);
-  const [allPlayers, setAllPlayers] = useState<any[]>([]);
-  const [currentPlayer, setCurrentPlayer] = useState<any>(null);
-  const [logs, setLogs] = useState<{ id: string; text: string; type: "bid" | "join" | "sys" }[]>([]);
-  const [chatMessages, setChatMessages] = useState<{ id: string; sender: string; text: string; timestamp: number }[]>([]);
+  const [claimedTeams, setClaimedTeams] = useState<RoomFranchise[]>([]);
+  const [onlineUsers, setOnlineUsers] = useState<any[]>([]); // Preserved any for raw realtime presence state
+  const [allPlayers, setAllPlayers] = useState<PlayerRecord[]>([]);
+  const [currentPlayer, setCurrentPlayer] = useState<PlayerRecord | null>(null);
+  const [logs, setLogs] = useState<LogMessage[]>([]);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
-  const [showSoldFlash, setShowSoldFlash] = useState<{ team: string; name: string; amount: number } | null>(null);
+  const [showSoldFlash, setShowSoldFlash] = useState<SoldFlashData | null>(null);
   const [showSquadsModal, setShowSquadsModal] = useState<string | null>(null);
-  const [squadsMap, setSquadsMap] = useState<Record<string, any[]>>({});
+  const [squadsMap, setSquadsMap] = useState<Record<string, Partial<RoomSoldPlayer & { name: string; role: string }>[]>>({});
   const [isAuctionComplete, setIsAuctionComplete] = useState(false);
   const [isBidding, setIsBidding] = useState(false);
 
   // Refs
   const soldFiredRef = useRef(false);
-  const allPlayersRef = useRef<any[]>([]);
-  const claimedTeamsRef = useRef<any[]>([]);
+  const allPlayersRef = useRef<PlayerRecord[]>([]);
+  const claimedTeamsRef = useRef<RoomFranchise[]>([]);
   const playerTeamRef = useRef<string | null>(null);
-  const roomRef = useRef<any>(null);
+  const roomRef = useRef<Room | null>(null);
   const advanceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const activeChannelRef = useRef<any>(null);
+  const activeChannelRef = useRef<any>(null); // Preserved any for RealtimeChannel
 
   // Sync refs
   useEffect(() => { allPlayersRef.current = allPlayers; }, [allPlayers]);
@@ -165,12 +166,12 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
         setClaimedTeams(franchises);
         claimedTeamsRef.current = franchises;
 
-        const myEntry = franchises.find((f: any) => f.team_id === playerTeam);
+        const myEntry = franchises.find((f: RoomFranchise) => f.team_id === playerTeam);
         if (!myEntry && roomData.status !== "waiting") {
           setIsSpectator(true);
         }
 
-        const joinLogs = franchises.map((f: any) => ({
+        const joinLogs: LogMessage[] = franchises.map((f: RoomFranchise) => ({
           id: crypto.randomUUID(),
           text: `${f.user_name} joined as ${f.team_id}`,
           type: "join" as const,
@@ -186,7 +187,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
         .order("created_at", { ascending: true });
 
       if (bids) {
-        const bidLogs = bids.map((b: any) => ({
+        const bidLogs: LogMessage[] = bids.map((b: Bid) => ({
           id: crypto.randomUUID(),
           text: `${b.team_id} bid ${formatPriceCr(Number(b.amount_cr))}`,
           type: "bid" as const,
@@ -256,25 +257,28 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
         })
         .on("postgres_changes", { event: "INSERT", schema: "public", table: "room_franchises", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
           setClaimedTeams(prev => {
-            const exists = prev.some(t => t.team_id === (p.new as any).team_id);
-            const updated = exists ? prev : [...prev, p.new];
+            const newFranchise = p.new as RoomFranchise;
+            const exists = prev.some(t => t.team_id === newFranchise.team_id);
+            const updated = exists ? prev : [...prev, newFranchise];
             claimedTeamsRef.current = updated;
             return updated;
           });
-          addLog(`${(p.new as any).user_name} joined as ${(p.new as any).team_id}`, "join");
+          addLog(`${(p.new as RoomFranchise).user_name} joined as ${(p.new as RoomFranchise).team_id}`, "join");
         })
         .on("postgres_changes", { event: "UPDATE", schema: "public", table: "room_franchises", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
           setClaimedTeams(prev => {
-            const updated = prev.map(t => t.team_id === (p.new as any).team_id ? { ...t, ...p.new } : t);
+            const updatedFranchise = p.new as RoomFranchise;
+            const updated = prev.map(t => t.team_id === updatedFranchise.team_id ? { ...t, ...updatedFranchise } : t);
             claimedTeamsRef.current = updated;
             return updated;
           });
         })
         .on("postgres_changes", { event: "INSERT", schema: "public", table: "bids", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
-          addLog(`${(p.new as any).team_id} bid ${formatPriceCr(Number((p.new as any).amount_cr))}`, "bid");
+          const newBid = p.new as Bid;
+          addLog(`${newBid.team_id} bid ${formatPriceCr(Number(newBid.amount_cr))}`, "bid");
         })
         .on("postgres_changes", { event: "INSERT", schema: "public", table: "room_sold_players", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
-          const sale = p.new as any;
+          const sale = p.new as RoomSoldPlayer;
           setSquadsMap(prev => {
             const updated = { ...prev };
             delete updated[sale.team_id];
@@ -350,7 +354,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
     if (finalBid > 0 && winnerId) {
       const winnerRecord = teams.find(c => c.team_id === winnerId);
       if (winnerRecord) {
-        const currentPlayerData = players.find((p: any) => p.id === currentPid);
+        const currentPlayerData = players.find((p: PlayerRecord) => p.id === currentPid);
         const isOs = currentPlayerData?.is_overseas === true;
         const newPurse = Number(((Number(winnerRecord.purse_remaining_cr) || 120.0) - finalBid).toFixed(2));
         const newSquadSize = (winnerRecord.squad_count || 0) + 1;
@@ -372,7 +376,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
       }
     }
 
-    const currentIndex = players.findIndex((p: any) => p.id === currentPid);
+    const currentIndex = players.findIndex((p: PlayerRecord) => p.id === currentPid);
     if (currentIndex >= 0 && currentIndex < players.length - 1) {
       const nextPlayer = players[currentIndex + 1];
       const td = currentRoom?.timer_duration || 10;

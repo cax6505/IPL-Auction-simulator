@@ -13,6 +13,7 @@ import {
   Plus,
   RefreshCw,
   Trophy,
+  CheckCircle2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -34,6 +35,13 @@ const MODE_LABELS: Record<string, string> = {
   legends_auction: "Legends Auction",
 };
 
+const MODE_COLORS: Record<string, string> = {
+  mock_2026: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+  mega_auction: "text-zinc-300 bg-zinc-500/10 border-zinc-500/20",
+  legends_upgraded: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+  legends_auction: "text-purple-400 bg-purple-500/10 border-purple-500/20",
+};
+
 function timeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
   const mins = Math.floor(diff / 60000);
@@ -48,7 +56,6 @@ export default function BrowseRoomsPage() {
   const router = useRouter();
   const [rooms, setRooms] = useState<RoomData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [lastRefresh, setLastRefresh] = useState(Date.now());
 
   const fetchRooms = useCallback(async () => {
     try {
@@ -66,13 +73,13 @@ export default function BrowseRoomsPage() {
     fetchRooms();
     const interval = setInterval(() => {
       fetchRooms();
-      setLastRefresh(Date.now());
     }, 5000);
     return () => clearInterval(interval);
   }, [fetchRooms]);
 
   const openRooms = rooms.filter((r) => r.status === "waiting");
-  const liveRooms = rooms.filter((r) => r.status === "active" || r.status === "in_progress");
+  const liveRooms = rooms.filter((r) => r.status === "active");
+  const completedRooms = rooms.filter((r) => r.status === "completed");
 
   const handleJoin = (code: string) => {
     const name = sessionStorage.getItem("playerName");
@@ -83,6 +90,8 @@ export default function BrowseRoomsPage() {
     }
     router.push(`/room/${code}`);
   };
+
+  const hasAnyRooms = openRooms.length > 0 || liveRooms.length > 0 || completedRooms.length > 0;
 
   return (
     <div className="min-h-screen surface-0 text-zinc-300">
@@ -100,7 +109,7 @@ export default function BrowseRoomsPage() {
             <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
               Browse Rooms
             </h1>
-            <p className="text-zinc-400 text-base mt-2 font-medium">Find an open drafted game or spectate a live auction.</p>
+            <p className="text-zinc-400 text-base mt-2 font-medium">Find an open lobby, spectate a live auction, or review completed games.</p>
           </div>
           
           <div className="flex items-center gap-3">
@@ -126,7 +135,7 @@ export default function BrowseRoomsPage() {
             <Loader2 className="h-10 w-10 animate-spin text-amber-500 mb-4" />
             <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Scanning network...</span>
           </div>
-        ) : rooms.length === 0 ? (
+        ) : !hasAnyRooms ? (
           /* Empty State */
           <div className="glass-card flex flex-col items-center justify-center py-28 px-6 rounded-2xl border-dashed border-white/[0.08] text-center animate-scale-in">
             <div className="h-20 w-20 bg-white/[0.02] rounded-full flex items-center justify-center mb-6 shadow-inner border border-white/[0.05]">
@@ -145,7 +154,8 @@ export default function BrowseRoomsPage() {
           </div>
         ) : (
           <div className="space-y-12">
-            {/* Open Rooms */}
+
+            {/* Open Lobbies */}
             {openRooms.length > 0 && (
               <section className="animate-fade-up">
                 <div className="flex items-center justify-between border-b border-white/[0.05] pb-4 mb-6">
@@ -159,7 +169,7 @@ export default function BrowseRoomsPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {openRooms.map((room) => (
-                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code)} isLive={false} />
+                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code)} variant="open" />
                   ))}
                 </div>
               </section>
@@ -179,7 +189,27 @@ export default function BrowseRoomsPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {liveRooms.map((room) => (
-                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code)} isLive={true} />
+                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code)} variant="live" />
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Completed */}
+            {completedRooms.length > 0 && (
+              <section className="animate-fade-up" style={{ animationDelay: '0.2s' }}>
+                <div className="flex items-center justify-between border-b border-white/[0.05] pb-4 mb-6">
+                  <h2 className="flex items-center gap-2.5 text-base font-bold text-white">
+                    <div className="h-8 w-8 rounded-full bg-zinc-500/10 flex items-center justify-center border border-zinc-500/20">
+                      <CheckCircle2 className="h-4 w-4 text-zinc-400" />
+                    </div>
+                    Recently Completed
+                  </h2>
+                  <Badge variant="outline">{completedRooms.length} Ended</Badge>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {completedRooms.map((room) => (
+                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code)} variant="completed" />
                   ))}
                 </div>
               </section>
@@ -191,7 +221,7 @@ export default function BrowseRoomsPage() {
         <div className="flex justify-center mt-12 mb-8">
           <div className="inline-flex items-center gap-2 bg-white/[0.02] border border-white/[0.05] px-3 py-1.5 rounded-full text-[10px] font-medium uppercase tracking-widest text-zinc-500">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-500/50 animate-pulse" />
-            Auto-syncing data
+            Auto-syncing every 5s
           </div>
         </div>
       </div>
@@ -202,41 +232,60 @@ export default function BrowseRoomsPage() {
 function RoomCard({
   room,
   onAction,
-  isLive,
+  variant,
 }: {
   room: RoomData;
   onAction: () => void;
-  isLive: boolean;
+  variant: "open" | "live" | "completed";
 }) {
+  const modeColor = room.auction_mode ? MODE_COLORS[room.auction_mode] || "" : "";
+
+  const statusConfig = {
+    open: {
+      badge: <Badge dot dotColor="bg-green-400" variant="success">OPEN</Badge>,
+      buttonLabel: "Join Room",
+      buttonIcon: <LogIn className="h-4 w-4 mr-2" />,
+      buttonClass: "bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 hover:text-amber-300 border border-amber-500/20 shadow-none",
+      borderAccent: "hover:border-l-green-500",
+    },
+    live: {
+      badge: <Badge dot dotColor="bg-amber-400" className="bg-amber-500/10 text-amber-400 border border-amber-500/20 animate-glow">LIVE</Badge>,
+      buttonLabel: "Spectate",
+      buttonIcon: <Eye className="h-4 w-4 mr-2" />,
+      buttonClass: "",
+      borderAccent: "hover:border-l-amber-500",
+    },
+    completed: {
+      badge: <Badge variant="outline" className="text-zinc-500 border-zinc-700">ENDED</Badge>,
+      buttonLabel: "View Results",
+      buttonIcon: <Eye className="h-4 w-4 mr-2" />,
+      buttonClass: "text-zinc-500 border-zinc-700 hover:text-zinc-300",
+      borderAccent: "hover:border-l-zinc-500",
+    },
+  };
+
+  const config = statusConfig[variant];
+
   return (
-    <div className="glass-card hover:glass-card-hover rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-5 transition-all group border-l-4 border-l-transparent hover:border-l-amber-500">
+    <div className={`glass-card hover:glass-card-hover rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-5 transition-all group border-l-4 border-l-transparent ${config.borderAccent} ${variant === "completed" ? "opacity-60 hover:opacity-90" : ""}`}>
       <div className="flex flex-col gap-2.5">
         <div className="flex items-center gap-3">
           <span className="text-xl font-mono font-black tracking-wider text-white group-hover:text-amber-400 transition-colors">{room.room_code}</span>
-          {isLive ? (
-            <Badge dot dotColor="bg-amber-400" className="bg-amber-500/10 text-amber-400 border border-amber-500/20 animate-glow">
-              LIVE
-            </Badge>
-          ) : (
-            <Badge variant="success" dot dotColor="bg-green-400">
-              OPEN
-            </Badge>
-          )}
+          {config.badge}
         </div>
         
-        <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-zinc-400">
-          <span className="flex items-center gap-1.5 bg-black/30 px-2 py-1 rounded bg-white/[0.03]">
+        <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-zinc-400">
+          <span className="flex items-center gap-1.5 bg-white/[0.03] px-2 py-1 rounded">
             <Users className="h-3.5 w-3.5 text-zinc-500" />
             <span className="text-zinc-200 font-bold">{room.playerCount}</span>/10
           </span>
           {room.auction_mode && (
-            <span className="flex items-center gap-1.5">
-              <span className="h-1 w-1 bg-zinc-600 rounded-full" />
+            <span className={`flex items-center gap-1.5 px-2 py-1 rounded text-[11px] font-bold border ${modeColor}`}>
               {MODE_LABELS[room.auction_mode] || room.auction_mode}
             </span>
           )}
-          <span className="flex items-center gap-1.5">
-            <span className="h-1 w-1 bg-zinc-600 rounded-full" />
+          <span className="flex items-center gap-1.5 text-zinc-500">
+            <Clock className="h-3 w-3" />
             {timeAgo(room.created_at)}
           </span>
         </div>
@@ -244,11 +293,11 @@ function RoomCard({
       
       <Button
         onClick={onAction}
-        variant={isLive ? "outline" : "default"}
-        className={!isLive ? "bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 hover:text-amber-300 border border-amber-500/20 shadow-none w-full sm:w-auto" : "w-full sm:w-auto"}
+        variant={variant === "live" || variant === "completed" ? "outline" : "default"}
+        className={`w-full sm:w-auto ${config.buttonClass}`}
       >
-        {isLive ? <Eye className="h-4 w-4 mr-2" /> : <LogIn className="h-4 w-4 mr-2" />}
-        {isLive ? "Spectate" : "Join Room"}
+        {config.buttonIcon}
+        {config.buttonLabel}
       </Button>
     </div>
   );

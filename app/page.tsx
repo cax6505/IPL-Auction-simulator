@@ -75,8 +75,12 @@ export default function Home() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to create room");
       router.push(`/room/${data.roomCode}`);
-    } catch (err: any) {
-      alert(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("An unknown error occurred");
+      }
       setIsCreating(false);
     }
   };
@@ -111,8 +115,12 @@ export default function Home() {
         return;
       }
       router.push(`/room/${code}`);
-    } catch (err: any) {
-      setJoinError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setJoinError(err.message);
+      } else {
+        setJoinError("An unknown error occurred");
+      }
       setIsJoining(false);
     }
   };

@@ -231,7 +231,7 @@ function SquadDashboard() {
 function ResultsScreen() {
   const { isAuctionComplete, claimedTeams, playerTeam, room } = useAuction();
   const [activeTeam, setActiveTeam] = useState<string | null>(playerTeam || claimedTeams[0]?.team_id || null);
-  const [allSales, setAllSales] = useState<any[]>([]);
+  const [allSales, setAllSales] = useState<RoomSoldPlayer[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -242,14 +242,14 @@ function ResultsScreen() {
               .eq('room_id', room.id);
               
           if (sales && sales.length > 0) {
-             const playerIds = sales.map((s: any) => s.player_id);
+             const playerIds = sales.map((s: RoomSoldPlayer) => s.player_id);
              const { data: playerDetails } = await supabase
                .from('players')
                .select('id, name, role, is_overseas')
                .in('id', playerIds);
                
-             const merged = sales.map((sale: any) => {
-               const detail = playerDetails?.find((p: any) => p.id === sale.player_id);
+             const merged = sales.map((sale: RoomSoldPlayer) => {
+               const detail = playerDetails?.find((p: PlayerRecord) => p.id === sale.player_id);
                return {
                  ...sale,
                  detail_name: detail?.name || 'Unknown',
