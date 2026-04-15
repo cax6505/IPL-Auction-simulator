@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Trophy, Globe2, BookOpen, Database, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -49,8 +50,8 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition-shadow">
-                <Trophy className="h-4 w-4 text-white" />
+              <div className="relative h-8 w-8 rounded-lg overflow-hidden flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition-shadow bg-black">
+                <Image src="/logo.png" alt="IPL Auction Logo" fill className="object-cover" />
               </div>
               <span className="text-[15px] font-bold tracking-tight text-zinc-100 group-hover:text-white transition-colors">
                 IPL Auction<span className="gradient-text-amber font-extrabold ml-0.5">PRO</span>

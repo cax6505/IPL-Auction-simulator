@@ -2,6 +2,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
+export const dynamic = "force-dynamic";
+
 /**
  * GET /api/rooms/[code] — Check if a room exists by code
  */

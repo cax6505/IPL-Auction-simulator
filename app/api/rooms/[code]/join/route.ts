@@ -2,6 +2,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
+export const dynamic = "force-dynamic";
+
 /**
  * POST /api/rooms/[code]/join — Join a room by code
  */
