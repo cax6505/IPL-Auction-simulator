@@ -204,11 +204,17 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
         playerQuery = playerQuery
           .or("contract_type_2026.is.null,contract_type_2026.eq.AUCTION")
           .order("base_price_cr", { ascending: false })
+          .order("id", { ascending: true })
           .limit(350);
       } else if (mode === "legends_upgraded") {
-        playerQuery = playerQuery.eq("is_overseas", true).order("base_price_cr", { ascending: false }).limit(248);
+        playerQuery = playerQuery.eq("is_overseas", true)
+          .order("base_price_cr", { ascending: false })
+          .order("id", { ascending: true })
+          .limit(248);
       } else {
-        playerQuery = playerQuery.order("base_price_cr", { ascending: false });
+        playerQuery = playerQuery
+          .order("base_price_cr", { ascending: false })
+          .order("id", { ascending: true });
       }
 
       const { data: players } = await playerQuery;
@@ -354,9 +360,23 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
       }
     }
 
+    // Fetch sold players to avoid advancing to an already sold player
+    const { data: soldPlayers } = await supabase
+      .from("room_sold_players")
+      .select("player_id")
+      .eq("room_id", currentRoom.id);
+    const soldIds = new Set(soldPlayers?.map(s => s.player_id) || []);
+
     const currentIndex = players.findIndex((p: any) => p.id === currentPid);
-    if (currentIndex >= 0 && currentIndex < players.length - 1) {
-      const nextPlayer = players[currentIndex + 1];
+    let nextPlayer = null;
+    for (let i = currentIndex + 1; i < players.length; i++) {
+      if (!soldIds.has(players[i].id)) {
+        nextPlayer = players[i];
+        break;
+      }
+    }
+
+    if (nextPlayer) {
       const td = currentRoom?.timer_duration || 10;
       const newTimer = new Date(Date.now() + td * 1000).toISOString();
       await supabase.from("rooms").update({
@@ -417,7 +437,13 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
       setTimeLeft(null);
     }
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      if (advanceTimeoutRef.current) {
+        clearTimeout(advanceTimeoutRef.current);
+        advanceTimeoutRef.current = null;
+      }
+    };
   }, [room?.status, room?.timer_ends_at, advanceAuction, addLog, currentPlayer]);
 
   // Actions
@@ -460,11 +486,24 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
     const players = allPlayersRef.current;
     if (!currentRoom || players.length === 0) return;
 
+    // Fetch sold players to avoid starting with a sold player
+    const { data: soldPlayers } = await supabase
+      .from("room_sold_players")
+      .select("player_id")
+      .eq("room_id", currentRoom.id);
+    const soldIds = new Set(soldPlayers?.map(s => s.player_id) || []);
+
+    const firstUnsold = players.find(p => !soldIds.has(p.id));
+    if (!firstUnsold) {
+      alert("All players have already been sold!");
+      return;
+    }
+
     const td = currentRoom.timer_duration || 10;
     const newTimer = new Date(Date.now() + td * 1000).toISOString();
     await supabase.from("rooms").update({
       status: "active",
-      current_player_id: players[0].id,
+      current_player_id: firstUnsold.id,
       timer_ends_at: newTimer,
     }).eq("id", currentRoom.id);
   };
@@ -507,7 +546,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const timerProgress = timeLeft !== null && room?.timer_duration ? Math.min(100, (timeLeft / (room.timer_duration * 1000)) * 100) : 0;
 
   const handleBid = async () => {
-    if (!room || !currentPlayer || isHighest || !canLegallyBid || isBidding || !playerTeam) return;
+    if (!room || room.status !== "active" || !currentPlayer || isHighest || !canLegallyBid || isBidding || !playerTeam) return;
     setIsBidding(true);
     try {
       const bidAmount = currentBid === 0 ? safeBasePrice : nextCalculated;
