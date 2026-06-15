@@ -352,6 +352,17 @@
     "contract_type_2026": "AUCTION"
   },
   {
+    "id": "P0352",
+    "name": "Glenn Maxwell",
+    "nationality": "Overseas",
+    "is_overseas": true,
+    "role": "AR",
+    "base_price_cr": 2,
+    "auction_set": "CAPPED",
+    "capped_status": "capped",
+    "contract_type_2026": "AUCTION"
+  },
+  {
     "id": "P0507",
     "name": "Kane Richardson",
     "nationality": "Overseas",

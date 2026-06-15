@@ -47,7 +47,6 @@ const RETIRED_NAMES = new Set([
   "Shaun Marsh",
   "Matthew Hayden",
   "Shane Watson",
-  "Glenn Maxwell", // keep if active — remove from this set if needed
   "Dale Steyn",
   "Muttiah Muralitharan",
   "Anil Kumble",
@@ -122,7 +121,6 @@ const CURATED_NAMES = new Set([
   "Mohammed Shami",
   "Mitchell Starc",
   "Riyan Parag",
-  "Glenn Maxwell",
 ]);
 
 // ─── 2. Abbreviation duplicates — keep full name, drop abbreviation ─
