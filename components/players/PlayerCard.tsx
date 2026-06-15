@@ -2,10 +2,33 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Plane } from "lucide-react";
+import { Plane, Star } from "lucide-react";
+import { useState, useEffect } from "react";
 import type { PlayerRecord } from "@/lib/types/player";
 
 export function PlayerCard({ player }: { player: PlayerRecord }) {
+  const [isShortlisted, setIsShortlisted] = useState(false);
+
+  useEffect(() => {
+    const shortlist = JSON.parse(localStorage.getItem("ipl_shortlist") || "[]");
+    setIsShortlisted(shortlist.includes(player.id));
+  }, [player.id]);
+
+  const toggleShortlist = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const shortlist = JSON.parse(localStorage.getItem("ipl_shortlist") || "[]");
+    let updated: string[];
+    if (shortlist.includes(player.id)) {
+      updated = shortlist.filter((id: string) => id !== player.id);
+    } else {
+      updated = [...shortlist, player.id];
+    }
+    localStorage.setItem("ipl_shortlist", JSON.stringify(updated));
+    setIsShortlisted(!isShortlisted);
+    // Dispatch a custom event so the dashboard can react
+    window.dispatchEvent(new Event("shortlist-change"));
+  };
+
   // Format price if available
   const priceDisplay = player.sold_price_cr 
     ? `₹${player.sold_price_cr} Cr` 
@@ -35,7 +58,20 @@ export function PlayerCard({ player }: { player: PlayerRecord }) {
   };
 
   return (
-    <Card className="hover:glass-card-hover group border-l-4 border-l-transparent transition-all h-full p-4 gap-0" style={{ borderLeftColor: rStyle.text.replace('text-', '') }}>
+    <Card className={`hover:glass-card-hover group border-l-4 border-l-transparent transition-all h-full p-4 gap-0 relative ${isShortlisted ? 'ring-1 ring-amber-500/30 bg-amber-500/[0.02]' : ''}`} style={{ borderLeftColor: rStyle.text.replace('text-', '') }}>
+      {/* Shortlist Star */}
+      <button
+        onClick={toggleShortlist}
+        className={`absolute top-3 right-3 h-7 w-7 rounded-lg flex items-center justify-center transition-all duration-300 ease-spring z-10 ${
+          isShortlisted
+            ? "bg-amber-500/20 border border-amber-500/40 text-amber-400 scale-110 shadow-[0_0_10px_rgba(245,158,11,0.3)]"
+            : "bg-white/[0.02] border border-white/[0.04] text-zinc-600 opacity-0 group-hover:opacity-100 hover:text-amber-400 hover:bg-amber-500/10 hover:border-amber-500/20"
+        }`}
+        title={isShortlisted ? "Remove from shortlist" : "Add to shortlist"}
+      >
+        <Star className={`h-3.5 w-3.5 ${isShortlisted ? 'fill-amber-400' : ''}`} />
+      </button>
+
       <div className="flex items-start justify-between gap-4 w-full mb-4">
         {/* Compact Horizontal Identity */}
         <div className="flex items-center gap-3.5">
@@ -51,7 +87,7 @@ export function PlayerCard({ player }: { player: PlayerRecord }) {
         </div>
 
         {/* Badges Right */}
-        <div className="flex flex-col items-end gap-1.5 align-top">
+        <div className="flex flex-col items-end gap-1.5 align-top pr-8">
           <Badge className={`${rStyle.bg} ${rStyle.text} ${rStyle.border} shadow-none`}>
             {player.role}
           </Badge>

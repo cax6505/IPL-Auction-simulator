@@ -73,18 +73,16 @@ export default function BrowseRoomsPage() {
   const openRooms = rooms.filter((r) => r.status === "waiting");
   const liveRooms = rooms.filter((r) => r.status === "active" || r.status === "in_progress");
 
-  const handleJoin = (code: string) => {
-    const name = sessionStorage.getItem("playerName");
-    const team = sessionStorage.getItem("playerTeam");
-    if (!name || !team) {
-      router.push("/");
-      return;
+  const handleJoin = (code: string, spectate: boolean = false) => {
+    if (spectate) {
+      router.push(`/room/${code}?spectate=true`);
+    } else {
+      router.push(`/room/${code}`);
     }
-    router.push(`/room/${code}`);
   };
 
   return (
-    <div className="min-h-screen surface-0 text-zinc-300">
+    <div className="min-h-screen bg-[#050505] text-zinc-300">
       <div className="relative mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8 animate-fade-in">
         
         {/* Ambient Top Glow */}
@@ -121,9 +119,16 @@ export default function BrowseRoomsPage() {
         </div>
 
         {loading && rooms.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-40">
-            <Loader2 className="h-10 w-10 animate-spin text-amber-500 mb-4" />
-            <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Scanning network...</span>
+          <div className="space-y-8 animate-fade-in">
+            <div className="border-b border-white/[0.05] pb-4 mb-6">
+              <div className="h-6 w-48 bg-white/[0.04] rounded animate-pulse" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <RoomCardSkeleton />
+              <RoomCardSkeleton />
+              <RoomCardSkeleton />
+              <RoomCardSkeleton />
+            </div>
           </div>
         ) : rooms.length === 0 ? (
           /* Empty State */
@@ -158,7 +163,7 @@ export default function BrowseRoomsPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {openRooms.map((room) => (
-                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code)} isLive={false} />
+                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code, false)} isLive={false} />
                   ))}
                 </div>
               </section>
@@ -178,7 +183,7 @@ export default function BrowseRoomsPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {liveRooms.map((room) => (
-                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code)} isLive={true} />
+                    <RoomCard key={room.id} room={room} onAction={() => handleJoin(room.room_code, true)} isLive={true} />
                   ))}
                 </div>
               </section>
@@ -194,6 +199,25 @@ export default function BrowseRoomsPage() {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function RoomCardSkeleton() {
+  return (
+    <div className="glass-card rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-5 border-l-4 border-l-transparent animate-pulse bg-white/[0.02] border-white/[0.04]">
+      <div className="flex flex-col gap-2.5 flex-1">
+        <div className="flex items-center gap-3">
+          <div className="h-6 w-20 bg-white/[0.04] rounded" />
+          <div className="h-5 w-12 bg-white/[0.04] rounded-full" />
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="h-4 w-16 bg-white/[0.04] rounded" />
+          <div className="h-4 w-24 bg-white/[0.04] rounded" />
+          <div className="h-4 w-16 bg-white/[0.04] rounded" />
+        </div>
+      </div>
+      <div className="h-10 w-full sm:w-28 bg-white/[0.04] rounded-lg shrink-0" />
     </div>
   );
 }

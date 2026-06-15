@@ -1,16 +1,20 @@
 "use client";
 
 import { useAuction } from "./AuctionContext";
-import { Square, Flame, Shield, X, Trophy, Users, Loader2 } from "lucide-react";
+import { Square, Flame, Shield, X, Trophy, Users, Loader2, Share2, RotateCcw, Home } from "lucide-react";
 import { TEAM_MAP, formatPriceCr, IPL_RULES } from "@/lib/auction-engine";
 import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/lib/supabase";
+import { Confetti } from "@/components/ui/Confetti";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export function AuctionOverlays() {
   return (
     <>
       <SoldFlash />
+      <UnsoldFlash />
       <SquadDashboard />
       <ResultsScreen />
     </>
@@ -34,6 +38,7 @@ function SoldFlash() {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+      <Confetti />
       <div 
         className="absolute inset-0 opacity-20 animate-pulse pointer-events-none" 
         style={pulseStyle}
@@ -64,6 +69,27 @@ function SoldFlash() {
               </span>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function UnsoldFlash() {
+  const { showUnsoldFlash } = useAuction();
+
+  if (!showUnsoldFlash) return null;
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+      <div className="absolute inset-0 opacity-10 bg-gradient-radial from-red-600 to-transparent animate-pulse pointer-events-none" />
+      <div className="relative z-10 flex flex-col items-center max-w-2xl text-center animate-unsold-shake">
+        <h1 className="text-7xl sm:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-red-400 to-red-700 italic tracking-tighter drop-shadow-[0_0_40px_rgba(239,68,68,0.5)] px-8">
+          UNSOLD
+        </h1>
+        <div className="mt-8 bg-black/40 backdrop-blur border border-red-500/20 px-8 py-6 rounded-[24px] shadow-2xl">
+          <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-1">No bids received for</p>
+          <p className="text-2xl font-black text-white tracking-tight">{showUnsoldFlash.name}</p>
         </div>
       </div>
     </div>
@@ -229,10 +255,18 @@ function SquadDashboard() {
 }
 
 function ResultsScreen() {
-  const { isAuctionComplete, claimedTeams, playerTeam, room } = useAuction();
+  const { isAuctionComplete, claimedTeams, playerTeam, room, roomCode } = useAuction();
+  const router = useRouter();
   const [activeTeam, setActiveTeam] = useState<string | null>(playerTeam || claimedTeams[0]?.team_id || null);
   const [allSales, setAllSales] = useState<any[]>([]);
+  const [shareText, setShareText] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (!activeTeam && claimedTeams.length > 0) {
+      setActiveTeam(playerTeam || claimedTeams[0]?.team_id);
+    }
+  }, [claimedTeams, playerTeam, activeTeam]);
 
   useEffect(() => {
     if (isAuctionComplete && room?.id) {
@@ -311,9 +345,31 @@ function ResultsScreen() {
           <h1 className="text-5xl sm:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-400 mb-4 tracking-tighter">
             AUCTION <span className="text-transparent bg-clip-text gradient-text-amber pb-2">COMPLETE</span>
           </h1>
-          <p className="text-zinc-400 text-lg font-medium max-w-2xl mx-auto tracking-tight">
+          <p className="text-zinc-400 text-lg font-medium max-w-2xl mx-auto tracking-tight mb-6">
             The room is officially closed. Review the final franchise rosters and macro auction statistics below.
           </p>
+          <div className="flex items-center gap-3 justify-center">
+            <Button
+              variant="primary"
+              className="shimmer-btn"
+              onClick={() => {
+                const summary = `🏏 IPL Auction Complete!\n\n📊 ${totalPlayersSold} players sold for ${formatPriceCr(totalSpent)} total\n🏆 Record signing: ${mostExpensive?.detail_name || 'N/A'} at ${mostExpensive ? formatPriceCr(Number(mostExpensive.sold_price_cr)) : 'N/A'}\n\n${claimedTeams.map(t => `${t.team_id}: ${t.squad_count || 0} players, ${formatPriceCr(Number(t.purse_remaining_cr || 0))} remaining`).join('\n')}\n\nPlay at: ${typeof window !== 'undefined' ? window.location.origin : ''}`;
+                navigator.clipboard.writeText(summary);
+                setShareText("Copied!");
+                setTimeout(() => setShareText(""), 2000);
+              }}
+            >
+              <Share2 className="h-4 w-4 mr-1.5" />
+              {shareText || "Share Results"}
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => router.push("/")}
+            >
+              <Home className="h-4 w-4 mr-1.5" />
+              New Room
+            </Button>
+          </div>
         </div>
 
         {/* Global Summary Stats */}

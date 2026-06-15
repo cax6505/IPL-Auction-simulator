@@ -17,8 +17,8 @@ export function BidControls() {
   const isSoldOrUnsold = timeLeft !== null && timeLeft <= 0;
 
   return (
-    <div className="flex justify-end mt-2">
-      <div className="flex flex-col gap-2 relative group w-full md:w-auto min-w-[280px]">
+    <div className="md:flex md:justify-end md:mt-2 fixed md:static bottom-0 inset-x-0 bg-[#0c0c0f]/90 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border-t border-white/[0.06] md:border-t-0 p-4 pb-6 md:p-0 z-40 transition-all duration-300">
+      <div className="flex flex-col gap-2 relative group w-full md:w-auto md:min-w-[280px]">
         {isSoldOrUnsold ? (
           <div className="h-16 px-10 flex items-center justify-center text-2xl font-black rounded-[14px] bg-black/40 border border-white/[0.02] uppercase tracking-[0.2em] shadow-inner text-center">
             {Number(room?.current_bid_cr) > 0 ? (

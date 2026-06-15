@@ -39,6 +39,11 @@ export default function Home() {
   const [isCreating, setIsCreating] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
   const [joinError, setJoinError] = useState<string | null>(null);
+  // Room customization
+  const [timerDuration, setTimerDuration] = useState(10);
+  const [auctionMode, setAuctionMode] = useState<string | null>(null);
+  const [startingPurse, setStartingPurse] = useState(120);
+  const [showAdvanced, setShowAdvanced] = useState(false);
 
   // Restore identity from sessionStorage
   useEffect(() => {
@@ -66,7 +71,7 @@ export default function Home() {
       const res = await fetch("/api/rooms", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ playerName: playerName.trim(), playerTeam: selectedTeam }),
+        body: JSON.stringify({ playerName: playerName.trim(), playerTeam: selectedTeam, auctionMode, timerDuration, startingPurse }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to create room");
@@ -216,10 +221,110 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Step 3: Actions */}
+            {/* Step 3: Room Settings */}
+            <div className="p-6 sm:p-8 border-b border-white/[0.04] bg-white/[0.01]">
+              <button
+                onClick={() => setShowAdvanced(!showAdvanced)}
+                className="flex items-center justify-between w-full group"
+              >
+                <label className="flex items-center gap-3 text-xs font-bold text-zinc-400 uppercase tracking-[0.15em] cursor-pointer">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 text-[11px] font-black border border-amber-500/30">3</span>
+                  Room Configuration
+                </label>
+                <span className={`text-zinc-500 text-xs transition-transform duration-300 ${showAdvanced ? 'rotate-180' : ''}`}>
+                  ▼
+                </span>
+              </button>
+              
+              <div className={`overflow-hidden transition-all duration-500 ease-spring ${showAdvanced ? 'max-h-[500px] opacity-100 mt-5' : 'max-h-0 opacity-0'}`}>
+                <div className="space-y-5">
+                  {/* Timer Duration */}
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2 block">Bid Timer</label>
+                    <div className="flex gap-2">
+                      {[5, 10, 15, 20, 30].map(val => (
+                        <button
+                          key={val}
+                          onClick={(e) => { e.stopPropagation(); setTimerDuration(val); }}
+                          className={`flex-1 py-2.5 rounded-xl border text-sm font-black transition-all duration-300 ease-spring ${
+                            timerDuration === val
+                              ? "bg-amber-500/10 border-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.2)] text-amber-500 scale-105"
+                              : "bg-black/40 border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20"
+                          }`}
+                        >
+                          {val}s
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Starting Purse */}
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2 block">Starting Purse</label>
+                    <div className="flex gap-2">
+                      {[80, 100, 120, 125].map(val => (
+                        <button
+                          key={val}
+                          onClick={(e) => { e.stopPropagation(); setStartingPurse(val); }}
+                          className={`flex-1 py-2.5 rounded-xl border text-sm font-black transition-all duration-300 ease-spring ${
+                            startingPurse === val
+                              ? "bg-amber-500/10 border-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.2)] text-amber-500 scale-105"
+                              : "bg-black/40 border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20"
+                          }`}
+                        >
+                          ₹{val} Cr
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Auction Mode */}
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2 block">Auction Mode</label>
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      {[
+                        { id: null, label: "Full Draft", desc: "All players" },
+                        { id: "mock_2026", label: "Mock 2026", desc: "Auction pool only" },
+                        { id: "legends_upgraded", label: "Legends", desc: "Overseas only" },
+                      ].map(mode => (
+                        <button
+                          key={mode.id ?? 'full'}
+                          onClick={(e) => { e.stopPropagation(); setAuctionMode(mode.id); }}
+                          className={`flex-1 py-3 px-3 rounded-xl border text-left transition-all duration-300 ease-spring ${
+                            auctionMode === mode.id
+                              ? "bg-amber-500/10 border-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.2)] scale-[1.02]"
+                              : "bg-black/40 border-white/10 hover:border-white/20"
+                          }`}
+                        >
+                          <span className={`text-sm font-bold block ${auctionMode === mode.id ? 'text-amber-500' : 'text-zinc-300'}`}>{mode.label}</span>
+                          <span className="text-[10px] text-zinc-500 font-medium">{mode.desc}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Summary pills when collapsed */}
+              {!showAdvanced && (
+                <div className="flex flex-wrap gap-2 mt-3">
+                  <span className="text-[10px] bg-black/40 px-2.5 py-1 rounded-md font-mono text-zinc-400 border border-white/5">
+                    ⏱ {timerDuration}s
+                  </span>
+                  <span className="text-[10px] bg-black/40 px-2.5 py-1 rounded-md font-mono text-zinc-400 border border-white/5">
+                    💰 ₹{startingPurse} Cr
+                  </span>
+                  <span className="text-[10px] bg-black/40 px-2.5 py-1 rounded-md font-mono text-zinc-400 border border-white/5">
+                    🏏 {auctionMode === 'mock_2026' ? 'Mock 2026' : auctionMode === 'legends_upgraded' ? 'Legends' : 'Full Draft'}
+                  </span>
+                </div>
+              )}
+            </div>
+
+            {/* Step 4: Actions */}
             <div className="p-6 sm:p-8 space-y-6">
               <label className="flex items-center gap-3 text-xs font-bold text-zinc-400 uppercase tracking-[0.15em] mb-2">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 text-[11px] font-black border border-amber-500/30">3</span>
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 text-[11px] font-black border border-amber-500/30">4</span>
                 Enter the War Room
               </label>
 
@@ -321,6 +426,42 @@ export default function Home() {
                 <span className="text-[11px] text-zinc-500 font-medium">Rules & Strategy</span>
               </div>
             </Link>
+          </div>
+        </div>
+
+        {/* Features Grid */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <div className="glass-card rounded-[20px] p-6 relative overflow-hidden group border border-white/[0.04]">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.02] to-transparent pointer-events-none group-hover:from-blue-500/[0.05] transition-colors" />
+            <div className="h-10 w-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4 shrink-0 border border-blue-500/20">
+              <Zap className="h-5 w-5" />
+            </div>
+            <h3 className="text-base font-bold text-white mb-2">Real-Time Bidding</h3>
+            <p className="text-xs text-zinc-500 leading-relaxed font-medium">
+              Multiplayer synchronization powered by Supabase Realtime. Feel the adrenaline rush of live, sub-second bidding wars.
+            </p>
+          </div>
+
+          <div className="glass-card rounded-[20px] p-6 relative overflow-hidden group border border-white/[0.04]">
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/[0.02] to-transparent pointer-events-none group-hover:from-amber-500/[0.05] transition-colors" />
+            <div className="h-10 w-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 mb-4 shrink-0 border border-amber-500/20">
+              <Trophy className="h-5 w-5" />
+            </div>
+            <h3 className="text-base font-bold text-white mb-2">Official IPL Tiers</h3>
+            <p className="text-xs text-zinc-500 leading-relaxed font-medium">
+              Realistic auction dynamics with standard bid increments (20L to 10Cr+), budget constraints, and Right to Match (RTM) cards.
+            </p>
+          </div>
+
+          <div className="glass-card rounded-[20px] p-6 relative overflow-hidden group border border-white/[0.04]">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/[0.02] to-transparent pointer-events-none group-hover:from-purple-500/[0.05] transition-colors" />
+            <div className="h-10 w-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4 shrink-0 border border-purple-500/20">
+              <Users className="h-5 w-5" />
+            </div>
+            <h3 className="text-base font-bold text-white mb-2">Squad Composition</h3>
+            <p className="text-xs text-zinc-500 leading-relaxed font-medium">
+              Build a balanced roster of 18-25 players including batters, bowlers, all-rounders, keepers, and max 8 overseas limit.
+            </p>
           </div>
         </div>
       </div>

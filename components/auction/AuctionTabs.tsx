@@ -3,14 +3,56 @@
 import { useState, useEffect } from "react";
 import { useAuction } from "./AuctionContext";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MessageSquare, Users, CheckCircle2, MessageCircle, Send } from "lucide-react";
+import { MessageSquare, Users, CheckCircle2, MessageCircle, Send, ShieldCheck, Loader2 } from "lucide-react";
 import { TEAM_MAP, formatPriceCr } from "@/lib/auction-engine";
 import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/lib/supabase";
 
 export function AuctionTabs() {
-  const { logs, chatMessages, sendChatMessage, claimedTeams, onlineUsers, loadSquad } = useAuction();
+  const { logs, chatMessages, sendChatMessage, claimedTeams, onlineUsers, loadSquad, playerTeam, room, soldPlayerIds } = useAuction();
   const [activeTab, setActiveTab] = useState("chat");
   const [chatInput, setChatInput] = useState("");
+  const [mySquad, setMySquad] = useState<any[]>([]);
+  const [loadingSquad, setLoadingSquad] = useState(false);
+
+  // Fetch my squad when tab is active or soldPlayerIds changes
+  useEffect(() => {
+    if (!playerTeam || !room?.id) return;
+
+    const fetchMySquad = async () => {
+      setLoadingSquad(true);
+      const { data: sales } = await supabase
+        .from("room_sold_players")
+        .select("player_id, sold_price_cr, is_overseas")
+        .eq("room_id", room.id)
+        .eq("team_id", playerTeam);
+
+      if (sales && sales.length > 0) {
+        const playerIds = sales.map(s => s.player_id);
+        const { data: playerDetails } = await supabase
+          .from("players")
+          .select("id, name, role, is_overseas")
+          .in("id", playerIds);
+
+        const merged = sales.map(sale => {
+          const detail = playerDetails?.find(p => p.id === sale.player_id);
+          return {
+            id: sale.player_id,
+            name: detail?.name || "Unknown",
+            role: detail?.role || "N/A",
+            is_overseas: detail?.is_overseas || sale.is_overseas,
+            sold_price_cr: sale.sold_price_cr,
+          };
+        });
+        setMySquad(merged);
+      } else {
+        setMySquad([]);
+      }
+      setLoadingSquad(false);
+    };
+
+    fetchMySquad();
+  }, [playerTeam, room?.id, soldPlayerIds]);
 
   // Helper to strip emojis for a cleaner feed
   const stripEmojis = (str: string) => str.replace(/[\u1000-\uFFFF]+/g, '').trim();
@@ -42,6 +84,16 @@ export function AuctionTabs() {
                 {onlineUsers.length} Online
               </Badge>
             </TabsTrigger>
+            {playerTeam && (
+              <TabsTrigger variant="underline" value="mysquad" className="px-4 shrink-0 h-full gap-2">
+                <ShieldCheck className="h-4 w-4" /> My Squad
+                {mySquad.length > 0 && (
+                  <Badge variant="outline" className="ml-1 bg-amber-500/10 border-amber-500/20 text-amber-400 text-[9px] shadow-inner hidden sm:inline-flex">
+                    {mySquad.length}
+                  </Badge>
+                )}
+              </TabsTrigger>
+            )}
           </TabsList>
         </div>
 
@@ -116,7 +168,7 @@ export function AuctionTabs() {
                 </div>
               ))}
             </div>
-          ) : (
+          ) : activeTab === "squad" ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pb-4">
               {claimedTeams.map((teamData: any) => {
                 const isOnline = onlineUsers.some(u => u.team === teamData.team_id);
@@ -170,7 +222,84 @@ export function AuctionTabs() {
                 );
               })}
             </div>
-          )}
+          ) : activeTab === "mysquad" && playerTeam ? (
+            <div className="flex flex-col gap-4">
+              {loadingSquad ? (
+                <div className="flex flex-col items-center justify-center py-12">
+                  <Loader2 className="h-6 w-6 text-amber-500 animate-spin mb-3" />
+                  <p className="text-xs text-zinc-500 font-mono uppercase tracking-widest">Loading your roster...</p>
+                </div>
+              ) : mySquad.length === 0 ? (
+                <div className="flex flex-col items-center justify-center py-12">
+                  <ShieldCheck className="h-8 w-8 text-zinc-600 mb-3" />
+                  <p className="text-sm text-zinc-400 font-bold">No players purchased yet</p>
+                  <p className="text-xs text-zinc-600 mt-1">Win bids to build your squad!</p>
+                </div>
+              ) : (() => {
+                const BAT = mySquad.filter(p => ['BATSMAN', 'BAT'].includes(String(p.role).toUpperCase()));
+                const WK = mySquad.filter(p => ['WICKET KEEPER', 'WK', 'BAT/WK'].includes(String(p.role).toUpperCase()));
+                const AR = mySquad.filter(p => ['ALL-ROUNDER', 'AR'].includes(String(p.role).toUpperCase()));
+                const BOWL = mySquad.filter(p => ['BOWLER', 'BOWL'].includes(String(p.role).toUpperCase()));
+                const mappedIds = [...BAT, ...WK, ...AR, ...BOWL].map(p => p.id);
+                const OTHER = mySquad.filter(p => !mappedIds.includes(p.id));
+
+                const groups = [
+                  { title: "BATSMEN", data: BAT, color: "text-blue-400" },
+                  { title: "WICKET-KEEPERS", data: WK, color: "text-purple-400" },
+                  { title: "ALL-ROUNDERS", data: AR, color: "text-green-400" },
+                  { title: "BOWLERS", data: BOWL, color: "text-red-400" },
+                  ...(OTHER.length > 0 ? [{ title: "OTHER", data: OTHER, color: "text-zinc-400" }] : [])
+                ];
+
+                const totalSpent = mySquad.reduce((sum, p) => sum + Number(p.sold_price_cr), 0);
+                const teamRecord = claimedTeams.find(c => c.team_id === playerTeam);
+
+                return (
+                  <>
+                    {/* Summary Bar */}
+                    <div className="flex items-center justify-between bg-black/40 border border-white/[0.04] rounded-xl px-4 py-3">
+                      <div className="flex items-center gap-4">
+                        <div className="flex flex-col">
+                          <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">Players</span>
+                          <span className="text-sm font-mono font-bold text-white">{mySquad.length}<span className="text-zinc-600">/25</span></span>
+                        </div>
+                        <div className="h-6 w-px bg-white/[0.06]" />
+                        <div className="flex flex-col">
+                          <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">Overseas</span>
+                          <span className="text-sm font-mono font-bold text-blue-400">{mySquad.filter(p => p.is_overseas).length}<span className="text-zinc-600">/8</span></span>
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest">Purse Left</span>
+                        <span className="text-sm font-mono font-bold text-amber-500">{formatPriceCr(Number(teamRecord?.purse_remaining_cr || 0))}</span>
+                      </div>
+                    </div>
+
+                    {/* Grouped Players */}
+                    {groups.filter(g => g.data.length > 0).map(group => (
+                      <div key={group.title}>
+                        <h4 className={`text-[10px] font-black uppercase tracking-widest mb-2 flex items-center gap-2 ${group.color}`}>
+                          {group.title}
+                          <span className="bg-white/[0.05] px-1.5 py-0.5 rounded text-white text-[9px]">{group.data.length}</span>
+                        </h4>
+                        <div className="space-y-1.5">
+                          {group.data.sort((a: any, b: any) => Number(b.sold_price_cr) - Number(a.sold_price_cr)).map((p: any) => (
+                            <div key={p.id} className="flex items-center justify-between bg-black/30 border border-white/[0.03] rounded-lg px-3 py-2 hover:bg-white/[0.02] transition-colors">
+                              <div className="flex items-center gap-2 min-w-0">
+                                <span className="text-sm font-bold text-white truncate">{p.name}</span>
+                                {p.is_overseas && <span className="text-[8px] text-orange-400 bg-orange-500/10 px-1.5 py-0.5 rounded font-bold border border-orange-500/20 shrink-0">OS</span>}
+                              </div>
+                              <span className="text-xs font-mono font-bold text-amber-500 shrink-0 ml-2">{formatPriceCr(Number(p.sold_price_cr))}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </>
+                );
+              })()}
+            </div>
+          ) : null}
         </div>
       </Tabs>
 

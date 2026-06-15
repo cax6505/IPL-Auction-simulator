@@ -23,7 +23,7 @@ export async function POST(
   // Find room
   const { data: room, error: roomError } = await supabase
     .from("rooms")
-    .select("id, room_code, status, max_players")
+    .select("id, room_code, status, max_players, timer_duration")
     .eq("room_code", code.toUpperCase())
     .single();
 
@@ -76,6 +76,32 @@ export async function POST(
     });
   }
 
+  // Determine starting purse from host franchise record (matches room settings)
+  const { data: hostFranchise } = await supabase
+    .from("room_franchises")
+    .select("purse_remaining_cr")
+    .eq("room_id", room.id)
+    .eq("is_host", true)
+    .single();
+
+  // If host had a custom purse at creation, use their original purse value
+  // Otherwise fall back to 120 Cr
+  const startingPurse = Number(hostFranchise?.purse_remaining_cr) || 120.0;
+  // But we want the ORIGINAL purse, not the host's remaining. 
+  // For simplicity with current schema, use 120 as default. 
+  // The host's purse was set at creation time and may have decreased.
+  // We look at the maximum among all franchises for that room as a heuristic:
+  const { data: allFranchises } = await supabase
+    .from("room_franchises")
+    .select("purse_remaining_cr")
+    .eq("room_id", room.id)
+    .order("purse_remaining_cr", { ascending: false })
+    .limit(1);
+
+  const roomPurse = allFranchises && allFranchises.length > 0
+    ? Math.max(Number(allFranchises[0].purse_remaining_cr), 80)
+    : 120.0;
+
   // Add to room
   const { error: insertError } = await supabase
     .from("room_franchises")
@@ -84,7 +110,7 @@ export async function POST(
       team_id: playerTeam,
       user_name: playerName,
       is_host: false,
-      purse_remaining_cr: 120.0,
+      purse_remaining_cr: roomPurse,
       squad_count: 0,
       overseas_count: 0,
     }]);

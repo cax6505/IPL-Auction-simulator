@@ -7,6 +7,8 @@ import { ActivePlayerCard } from "@/components/auction/ActivePlayerCard";
 import { BidControls } from "@/components/auction/BidControls";
 import { AuctionTabs } from "@/components/auction/AuctionTabs";
 import { AuctionOverlays } from "@/components/auction/AuctionOverlays";
+import { TeamsScoreboard } from "@/components/auction/TeamsScoreboard";
+import { UpcomingQueue } from "@/components/auction/UpcomingQueue";
 import { Loader2 } from "lucide-react";
 
 function AuctionRoomInner() {
@@ -25,13 +27,15 @@ function AuctionRoomInner() {
     <div className="min-h-screen bg-[#050505] text-slate-300 font-sans flex flex-col">
       <AuctionHeader />
       
-      <main className="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-6">
+      <main className="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-6 pb-28 md:pb-8">
         {room?.status === "waiting" ? (
           <AuctionLobby />
         ) : (
-          <div className="flex flex-col gap-6 animate-in fade-in zoom-in-95 duration-500">
+          <div className="flex flex-col gap-4 animate-in fade-in zoom-in-95 duration-500">
+            <TeamsScoreboard />
             <ActivePlayerCard />
             <BidControls />
+            <UpcomingQueue />
           </div>
         )}
         <AuctionTabs />
@@ -49,3 +53,4 @@ export default function RoomPage() {
     </AuctionProvider>
   );
 }
+

@@ -20,10 +20,12 @@ interface AuctionContextType {
   chatMessages: { id: string; sender: string; text: string; timestamp: number }[];
   timeLeft: number | null;
   showSoldFlash: { team: string; name: string; amount: number } | null;
+  showUnsoldFlash: { name: string } | null;
   showSquadsModal: string | null;
   squadsMap: Record<string, any[]>;
   isAuctionComplete: boolean;
   isBidding: boolean;
+  soldPlayerIds: Set<string>;
 
   // Actions
   setShowSoldFlash: (val: any) => void;
@@ -82,10 +84,12 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const [chatMessages, setChatMessages] = useState<{ id: string; sender: string; text: string; timestamp: number }[]>([]);
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
   const [showSoldFlash, setShowSoldFlash] = useState<{ team: string; name: string; amount: number } | null>(null);
+  const [showUnsoldFlash, setShowUnsoldFlash] = useState<{ name: string } | null>(null);
   const [showSquadsModal, setShowSquadsModal] = useState<string | null>(null);
   const [squadsMap, setSquadsMap] = useState<Record<string, any[]>>({});
   const [isAuctionComplete, setIsAuctionComplete] = useState(false);
   const [isBidding, setIsBidding] = useState(false);
+  const [soldPlayerIds, setSoldPlayerIds] = useState<Set<string>>(new Set());
 
   // Refs
   const soldFiredRef = useRef(false);
@@ -121,16 +125,32 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const storedName = sessionStorage.getItem("playerName") || "";
     const storedTeam = sessionStorage.getItem("playerTeam");
-    setPlayerName(storedName);
-    setJoinName(storedName);
-    const team = storedTeam || sessionStorage.getItem(`auction_${roomCode}_team`);
-    setPlayerTeam(team);
-    playerTeamRef.current = team;
+    
+    // Check if auto-spectate is requested in URL query params
+    const searchParams = new URLSearchParams(window.location.search);
+    const autoSpectate = searchParams.get("spectate") === "true";
+
+    if (autoSpectate) {
+      setIsSpectator(true);
+      const name = storedName || `Spectator-${Math.random().toString(36).slice(2, 6)}`;
+      setPlayerName(name);
+      setJoinName(name);
+      if (!storedName) {
+        sessionStorage.setItem("playerName", name);
+      }
+    } else {
+      setPlayerName(storedName);
+      setJoinName(storedName);
+      const team = storedTeam || sessionStorage.getItem(`auction_${roomCode}_team`);
+      setPlayerTeam(team);
+      playerTeamRef.current = team;
+    }
   }, [roomCode]);
 
   // Init + Realtime
   useEffect(() => {
-    if (!playerName || !playerTeam) return;
+    // Allow spectators (no team) to initialize if they have a name or are flagged
+    if (!playerName && !isSpectator) return;
 
     let isMounted = true;
     let activeChannel: any = null;
@@ -192,6 +212,15 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
           type: "bid" as const,
         }));
         setLogs(prev => [...prev, ...bidLogs]);
+      }
+
+      // Load sold players for this room
+      const { data: soldData } = await supabase
+        .from("room_sold_players")
+        .select("player_id")
+        .eq("room_id", roomData.id);
+      if (soldData) {
+        setSoldPlayerIds(new Set(soldData.map((s: any) => s.player_id)));
       }
 
       // Mode-aware player fetch
@@ -263,6 +292,12 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
         })
         .on("postgres_changes", { event: "INSERT", schema: "public", table: "room_sold_players", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
           const sale = p.new as any;
+          // Track sold player IDs for upcoming queue
+          setSoldPlayerIds(prev => {
+            const next = new Set(prev);
+            next.add(sale.player_id);
+            return next;
+          });
           setSquadsMap(prev => {
             const updated = { ...prev };
             delete updated[sale.team_id];
@@ -321,75 +356,29 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
     }
   }, [room?.current_player_id, addLog]);
 
-  // Advance Auction (Host)
+  // Advance Auction — Server-side via /api/rooms/[code]/advance
+  // Any connected peer can trigger this, not just the host.
+  // The DB RPC is idempotent (duplicate calls are harmless).
   const advanceAuction = useCallback(async () => {
     const currentRoom = roomRef.current;
-    const players = allPlayersRef.current;
-    const teams = claimedTeamsRef.current;
-    const myId = playerTeamRef.current;
+    if (!currentRoom?.room_code) return;
 
-    const myRec = teams.find(c => c.team_id === myId);
-    if (!myRec?.is_host) return;
+    const currentPid = currentRoom.current_player_id;
 
-    const finalBid = Number(currentRoom?.current_bid_cr) || 0;
-    const winnerId = currentRoom?.current_highest_bidder_id;
-    const currentPid = currentRoom?.current_player_id;
+    try {
+      const res = await fetch(`/api/rooms/${currentRoom.room_code}/advance`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ expectedPlayerId: currentPid }),
+      });
+      const data = await res.json();
 
-    if (finalBid > 0 && winnerId) {
-      const winnerRecord = teams.find(c => c.team_id === winnerId);
-      if (winnerRecord) {
-        const currentPlayerData = players.find((p: any) => p.id === currentPid);
-        const isOs = currentPlayerData?.is_overseas === true;
-        const newPurse = Number(((Number(winnerRecord.purse_remaining_cr) || 120.0) - finalBid).toFixed(2));
-        const newSquadSize = (winnerRecord.squad_count || 0) + 1;
-        const newOverseasCount = (winnerRecord.overseas_count || 0) + (isOs ? 1 : 0);
-
-        await supabase.from("room_franchises").update({
-          purse_remaining_cr: newPurse,
-          squad_count: newSquadSize,
-          overseas_count: newOverseasCount,
-        }).eq("room_id", currentRoom.id).eq("team_id", winnerId);
-
-        await supabase.from("room_sold_players").upsert([{
-          room_id: currentRoom.id,
-          player_id: currentPid,
-          team_id: winnerId,
-          sold_price_cr: finalBid,
-          is_overseas: isOs,
-        }], { onConflict: 'room_id,player_id' });
+      if (data?.ok && data?.action === "completed") {
+        setIsAuctionComplete(true);
+        addLog("🏁 Auction Complete!", "sys");
       }
-    }
-
-    // Fetch sold players to avoid advancing to an already sold player
-    const { data: soldPlayers } = await supabase
-      .from("room_sold_players")
-      .select("player_id")
-      .eq("room_id", currentRoom.id);
-    const soldIds = new Set(soldPlayers?.map(s => s.player_id) || []);
-
-    const currentIndex = players.findIndex((p: any) => p.id === currentPid);
-    let nextPlayer = null;
-    for (let i = currentIndex + 1; i < players.length; i++) {
-      if (!soldIds.has(players[i].id)) {
-        nextPlayer = players[i];
-        break;
-      }
-    }
-
-    if (nextPlayer) {
-      const td = currentRoom?.timer_duration || 10;
-      const newTimer = new Date(Date.now() + td * 1000).toISOString();
-      await supabase.from("rooms").update({
-        current_player_id: nextPlayer.id,
-        current_bid_cr: 0,
-        current_highest_bidder_id: null,
-        status: "active",
-        timer_ends_at: newTimer,
-      }).eq("id", currentRoom.id);
-    } else {
-      setIsAuctionComplete(true);
-      await supabase.from("rooms").update({ status: "completed" }).eq("id", currentRoom.id);
-      addLog("🏁 Auction Complete!", "sys");
+    } catch (err) {
+      console.error("Failed to advance auction:", err);
     }
   }, [addLog]);
 
@@ -424,9 +413,16 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
               setTimeout(() => setShowSoldFlash(null), 3000);
               addLog(`✅ SOLD to ${winnerId} for ${formatPriceCr(finalBid)}`, "sys");
             } else {
+              const cp = currentPlayer;
+              setShowUnsoldFlash({ name: cp?.name || "Unknown" });
+              setTimeout(() => setShowUnsoldFlash(null), 2500);
               addLog("❌ UNSOLD", "sys");
             }
-            advanceTimeoutRef.current = setTimeout(advanceAuction, 2000);
+            // Staggered advance to avoid client-side RPC collisions:
+            // Host attempts immediately (after 2s sold display delay), peers wait an extra 2.5s (4.5s total).
+            const isMeHost = claimedTeamsRef.current.find(c => c.team_id === playerTeamRef.current)?.is_host === true;
+            const delay = isMeHost ? 2000 : 4500;
+            advanceTimeoutRef.current = setTimeout(advanceAuction, delay);
           }
         }
       };
@@ -479,6 +475,12 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
 
   const handleSpectate = () => {
     setIsSpectator(true);
+    // Store a default name for spectators so they can initialize
+    if (!playerName) {
+      const spectatorName = `Spectator-${Math.random().toString(36).slice(2, 6)}`;
+      setPlayerName(spectatorName);
+      sessionStorage.setItem("playerName", spectatorName);
+    }
   };
 
   const handleStartAuction = async () => {
@@ -600,7 +602,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const value: AuctionContextType = {
     roomCode, loading, room, playerTeam, playerName, isSpectator, claimedTeams,
     onlineUsers, allPlayers, currentPlayer, logs, chatMessages, timeLeft, showSoldFlash,
-    showSquadsModal, squadsMap, isAuctionComplete, isBidding,
+    showUnsoldFlash, showSquadsModal, squadsMap, isAuctionComplete, isBidding, soldPlayerIds,
     setShowSoldFlash, setShowSquadsModal, handleClaim, handleStartAuction,
     handlePause, handleEndAuction, handleBid, loadSquad, addLog, sendChatMessage, advanceAuction, handleSpectate,
     setPlayerName, setJoinName, setPlayerTeam, joinName,

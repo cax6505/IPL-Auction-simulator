@@ -17,7 +17,7 @@ function generateRoomCode(): string {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { playerName, playerTeam } = body;
+    const { playerName, playerTeam, auctionMode, timerDuration, startingPurse } = body;
 
     if (!playerName || !playerTeam) {
       return NextResponse.json(
@@ -25,6 +25,12 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
+
+    // Validate & clamp optional parameters
+    const validModes = ["mega_auction", "mock_2026", "legends_upgraded"];
+    const mode = validModes.includes(auctionMode) ? auctionMode : null;
+    const timer = Math.min(Math.max(Number(timerDuration) || 10, 5), 30);
+    const purse = [80, 100, 120, 125].includes(Number(startingPurse)) ? Number(startingPurse) : 120;
 
     // Generate unique room code (retry if collision)
     let roomCode = generateRoomCode();
@@ -40,14 +46,14 @@ export async function POST(req: NextRequest) {
       attempts++;
     }
 
-    // Create room
+    // Create room with custom settings
     const { data: room, error: roomError } = await supabase
       .from("rooms")
       .insert([{
         status: "waiting",
         room_code: roomCode,
-        auction_mode: null,
-        timer_duration: 10,
+        auction_mode: mode,
+        timer_duration: timer,
       }])
       .select()
       .single();
@@ -57,7 +63,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Failed to create room" }, { status: 500 });
     }
 
-    // Add creator as host
+    // Add creator as host with custom purse
     const { error: franchiseError } = await supabase
       .from("room_franchises")
       .insert([{
@@ -65,7 +71,7 @@ export async function POST(req: NextRequest) {
         team_id: playerTeam,
         user_name: playerName,
         is_host: true,
-        purse_remaining_cr: 120.0,
+        purse_remaining_cr: purse,
         squad_count: 0,
         overseas_count: 0,
       }]);
