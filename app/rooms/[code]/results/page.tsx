@@ -24,7 +24,7 @@ export default function ResultsPage() {
     if (!loading && room) {
       if (room.status === "waiting") {
         router.push(`/rooms/${roomCode}`);
-      } else if (room.status === "active" || room.status === "paused") {
+      } else if (room.status === "active" || room.status === "paused" || room.status === "in_progress") {
         router.push(`/rooms/${roomCode}/auction`);
       }
     }
