@@ -267,8 +267,10 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
 
       activeChannel
         .on("postgres_changes", { event: "*", schema: "public", table: "rooms", filter: `id=eq.${roomData.id}` }, (p: any) => {
-          setRoom(p.new);
-          roomRef.current = p.new;
+          // Merge incoming changes into existing state to prevent losing fields
+          // that may not be included in the Realtime payload
+          setRoom((prev: any) => (prev && p.new ? { ...prev, ...p.new } : p.new));
+          roomRef.current = roomRef.current && p.new ? { ...roomRef.current, ...p.new } : p.new;
           if ((p.new as any).status === "completed") setIsAuctionComplete(true);
         })
         .on("postgres_changes", { event: "INSERT", schema: "public", table: "room_franchises", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
@@ -513,6 +515,9 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const handlePause = async (pause: boolean) => {
     const currentRoom = roomRef.current;
     if (!currentRoom) return;
+    // Only the host can pause/resume the auction
+    const meHost = claimedTeamsRef.current.find(c => c.team_id === playerTeamRef.current)?.is_host === true;
+    if (!meHost) return;
     if (pause) {
       await supabase.from("rooms").update({ status: "paused", timer_ends_at: null }).eq("id", currentRoom.id);
       addLog("⏸ Auction paused", "sys");
@@ -525,6 +530,9 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   };
 
   const handleEndAuction = async () => {
+    // Only the host can end the auction
+    const meHost = claimedTeamsRef.current.find(c => c.team_id === playerTeamRef.current)?.is_host === true;
+    if (!meHost) return;
     if (window.confirm("End auction? This cannot be undone.")) {
       await supabase.from("rooms").update({ status: "completed" }).eq("id", roomRef.current?.id);
     }
