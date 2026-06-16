@@ -35,7 +35,7 @@ export function Footer() {
               <Link href="/" className="text-zinc-500 hover:text-amber-400 transition-colors">Home</Link>
               <Link href="/browse" className="text-zinc-500 hover:text-amber-400 transition-colors">Browse Rooms</Link>
               <Link href="/players" className="text-zinc-500 hover:text-amber-400 transition-colors">Scout Database</Link>
-              <Link href="/how-to-play" className="text-zinc-500 hover:text-amber-400 transition-colors">How To Play</Link>
+              <Link href="/guide" className="text-zinc-500 hover:text-amber-400 transition-colors">How To Play</Link>
             </div>
           </div>
 

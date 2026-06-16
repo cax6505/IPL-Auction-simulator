@@ -421,7 +421,7 @@ export default function Home() {
               </div>
             </Link>
             <Link
-              href="/how-to-play"
+              href="/guide"
               className="flex items-center gap-4 p-4 glass-card hover:glass-card-hover rounded-[14px] transition-all group"
             >
               <div className="h-10 w-10 rounded-full bg-amber-500/10 flex items-center justify-center group-hover:bg-amber-500/20 transition-colors">
@@ -480,7 +480,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex gap-6 shrink-0">
-            <Link href="/how-to-play" className="hover:text-zinc-300 transition-colors">Rules & Guide</Link>
+            <Link href="/guide" className="hover:text-zinc-300 transition-colors">Rules & Guide</Link>
             <Link href="/browse" className="hover:text-zinc-300 transition-colors">Active Rooms</Link>
             <Link href="/players" className="hover:text-zinc-300 transition-colors">Player List</Link>
           </div>
