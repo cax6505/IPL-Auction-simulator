@@ -101,7 +101,7 @@ export default function BrowseRoomsPage() {
 
   const handleJoin = (code: string, spectate: boolean = false) => {
     if (spectate) {
-      router.push(`/room/${code}?spectate=true`);
+      router.push(`/rooms/${code}?spectate=true`);
     } else {
       router.push(`/?code=${code}`);
     }
