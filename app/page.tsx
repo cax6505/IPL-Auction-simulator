@@ -81,7 +81,7 @@ export default function Home() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to create room");
-      router.push(`/room/${data.roomCode}`);
+      router.push(`/rooms/${data.roomCode}`);
     } catch (err: any) {
       alert(err.message);
       setIsCreating(false);
@@ -117,7 +117,7 @@ export default function Home() {
         setIsJoining(false);
         return;
       }
-      router.push(`/room/${code}`);
+      router.push(`/rooms/${code}`);
     } catch (err: any) {
       setJoinError(err.message);
       setIsJoining(false);
