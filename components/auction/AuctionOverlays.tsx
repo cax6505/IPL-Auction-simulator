@@ -81,16 +81,20 @@ function UnsoldFlash() {
   if (!showUnsoldFlash) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
-      <div className="absolute inset-0 opacity-10 bg-gradient-radial from-red-600 to-transparent animate-pulse pointer-events-none" />
-      <div className="relative z-10 flex flex-col items-center max-w-2xl text-center animate-unsold-shake">
-        <h1 className="text-7xl sm:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-red-400 to-red-700 italic tracking-tighter drop-shadow-[0_0_40px_rgba(239,68,68,0.5)] px-8">
-          UNSOLD
-        </h1>
-        <div className="mt-8 bg-black/40 backdrop-blur border border-red-500/20 px-8 py-6 rounded-[24px] shadow-2xl">
-          <p className="text-zinc-400 text-sm font-bold uppercase tracking-widest mb-1">No bids received for</p>
-          <p className="text-2xl font-black text-white tracking-tight">{showUnsoldFlash.name}</p>
+    <div className="fixed inset-x-0 top-1/4 z-[100] flex justify-center px-4 animate-fade-up">
+      <div className="bg-[#141417]/95 backdrop-blur-md border border-[#3f3f46]/40 text-zinc-300 px-6 py-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] max-w-lg w-full flex items-center gap-5 relative overflow-hidden">
+        <div className="absolute left-0 top-0 bottom-0 w-2 bg-zinc-500" />
+        <div className="h-12 w-12 rounded-full bg-zinc-800/40 flex items-center justify-center shrink-0 border border-zinc-700/50">
+          <span className="text-lg font-black text-zinc-500">❌</span>
         </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-widest mb-0.5">Player Unsold</p>
+          <h3 className="text-lg font-black text-white tracking-tight truncate leading-tight">{showUnsoldFlash.name}</h3>
+          <p className="text-[10px] text-zinc-400 mt-1 leading-normal">Returning to the auction pool queue...</p>
+        </div>
+        <span className="text-xl font-black italic text-zinc-500/80 font-mono tracking-tighter select-none shrink-0 pr-2">
+          UNSOLD
+        </span>
       </div>
     </div>
   );

@@ -45,12 +45,18 @@ export default function Home() {
   const [startingPurse, setStartingPurse] = useState(120);
   const [showAdvanced, setShowAdvanced] = useState(false);
 
-  // Restore identity from sessionStorage
+  // Restore identity from sessionStorage & check URL parameters
   useEffect(() => {
     const savedName = sessionStorage.getItem("playerName");
     const savedTeam = sessionStorage.getItem("playerTeam");
     if (savedName) setPlayerName(savedName);
     if (savedTeam) setSelectedTeam(savedTeam);
+
+    const searchParams = new URLSearchParams(window.location.search);
+    const urlCode = searchParams.get("code");
+    if (urlCode) {
+      setRoomCode(urlCode.toUpperCase());
+    }
   }, []);
 
   // Persist identity to sessionStorage
@@ -464,6 +470,21 @@ export default function Home() {
             </p>
           </div>
         </div>
+
+        {/* Footer */}
+        <footer className="mt-24 border-t border-white/[0.04] pt-8 pb-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-zinc-500 text-xs font-medium">
+          <div>
+            <p>© 2026 IPL Auction Pro Simulator. All rights reserved.</p>
+            <p className="text-[10px] text-zinc-600 mt-1 leading-relaxed">
+              Disclaimer: This is an unofficial simulator for entertainment purposes only. No real money or official franchises are associated.
+            </p>
+          </div>
+          <div className="flex gap-6 shrink-0">
+            <Link href="/how-to-play" className="hover:text-zinc-300 transition-colors">Rules & Guide</Link>
+            <Link href="/browse" className="hover:text-zinc-300 transition-colors">Active Rooms</Link>
+            <Link href="/players" className="hover:text-zinc-300 transition-colors">Player List</Link>
+          </div>
+        </footer>
       </div>
     </div>
   );

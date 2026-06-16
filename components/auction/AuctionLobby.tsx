@@ -3,9 +3,10 @@
 import { useAuction } from "./AuctionContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Share2, Users, AlertCircle, Play, Shield, Clock, BadgeCent, CheckCircle2, UserCheck, Copy, Check } from "lucide-react";
+import { Share2, Users, AlertCircle, Play, Shield, Clock, BadgeCent, CheckCircle2, UserCheck, Copy, Check, Globe2 } from "lucide-react";
 import { TEAM_MAP, formatPriceCr } from "@/lib/auction-engine";
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 const MODE_LABELS: Record<string, string> = {
   mega_auction: "Mega Auction (Full Squad Reset)",
@@ -42,6 +43,22 @@ export function AuctionLobby() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const updateRoomSetting = async (field: string, value: any) => {
+    if (!room?.id) return;
+    const updateData: Record<string, any> = { [field]: value };
+    const { error } = await supabase
+      .from("rooms")
+      .update(updateData)
+      .eq("id", room.id);
+    if (error) {
+      if (field === "is_private" && error.message.includes("is_private")) {
+        console.warn("is_private column missing in DB, ignoring visibility toggle");
+      } else {
+        alert("Failed to update setting: " + error.message);
+      }
+    }
+  };
+
   // Calculate stats
   const spectatorCount = onlineUsers.filter(u => u.spectator || u.team === "Spectator").length;
   
@@ -56,20 +73,33 @@ export function AuctionLobby() {
       <div className="flex flex-col lg:flex-row gap-6 w-full max-w-5xl mx-auto mt-2 animate-fade-up">
         {/* Main Lobby Column */}
         <div className="flex-1 flex flex-col gap-6">
-          {/* Room Configuration Summary */}
+          {/* Room Configuration Settings */}
           <div className="glass-card rounded-2xl p-6 relative overflow-hidden border border-white/[0.04]">
             <div className="absolute inset-0 bg-gradient-to-r from-amber-500/[0.02] to-transparent pointer-events-none" />
             <h3 className="text-xs text-zinc-500 font-black uppercase tracking-widest mb-4 flex items-center gap-2">
-              <Shield className="h-4 w-4 text-amber-500" /> Draft Room Settings
+              <Shield className="h-4 w-4 text-amber-500" /> Draft Room Settings {isHost && <span className="text-[10px] text-amber-400 font-bold lowercase tracking-normal">(Host Panel)</span>}
             </h3>
+            
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="bg-black/30 border border-white/[0.03] rounded-xl p-4 flex items-center gap-3">
                 <div className="h-10 w-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0">
                   <Shield className="h-5 w-5" />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 w-full">
                   <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Draft Mode</p>
-                  <p className="text-xs font-bold text-white truncate">{MODE_LABELS[room?.auction_mode || "mega_auction"]}</p>
+                  {isHost ? (
+                    <select
+                      value={room?.auction_mode || "mega_auction"}
+                      onChange={(e) => updateRoomSetting("auction_mode", e.target.value)}
+                      className="bg-zinc-900 border border-white/[0.1] text-xs font-bold text-white rounded px-2 py-1 mt-1 w-full focus:outline-none focus:border-amber-500 cursor-pointer"
+                    >
+                      <option value="mega_auction">Mega Auction (Full)</option>
+                      <option value="mock_2026">IPL 2026 Mock</option>
+                      <option value="legends_upgraded">Legends Pool</option>
+                    </select>
+                  ) : (
+                    <p className="text-xs font-bold text-white mt-1.5 truncate">{MODE_LABELS[room?.auction_mode || "mega_auction"]}</p>
+                  )}
                 </div>
               </div>
 
@@ -77,9 +107,9 @@ export function AuctionLobby() {
                 <div className="h-10 w-10 rounded-lg bg-green-500/10 flex items-center justify-center text-green-400 shrink-0">
                   <BadgeCent className="h-5 w-5" />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 w-full">
                   <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Starting Purse</p>
-                  <p className="text-xs font-bold text-white">{startingPurse} Cr</p>
+                  <p className="text-xs font-bold text-white mt-1.5">{startingPurse} Cr</p>
                 </div>
               </div>
 
@@ -87,12 +117,49 @@ export function AuctionLobby() {
                 <div className="h-10 w-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0">
                   <Clock className="h-5 w-5" />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 w-full">
                   <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Bid Timer</p>
-                  <p className="text-xs font-bold text-white">{room?.timer_duration || 10} seconds</p>
+                  {isHost ? (
+                    <select
+                      value={room?.timer_duration || 10}
+                      onChange={(e) => updateRoomSetting("timer_duration", Number(e.target.value))}
+                      className="bg-zinc-900 border border-white/[0.1] text-xs font-bold text-white rounded px-2 py-1 mt-1 w-full focus:outline-none focus:border-amber-500 cursor-pointer"
+                    >
+                      <option value="5">5 seconds</option>
+                      <option value="10">10 seconds</option>
+                      <option value="15">15 seconds</option>
+                      <option value="20">20 seconds</option>
+                      <option value="30">30 seconds</option>
+                    </select>
+                  ) : (
+                    <p className="text-xs font-bold text-white mt-1.5">{room?.timer_duration || 10} seconds</p>
+                  )}
                 </div>
               </div>
             </div>
+
+            {/* Room Visibility Toggle for Host */}
+            {isHost && (
+              <div className="mt-4 bg-black/20 border border-white/[0.02] rounded-xl p-4 flex items-center justify-between animate-fade-in">
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-lg bg-zinc-800 flex items-center justify-center text-zinc-400">
+                    <Globe2 className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-white">Lobby Visibility</h4>
+                    <p className="text-[10px] text-zinc-500">Public lobbies appear on the browse page</p>
+                  </div>
+                </div>
+                <select
+                  value={room?.is_private ? "private" : "public"}
+                  onChange={(e) => updateRoomSetting("is_private", e.target.value === "private")}
+                  className="bg-zinc-900 border border-white/[0.1] text-xs font-bold text-white rounded px-2 py-1 focus:outline-none focus:border-amber-500 cursor-pointer"
+                >
+                  <option value="public">🌍 Public</option>
+                  <option value="private">🔒 Private</option>
+                </select>
+              </div>
+            )}
           </div>
 
           {/* Joined Teams Grid */}
@@ -117,12 +184,12 @@ export function AuctionLobby() {
                     className={`flex items-center justify-between p-3.5 rounded-xl border transition-all duration-300 ${
                       claim
                         ? "bg-black/30 border-white/[0.05]"
-                        : "bg-white/[0.01] border-dashed border-white/[0.05] opacity-60"
+                        : "bg-white/[0.01] border-dashed border-white/[0.05] opacity-60 animate-pulse"
                     }`}
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      {/* Logo badge */}
-                      <div className={`h-9 w-9 rounded-lg flex items-center justify-center font-black text-xs shrink-0 shadow-inner border border-black/20 ${t.color} ${t.textDark ? "text-zinc-900" : "text-white"}`}>
+                      {/* Logo badge: Circle */}
+                      <div className={`h-10 w-10 rounded-full flex items-center justify-center font-black text-xs shrink-0 shadow-inner border border-black/20 ${t.color} ${t.textDark ? "text-zinc-900" : "text-white"}`}>
                         {t.id}
                       </div>
                       
@@ -137,9 +204,17 @@ export function AuctionLobby() {
                             )}
                           </div>
                         ) : (
-                          <span className="text-xs font-semibold text-zinc-600 uppercase tracking-wider">Unclaimed</span>
+                          <span className="text-xs font-semibold text-amber-500/60 uppercase tracking-wider">
+                            Waiting for player...
+                          </span>
                         )}
-                        <span className="text-[10px] text-zinc-500 block leading-tight font-medium mt-0.5">{t.name}</span>
+                        {claim ? (
+                          <span className="text-[10px] text-zinc-400 block leading-tight font-medium mt-0.5">
+                            Purse: {claim.purse_remaining_cr} Cr • {t.name}
+                          </span>
+                        ) : (
+                          <span className="text-[10px] text-zinc-500 block leading-tight font-medium mt-0.5">{t.name}</span>
+                        )}
                       </div>
                     </div>
 
@@ -151,7 +226,7 @@ export function AuctionLobby() {
                         </span>
                       </div>
                     ) : (
-                      <span className="text-[10px] font-black tracking-wider text-zinc-700 uppercase">Available</span>
+                      <span className="text-[10px] font-black tracking-wider text-zinc-700 uppercase">Claimable</span>
                     )}
                   </div>
                 );
@@ -213,11 +288,21 @@ export function AuctionLobby() {
                 </p>
                 <Button
                   onClick={handleStartAuction}
-                  variant="primary"
-                  className="w-full h-12 shimmer-btn font-black tracking-widest text-sm flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:shadow-[0_0_35px_rgba(245,158,11,0.4)] transition-all duration-300"
+                  disabled={claimedTeams.length < 2}
+                  variant={claimedTeams.length >= 2 ? "primary" : "secondary"}
+                  className={`w-full h-12 font-black tracking-widest text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
+                    claimedTeams.length >= 2 
+                      ? "shimmer-btn shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:shadow-[0_0_35px_rgba(245,158,11,0.4)] cursor-pointer"
+                      : "opacity-50 cursor-not-allowed border-zinc-800 bg-zinc-900 text-zinc-500"
+                  }`}
                 >
                   <Play className="h-4 w-4 fill-black" /> START AUCTION
                 </Button>
+                {claimedTeams.length < 2 && (
+                  <p className="text-[10px] text-amber-500/80 font-bold uppercase tracking-wider mt-2.5 animate-pulse">
+                    ⚠️ Minimum 2 claims required to start
+                  </p>
+                )}
               </>
             ) : (
               <>

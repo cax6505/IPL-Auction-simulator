@@ -96,29 +96,65 @@ export async function POST(req: NextRequest) {
  */
 export async function GET() {
   try {
-    const { data: rooms, error } = await supabase
+    let rooms: any[] | null = null;
+    let error: any = null;
+
+    const queryRes = await supabase
       .from("rooms")
-      .select("id, room_code, status, auction_mode, timer_duration, max_players, created_at")
+      .select("id, room_code, status, auction_mode, timer_duration, max_players, created_at, is_private")
       .in("status", ["waiting", "active"])
       .order("created_at", { ascending: false })
       .limit(50);
+
+    rooms = queryRes.data;
+    error = queryRes.error;
+
+    if (error && error.message.includes("is_private")) {
+      // Fallback if the is_private column does not exist yet
+      const fallback = await supabase
+        .from("rooms")
+        .select("id, room_code, status, auction_mode, timer_duration, max_players, created_at")
+        .in("status", ["waiting", "active"])
+        .order("created_at", { ascending: false })
+        .limit(50);
+      rooms = fallback.data;
+      error = fallback.error;
+    }
 
     if (error) {
       return NextResponse.json({ error: "Failed to fetch rooms" }, { status: 500 });
     }
 
-    // Augment with player counts
-    const roomsWithCounts = await Promise.all(
-      (rooms || []).map(async (room) => {
+    // Filter out private rooms in memory if column was selected
+    let filteredRooms = rooms || [];
+    if (filteredRooms.length > 0 && "is_private" in filteredRooms[0]) {
+      filteredRooms = filteredRooms.filter((r: any) => !r.is_private);
+    }
+
+    // Augment with player counts and creator names
+    const roomsWithDetails = await Promise.all(
+      filteredRooms.map(async (room: any) => {
         const { count } = await supabase
           .from("room_franchises")
           .select("*", { count: "exact", head: true })
           .eq("room_id", room.id);
-        return { ...room, playerCount: count || 0 };
+
+        const { data: hostData } = await supabase
+          .from("room_franchises")
+          .select("user_name")
+          .eq("room_id", room.id)
+          .eq("is_host", true)
+          .maybeSingle();
+
+        return {
+          ...room,
+          playerCount: count || 0,
+          creatorName: hostData?.user_name || "Unknown Manager"
+        };
       })
     );
 
-    return NextResponse.json({ rooms: roomsWithCounts });
+    return NextResponse.json({ rooms: roomsWithDetails });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }

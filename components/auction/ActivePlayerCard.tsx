@@ -196,16 +196,61 @@ export function ActivePlayerCard() {
             </div>
           )}
 
-          {/* Countdown Clock */}
-          {timeLeft !== null && room?.status === "active" && !isSold && (
-            <div className={`flex items-center justify-center bg-black/60 border border-white/[0.06] px-4 py-2 rounded-[10px] shadow-inner ${timerCritical ? 'animate-pulse border-red-500/30' : ''}`}>
-              <span className={`text-xl font-black font-mono tracking-tighter flex items-center gap-1 ${
-                timerCritical ? "text-red-500" : "text-white"
-              }`}>
-                {Math.ceil(timeLeft / 1000)}<span className="text-xs text-zinc-500 font-sans tracking-widest">SEC</span>
-              </span>
-            </div>
-          )}
+          {/* Countdown Clock - Circular SVG */}
+          {timeLeft !== null && room?.status === "active" && !isSold && (() => {
+            const seconds = Math.ceil(timeLeft / 1000);
+            const duration = room?.timer_duration || 10;
+            const progress = (timeLeft / (duration * 1000)); // 0.0 to 1.0
+            const radius = 28;
+            const circumference = 2 * Math.PI * radius;
+            const strokeDashoffset = circumference * (1 - progress);
+
+            // Determine stroke color
+            let strokeColor = "#22c55e"; // Green
+            let ringGlow = "shadow-[0_0_15px_rgba(34,197,94,0.3)]";
+            if (timeLeft <= 3000) {
+              strokeColor = "#ef4444"; // Red
+              ringGlow = "shadow-[0_0_20px_rgba(239,68,68,0.5)] animate-pulse";
+            } else if (timeLeft <= 6000) {
+              strokeColor = "#f59e0b"; // Amber
+              ringGlow = "shadow-[0_0_15px_rgba(245,158,11,0.3)]";
+            }
+
+            return (
+              <div className={`relative h-20 w-20 flex items-center justify-center rounded-full bg-black/60 border border-white/[0.06] ${ringGlow} mb-2`}>
+                {/* SVG Ring */}
+                <svg className="absolute w-full h-full -rotate-90" viewBox="0 0 64 64">
+                  {/* Background track circle */}
+                  <circle
+                    cx="32"
+                    cy="32"
+                    r={radius}
+                    fill="transparent"
+                    stroke="rgba(255,255,255,0.03)"
+                    strokeWidth="4"
+                  />
+                  {/* Foreground progress circle */}
+                  <circle
+                    cx="32"
+                    cy="32"
+                    r={radius}
+                    fill="transparent"
+                    stroke={strokeColor}
+                    strokeWidth="4"
+                    strokeDasharray={circumference}
+                    strokeDashoffset={strokeDashoffset}
+                    strokeLinecap="round"
+                    className="transition-all duration-100 ease-linear"
+                  />
+                </svg>
+                {/* Text Centered */}
+                <span className="text-2xl font-black font-mono tracking-tighter text-white z-10 flex flex-col items-center leading-none">
+                  {seconds}
+                  <span className="text-[7px] text-zinc-500 font-sans tracking-widest mt-0.5">SEC</span>
+                </span>
+              </div>
+            );
+          })()}
 
           {/* Bid Value */}
           <div className="flex flex-col text-left md:text-right w-full">

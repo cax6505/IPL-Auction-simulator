@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/lib/supabase";
 
 interface RoomData {
   id: string;
@@ -25,6 +26,7 @@ interface RoomData {
   timer_duration: number;
   created_at: string;
   playerCount: number;
+  creatorName?: string;
 }
 
 const MODE_LABELS: Record<string, string> = {
@@ -63,11 +65,35 @@ export default function BrowseRoomsPage() {
 
   useEffect(() => {
     fetchRooms();
+
+    // Subscribe to public rooms changes in real time
+    const channel = supabase
+      .channel("browse-rooms")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "rooms" },
+        () => {
+          fetchRooms();
+        }
+      )
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "room_franchises" },
+        () => {
+          fetchRooms();
+        }
+      )
+      .subscribe();
+
     const interval = setInterval(() => {
       fetchRooms();
       setLastRefresh(Date.now());
-    }, 5000);
-    return () => clearInterval(interval);
+    }, 15000);
+
+    return () => {
+      clearInterval(interval);
+      supabase.removeChannel(channel);
+    };
   }, [fetchRooms]);
 
   const openRooms = rooms.filter((r) => r.status === "waiting");
@@ -77,7 +103,7 @@ export default function BrowseRoomsPage() {
     if (spectate) {
       router.push(`/room/${code}?spectate=true`);
     } else {
-      router.push(`/room/${code}`);
+      router.push(`/?code=${code}`);
     }
   };
 
@@ -247,6 +273,10 @@ function RoomCard({
           )}
         </div>
         
+        <p className="text-xs text-zinc-500 font-medium">
+          Creator: <span className="text-zinc-300 font-bold">{room.creatorName || "Unknown Manager"}</span>
+        </p>
+
         <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-zinc-400">
           <span className="flex items-center gap-1.5 bg-black/30 px-2 py-1 rounded bg-white/[0.03]">
             <Users className="h-3.5 w-3.5 text-zinc-500" />

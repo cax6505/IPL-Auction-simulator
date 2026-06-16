@@ -3,15 +3,17 @@
 import { useAuction } from "./AuctionContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Play, Pause, Square, Activity, Settings2, X, Check } from "lucide-react";
+import { Play, Pause, Square, Activity, Settings2, X, Check, Eye } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 export function AuctionHeader() {
-  const { room, roomCode, isHost, isAuctionComplete, handleStartAuction, handlePause, handleEndAuction } = useAuction();
+  const { room, roomCode, isHost, isAuctionComplete, handleStartAuction, handlePause, handleEndAuction, onlineUsers } = useAuction();
   const [showSettings, setShowSettings] = useState(false);
   const [timerVal, setTimerVal] = useState(room?.timer_duration || 10);
   const [isSaving, setIsSaving] = useState(false);
+
+  const spectatorCount = onlineUsers.filter(u => u.spectator || u.team === "Spectator" || u.team === "Spectators").length;
 
   const handleSaveSettings = async () => {
     if (!room?.id) return;
@@ -59,6 +61,13 @@ export function AuctionHeader() {
           >
             {room?.status || "Connecting"}
           </Badge>
+
+          {spectatorCount > 0 && (
+            <div className="flex items-center gap-1.5 bg-zinc-800/40 border border-zinc-700/30 px-2.5 py-1 rounded-md text-[10px] text-zinc-400 font-bold font-mono">
+              <Eye className="h-3.5 w-3.5 text-zinc-500 animate-pulse" />
+              <span>{spectatorCount} Watching</span>
+            </div>
+          )}
         </div>
       </div>
 

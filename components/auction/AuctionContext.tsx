@@ -34,7 +34,7 @@ interface AuctionContextType {
   handleStartAuction: () => Promise<void>;
   handlePause: (pause: boolean) => Promise<void>;
   handleEndAuction: () => Promise<void>;
-  handleBid: () => Promise<void>;
+  handleBid: (customAmountCr?: number) => Promise<void>;
   loadSquad: (teamId: string) => Promise<void>;
   addLog: (text: string, type: "bid" | "join" | "sys") => void;
   sendChatMessage: (text: string) => void;
@@ -547,11 +547,36 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const isHost = myRecord?.is_host === true;
   const timerProgress = timeLeft !== null && room?.timer_duration ? Math.min(100, (timeLeft / (room.timer_duration * 1000)) * 100) : 0;
 
-  const handleBid = async () => {
-    if (!room || room.status !== "active" || !currentPlayer || isHighest || !canLegallyBid || isBidding || !playerTeam) return;
+  const handleBid = async (customAmountCr?: number) => {
+    if (!room || room.status !== "active" || !currentPlayer || isHighest || isBidding || !playerTeam) return;
+    
+    const bidAmount = customAmountCr !== undefined 
+      ? Number(customAmountCr)
+      : (currentBid === 0 ? safeBasePrice : nextCalculated);
+
+    // Validate that the custom bid is at least the next minimum calculated bid
+    const minRequired = currentBid === 0 ? safeBasePrice : nextCalculated;
+    if (bidAmount < minRequired) {
+      alert(`Minimum bid required is ${formatPriceCr(minRequired)}`);
+      return;
+    }
+
+    // Check financial affordability
+    if (!canAffordBid(myPurse, bidAmount, mySquadSize)) {
+      alert(`Insufficient funds or squad completion reserve violated for ${formatPriceCr(bidAmount)}`);
+      return;
+    }
+
+    // Check roster validity (only if not already highest bidder to avoid double check)
+    const isOverseasVal = currentPlayer?.is_overseas || currentPlayer?.nationality?.toLowerCase() !== 'indian';
+    const isRosterValidCheck = mySquadSize < IPL_RULES.MAX_SQUAD_SIZE && !(isOverseasVal && myOverseas >= IPL_RULES.MAX_OVERSEAS);
+    if (!isRosterValidCheck) {
+      alert("Squad limits exceeded!");
+      return;
+    }
+
     setIsBidding(true);
     try {
-      const bidAmount = currentBid === 0 ? safeBasePrice : nextCalculated;
       const { data, error } = await supabase.rpc("execute_bid", {
         p_room_id: room.id,
         p_player_id: currentPlayer.id,
