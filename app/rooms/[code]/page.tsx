@@ -13,9 +13,9 @@ export default function RoomLobbyPage() {
   useEffect(() => {
     if (!loading && room) {
       if (room.status === "active" || room.status === "in_progress") {
-        router.push(`/room/${roomCode}/auction`);
+        router.push(`/rooms/${roomCode}/auction`);
       } else if (room.status === "completed") {
-        router.push(`/room/${roomCode}/results`);
+        router.push(`/rooms/${roomCode}/results`);
       }
     }
   }, [loading, room, roomCode, router]);

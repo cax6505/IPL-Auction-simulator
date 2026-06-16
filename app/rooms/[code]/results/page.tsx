@@ -23,9 +23,9 @@ export default function ResultsPage() {
   useEffect(() => {
     if (!loading && room) {
       if (room.status === "waiting") {
-        router.push(`/room/${roomCode}`);
+        router.push(`/rooms/${roomCode}`);
       } else if (room.status === "active" || room.status === "paused") {
-        router.push(`/room/${roomCode}/auction`);
+        router.push(`/rooms/${roomCode}/auction`);
       }
     }
   }, [loading, room, roomCode, router]);

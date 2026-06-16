@@ -22,9 +22,9 @@ export default function AuctionRoomPage() {
   useEffect(() => {
     if (!loading && room) {
       if (room.status === "waiting") {
-        router.push(`/room/${roomCode}`);
+        router.push(`/rooms/${roomCode}`);
       } else if (room.status === "completed") {
-        router.push(`/room/${roomCode}/results`);
+        router.push(`/rooms/${roomCode}/results`);
       }
     }
   }, [loading, room, roomCode, router]);
