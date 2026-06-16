@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IPL Auction Pro | Simulator 🏏
 
-## Getting Started
+A premium, real-time multiplayer cricket manager draft room simulator. Experience the tactical intensity of the IPL Mega Auction right in your browser. Built with Next.js (App Router), TypeScript, Tailwind CSS, and Supabase.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Key Features
+
+- **Real-Time Bidding**: Powered by Supabase Realtime for sub-second, multi-client bid synchronization.
+- **RESTful Architecture**: Clean, noun-based, and semantic route layout.
+- **Realistic Bid Increments**: Implements actual IPL Mega Auction bidding ladder increments (Lakhs to Crores).
+- **Roster Constraints**: Strictly enforces squad size limitations (18-25 players) and overseas quotas (max 8).
+- **Multiple Game Modes**: Choose between *Full Draft*, *Mock 2026*, and *Retired Legends* pools.
+
+---
+
+## 📁 Codebase Directory Structure
+
+```
+├── app/
+│   ├── api/                      # Next.js API route handlers
+│   │   ├── health/               # Health check endpoint
+│   │   └── rooms/                # RESTful rooms endpoints (Create, Get, Join, Advance)
+│   ├── guide/                    # Rules handbook & bidding strategy (/guide)
+│   ├── players/                  # Complete player search registry (/players)
+│   ├── rooms/                    # Available rooms discovery list (/rooms)
+│   │   └── [code]/               # Dynamic routing under custom 6-digit lobby code
+│   │       ├── auction/          # Live, real-time bidding war room
+│   │       └── results/          # Post-game leaderboard & compiled rosters
+│   ├── globals.css               # Global theme styles & ambient animations
+│   ├── layout.tsx                # Master page layout wrapper
+│   └── page.tsx                  # Home lobby landing screen
+│
+├── components/
+│   ├── auction/                  # Bidding-specific client components & context provider
+│   ├── layout/                   # General UI shells (Navbar, Footer)
+│   ├── players/                  # Search, filter, and sorting registries
+│   └── ui/                       # Reusable custom UI components (Buttons, Badges, Modals)
+│
+├── lib/
+│   ├── auction-engine.ts         # Deterministic bid increment calculators and roster validators
+│   ├── supabase.ts               # Client wrapper and database connection setup
+│   └── types/                    # Common interface declarations
+│
+└── scripts/                      # SQL migrations, database seed tools, and data cleaners
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
 
-## Learn More
+- Node.js (v18 or higher)
+- Supabase account & database
 
-To learn more about Next.js, take a look at the following resources:
+### Environment Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a `.env.local` file in the root directory:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-## Deploy on Vercel
+### Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Install dependencies
+npm install
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Start the dev compilation server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the simulator dashboard.
+
+---
+
+## 🏗 Architectural Design Principles
+
+1. **Semantic Route Naming**: Routes are noun-based, lowercase, and follow clean Next.js patterns (e.g., `/rooms/[code]`).
+2. **One-Way Data Flow**: State is managed via `AuctionContext` utilizing Supabase broadcast streams to keep all players instantly updated.
+3. **Robust Safety Enforcements**: Roster validation is executed via Postgres RPC functions (such as `execute_bid`) ensuring that funds and limits are never exceeded, even under extreme concurrent bidding pressure.
