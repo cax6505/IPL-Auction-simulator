@@ -33,7 +33,7 @@ export function Footer() {
             <h4 className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Navigation</h4>
             <div className="grid grid-cols-2 gap-2 text-xs font-semibold">
               <Link href="/" className="text-zinc-500 hover:text-amber-400 transition-colors">Home</Link>
-              <Link href="/browse" className="text-zinc-500 hover:text-amber-400 transition-colors">Browse Rooms</Link>
+              <Link href="/rooms" className="text-zinc-500 hover:text-amber-400 transition-colors">Browse Rooms</Link>
               <Link href="/players" className="text-zinc-500 hover:text-amber-400 transition-colors">Scout Database</Link>
               <Link href="/guide" className="text-zinc-500 hover:text-amber-400 transition-colors">How To Play</Link>
             </div>

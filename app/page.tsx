@@ -409,7 +409,7 @@ export default function Home() {
           {/* Quick Links */}
           <div className="mt-6 grid grid-cols-2 gap-4">
             <Link
-              href="/browse"
+              href="/rooms"
               className="flex items-center gap-4 p-4 glass-card hover:glass-card-hover rounded-[14px] transition-all group"
             >
               <div className="h-10 w-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
@@ -481,7 +481,7 @@ export default function Home() {
           </div>
           <div className="flex gap-6 shrink-0">
             <Link href="/guide" className="hover:text-zinc-300 transition-colors">Rules & Guide</Link>
-            <Link href="/browse" className="hover:text-zinc-300 transition-colors">Active Rooms</Link>
+            <Link href="/rooms" className="hover:text-zinc-300 transition-colors">Active Rooms</Link>
             <Link href="/players" className="hover:text-zinc-300 transition-colors">Player List</Link>
           </div>
         </footer>

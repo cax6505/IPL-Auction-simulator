@@ -35,7 +35,7 @@ export function Navbar() {
   };
 
   const navLinks = [
-    { href: "/browse", label: "Browse", icon: Globe2 },
+    { href: "/rooms", label: "Rooms", icon: Globe2 },
     { href: "/guide", label: "How to Play", icon: BookOpen },
     { href: "/players", label: "Players", icon: Database },
   ];
