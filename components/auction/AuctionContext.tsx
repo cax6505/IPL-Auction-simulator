@@ -67,7 +67,7 @@ const AuctionContext = createContext<AuctionContextType | undefined>(undefined);
 export function AuctionProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
   const params = useParams();
-  const roomCode = params.roomCode as string;
+  const roomCode = params.code as string;
 
   // State
   const [loading, setLoading] = useState(true);
