@@ -3,18 +3,25 @@
 import { useAuction } from "./AuctionContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Play, Pause, Square, Activity, Settings2, X, Check, Eye } from "lucide-react";
-import { useState } from "react";
+import { Play, Pause, Square, Activity, Settings2, X, Check, Eye, Radio, Copy } from "lucide-react";
+import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { supabase } from "@/lib/supabase";
 
 export function AuctionHeader() {
-  const { room, roomCode, isHost, isAuctionComplete, handleStartAuction, handlePause, handleEndAuction, onlineUsers } = useAuction();
+  const { room, roomCode, isHost, isAuctionComplete, handleStartAuction, handlePause, handleEndAuction, onlineUsers, timeLeft } = useAuction();
   const [showSettings, setShowSettings] = useState(false);
   const [timerVal, setTimerVal] = useState(room?.timer_duration || 10);
   const [isSaving, setIsSaving] = useState(false);
 
-  const spectatorCount = onlineUsers.filter(u => u.spectator || u.team === "Spectator" || u.team === "Spectators").length;
+  useEffect(() => {
+    if (room?.timer_duration) {
+      setTimerVal(room.timer_duration);
+    }
+  }, [room?.timer_duration]);
+
+  const spectatorCount = onlineUsers.filter((u) => u.spectator || u.team === "Spectator" || u.team === "Spectators").length;
+  const secondsLeft = timeLeft !== null ? Math.max(0, Math.ceil(timeLeft / 1000)) : null;
 
   const handleSaveSettings = async () => {
     if (!room?.id) return;
@@ -24,44 +31,48 @@ export function AuctionHeader() {
     setShowSettings(false);
   };
 
-  // Settings modal rendered via portal to avoid header z-index stacking context
   const settingsModal = showSettings && typeof document !== "undefined" ? createPortal(
-    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm px-4" onClick={() => setShowSettings(false)}>
-      <div className="glass-card max-w-sm w-full p-6 text-left relative shadow-2xl rounded-[20px] animate-scale-in border border-white/10" onClick={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-md px-4" onClick={() => setShowSettings(false)}>
+      <div className="glass-panel max-w-sm w-full p-6 text-left relative shadow-2xl rounded-2xl border border-white/10" onClick={(e) => e.stopPropagation()}>
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-             <Settings2 className="h-5 w-5 text-amber-500" /> Room Configuration
+          <h3 className="font-display text-lg font-bold text-white flex items-center gap-2">
+            <Settings2 className="h-5 w-5 text-amber-400" /> Room Configuration
           </h3>
-          <button onClick={() => setShowSettings(false)} className="text-zinc-500 hover:text-white transition-colors">
+          <button onClick={() => setShowSettings(false)} className="text-zinc-500 hover:text-white">
             <X className="h-5 w-5" />
           </button>
         </div>
-        
-        <div className="space-y-6">
+
+        <div className="space-y-4">
           <div>
-            <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-3 block">Bid Timer Duration (Seconds)</label>
-            <div className="flex gap-2">
-               {[5, 10, 15, 20].map(val => (
-                 <button
-                   key={val}
-                   onClick={() => setTimerVal(val)}
-                   className={`flex-1 py-3 px-2 rounded-xl border text-sm font-black transition-all ${
-                     timerVal === val 
-                       ? "bg-amber-500/10 border-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.2)] text-amber-500" 
-                       : "bg-black/40 border-white/10 text-zinc-400 hover:text-zinc-200"
-                   }`}
-                 >
-                   {val}s
-                 </button>
-               ))}
+            <label className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2 block">
+              Bid Timer Duration
+            </label>
+            <div className="grid grid-cols-4 gap-2">
+              {[5, 10, 15, 20].map((val) => (
+                <button
+                  key={val}
+                  onClick={() => setTimerVal(val)}
+                  className={`py-2.5 rounded-xl font-mono text-xs font-bold border transition-all ${
+                    timerVal === val
+                      ? "bg-amber-500/20 border-amber-500/50 text-amber-300"
+                      : "bg-white/5 border-white/10 text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  {val}s
+                </button>
+              ))}
             </div>
-            <p className="text-[10px] text-zinc-500 mt-2 leading-tight">Controls exactly how long bidders have to respond before the system auto-sells the active player.</p>
           </div>
         </div>
 
-        <div className="mt-8">
-          <Button onClick={handleSaveSettings} disabled={isSaving || timerVal === room?.timer_duration} variant="primary" className="w-full h-12 font-bold text-sm tracking-wide hover:shadow-[0_0_20px_rgba(245,158,11,0.4)]">
-            {isSaving ? "Saving..." : <span className="flex items-center gap-2"><Check className="h-4 w-4" /> APPLY SETTINGS</span>}
+        <div className="mt-6">
+          <Button
+            onClick={handleSaveSettings}
+            disabled={isSaving || timerVal === room?.timer_duration}
+            className="w-full bg-gradient-to-r from-red-600 to-amber-500 text-white font-mono text-xs font-bold uppercase tracking-wider"
+          >
+            {isSaving ? "Saving..." : "Apply Settings"}
           </Button>
         </div>
       </div>
@@ -71,89 +82,90 @@ export function AuctionHeader() {
 
   return (
     <>
-      <header className="h-[72px] border-b border-white/[0.04] bg-[#09090b] flex items-center justify-between px-6 z-10 shrink-0 sticky top-0">
-        <div className="flex items-center gap-5">
-          <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-            <Activity className="h-5 w-5 text-amber-500" />
-            <span className="hidden sm:inline">ROOM</span>
-          </h1>
-          
-          <div className="h-5 w-px bg-white/10" />
-          
-          <div className="flex items-center gap-3">
-            <div 
-              className="flex bg-black/40 border border-white/[0.06] rounded-md px-3 py-1 shadow-inner items-center gap-2 cursor-pointer hover:bg-black/60 hover:border-amber-500/30 transition-colors group"
-              onClick={() => {
-                if (typeof window !== "undefined") {
-                  navigator.clipboard.writeText(window.location.href);
-                  alert("Invite link copied to clipboard!");
-                }
-              }}
-              title="Click to copy invite link"
-            >
-              <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest group-hover:text-amber-500/80 transition-colors">Code</span>
-              <span className="font-mono font-bold text-amber-400 tracking-wider text-sm">{roomCode?.toUpperCase()}</span>
-            </div>
-
-            <Badge 
-              variant={
-                room?.status === "active" ? "success" : 
-                room?.status === "paused" ? "default" : 
-                room?.status === "completed" ? "secondary" : 
-                "outline"
-              }
-              dot={room?.status === "active"}
-              dotColor="bg-green-400"
-              className="hidden sm:flex px-2.5 py-1"
-            >
-              {room?.status || "Connecting"}
-            </Badge>
-
-            {spectatorCount > 0 && (
-              <div className="flex items-center gap-1.5 bg-zinc-800/40 border border-zinc-700/30 px-2.5 py-1 rounded-md text-[10px] text-zinc-400 font-bold font-mono">
-                <Eye className="h-3.5 w-3.5 text-zinc-500 animate-pulse" />
-                <span>{spectatorCount} Watching</span>
-              </div>
-            )}
+      <header className="h-16 border-b border-white/10 glass-panel flex items-center justify-between px-4 sm:px-6 z-40 sticky top-0">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <Radio className="h-4 w-4 text-emerald-400 animate-pulse" />
+            <span className="font-display font-black text-white text-base tracking-wider hidden sm:inline">
+              AUCTION ARENA
+            </span>
           </div>
+
+          <div className="h-4 w-px bg-white/10" />
+
+          {/* Room Code Trigger */}
+          <button
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Room invite URL copied to clipboard!");
+              }
+            }}
+            className="flex items-center gap-2 bg-black/40 border border-white/10 hover:border-amber-400/40 px-3 py-1.5 rounded-xl font-mono text-xs font-bold text-amber-300 transition-all"
+            title="Click to copy invite link"
+          >
+            <span className="text-zinc-500 text-[10px] uppercase">ROOM:</span>
+            <span>{roomCode?.toUpperCase()}</span>
+            <Copy className="h-3 w-3 text-zinc-500" />
+          </button>
+
+          <Badge variant={room?.status === "active" ? "marquee" : "secondary"}>
+            {room?.status?.toUpperCase() || "CONNECTING"}
+          </Badge>
+
+          {/* Live Timer Clock in Header */}
+          {room?.status === "active" && secondsLeft !== null && (
+            <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs font-bold animate-pulse">
+              <span className="text-[10px] text-emerald-500 uppercase tracking-wider">TIMER:</span>
+              <span>{secondsLeft}s</span>
+            </div>
+          )}
+
+          {spectatorCount > 0 && (
+            <div className="hidden md:flex items-center gap-1.5 text-xs font-mono text-zinc-400 bg-white/5 px-2.5 py-1 rounded-lg border border-white/10">
+              <Eye className="h-3.5 w-3.5 text-zinc-400" />
+              <span>{spectatorCount} Watching</span>
+            </div>
+          )}
         </div>
 
-        <div className="flex items-center gap-3">
+        {/* Host Controls */}
+        <div className="flex items-center gap-2">
           {isHost && (
-            <button 
+            <button
               onClick={() => setShowSettings(true)}
-              className="h-8 w-8 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-colors mr-2"
-              title="Room Settings"
+              className="h-9 w-9 rounded-xl glass-panel flex items-center justify-center text-zinc-400 hover:text-white"
+              title="Settings"
             >
               <Settings2 className="h-4 w-4" />
             </button>
           )}
 
           {isHost && room?.status === "waiting" && !isAuctionComplete && (
-            <Button onClick={handleStartAuction} variant="primary" size="sm" className="shimmer-btn hidden sm:flex">
-              <Play className="h-4 w-4 mr-1.5" /> Start Auction
+            <Button onClick={handleStartAuction} className="bg-emerald-500 hover:bg-emerald-600 text-black font-mono font-bold text-xs">
+              <Play className="h-3.5 w-3.5 mr-1" /> Start Auction
             </Button>
           )}
           {isHost && room?.status === "active" && (
-             <Button onClick={() => handlePause(true)} size="sm" variant="outline" className="border-amber-500/30 text-amber-500 hover:bg-amber-500/10 transition-colors bg-amber-500/5">
-              <Pause className="h-4 w-4 mr-1.5" /> Pause 
+            <Button onClick={() => handlePause(true)} variant="outline" className="border-amber-500/40 text-amber-300 font-mono text-xs">
+              <Pause className="h-3.5 w-3.5 mr-1" /> Pause
             </Button>
           )}
           {isHost && room?.status === "paused" && !isAuctionComplete && (
-            <Button onClick={() => handlePause(false)} size="sm" variant="primary">
-              <Play className="h-4 w-4 mr-1.5" /> Resume
+            <Button onClick={() => handlePause(false)} className="bg-emerald-500 hover:bg-emerald-600 text-black font-mono font-bold text-xs">
+              <Play className="h-3.5 w-3.5 mr-1" /> Resume
             </Button>
           )}
           {isHost && (room?.status === "active" || room?.status === "paused") && !isAuctionComplete && (
-            <Button onClick={handleEndAuction} size="sm" variant="destructive">
-              <Square className="h-3.5 w-3.5 mr-1" /> End Room
+            <Button onClick={handleEndAuction} variant="destructive" className="font-mono text-xs">
+              <Square className="h-3.5 w-3.5 mr-1" /> End
             </Button>
           )}
         </div>
       </header>
 
-      {/* Settings modal rendered via portal outside header */}
       {settingsModal}
     </>
   );
 }
+
