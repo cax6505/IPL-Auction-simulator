@@ -77,6 +77,8 @@ export async function POST(req: NextRequest) {
 
     if (franchiseError) {
       console.error("Franchise insert error:", franchiseError);
+      // Clean up orphaned room if franchise creation failed
+      await supabase.from("rooms").delete().eq("id", room.id);
       return NextResponse.json({ error: "Failed to join room as host" }, { status: 500 });
     }
 
@@ -91,17 +93,21 @@ export async function POST(req: NextRequest) {
 }
 
 /**
- * GET /api/rooms — List all public rooms
+ * GET /api/rooms — List active, non-empty public rooms created in the last 24 hours
  */
 export async function GET() {
   try {
     let rooms: any[] | null = null;
     let error: any = null;
 
+    // Only query rooms created within the last 24 hours
+    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+
     const queryRes = await supabase
       .from("rooms")
       .select("id, room_code, status, auction_mode, timer_duration, max_players, created_at, is_private")
       .in("status", ["waiting", "active"])
+      .gte("created_at", twentyFourHoursAgo)
       .order("created_at", { ascending: false })
       .limit(50);
 
@@ -114,6 +120,7 @@ export async function GET() {
         .from("rooms")
         .select("id, room_code, status, auction_mode, timer_duration, max_players, created_at")
         .in("status", ["waiting", "active"])
+        .gte("created_at", twentyFourHoursAgo)
         .order("created_at", { ascending: false })
         .limit(50);
       rooms = fallback.data;
@@ -153,7 +160,17 @@ export async function GET() {
       })
     );
 
-    return NextResponse.json({ rooms: roomsWithDetails });
+    // ONLY return valid rooms that actually have at least 1 claimed franchise!
+    // This eliminates ghost / abandoned / un-created rooms.
+    const activeValidRooms = roomsWithDetails.filter((r: any) => r.playerCount > 0);
+
+    // Clean up empty ghost rooms (0 players) older than 30 mins in the background
+    const emptyRoomIds = roomsWithDetails.filter((r: any) => r.playerCount === 0).map((r: any) => r.id);
+    if (emptyRoomIds.length > 0) {
+      supabase.from("rooms").delete().in("id", emptyRoomIds).then(() => {}, () => {});
+    }
+
+    return NextResponse.json({ rooms: activeValidRooms });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
