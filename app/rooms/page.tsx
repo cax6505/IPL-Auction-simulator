@@ -12,12 +12,11 @@ import {
   Plus,
   RefreshCw,
   Trophy,
+  Radio,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { AnimatedPage } from "@/components/ui/AnimatedPage";
 import { supabase } from "@/lib/supabase";
-import { staggerItem, springTransition } from "@/lib/design-tokens";
 
 interface RoomData {
   id: string;
@@ -44,7 +43,6 @@ export default function BrowseRoomsPage() {
   const router = useRouter();
   const [rooms, setRooms] = useState<RoomData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [lastRefresh, setLastRefresh] = useState(Date.now());
 
   const fetchRooms = useCallback(async () => {
     try {
@@ -60,33 +58,11 @@ export default function BrowseRoomsPage() {
 
   useEffect(() => {
     fetchRooms();
-
-    // Subscribe to public rooms changes in real time
     const channel = supabase
       .channel("browse-rooms")
-      .on(
-        "postgres_changes",
-        { event: "*", schema: "public", table: "rooms" },
-        () => {
-          fetchRooms();
-        }
-      )
-      .on(
-        "postgres_changes",
-        { event: "*", schema: "public", table: "room_franchises" },
-        () => {
-          fetchRooms();
-        }
-      )
+      .on("postgres_changes", { event: "*", schema: "public", table: "rooms" }, fetchRooms)
       .subscribe();
-
-    const interval = setInterval(() => {
-      fetchRooms();
-      setLastRefresh(Date.now());
-    }, 15000);
-
     return () => {
-      clearInterval(interval);
       supabase.removeChannel(channel);
     };
   }, [fetchRooms]);
@@ -94,233 +70,142 @@ export default function BrowseRoomsPage() {
   const openRooms = rooms.filter((r) => r.status === "waiting");
   const liveRooms = rooms.filter((r) => r.status === "active" || r.status === "in_progress");
 
-  const handleJoin = (code: string, spectate: boolean = false) => {
-    if (spectate) {
-      router.push(`/rooms/${code}?spectate=true`);
-    } else {
-      router.push(`/?code=${code}`);
-    }
-  };
-
   return (
-    <div className="min-h-screen surface-0 text-zinc-300">
-      <AnimatedPage className="relative mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-
-        {/* Ambient Top Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-64 w-[600px] bg-blue-500/[0.06] blur-[120px] rounded-full pointer-events-none -z-10" />
-
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs text-blue-400 mb-4 font-bold tracking-widest uppercase">
-              <Globe2 className="h-3.5 w-3.5" /> Discovery
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-black text-white tracking-tighter font-display uppercase">
-              Browse <span className="gradient-text-accent">Rooms</span>
-            </h1>
-            <p className="text-zinc-400 text-base mt-2 font-medium">Find an open drafted game or spectate a live auction.</p>
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-6 border-b border-white/10">
+        <div>
+          <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-400 uppercase tracking-widest mb-2">
+            <Radio className="h-3.5 w-3.5 animate-pulse text-amber-400" />
+            Lobby Discovery Center
           </div>
-
-          <div className="flex items-center gap-3">
-            <Button
-              variant="outline"
-              onClick={() => { setLoading(true); fetchRooms(); }}
-              className="text-zinc-400"
-            >
-              <RefreshCw className={`h-4 w-4 mr-2 ${loading ? "animate-spin text-red-400" : ""}`} />
-              Refresh
-            </Button>
-            <Link href="/">
-              <Button variant="primary">
-                <Plus className="h-4 w-4 mr-2" />
-                Create Room
-              </Button>
-            </Link>
-          </div>
+          <h1 className="font-display font-black text-3xl sm:text-4xl text-white tracking-tight">
+            LIVE AUCTION ROOMS
+          </h1>
+          <p className="text-xs text-zinc-400 font-mono mt-1">
+            Join an open war room or spectate active bidding wars in real-time.
+          </p>
         </div>
 
-        {loading && rooms.length === 0 ? (
-          <div className="space-y-8">
-            <div className="border-b border-white/[0.05] pb-4 mb-6">
-              <div className="h-6 w-48 bg-white/[0.04] rounded animate-pulse" />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <RoomCardSkeleton />
-              <RoomCardSkeleton />
-              <RoomCardSkeleton />
-              <RoomCardSkeleton />
-            </div>
-          </div>
-        ) : rooms.length === 0 ? (
-          /* Empty State */
-          <motion.div
-            className="glass-card flex flex-col items-center justify-center py-28 px-6 rounded-2xl border-dashed border-white/[0.08] text-center"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
-          >
-            <div className="h-20 w-20 bg-white/[0.02] rounded-full flex items-center justify-center mb-6 shadow-inner border border-white/[0.05]">
-              <Globe2 className="h-10 w-10 text-zinc-600" />
-            </div>
-            <h2 className="text-2xl font-bold text-white mb-2 font-display uppercase">No active rooms right now</h2>
-            <p className="text-zinc-500 text-sm mb-8 max-w-md font-medium">
-              Be the first to create a room! Share your 6-digit access code with friends to start an auction.
-            </p>
-            <Link href="/">
-              <Button variant="primary" size="lg" className="shimmer-btn">
-                <Plus className="h-5 w-5 mr-2" />
-                Create a Room
-              </Button>
-            </Link>
-          </motion.div>
-        ) : (
-          <div className="space-y-12">
-            {/* Open Rooms */}
-            {openRooms.length > 0 && (
-              <section>
-                <div className="flex items-center justify-between border-b border-white/[0.05] pb-4 mb-6">
-                  <h2 className="flex items-center gap-2.5 text-base font-bold text-white">
-                    <div className="h-8 w-8 rounded-full bg-green-500/10 flex items-center justify-center border border-green-500/20">
-                      <Users className="h-4 w-4 text-green-400" />
-                    </div>
-                    Waiting in Lobby
-                  </h2>
-                  <Badge variant="outline">{openRooms.length} Open</Badge>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {openRooms.map((room, i) => (
-                    <motion.div
-                      key={room.id}
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.05, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      <RoomCard room={room} onAction={() => handleJoin(room.room_code, false)} isLive={false} />
-                    </motion.div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* Live Auctions */}
-            {liveRooms.length > 0 && (
-              <section>
-                <div className="flex items-center justify-between border-b border-white/[0.05] pb-4 mb-6">
-                  <h2 className="flex items-center gap-2.5 text-base font-bold text-white">
-                    <div className="h-8 w-8 rounded-full bg-red-500/10 flex items-center justify-center border border-red-500/20">
-                      <Trophy className="h-4 w-4 text-red-400" />
-                    </div>
-                    Live Auctions
-                  </h2>
-                  <Badge variant="outline">{liveRooms.length} Active</Badge>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {liveRooms.map((room, i) => (
-                    <motion.div
-                      key={room.id}
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.05, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      <RoomCard room={room} onAction={() => handleJoin(room.room_code, true)} isLive={true} />
-                    </motion.div>
-                  ))}
-                </div>
-              </section>
-            )}
-          </div>
-        )}
-
-        {/* Auto-refresh indicator */}
-        <div className="flex justify-center mt-12 mb-8">
-          <div className="inline-flex items-center gap-2 bg-white/[0.02] border border-white/[0.05] px-3 py-1.5 rounded-full text-[10px] font-medium uppercase tracking-widest text-zinc-500">
-            <span className="h-1.5 w-1.5 rounded-full bg-red-500/50 animate-pulse" />
-            Auto-syncing data
-          </div>
-        </div>
-      </AnimatedPage>
-    </div>
-  );
-}
-
-function RoomCardSkeleton() {
-  return (
-    <div className="glass-card rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-5 border-l-4 border-l-transparent animate-pulse bg-white/[0.02] border-white/[0.04]">
-      <div className="flex flex-col gap-2.5 flex-1">
         <div className="flex items-center gap-3">
-          <div className="h-6 w-20 bg-white/[0.04] rounded" />
-          <div className="h-5 w-12 bg-white/[0.04] rounded-full" />
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="h-4 w-16 bg-white/[0.04] rounded" />
-          <div className="h-4 w-24 bg-white/[0.04] rounded" />
-          <div className="h-4 w-16 bg-white/[0.04] rounded" />
+          <Button
+            variant="outline"
+            onClick={() => { setLoading(true); fetchRooms(); }}
+            className="border-white/10 text-zinc-300 font-mono text-xs"
+          >
+            <RefreshCw className={`h-3.5 w-3.5 mr-2 ${loading ? "animate-spin text-amber-400" : ""}`} />
+            Refresh
+          </Button>
+          <Link href="/">
+            <Button className="bg-gradient-to-r from-red-600 to-amber-500 text-white font-mono text-xs font-bold uppercase tracking-wider">
+              <Plus className="h-4 w-4 mr-1.5" /> Launch Room
+            </Button>
+          </Link>
         </div>
       </div>
-      <div className="h-10 w-full sm:w-28 bg-white/[0.04] rounded-lg shrink-0" />
-    </div>
-  );
-}
 
-function RoomCard({
-  room,
-  onAction,
-  isLive,
-}: {
-  room: RoomData;
-  onAction: () => void;
-  isLive: boolean;
-}) {
-  return (
-    <motion.div
-      className="glass-card hover:glass-card-hover rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-5 transition-all group border-l-4 border-l-transparent hover:border-l-red-500"
-      whileHover={{ y: -2 }}
-      transition={{ duration: 0.2 }}
-    >
-      <div className="flex flex-col gap-2.5">
-        <div className="flex items-center gap-3">
-          <span className="text-xl font-mono font-black tracking-wider text-white group-hover:gradient-text-accent transition-colors">{room.room_code}</span>
-          {isLive ? (
-            <Badge dot dotColor="bg-red-400" className="bg-red-500/10 text-red-400 border border-red-500/20 animate-glow">
-              LIVE
-            </Badge>
-          ) : (
-            <Badge variant="success" dot dotColor="bg-green-400">
-              OPEN
-            </Badge>
+      {/* Room Lists */}
+      {loading && rooms.length === 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[1, 2, 3, 4].map((n) => (
+            <div key={n} className="glass-panel h-28 rounded-2xl border border-white/10 animate-pulse" />
+          ))}
+        </div>
+      ) : rooms.length === 0 ? (
+        <div className="glass-panel p-16 rounded-3xl text-center border-dashed border-white/10 max-w-xl mx-auto">
+          <Globe2 className="h-12 w-12 text-zinc-600 mx-auto mb-4" />
+          <h2 className="font-display font-bold text-xl text-white mb-2">No active rooms found</h2>
+          <p className="text-xs text-zinc-500 font-mono mb-6">
+            Create your private war room and invite rival managers using your 6-character room code.
+          </p>
+          <Link href="/">
+            <Button className="bg-gradient-to-r from-red-600 to-amber-500 text-white font-mono text-xs font-bold uppercase tracking-wider">
+              Create Room Now
+            </Button>
+          </Link>
+        </div>
+      ) : (
+        <div className="space-y-10">
+          {/* Waiting Lobbies */}
+          {openRooms.length > 0 && (
+            <div>
+              <h2 className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                <Users className="h-4 w-4 text-emerald-400" />
+                Waiting For Managers ({openRooms.length})
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {openRooms.map((room) => (
+                  <div
+                    key={room.id}
+                    className="glass-panel p-5 rounded-2xl border border-white/10 flex items-center justify-between hover:border-emerald-500/40 transition-all"
+                  >
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="font-mono font-black text-xl text-white tracking-widest">
+                          {room.room_code}
+                        </span>
+                        <Badge variant="success">OPEN</Badge>
+                      </div>
+                      <p className="text-xs text-zinc-400 font-sans">
+                        Host: <span className="text-zinc-200 font-bold">{room.creatorName || "Manager"}</span>
+                      </p>
+                      <span className="text-[10px] font-mono text-zinc-500 mt-1 block">
+                        {room.playerCount}/10 Franchises Joined · Created {timeAgo(room.created_at)}
+                      </span>
+                    </div>
+
+                    <Link href={`/?code=${room.room_code}`}>
+                      <Button className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/30 font-mono text-xs font-bold">
+                        <LogIn className="h-3.5 w-3.5 mr-1.5" /> Join Room
+                      </Button>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Live Bidding Rooms */}
+          {liveRooms.length > 0 && (
+            <div>
+              <h2 className="text-xs font-mono font-bold text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                <Trophy className="h-4 w-4 text-red-400" />
+                Live Bidding Wars ({liveRooms.length})
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {liveRooms.map((room) => (
+                  <div
+                    key={room.id}
+                    className="glass-panel p-5 rounded-2xl border border-white/10 flex items-center justify-between hover:border-red-500/40 transition-all"
+                  >
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="font-mono font-black text-xl text-white tracking-widest">
+                          {room.room_code}
+                        </span>
+                        <Badge variant="marquee">LIVE DRAFT</Badge>
+                      </div>
+                      <p className="text-xs text-zinc-400 font-sans">
+                        Host: <span className="text-zinc-200 font-bold">{room.creatorName || "Manager"}</span>
+                      </p>
+                      <span className="text-[10px] font-mono text-zinc-500 mt-1 block">
+                        {room.playerCount}/10 Franchises Bidding · Started {timeAgo(room.created_at)}
+                      </span>
+                    </div>
+
+                    <Link href={`/rooms/${room.room_code}?spectate=true`}>
+                      <Button variant="outline" className="border-red-500/40 text-red-400 hover:bg-red-500/10 font-mono text-xs font-bold">
+                        <Eye className="h-3.5 w-3.5 mr-1.5" /> Spectate
+                      </Button>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
           )}
         </div>
-
-        <p className="text-xs text-zinc-500 font-medium">
-          Creator: <span className="text-zinc-300 font-bold">{room.creatorName || "Unknown Manager"}</span>
-        </p>
-
-        <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-zinc-400">
-          <span className="flex items-center gap-1.5 bg-white/[0.03] px-2 py-1 rounded">
-            <Users className="h-3.5 w-3.5 text-zinc-500" />
-            <span className="text-zinc-200 font-bold">{room.playerCount}</span>/10
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="h-1 w-1 bg-zinc-600 rounded-full" />
-            Mega Auction
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="h-1 w-1 bg-zinc-600 rounded-full" />
-            {timeAgo(room.created_at)}
-          </span>
-        </div>
-      </div>
-
-      <motion.div whileTap={{ scale: 0.95 }} transition={springTransition}>
-        <Button
-          onClick={onAction}
-          variant={isLive ? "outline" : "default"}
-          className={!isLive ? "bg-red-500/10 text-red-400 hover:bg-red-500/20 hover:text-red-300 border border-red-500/20 shadow-none w-full sm:w-auto" : "w-full sm:w-auto"}
-        >
-          {isLive ? <Eye className="h-4 w-4 mr-2" /> : <LogIn className="h-4 w-4 mr-2" />}
-          {isLive ? "Spectate" : "Join Room"}
-        </Button>
-      </motion.div>
-    </motion.div>
+      )}
+    </div>
   );
 }
+
