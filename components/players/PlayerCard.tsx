@@ -58,18 +58,18 @@ export function PlayerCard({ player }: { player: PlayerRecord }) {
   };
 
   return (
-    <Card className={`hover:glass-card-hover group border-l-4 border-l-transparent transition-all h-full p-4 gap-0 relative ${isShortlisted ? 'ring-1 ring-amber-500/30 bg-amber-500/[0.02]' : ''}`} style={{ borderLeftColor: rStyle.text.replace('text-', '') }}>
+    <Card className={`hover:glass-card-hover group border-l-4 border-l-transparent transition-all h-full p-4 gap-0 relative ${isShortlisted ? 'ring-1 ring-red-500/30 bg-red-500/[0.02]' : ''}`} style={{ borderLeftColor: rStyle.text.replace('text-', '') }}>
       {/* Shortlist Star */}
       <button
         onClick={toggleShortlist}
         className={`absolute top-3 right-3 h-7 w-7 rounded-lg flex items-center justify-center transition-all duration-300 ease-spring z-10 ${
           isShortlisted
-            ? "bg-amber-500/20 border border-amber-500/40 text-amber-400 scale-110 shadow-[0_0_10px_rgba(245,158,11,0.3)]"
-            : "bg-white/[0.02] border border-white/[0.04] text-zinc-600 opacity-0 group-hover:opacity-100 hover:text-amber-400 hover:bg-amber-500/10 hover:border-amber-500/20"
+            ? "bg-red-500/20 border border-red-500/40 text-red-400 scale-110 shadow-[0_0_10px_rgba(220,38,38,0.3)]"
+            : "bg-white/[0.02] border border-white/[0.04] text-zinc-600 opacity-0 group-hover:opacity-100 hover:text-red-400 hover:bg-red-500/10 hover:border-red-500/20"
         }`}
         title={isShortlisted ? "Remove from shortlist" : "Add to shortlist"}
       >
-        <Star className={`h-3.5 w-3.5 ${isShortlisted ? 'fill-amber-400' : ''}`} />
+        <Star className={`h-3.5 w-3.5 ${isShortlisted ? 'fill-red-400' : ''}`} />
       </button>
 
       <div className="flex items-start justify-between gap-4 w-full mb-4">
@@ -117,7 +117,7 @@ export function PlayerCard({ player }: { player: PlayerRecord }) {
           <span className="text-[9px] uppercase tracking-widest text-zinc-500 font-bold mb-0.5">
             {player.contract_type_2026 === 'RETAINED' ? 'Retained Value' : 'Base Price'}
           </span>
-          <span className={`text-sm font-black font-mono ${player.contract_type_2026 === 'RETAINED' ? 'text-zinc-300' : 'text-amber-500'}`}>
+          <span className={`text-sm font-black font-mono ${player.contract_type_2026 === 'RETAINED' ? 'text-zinc-300' : 'gradient-text-accent'}`}>
             {priceDisplay}
           </span>
         </div>

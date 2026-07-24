@@ -187,12 +187,11 @@ export function ActivePlayerCard() {
               {currentBid > 0 && (
                 <div className="inline-flex items-center gap-1.5 bg-white/[0.03] border border-white/[0.05] rounded pl-1.5 pr-2 py-0.5">
                    <span className="text-[10px] text-zinc-500 font-medium">Bidding:</span>
-                   <span className="text-xs font-bold text-white tracking-wide">{room.current_highest_bidder_id}</span>
+                   <span className="text-xs font-bold text-white tracking-wide">{room?.current_highest_bidder_id}</span>
                 </div>
               )}
             </div>
           </div>
-
         </div>
       </div>
     </div>

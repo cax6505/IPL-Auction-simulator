@@ -84,14 +84,14 @@ export function ClientDashboard({ initialPlayers }: { initialPlayers: PlayerReco
             onClick={() => setShortlistFilter(!shortlistFilter)}
             className={`h-12 px-4 rounded-[10px] border flex items-center gap-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 ease-spring shrink-0 ${
               shortlistFilter
-                ? "bg-amber-500/10 border-amber-500/40 text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.2)]"
-                : "bg-black/60 border-white/[0.06] text-zinc-500 hover:text-amber-400 hover:border-amber-500/20"
+                ? "bg-red-500/10 border-red-500/40 text-red-400 shadow-[0_0_15px_rgba(220,38,38,0.2)]"
+                : "bg-black/60 border-white/[0.06] text-zinc-500 hover:text-red-400 hover:border-red-500/20"
             }`}
           >
-            <Star className={`h-4 w-4 ${shortlistFilter ? 'fill-amber-400' : ''}`} />
+            <Star className={`h-4 w-4 ${shortlistFilter ? 'fill-red-400' : ''}`} />
             <span className="hidden sm:inline">Shortlist</span>
             {shortlist.length > 0 && (
-              <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono ${shortlistFilter ? 'bg-amber-500/20 text-amber-400' : 'bg-white/[0.05] text-zinc-400'}`}>
+              <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono ${shortlistFilter ? 'bg-red-500/20 text-red-400' : 'bg-white/[0.05] text-zinc-400'}`}>
                 {shortlist.length}
               </span>
             )}
@@ -104,8 +104,8 @@ export function ClientDashboard({ initialPlayers }: { initialPlayers: PlayerReco
       <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest px-1 flex items-center gap-3">
         Showing <span className="text-zinc-200">{visiblePlayers.length}</span> of <span className="text-zinc-200">{filteredPlayers.length}</span> players
         {shortlistFilter && (
-          <span className="inline-flex items-center gap-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 px-2 py-0.5 rounded text-[10px]">
-            <Star className="h-3 w-3 fill-amber-400" /> Shortlisted only
+          <span className="inline-flex items-center gap-1 bg-red-500/10 border border-red-500/20 text-red-400 px-2 py-0.5 rounded text-[10px]">
+            <Star className="h-3 w-3 fill-red-400" /> Shortlisted only
           </span>
         )}
       </div>
@@ -126,14 +126,14 @@ export function ClientDashboard({ initialPlayers }: { initialPlayers: PlayerReco
             <div className="flex flex-col items-center gap-3 py-8">
               <button
                 onClick={() => setVisibleCount(prev => prev + PAGE_SIZE)}
-                className="group flex items-center gap-2 px-8 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] hover:border-amber-500/30 text-sm font-bold text-zinc-400 hover:text-amber-400 transition-all duration-300 ease-spring"
+                className="group flex items-center gap-2 px-8 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.06] hover:border-red-500/30 text-sm font-bold text-zinc-400 hover:text-red-400 transition-all duration-300 ease-spring"
               >
                 <ChevronDown className="h-4 w-4 group-hover:translate-y-0.5 transition-transform" />
                 Show More ({filteredPlayers.length - visibleCount} remaining)
               </button>
               <div className="w-48 h-1 bg-white/[0.04] rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-amber-500/40 rounded-full transition-all duration-500"
+                  className="h-full bg-red-500/40 rounded-full transition-all duration-500"
                   style={{ width: `${(visibleCount / filteredPlayers.length) * 100}%` }}
                 />
               </div>

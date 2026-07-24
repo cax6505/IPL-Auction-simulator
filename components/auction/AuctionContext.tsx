@@ -223,28 +223,12 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
         setSoldPlayerIds(new Set(soldData.map((s: any) => s.player_id)));
       }
 
-      // Mode-aware player fetch
-      const mode = roomData.auction_mode || "mega_auction";
+      // Mega Auction: fetch all players
       let playerQuery = supabase
         .from("players")
-        .select("id, name, base_price_cr, role, is_overseas, nationality, contract_type_2026, auction_set");
-
-      if (mode === "mock_2026") {
-        playerQuery = playerQuery
-          .or("contract_type_2026.is.null,contract_type_2026.eq.AUCTION")
-          .order("base_price_cr", { ascending: false })
-          .order("id", { ascending: true })
-          .limit(350);
-      } else if (mode === "legends_upgraded") {
-        playerQuery = playerQuery.eq("is_overseas", true)
-          .order("base_price_cr", { ascending: false })
-          .order("id", { ascending: true })
-          .limit(248);
-      } else {
-        playerQuery = playerQuery
-          .order("base_price_cr", { ascending: false })
-          .order("id", { ascending: true });
-      }
+        .select("id, name, base_price_cr, role, is_overseas, nationality, contract_type_2026, auction_set")
+        .order("base_price_cr", { ascending: false })
+        .order("id", { ascending: true });
 
       const { data: players } = await playerQuery;
       if (players) {
@@ -396,8 +380,22 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
       soldFiredRef.current = false;
 
       const timerEnd = new Date(room.timer_ends_at).getTime();
+      
+      // Safety check: if timerEnd is NaN or invalid, skip timer
+      if (isNaN(timerEnd) || timerEnd <= 0) {
+        setTimeLeft(null);
+        return;
+      }
 
       const tick = () => {
+        // Re-check room status in case it changed during the interval
+        const currentRoom = roomRef.current;
+        if (currentRoom?.status !== "active") {
+          clearInterval(interval);
+          setTimeLeft(null);
+          return;
+        }
+
         const remaining = Math.max(0, timerEnd - Date.now());
         setTimeLeft(remaining);
 
@@ -405,7 +403,6 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
           clearInterval(interval);
           if (!soldFiredRef.current) {
             soldFiredRef.current = true;
-            const currentRoom = roomRef.current;
             const finalBid = Number(currentRoom?.current_bid_cr) || 0;
             const winnerId = currentRoom?.current_highest_bidder_id;
 
@@ -424,7 +421,12 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
             // Host attempts immediately (after 2s sold display delay), peers wait an extra 2.5s (4.5s total).
             const isMeHost = claimedTeamsRef.current.find(c => c.team_id === playerTeamRef.current)?.is_host === true;
             const delay = isMeHost ? 2000 : 4500;
-            advanceTimeoutRef.current = setTimeout(advanceAuction, delay);
+            advanceTimeoutRef.current = setTimeout(() => {
+              // Final safety check: only advance if still active
+              if (roomRef.current?.status === "active" || roomRef.current?.status === "paused") {
+                advanceAuction();
+              }
+            }, delay);
           }
         }
       };
@@ -514,18 +516,38 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
 
   const handlePause = async (pause: boolean) => {
     const currentRoom = roomRef.current;
-    if (!currentRoom) return;
+    if (!currentRoom?.id) return;
     // Only the host can pause/resume the auction
     const meHost = claimedTeamsRef.current.find(c => c.team_id === playerTeamRef.current)?.is_host === true;
     if (!meHost) return;
-    if (pause) {
-      await supabase.from("rooms").update({ status: "paused", timer_ends_at: null }).eq("id", currentRoom.id);
-      addLog("⏸ Auction paused", "sys");
-    } else {
-      const td = currentRoom.timer_duration || 10;
-      const newTimer = new Date(Date.now() + td * 1000).toISOString();
-      await supabase.from("rooms").update({ status: "active", timer_ends_at: newTimer }).eq("id", currentRoom.id);
-      addLog("▶ Auction resumed", "sys");
+    try {
+      if (pause) {
+        // Clear any pending advance timeout immediately to prevent race conditions
+        if (advanceTimeoutRef.current) {
+          clearTimeout(advanceTimeoutRef.current);
+          advanceTimeoutRef.current = null;
+        }
+        soldFiredRef.current = true; // Prevent timer expiry from firing during pause transition
+        const { error } = await supabase.from("rooms").update({ status: "paused", timer_ends_at: null }).eq("id", currentRoom.id);
+        if (error) {
+          console.error("Failed to pause auction:", error);
+          soldFiredRef.current = false; // Reset on failure
+          return;
+        }
+        addLog("⏸ Auction paused", "sys");
+      } else {
+        const td = currentRoom.timer_duration || roomRef.current?.timer_duration || 10;
+        const newTimer = new Date(Date.now() + td * 1000).toISOString();
+        soldFiredRef.current = false; // Reset for fresh timer
+        const { error } = await supabase.from("rooms").update({ status: "active", timer_ends_at: newTimer }).eq("id", currentRoom.id);
+        if (error) {
+          console.error("Failed to resume auction:", error);
+          return;
+        }
+        addLog("▶ Auction resumed", "sys");
+      }
+    } catch (err) {
+      console.error("handlePause error:", err);
     }
   };
 
@@ -534,7 +556,14 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
     const meHost = claimedTeamsRef.current.find(c => c.team_id === playerTeamRef.current)?.is_host === true;
     if (!meHost) return;
     if (window.confirm("End auction? This cannot be undone.")) {
-      await supabase.from("rooms").update({ status: "completed" }).eq("id", roomRef.current?.id);
+      try {
+        const { error } = await supabase.from("rooms").update({ status: "completed" }).eq("id", roomRef.current?.id);
+        if (error) {
+          console.error("Failed to end auction:", error);
+        }
+      } catch (err) {
+        console.error("handleEndAuction error:", err);
+      }
     }
   };
 

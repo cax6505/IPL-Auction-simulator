@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Oswald } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,9 +14,16 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const oswald = Oswald({
+  variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "IPL Auction Pro | Simulator",
-  description: "Next-gen IPL Auction Simulator and Player Dashboard",
+  title: "DraftForge | Auction Simulator",
+  description: "Next-gen Cricket Auction Simulator and Player Dashboard — powered by DraftForge",
 };
 
 import { Navbar } from "@/components/layout/Navbar";
@@ -30,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${oswald.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col surface-0 text-zinc-100">
         <Navbar />

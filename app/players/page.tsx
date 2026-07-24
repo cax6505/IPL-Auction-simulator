@@ -26,17 +26,17 @@ export default async function PlayersPage() {
 
   return (
     <div className="min-h-screen surface-0 overflow-hidden">
-      
+
       {/* Ambient background glow */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/[0.04] blur-[120px] rounded-full pointer-events-none -z-10" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
         <div className="mb-10 text-center sm:text-left">
           <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-3 py-1 text-xs text-purple-400 mb-4 font-bold tracking-widest uppercase">
             Database
           </div>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4">
-            Player <span className="text-amber-500">Registry</span>
+          <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-white mb-4 font-display uppercase">
+            Player <span className="gradient-text-accent">Registry</span>
           </h1>
           <p className="text-base text-zinc-400 max-w-2xl font-medium">
             Browse the comprehensive registry of all players available in the Mega Auction. Filter by role, search targets, and build your strategy.

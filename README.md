@@ -1,6 +1,6 @@
-# IPL Auction Pro | Simulator 🏏
+# DraftForge | Auction Simulator 🏏
 
-A premium, real-time multiplayer cricket manager draft room simulator. Experience the tactical intensity of the IPL Mega Auction right in your browser. Built with Next.js (App Router), TypeScript, Tailwind CSS, and Supabase.
+A premium, real-time multiplayer cricket manager draft room simulator. Experience the tactical intensity of the Mega Auction right in your browser. Built with Next.js (App Router), TypeScript, Tailwind CSS, and Supabase.
 
 ---
 
@@ -8,7 +8,7 @@ A premium, real-time multiplayer cricket manager draft room simulator. Experienc
 
 - **Real-Time Bidding**: Powered by Supabase Realtime for sub-second, multi-client bid synchronization.
 - **RESTful Architecture**: Clean, noun-based, and semantic route layout.
-- **Realistic Bid Increments**: Implements actual IPL Mega Auction bidding ladder increments (Lakhs to Crores).
+- **Realistic Bid Increments**: Implements actual Mega Auction bidding ladder increments (Lakhs to Crores).
 - **Roster Constraints**: Strictly enforces squad size limitations (18-25 players) and overseas quotas (max 8).
 - **Multiple Game Modes**: Choose between *Full Draft*, *Mock 2026*, and *Retired Legends* pools.
 

@@ -357,7 +357,7 @@ function ResultsScreen() {
               variant="primary"
               className="shimmer-btn"
               onClick={() => {
-                const summary = `🏏 IPL Auction Complete!\n\n📊 ${totalPlayersSold} players sold for ${formatPriceCr(totalSpent)} total\n🏆 Record signing: ${mostExpensive?.detail_name || 'N/A'} at ${mostExpensive ? formatPriceCr(Number(mostExpensive.sold_price_cr)) : 'N/A'}\n\n${claimedTeams.map(t => `${t.team_id}: ${t.squad_count || 0} players, ${formatPriceCr(Number(t.purse_remaining_cr || 0))} remaining`).join('\n')}\n\nPlay at: ${typeof window !== 'undefined' ? window.location.origin : ''}`;
+                const summary = `🏏 DraftForge Auction Complete!\n\n📊 ${totalPlayersSold} players sold for ${formatPriceCr(totalSpent)} total\n🏆 Record signing: ${mostExpensive?.detail_name || 'N/A'} at ${mostExpensive ? formatPriceCr(Number(mostExpensive.sold_price_cr)) : 'N/A'}\n\n${claimedTeams.map(t => `${t.team_id}: ${t.squad_count || 0} players, ${formatPriceCr(Number(t.purse_remaining_cr || 0))} remaining`).join('\n')}\n\nPlay at: ${typeof window !== 'undefined' ? window.location.origin : ''}`;
                 navigator.clipboard.writeText(summary);
                 setShareText("Copied!");
                 setTimeout(() => setShareText(""), 2000);

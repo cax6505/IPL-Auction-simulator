@@ -4,12 +4,12 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-[10px] border border-transparent bg-clip-padding text-sm font-semibold whitespace-nowrap outline-none select-none active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 ease-spring duration-200 transition-all focus-visible:ring-2 focus-visible:ring-amber-500/50 focus-visible:border-amber-500/50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-[10px] border border-transparent bg-clip-padding text-sm font-semibold whitespace-nowrap outline-none select-none active:not-aria-[haspopup]:translate-y-px active:not-aria-[haspopup]:scale-[0.97] disabled:pointer-events-none disabled:opacity-50 ease-spring duration-200 transition-all focus-visible:ring-2 focus-visible:ring-red-500/50 focus-visible:border-red-500/50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
         default: "bg-white text-zinc-900 hover:bg-zinc-200 shadow-sm",
-        primary: "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-amber-950 font-bold shadow-[0_4px_12px_rgba(245,158,11,0.2)] hover:shadow-[0_4px_16px_rgba(245,158,11,0.4)] border border-amber-400/20",
+        primary: "bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-bold shadow-[0_4px_20px_rgba(220,38,38,0.25)] hover:shadow-[0_4px_24px_rgba(220,38,38,0.4)] border border-red-400/20",
         outline:
           "border-white/[0.08] bg-transparent hover:bg-white/[0.04] text-zinc-100 hover:border-white/[0.15]",
         secondary:
@@ -18,7 +18,7 @@ const buttonVariants = cva(
           "hover:bg-white/[0.06] text-zinc-300 hover:text-white",
         destructive:
           "bg-red-500/10 text-red-400 hover:bg-red-500/20 border border-red-500/20 hover:border-red-500/30 font-semibold focus-visible:ring-red-500/20 text-sm",
-        link: "text-amber-500 underline-offset-4 hover:underline",
+        link: "text-red-500 underline-offset-4 hover:underline",
       },
       size: {
         default:

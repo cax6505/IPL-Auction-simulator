@@ -27,8 +27,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Validate & clamp optional parameters
-    const validModes = ["mega_auction", "mock_2026", "legends_upgraded"];
-    const mode = validModes.includes(auctionMode) ? auctionMode : null;
+    const mode = "mega_auction";
     const timer = Math.min(Math.max(Number(timerDuration) || 10, 5), 30);
     const purse = [80, 100, 120, 125].includes(Number(startingPurse)) ? Number(startingPurse) : 120;
 

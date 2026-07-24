@@ -129,7 +129,7 @@ export default function ResultsPage() {
               variant="primary"
               className="shimmer-btn font-bold text-xs uppercase tracking-wider h-11"
               onClick={() => {
-                const summary = `🏏 IPL Auction Pro Simulator Results!\n\n📊 ${totalPlayersSold} players sold for ${formatPriceCr(totalSpent)} total\n🏆 Record buy: ${recordBuys[0]?.detail_name || "N/A"} for ${recordBuys[0] ? formatPriceCr(Number(recordBuys[0].sold_price_cr)) : "N/A"} (${recordBuys[0]?.team_id})\n\nClaimed Franchises:\n${claimedTeams.map(t => `• ${t.team_id}: ${t.squad_count || 0} players, ${formatPriceCr(Number(t.purse_remaining_cr || 0))} remaining`).join("\n")}\n\nJoin simulations at: ${typeof window !== "undefined" ? window.location.origin : ""}`;
+                const summary = `🏏 DraftForge Auction Results!\n\n📊 ${totalPlayersSold} players sold for ${formatPriceCr(totalSpent)} total\n🏆 Record buy: ${recordBuys[0]?.detail_name || "N/A"} for ${recordBuys[0] ? formatPriceCr(Number(recordBuys[0].sold_price_cr)) : "N/A"} (${recordBuys[0]?.team_id})\n\nClaimed Franchises:\n${claimedTeams.map(t => `• ${t.team_id}: ${t.squad_count || 0} players, ${formatPriceCr(Number(t.purse_remaining_cr || 0))} remaining`).join("\n")}\n\nJoin simulations at: ${typeof window !== "undefined" ? window.location.origin : ""}`;
                 navigator.clipboard.writeText(summary);
                 setShareText("Copied Summary!");
                 setTimeout(() => setShareText(""), 2000);

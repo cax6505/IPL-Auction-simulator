@@ -9,9 +9,7 @@ import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 const MODE_LABELS: Record<string, string> = {
-  mega_auction: "Mega Auction (Full Squad Reset)",
-  mock_2026: "IPL 2026 Mock Draft (Pre-retentions)",
-  legends_upgraded: "Retired Legends & Upgraded Pool",
+  mega_auction: "Mega Auction",
 };
 
 export function AuctionLobby() {
@@ -87,19 +85,7 @@ export function AuctionLobby() {
                 </div>
                 <div className="min-w-0 w-full">
                   <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Draft Mode</p>
-                  {isHost ? (
-                    <select
-                      value={room?.auction_mode || "mega_auction"}
-                      onChange={(e) => updateRoomSetting("auction_mode", e.target.value)}
-                      className="bg-zinc-900 border border-white/[0.1] text-xs font-bold text-white rounded px-2 py-1 mt-1 w-full focus:outline-none focus:border-amber-500 cursor-pointer"
-                    >
-                      <option value="mega_auction">Mega Auction (Full)</option>
-                      <option value="mock_2026">IPL 2026 Mock</option>
-                      <option value="legends_upgraded">Legends Pool</option>
-                    </select>
-                  ) : (
-                    <p className="text-xs font-bold text-white mt-1.5 truncate">{MODE_LABELS[room?.auction_mode || "mega_auction"]}</p>
-                  )}
+                  <p className="text-xs font-bold text-white mt-1.5 truncate">Mega Auction</p>
                 </div>
               </div>
 
