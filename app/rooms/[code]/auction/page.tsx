@@ -4,10 +4,10 @@ import { useAuction } from "@/components/auction/AuctionContext";
 import { TeamsScoreboard } from "@/components/auction/TeamsScoreboard";
 import { ActivePlayerCard } from "@/components/auction/ActivePlayerCard";
 import { BidControls } from "@/components/auction/BidControls";
-import { UpcomingQueue } from "@/components/auction/UpcomingQueue";
 import { AuctionTabs } from "@/components/auction/AuctionTabs";
 import { AuctionHeader } from "@/components/auction/AuctionHeader";
 import { AuctionOverlays } from "@/components/auction/AuctionOverlays";
+import { UpcomingQueue } from "@/components/auction/UpcomingQueue";
 import MySquadDrawer from "@/components/auction/MySquadDrawer";
 import { Button } from "@/components/ui/button";
 import { Loader2, ShieldCheck } from "lucide-react";
@@ -43,14 +43,17 @@ export default function AuctionRoomPage() {
       {/* Top Header Controls */}
       <AuctionHeader />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-6 pb-28 md:pb-8">
-        {/* Left Area: Live Bidding and Scoreboards */}
-        <div className="flex-1 flex flex-col gap-6 lg:max-w-4xl">
+      <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col gap-6 pb-16">
+        {/* Top Area: Live Bidding and Scoreboards */}
+        <div className="w-full flex flex-col gap-6">
           {/* Claimed Teams Stats Strip */}
           <TeamsScoreboard />
 
           {/* Active Bidding Card */}
           <ActivePlayerCard />
+
+          {/* Up Next Queue */}
+          <UpcomingQueue />
 
           {/* Controls Bar & Floating Roster Trigger */}
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-white/[0.01] border border-white/[0.04] p-4 rounded-2xl">
@@ -68,13 +71,10 @@ export default function AuctionRoomPage() {
             </div>
             <BidControls />
           </div>
-
-          {/* Upcoming Queue */}
-          <UpcomingQueue />
         </div>
 
-        {/* Right Sidebar: Chat, Logs, & Other Squads */}
-        <div className="w-full lg:w-[360px] shrink-0 flex flex-col h-[500px] lg:h-auto min-h-[450px]">
+        {/* Bottom Section: Room Chat, Activity Feed, Franchises, & Roster */}
+        <div className="w-full mt-4">
           <AuctionTabs />
         </div>
       </main>
