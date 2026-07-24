@@ -4,170 +4,162 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Clock,
-  Users,
+  Shield,
+  TrendingUp,
+  Globe2,
+  CheckCircle2,
+  Lock,
   Lightbulb,
-  BadgeCheck,
-  Zap,
-  Flame,
+  Check,
 } from "lucide-react";
-import { scrollReveal } from "@/lib/design-tokens";
+import { getBidEscalationColor } from "@/lib/design-tokens";
+
+const LADDER_STEPS = [
+  { tier: "Tier 1", range: "Below ₹50 Lakhs", inc: "+ ₹5 Lakhs", desc: "Opening price tier for uncapped players" },
+  { tier: "Tier 2", range: "₹50L — ₹1 Crore", inc: "+ ₹10 Lakhs", desc: "Mid-tier player escalation" },
+  { tier: "Tier 3", range: "₹1 Crore — ₹2 Crore", inc: "+ ₹25 Lakhs", desc: "Capped player bidding phase" },
+  { tier: "Tier 4", range: "₹2 Crore+", inc: "+ ₹25 Lakhs", desc: "High-value marquee player tier" },
+];
 
 export function GuideClientContent() {
   return (
     <>
-      {/* Quick Start */}
-      <Section title="Quick Start Guide" icon={<Zap className="h-6 w-6 text-red-400" />} delay={0}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {[
-            { step: 1, title: "Enter Your Alias", desc: "Choose a display name on the homepage." },
-            { step: 2, title: "Pick Your Franchise", desc: "Select one of the 10 real IPL teams." },
-            { step: 3, title: "Create or Join", desc: "Share your 6-digit access code with friends." },
-            { step: 4, title: "Configure Room", desc: "Set bid timer duration and starting purse." },
-            { step: 5, title: "Start Bidding", desc: "Place bids before the countdown reaches zero." },
-            { step: 6, title: "Build Squad", desc: "Win players to fill your 25 max roster under ₹120 Cr." },
-          ].map((item) => (
-            <motion.div
-              key={item.step}
-              className="flex gap-4 items-start glass-card rounded-[14px] p-5 transition-all hover:border-white/[0.1]"
-              whileHover={{ y: -2, transition: { duration: 0.2 } }}
+      {/* Bid Increments Section */}
+      <Section title="Bid Increments" icon={<TrendingUp className="h-5 w-5 text-amber-400" />}>
+        <p className="text-sm text-zinc-400 mb-6">
+          Bid increments increase automatically based on the current valuation of the player.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {LADDER_STEPS.map((step) => (
+            <div
+              key={step.tier}
+              className="glass-panel p-5 rounded-2xl border border-white/10 flex flex-col justify-between"
             >
-              <div className="flex-shrink-0 h-10 w-10 rounded-[10px] bg-gradient-to-r from-red-600/20 to-amber-500/20 flex items-center justify-center text-red-400 font-black text-base border border-red-500/20 shadow-inner">
-                {item.step}
+              <span className="text-xs font-semibold text-zinc-400 mb-1">
+                {step.tier}
+              </span>
+              <div className="font-display font-bold text-base text-white mb-2">
+                {step.range}
               </div>
-              <div className="flex flex-col justify-center h-full">
-                <h3 className="text-white font-bold text-sm tracking-tight">{item.title}</h3>
-                <p className="text-zinc-400 text-xs mt-1 font-medium">{item.desc}</p>
+              <div className="font-mono font-bold text-sm text-amber-300 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20 w-fit mb-3">
+                {step.inc}
               </div>
-            </motion.div>
+              <p className="text-xs text-zinc-400 font-sans">{step.desc}</p>
+            </div>
           ))}
         </div>
       </Section>
 
-      {/* Auction Rules */}
-      <Section title="Auction Rules" icon={<Clock className="h-6 w-6 text-blue-400" />} delay={0.1}>
-        <div className="space-y-4">
-          <RuleCard title="Countdown Timer" desc="Each player goes up for auction with a countdown timer (default 10s). When someone bids, 5s are dynamically added. Player is sold when timer hits zero." />
-          <RuleCard title="Bid Increments" desc="Bids follow official IPL Mega Auction increment rules automatically via our engine:">
-            <div className="overflow-hidden rounded-xl border border-white/[0.05] mt-4">
-              <table className="w-full text-sm border-collapse bg-black/20">
-                <thead>
-                  <tr className="text-left text-zinc-500 bg-black/40 text-xs uppercase tracking-wider font-bold">
-                    <th className="py-3 px-4 border-b border-white/[0.05]">Current Bid Status</th>
-                    <th className="py-3 px-4 border-b border-white/[0.05]">Engine Increment</th>
-                  </tr>
-                </thead>
-                <tbody className="text-zinc-300 font-medium">
-                  <tr className="hover:bg-white/[0.02] transition-colors"><td className="py-3 px-4 border-b border-white/[0.02]">Below ₹50 Lakhs</td><td className="py-3 px-4 border-b border-white/[0.02] font-mono text-red-400/80">₹5 Lakhs</td></tr>
-                  <tr className="hover:bg-white/[0.02] transition-colors"><td className="py-3 px-4 border-b border-white/[0.02]">₹50L — ₹1 Crore</td><td className="py-3 px-4 border-b border-white/[0.02] font-mono text-red-400/80">₹10 Lakhs</td></tr>
-                  <tr className="hover:bg-white/[0.02] transition-colors"><td className="py-3 px-4 border-b border-white/[0.02]">₹1 Crore — ₹2 Crore</td><td className="py-3 px-4 border-b border-white/[0.02] font-mono text-red-400/80">₹25 Lakhs</td></tr>
-                  <tr className="hover:bg-white/[0.02] transition-colors"><td className="py-3 px-4 text-amber-400/80">₹2 Crore+</td><td className="py-3 px-4 font-mono text-red-400/80">₹25 Lakhs</td></tr>
-                </tbody>
-              </table>
+      {/* Squad Rules Section */}
+      <Section title="Squad Rules & Limits" icon={<Shield className="h-5 w-5 text-red-400" />}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="glass-panel p-6 rounded-2xl border-l-4 border-l-emerald-500 border border-white/10">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg">
+                MIN SQUAD
+              </span>
+              <CheckCircle2 className="h-5 w-5 text-emerald-400" />
             </div>
-          </RuleCard>
-          <RuleCard title="Financial Fair Play Constraints" desc="The bidding engine is ruthless. You cannot bid if the next calculated amount exceeds your remaining purse or leaves you mathematically unable to complete your 18-player roster." />
+            <div className="font-mono font-bold text-3xl text-emerald-400 mb-1">18 Players</div>
+            <p className="text-xs text-zinc-400 leading-relaxed mt-2">
+              Every team must purchase a minimum of 18 players. The system reserves purse budget to ensure you can reach 18 players.
+            </p>
+          </div>
+
+          <div className="glass-panel p-6 rounded-2xl border-l-4 border-l-red-500 border border-white/10">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-semibold text-red-400 bg-red-500/10 px-2.5 py-1 rounded-lg">
+                MAX SQUAD
+              </span>
+              <Lock className="h-5 w-5 text-red-400" />
+            </div>
+            <div className="font-mono font-bold text-3xl text-red-400 mb-1">25 Players</div>
+            <p className="text-xs text-zinc-400 leading-relaxed mt-2">
+              Teams cannot exceed 25 players. Once your roster reaches 25, bidding is automatically locked.
+            </p>
+          </div>
+
+          <div className="glass-panel p-6 rounded-2xl border-l-4 border-l-cyan-400 border border-white/10">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-semibold text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-lg">
+                OVERSEAS LIMIT
+              </span>
+              <Globe2 className="h-5 w-5 text-cyan-400" />
+            </div>
+            <div className="font-mono font-bold text-3xl text-cyan-400 mb-1">8 Max</div>
+            <p className="text-xs text-zinc-400 leading-relaxed mt-2">
+              A maximum of 8 international players can be bought per squad.
+            </p>
+          </div>
         </div>
       </Section>
 
-      {/* Squad Requirements */}
-      <Section title="Squad Reqs" icon={<Users className="h-6 w-6 text-green-400" />} delay={0.2}>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <StatCard value="18" label="Min Players" desc="Mandatory roster floor" />
-          <StatCard value="25" label="Max Players" desc="Hard salary cap limit" />
-          <StatCard value="8" label="Max Overseas" desc="Strict visa restriction" />
-        </div>
-        <div className="mt-5 glass-card p-4 rounded-xl text-zinc-400 text-sm font-medium border-l-2 border-l-green-500">
-          Teams with fewer than 18 players are flagged as incomplete. The engine prevents bidding on overseas players if you've already secured 8.
-        </div>
-      </Section>
-
-      {/* Pro Tips */}
-      <Section title="Pro Strategy" icon={<Lightbulb className="h-6 w-6 text-amber-400" />} delay={0.3}>
+      {/* Bidding Tips Section */}
+      <Section title="Bidding Tips" icon={<Lightbulb className="h-5 w-5 text-amber-400" />}>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
-            { title: "Capital Efficiency", desc: "Don't blow 40% on one marquee player early. Spread your purse across essential roles." },
-            { title: "Hunt The Mid-Tier", desc: "Reliable Indian all-rounders in set 4 often go for significantly less than set 1 batters." },
-            { title: "Psychological Bidding", desc: "Wait for the last 3 seconds of the timer to bid — forces opponents into panic decisions." },
-            { title: "Roster Composition", desc: "Ideal meta: 6-7 batters, 6-7 bowlers, 3-4 all-rounders, and 2 designated keepers." },
+            {
+              title: "Manage Your Budget",
+              desc: "Avoid spending over 40% of your total purse on a single marquee player early on.",
+            },
+            {
+              title: "Target All-Rounders",
+              desc: "All-rounders give you flexibility when building your starting 11.",
+            },
+            {
+              title: "Timer Strategy",
+              desc: "Placing a bid resets the countdown timer by +5s, allowing more time for decisions.",
+            },
+            {
+              title: "Balanced Roster",
+              desc: "Aim for a balanced squad of 6-7 batters, 6-7 bowlers, 3 all-rounders, and 2 wicket-keepers.",
+            },
           ].map((tip) => (
-            <motion.div
+            <div
               key={tip.title}
-              className="bg-gradient-to-br from-amber-500/10 to-transparent border border-amber-500/20 rounded-xl p-5 hover:border-amber-500/40 transition-colors"
-              whileHover={{ y: -2, transition: { duration: 0.2 } }}
+              className="glass-panel p-5 rounded-2xl border border-white/10"
             >
-              <h4 className="text-amber-400 font-bold text-sm tracking-tight flex items-center gap-2 mb-2">
-                <BadgeCheck className="h-4 w-4" />
+              <h4 className="font-display font-bold text-sm text-amber-300 mb-1 flex items-center gap-2">
+                <Check className="h-4 w-4" />
                 {tip.title}
               </h4>
-              <p className="text-zinc-400 text-sm font-medium">{tip.desc}</p>
-            </motion.div>
+              <p className="text-xs text-zinc-400 leading-relaxed">{tip.desc}</p>
+            </div>
           ))}
         </div>
       </Section>
 
-      {/* CTA */}
-      <motion.div
-        className="mt-20 text-center"
-        {...scrollReveal}
-      >
-        <div className="relative glass-card rounded-[24px] p-10 overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-amber-500/5 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-
-          <Flame className="relative h-12 w-12 text-red-500 mx-auto mb-5 drop-shadow-[0_0_20px_rgba(220,38,38,0.6)]" />
-          <h2 className="relative text-3xl font-black text-white mb-3 tracking-tighter font-display uppercase">Enter the War Room</h2>
-          <p className="relative text-zinc-400 mb-8 max-w-md mx-auto font-medium">Create a private space and invite your rival managers for an epic drafting session.</p>
+      {/* Action CTA */}
+      <div className="mt-16 text-center">
+        <div className="glass-panel rounded-3xl p-8 sm:p-10 border border-white/10 max-w-xl mx-auto">
+          <h2 className="font-display font-bold text-2xl text-white mb-2">
+            Ready to start an auction?
+          </h2>
+          <p className="text-xs text-zinc-400 max-w-md mx-auto mb-6">
+            Create a room and invite your friends to compete in a real-time IPL draft.
+          </p>
 
           <Link
             href="/"
-            className="relative inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-bold px-8 py-4 rounded-[12px] transition-all shadow-[0_8px_32px_-10px_rgba(220,38,38,0.5)] hover:shadow-[0_12px_40px_-10px_rgba(220,38,38,0.6)] shimmer-btn"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-semibold text-xs px-6 py-3 rounded-xl shadow-lg transition-all"
           >
-            Start Your Auction
-            <ArrowRight className="h-4 w-4" />
+            Create Auction Room <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 }
 
-// -- Sub-components --
-
-function Section({ title, icon, children, delay = 0 }: { title: string; icon: React.ReactNode; children: React.ReactNode; delay?: number }) {
+function Section({ title, icon, children }: { title: string; icon: React.ReactNode; children: React.ReactNode }) {
   return (
-    <motion.section
-      className="mb-14"
-      {...scrollReveal}
-      transition={{ ...scrollReveal.transition, delay }}
-    >
-      <h2 className="flex items-center gap-3 text-2xl font-black text-white mb-6 tracking-tighter font-display uppercase">
+    <section className="mb-12">
+      <h2 className="flex items-center gap-2.5 text-xl font-bold text-white mb-4 font-display">
         {icon}
         {title}
       </h2>
       {children}
-    </motion.section>
-  );
-}
-
-function RuleCard({ title, desc, children }: { title: string; desc: string; children?: React.ReactNode }) {
-  return (
-    <div className="glass-card p-6 rounded-xl hover:glass-card-hover transition-all duration-300">
-      <h3 className="text-white font-bold text-base mb-1 tracking-tight">{title}</h3>
-      <p className="text-zinc-400 text-sm font-medium">{desc}</p>
-      {children}
-    </div>
-  );
-}
-
-function StatCard({ value, label, desc }: { value: string; label: string; desc: string }) {
-  return (
-    <motion.div
-      className="glass-card hover:glass-card-hover rounded-xl p-6 text-center transition-all duration-300"
-      whileHover={{ y: -3, transition: { duration: 0.2 } }}
-    >
-      <p className="text-4xl font-black font-mono gradient-text-accent tracking-tighter drop-shadow-[0_0_20px_rgba(220,38,38,0.3)]">{value}</p>
-      <p className="text-white font-bold text-sm tracking-tight mt-2">{label}</p>
-      <p className="text-zinc-500 text-[11px] font-medium mt-1 uppercase tracking-wider">{desc}</p>
-    </motion.div>
+    </section>
   );
 }
