@@ -202,10 +202,22 @@ function SquadDashboard() {
           ) : (() => {
             const squad = squadsMap[showSquadsModal];
             
-            const BAT = squad.filter(p => ['BATSMAN', 'BAT'].includes(p.role.toUpperCase()));
-            const WK = squad.filter(p => ['WICKET KEEPER', 'WK', 'BAT/WK'].includes(p.role.toUpperCase()));
-            const AR = squad.filter(p => ['ALL-ROUNDER', 'AR'].includes(p.role.toUpperCase()));
-            const BOWL = squad.filter(p => ['BOWLER', 'BOWL'].includes(p.role.toUpperCase()));
+            const WK = squad.filter(p => {
+              const r = (p.role || '').toUpperCase();
+              return r.includes('KEEP') || r.includes('WK') || r === 'WICKETKEEPER';
+            });
+            const BAT = squad.filter(p => {
+              const r = (p.role || '').toUpperCase();
+              return !WK.includes(p) && (r.includes('BAT') || r.includes('BATSMAN'));
+            });
+            const AR = squad.filter(p => {
+              const r = (p.role || '').toUpperCase();
+              return !WK.includes(p) && (r.includes('ROUND') || r.includes('AR') || r === 'ALL-ROUNDER');
+            });
+            const BOWL = squad.filter(p => {
+              const r = (p.role || '').toUpperCase();
+              return !WK.includes(p) && !AR.includes(p) && (r.includes('BOWL') || r === 'BOWLER');
+            });
             
             const mappedIds = [...BAT, ...WK, ...AR, ...BOWL].map(p => p.id);
             const OTHER = squad.filter(p => !mappedIds.includes(p.id));
@@ -277,7 +289,8 @@ function ResultsScreen() {
        const fetchSales = async () => {
           const { data: sales } = await supabase.from('room_sold_players')
               .select('player_id, team_id, sold_price_cr, is_overseas')
-              .eq('room_id', room.id);
+              .eq('room_id', room.id)
+              .neq('team_id', 'UNSOLD');
               
           if (sales && sales.length > 0) {
              const playerIds = sales.map((s: any) => s.player_id);
