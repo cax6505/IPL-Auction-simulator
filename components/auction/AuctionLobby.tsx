@@ -3,34 +3,43 @@
 import { useAuction } from "./AuctionContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Share2, Users, AlertCircle, Play, Shield, Clock, BadgeCent, CheckCircle2, UserCheck, Copy, Check, Globe2 } from "lucide-react";
-import { TEAM_MAP, formatPriceCr } from "@/lib/auction-engine";
+import {
+  Share2,
+  Users,
+  AlertCircle,
+  Play,
+  Shield,
+  Clock,
+  BadgeCent,
+  UserCheck,
+  Copy,
+  Check,
+  Globe2,
+  Info,
+} from "lucide-react";
+import { TEAM_MAP } from "@/lib/auction-engine";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
-
-const MODE_LABELS: Record<string, string> = {
-  mega_auction: "Mega Auction",
-};
+import { TeamLogo } from "@/components/ui/TeamLogo";
 
 export function AuctionLobby() {
-  const { 
-    room, 
-    roomCode, 
-    joinName, 
-    setJoinName, 
-    playerTeam, 
-    claimedTeams, 
-    handleClaim, 
-    isSpectator, 
-    handleSpectate, 
-    isHost, 
+  const {
+    room,
+    roomCode,
+    joinName,
+    setJoinName,
+    playerTeam,
+    claimedTeams,
+    handleClaim,
+    isSpectator,
+    handleSpectate,
+    isHost,
     handleStartAuction,
-    onlineUsers 
+    onlineUsers,
   } = useAuction();
 
   const [copied, setCopied] = useState(false);
 
-  // If room status is not waiting, we shouldn't show the lobby at all
   if (room?.status !== "waiting") return null;
 
   const roomUrl = typeof window !== "undefined" ? window.location.href : "";
@@ -49,67 +58,79 @@ export function AuctionLobby() {
       .update(updateData)
       .eq("id", room.id);
     if (error) {
-      if (field === "is_private" && error.message.includes("is_private")) {
-        console.warn("is_private column missing in DB, ignoring visibility toggle");
-      } else {
-        alert("Failed to update setting: " + error.message);
-      }
+      alert("Failed to update setting: " + error.message);
     }
   };
 
-  // Calculate stats
-  const spectatorCount = onlineUsers.filter(u => u.spectator || u.team === "Spectator").length;
-  
-  // Find highest starting purse among franchises to represent starting purse config
-  const startingPurse = claimedTeams.length > 0 
-    ? Math.max(...claimedTeams.map(t => Number(t.purse_remaining_cr || 120)))
-    : 120;
+  const spectatorCount = onlineUsers.filter(
+    (u) => u.spectator || u.team === "Spectator"
+  ).length;
 
-  // Render Waiting/Lobby Screen when user is already inside (joined with team or spectating)
+  const startingPurse =
+    claimedTeams.length > 0
+      ? Math.max(...claimedTeams.map((t) => Number(t.purse_remaining_cr || 120)))
+      : 120;
+
+  // Main Joined / Spectating View
   if (playerTeam || isSpectator) {
     return (
-      <div className="flex flex-col lg:flex-row gap-6 w-full max-w-5xl mx-auto mt-2 animate-fade-up">
-        {/* Main Lobby Column */}
+      <div className="flex flex-col lg:flex-row gap-6 w-full max-w-7xl mx-auto animate-fade-up">
+        {/* Left Column: Room Settings & Joined Teams */}
         <div className="flex-1 flex flex-col gap-6">
-          {/* Room Configuration Settings */}
-          <div className="glass-card rounded-2xl p-6 relative overflow-hidden border border-white/[0.04]">
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-500/[0.02] to-transparent pointer-events-none" />
-            <h3 className="text-xs text-zinc-500 font-black uppercase tracking-widest mb-4 flex items-center gap-2">
-              <Shield className="h-4 w-4 text-amber-500" /> Draft Room Settings {isHost && <span className="text-[10px] text-amber-400 font-bold lowercase tracking-normal">(Host Panel)</span>}
-            </h3>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="bg-black/30 border border-white/[0.03] rounded-xl p-4 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0">
+          {/* Room Settings Panel */}
+          <div className="glass-panel rounded-3xl p-6 sm:p-7 border border-white/10 relative overflow-hidden">
+            <div className="flex items-center justify-between pb-4 mb-5 border-b border-white/10">
+              <div className="flex items-center gap-2.5">
+                <div className="h-9 w-9 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
                   <Shield className="h-5 w-5" />
                 </div>
-                <div className="min-w-0 w-full">
-                  <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Draft Mode</p>
-                  <p className="text-xs font-bold text-white mt-1.5 truncate">Mega Auction</p>
+                <div>
+                  <h2 className="font-display font-bold text-lg text-white">
+                    Room Settings
+                  </h2>
+                  <p className="text-xs text-zinc-400">
+                    {isHost ? "Configured by room host" : "Set by room creator"}
+                  </p>
                 </div>
               </div>
 
-              <div className="bg-black/30 border border-white/[0.03] rounded-xl p-4 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-green-500/10 flex items-center justify-center text-green-400 shrink-0">
+              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-300">
+                {claimedTeams.length}/10 Joined
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="glass-panel p-4 rounded-2xl border border-white/10 flex items-center gap-3">
+                <div className="h-10 w-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
+                  <Shield className="h-5 w-5" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold text-zinc-400 block">Auction Mode</span>
+                  <span className="text-sm font-bold text-white mt-0.5 block">Mega Auction</span>
+                </div>
+              </div>
+
+              <div className="glass-panel p-4 rounded-2xl border border-white/10 flex items-center gap-3">
+                <div className="h-10 w-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
                   <BadgeCent className="h-5 w-5" />
                 </div>
-                <div className="min-w-0 w-full">
-                  <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Starting Purse</p>
-                  <p className="text-xs font-bold text-white mt-1.5">{startingPurse} Cr</p>
+                <div>
+                  <span className="text-xs font-semibold text-zinc-400 block">Starting Purse</span>
+                  <span className="text-sm font-bold text-white mt-0.5 block">₹{startingPurse} Cr</span>
                 </div>
               </div>
 
-              <div className="bg-black/30 border border-white/[0.03] rounded-xl p-4 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0">
+              <div className="glass-panel p-4 rounded-2xl border border-white/10 flex items-center gap-3">
+                <div className="h-10 w-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 shrink-0">
                   <Clock className="h-5 w-5" />
                 </div>
-                <div className="min-w-0 w-full">
-                  <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Bid Timer</p>
+                <div className="w-full">
+                  <span className="text-xs font-semibold text-zinc-400 block">Bid Timer</span>
                   {isHost ? (
                     <select
                       value={room?.timer_duration || 10}
                       onChange={(e) => updateRoomSetting("timer_duration", Number(e.target.value))}
-                      className="bg-zinc-900 border border-white/[0.1] text-xs font-bold text-white rounded px-2 py-1 mt-1 w-full focus:outline-none focus:border-amber-500 cursor-pointer"
+                      className="bg-black/40 border border-white/15 text-xs font-semibold text-white rounded-lg px-2.5 py-1.5 mt-1 w-full focus:border-amber-400 cursor-pointer"
                     >
                       <option value="5">5 seconds</option>
                       <option value="10">10 seconds</option>
@@ -118,48 +139,59 @@ export function AuctionLobby() {
                       <option value="30">30 seconds</option>
                     </select>
                   ) : (
-                    <p className="text-xs font-bold text-white mt-1.5">{room?.timer_duration || 10} seconds</p>
+                    <span className="text-sm font-bold text-white mt-0.5 block">
+                      {room?.timer_duration || 10} seconds
+                    </span>
                   )}
                 </div>
               </div>
             </div>
 
-            {/* Room Visibility Toggle for Host */}
+            {/* Visibility Toggle */}
             {isHost && (
-              <div className="mt-4 bg-black/20 border border-white/[0.02] rounded-xl p-4 flex items-center justify-between animate-fade-in">
-                <div className="flex items-center gap-3">
-                  <div className="h-8 w-8 rounded-lg bg-zinc-800 flex items-center justify-center text-zinc-400">
-                    <Globe2 className="h-4 w-4" />
-                  </div>
+              <div className="mt-4 glass-panel p-3.5 rounded-2xl border border-white/10 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <Globe2 className="h-4 w-4 text-cyan-400" />
                   <div>
-                    <h4 className="text-xs font-bold text-white">Lobby Visibility</h4>
-                    <p className="text-[10px] text-zinc-500">Public lobbies appear on the browse page</p>
+                    <span className="text-xs font-bold text-white block">Room Visibility</span>
+                    <span className="text-xs text-zinc-400">Public rooms appear in the lobby directory</span>
                   </div>
                 </div>
                 <select
                   value={room?.is_private ? "private" : "public"}
                   onChange={(e) => updateRoomSetting("is_private", e.target.value === "private")}
-                  className="bg-zinc-900 border border-white/[0.1] text-xs font-bold text-white rounded px-2 py-1 focus:outline-none focus:border-amber-500 cursor-pointer"
+                  className="bg-black/40 border border-white/15 text-xs font-semibold text-white rounded-lg px-3 py-1.5 focus:border-amber-400 cursor-pointer"
                 >
-                  <option value="public">🌍 Public</option>
-                  <option value="private">🔒 Private</option>
+                  <option value="public">Public</option>
+                  <option value="private">Private</option>
                 </select>
               </div>
             )}
           </div>
 
-          {/* Joined Teams Grid */}
-          <div className="glass-card rounded-2xl p-6 border border-white/[0.04]">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xs text-zinc-500 font-black uppercase tracking-widest flex items-center gap-2">
-                <Users className="h-4 w-4 text-amber-500" /> Joined Franchises
-              </h3>
-              <span className="text-[10px] font-mono font-bold bg-white/[0.03] border border-white/[0.06] text-zinc-400 px-2.5 py-1 rounded-full">
-                {claimedTeams.length}/10 Teams Claimed
+          {/* Franchises List */}
+          <div className="glass-panel rounded-3xl p-6 sm:p-7 border border-white/10">
+            <div className="flex items-center justify-between pb-4 mb-5 border-b border-white/10">
+              <div className="flex items-center gap-2.5">
+                <div className="h-9 w-9 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400">
+                  <Users className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-lg text-white">
+                    Franchise Claims
+                  </h3>
+                  <p className="text-xs text-zinc-400">
+                    Claimed seats and connected managers
+                  </p>
+                </div>
+              </div>
+
+              <span className="text-xs font-mono font-bold text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                {claimedTeams.length} / 10 Joined
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               {TEAM_MAP.map((t) => {
                 const claim = claimedTeams.find((c) => c.team_id === t.id);
                 const isUserOnline = claim && onlineUsers.some((u) => u.team === t.id);
@@ -167,52 +199,56 @@ export function AuctionLobby() {
                 return (
                   <div
                     key={t.id}
-                    className={`flex items-center justify-between p-3.5 rounded-xl border transition-all duration-300 ${
+                    className={`flex items-center justify-between p-4 rounded-2xl border transition-all ${
                       claim
-                        ? "bg-black/30 border-white/[0.05]"
-                        : "bg-white/[0.01] border-dashed border-white/[0.05] opacity-60 animate-pulse"
+                        ? "glass-panel border-white/15 bg-white/[0.03]"
+                        : "glass-panel border-dashed border-white/10 opacity-50"
                     }`}
                   >
-                    <div className="flex items-center gap-3 min-w-0">
-                      {/* Logo badge: Circle */}
-                      <div className={`h-10 w-10 rounded-full flex items-center justify-center font-black text-xs shrink-0 shadow-inner border border-black/20 ${t.color} ${t.textDark ? "text-zinc-900" : "text-white"}`}>
-                        {t.id}
-                      </div>
-                      
+                    <div className="flex items-center gap-3.5 min-w-0">
+                      <TeamLogo teamId={t.id} size="md" />
+
                       <div className="min-w-0">
                         {claim ? (
                           <div className="flex items-center gap-2">
-                            <span className="text-sm font-bold text-white truncate">{claim.user_name}</span>
+                            <span className="text-sm font-bold text-white truncate">
+                              {claim.user_name}
+                            </span>
                             {claim.is_host && (
-                              <span className="text-[8px] bg-amber-500/10 border border-amber-500/20 text-amber-500 px-1.5 py-0.5 rounded font-black uppercase tracking-widest shrink-0">
+                              <span className="text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded font-semibold shrink-0">
                                 Host
                               </span>
                             )}
                           </div>
                         ) : (
-                          <span className="text-xs font-semibold text-amber-500/60 uppercase tracking-wider">
-                            Waiting for player...
+                          <span className="text-xs font-semibold text-amber-400">
+                            Open Seat
                           </span>
                         )}
-                        {claim ? (
-                          <span className="text-[10px] text-zinc-400 block leading-tight font-medium mt-0.5">
-                            Purse: {claim.purse_remaining_cr} Cr • {t.name}
-                          </span>
-                        ) : (
-                          <span className="text-[10px] text-zinc-500 block leading-tight font-medium mt-0.5">{t.name}</span>
-                        )}
+
+                        <span className="text-xs text-zinc-400 block mt-0.5 truncate">
+                          {claim
+                            ? `Purse: ₹${claim.purse_remaining_cr} Cr • ${t.id}`
+                            : t.name}
+                        </span>
                       </div>
                     </div>
 
                     {claim ? (
                       <div className="flex items-center gap-2 shrink-0">
-                        <div className={`h-2 w-2 rounded-full ${isUserOnline ? "bg-green-500 shadow-[0_0_6px_rgba(34,197,94,0.6)]" : "bg-zinc-700"}`} />
-                        <span className="text-[10px] font-bold font-mono text-zinc-500 uppercase">
+                        <div
+                          className={`h-2 w-2 rounded-full ${
+                            isUserOnline ? "bg-emerald-400 animate-pulse" : "bg-zinc-600"
+                          }`}
+                        />
+                        <span className="text-xs font-medium text-zinc-400">
                           {isUserOnline ? "Online" : "Offline"}
                         </span>
                       </div>
                     ) : (
-                      <span className="text-[10px] font-black tracking-wider text-zinc-700 uppercase">Claimable</span>
+                      <span className="text-xs font-semibold text-zinc-500">
+                        Open
+                      </span>
                     )}
                   </div>
                 );
@@ -221,174 +257,203 @@ export function AuctionLobby() {
           </div>
         </div>
 
-        {/* Sidebar Controls */}
-        <div className="w-full lg:w-[320px] flex flex-col gap-6 shrink-0">
-          {/* Invite Code card */}
-          <div className="glass-card rounded-2xl p-6 relative overflow-hidden border border-white/[0.04] bg-gradient-to-b from-[#0e0e11] to-[#0a0a0c]">
-            <h3 className="text-xs text-amber-500 font-black uppercase tracking-widest mb-3 flex items-center gap-2">
-              <Share2 className="h-4 w-4 animate-pulse" /> Lobby Invite
+        {/* Right Sidebar Controls */}
+        <div className="w-full lg:w-[360px] flex flex-col gap-6 shrink-0">
+          {/* Invite Code Card */}
+          <div className="glass-panel p-6 rounded-3xl border border-white/10">
+            <h3 className="text-xs font-semibold text-amber-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+              <Share2 className="h-4 w-4" /> Invite Code
             </h3>
-            
+
             <div className="flex flex-col gap-3">
-              <div className="bg-black/50 border border-white/5 rounded-xl p-3.5 text-center font-mono font-black tracking-[0.25em] text-amber-400 text-2xl shadow-inner select-all">
+              <div className="bg-black/50 border border-white/15 rounded-2xl p-4 text-center font-mono font-black tracking-widest text-amber-400 text-3xl shadow-inner select-all">
                 {roomCode?.toUpperCase()}
               </div>
+
               <Button
                 onClick={handleShare}
-                variant="secondary"
-                className="w-full h-11 border-white/5 flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-wider"
+                className="w-full h-11 bg-white/10 hover:bg-white/15 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2"
               >
                 {copied ? (
                   <>
-                    <Check className="h-4 w-4 text-green-500" /> COPIED!
+                    <Check className="h-4 w-4 text-emerald-400" /> Copied
                   </>
                 ) : (
                   <>
-                    <Copy className="h-4 w-4" /> COPY INVITE LINK
+                    <Copy className="h-4 w-4" /> Copy Link
                   </>
                 )}
               </Button>
             </div>
-            
+
             {spectatorCount > 0 && (
-              <div className="mt-4 border-t border-white/[0.04] pt-3 flex items-center justify-between text-zinc-500 text-xs font-bold uppercase tracking-wider">
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-zinc-400">
                 <span>Spectators</span>
-                <span className="text-zinc-300 font-mono flex items-center gap-1.5">
-                  <Users className="h-3.5 w-3.5 text-zinc-500" /> {spectatorCount}
+                <span className="font-semibold text-white flex items-center gap-1">
+                  <Users className="h-3.5 w-3.5 text-amber-400" /> {spectatorCount}
                 </span>
               </div>
             )}
           </div>
 
-          {/* Action / Launch Card */}
-          <div className="glass-card rounded-2xl p-6 border border-white/[0.04] flex flex-col items-center justify-center text-center bg-black/40">
-            <div className="h-12 w-12 rounded-full bg-amber-500/10 flex items-center justify-center border border-amber-500/20 mb-4 animate-bounce">
-              <UserCheck className="h-5 w-5 text-amber-500" />
+          {/* Host Controls / Waiting Status */}
+          <div className="glass-panel p-6 rounded-3xl border border-white/10 text-center">
+            <div className="h-12 w-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mx-auto mb-3 text-amber-400">
+              <UserCheck className="h-6 w-6" />
             </div>
 
             {isHost ? (
               <>
-                <h4 className="text-base font-bold text-white mb-2">You are the Draft Host</h4>
-                <p className="text-xs text-zinc-500 mb-6 leading-relaxed">
-                  As the creator, you can launch the auction rooms once players have joined their respective war tables.
+                <h4 className="font-display font-bold text-base text-white mb-1">
+                  Host Controls
+                </h4>
+                <p className="text-xs text-zinc-400 mb-5 leading-relaxed">
+                  Start the auction once at least 2 managers have joined.
                 </p>
+
                 <Button
                   onClick={handleStartAuction}
                   disabled={claimedTeams.length < 2}
-                  variant={claimedTeams.length >= 2 ? "primary" : "secondary"}
-                  className={`w-full h-12 font-black tracking-widest text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
-                    claimedTeams.length >= 2 
-                      ? "shimmer-btn shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:shadow-[0_0_35px_rgba(245,158,11,0.4)] cursor-pointer"
-                      : "opacity-50 cursor-not-allowed border-zinc-800 bg-zinc-900 text-zinc-500"
-                  }`}
+                  className="w-full h-12 bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-semibold text-xs uppercase tracking-wide rounded-xl shadow-lg disabled:opacity-40"
                 >
-                  <Play className="h-4 w-4 fill-black" /> START AUCTION
+                  <Play className="h-4 w-4 mr-2" /> Start Auction
                 </Button>
+
                 {claimedTeams.length < 2 && (
-                  <p className="text-[10px] text-amber-500/80 font-bold uppercase tracking-wider mt-2.5 animate-pulse">
-                    ⚠️ Minimum 2 claims required to start
+                  <p className="text-xs text-amber-400 font-medium mt-3">
+                    Requires at least 2 claimed franchises to start.
                   </p>
                 )}
               </>
             ) : (
               <>
-                <h4 className="text-base font-bold text-white mb-2">Lobby Locked</h4>
-                <p className="text-xs text-zinc-500 mb-4 leading-relaxed">
-                  Waiting for the host manager to launch the auction room dashboard. Feel free to chat with competitors.
+                <h4 className="font-display font-bold text-base text-white mb-1">
+                  Waiting for Host
+                </h4>
+                <p className="text-xs text-zinc-400 mb-4 leading-relaxed">
+                  The host will start the auction once all managers are ready.
                 </p>
-                <div className="flex items-center gap-2.5 text-zinc-400 bg-white/[0.02] border border-white/[0.04] rounded-xl px-4 py-3 w-full justify-center">
-                  <div className="h-2 w-2 rounded-full bg-amber-500 animate-ping" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-amber-500/90">WAITING ON HOST MANAGER</span>
+                <div className="glass-panel p-3 rounded-xl border border-white/10 text-xs font-semibold text-amber-400 flex items-center justify-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-amber-400 animate-ping" />
+                  Waiting on host manager...
                 </div>
               </>
             )}
+          </div>
+
+          {/* Auction Rules Summary Card */}
+          <div className="glass-panel p-6 rounded-3xl border border-white/10">
+            <h3 className="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+              <Info className="h-4 w-4 text-cyan-400" /> Auction Rules
+            </h3>
+
+            <div className="space-y-2.5 text-xs text-zinc-300">
+              <div className="flex items-start gap-2">
+                <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" />
+                <span>Squad size: 18 – 25 players</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Check className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" />
+                <span>Overseas limit: Up to 8 players</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <Check className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+                <span>Timer: Resets +5s on new bids</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     );
   }
 
-  // Render Franchise Claim Form (Standard View when first entering code, before claimedTeam is set)
+  // Pre-Join View
   return (
-    <div className="flex flex-col gap-6 w-full max-w-2xl mx-auto mt-6 animate-fade-up">
-      {/* Invite Card */}
-      <div className="glass-card rounded-2xl p-6 relative overflow-hidden group border border-white/[0.04]">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent pointer-events-none group-hover:from-amber-500/10 transition-colors duration-500" />
-        <h2 className="text-sm text-amber-500 font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
-          <Share2 className="h-4 w-4" /> Share Invite
+    <div className="flex flex-col gap-6 w-full max-w-3xl mx-auto animate-fade-up">
+      {/* Invite Code Bar */}
+      <div className="glass-panel rounded-3xl p-6 border border-white/10">
+        <h2 className="text-xs font-semibold text-amber-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+          <Share2 className="h-4 w-4" /> Room Invite
         </h2>
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="flex-1 relative">
-            <Input 
-              readOnly 
-              value={roomUrl} 
-              className="w-full bg-black/60 border-white/5 h-12 text-[13px] text-zinc-400 font-mono pr-28 select-all" 
+            <Input
+              readOnly
+              value={roomUrl}
+              className="w-full bg-black/40 border-white/15 h-11 text-xs text-zinc-300 font-mono pr-28 select-all rounded-xl"
             />
-            <Button 
-               onClick={handleShare} 
-               variant="secondary" 
-               className="absolute right-1 top-1 h-10 w-28 border-white/5 font-bold text-xs uppercase"
+            <Button
+              onClick={handleShare}
+              className="absolute right-1 top-1 h-9 px-3 bg-white/10 hover:bg-white/15 text-white font-semibold text-xs rounded-lg"
             >
               {copied ? "Copied!" : "Copy Link"}
             </Button>
           </div>
-          <div className="hidden sm:flex h-12 w-32 bg-black/60 border border-white/5 rounded-lg items-center justify-center font-mono font-black tracking-[0.2em] text-amber-400 text-lg shadow-inner">
+          <div className="h-11 px-4 bg-black/40 border border-white/15 rounded-xl flex items-center justify-center font-mono font-bold tracking-widest text-amber-400 text-base">
             {roomCode?.toUpperCase()}
           </div>
         </div>
       </div>
 
-      <div className="glass-card border border-white/[0.08] rounded-[24px] p-8 shadow-2xl relative overflow-hidden shadow-black/50">
-        <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
-        
-        <div className="mb-8 text-center">
-          <div className="h-12 w-12 rounded-full bg-amber-500/10 flex items-center justify-center mx-auto mb-4 border border-amber-500/20">
-            <Users className="h-6 w-6 text-amber-500" />
+      {/* Claim Seat Card */}
+      <div className="glass-panel border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl">
+        <div className="mb-6 text-center">
+          <div className="h-12 w-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center mx-auto mb-3 text-amber-400">
+            <Users className="h-6 w-6" />
           </div>
-          <h2 className="text-3xl font-black text-white mb-2 tracking-tight">Join the Draft</h2>
-          <p className="text-sm font-medium text-zinc-400">Select an available franchise to lock your seat in the war room.</p>
+          <h2 className="font-display font-bold text-2xl text-white mb-1">
+            Join Auction
+          </h2>
+          <p className="text-xs text-zinc-400">
+            Enter your name and select a franchise.
+          </p>
         </div>
-        
+
         <div className="space-y-6">
           <div>
-            <label className="text-xs text-zinc-500 font-bold uppercase tracking-widest mb-2 block">Manager Alias</label>
+            <label className="text-xs font-semibold text-zinc-300 mb-2 block">
+              Your Name
+            </label>
             <Input
               value={joinName}
               onChange={(e) => setJoinName(e.target.value)}
               placeholder="Enter your name..."
-              className="bg-black/60 border-white/10 h-12 text-base font-semibold"
+              className="bg-black/40 border-white/15 h-11 text-sm font-sans text-white placeholder:text-zinc-500 rounded-xl"
               maxLength={20}
             />
           </div>
-          
+
           <div>
-            <div className="flex items-center justify-between mb-3 block">
-               <label className="text-xs text-zinc-500 font-bold uppercase tracking-widest">Available Franchises</label>
-               <span className="text-[10px] bg-black/40 px-2 py-0.5 rounded font-mono text-zinc-400">
-                 {10 - claimedTeams.length} Open
-               </span>
+            <div className="flex items-center justify-between mb-3">
+              <label className="text-xs font-semibold text-zinc-300">
+                Select Franchise
+              </label>
+              <span className="text-xs font-semibold text-amber-400">
+                {10 - claimedTeams.length} Open Seats
+              </span>
             </div>
-            <div className="grid grid-cols-5 gap-3">
-              {TEAM_MAP.map(t => {
-                const isClaimed = claimedTeams.some(c => c.team_id === t.id);
+
+            <div className="grid grid-cols-5 gap-2.5">
+              {TEAM_MAP.map((t) => {
+                const isClaimed = claimedTeams.some((c) => c.team_id === t.id);
                 return (
                   <button
                     key={t.id}
                     disabled={isClaimed}
                     onClick={() => handleClaim(t.id)}
-                    className={`relative aspect-square rounded-[14px] font-black text-sm flex flex-col items-center justify-center transition-all duration-300 ease-spring ${
-                      isClaimed 
-                        ? "bg-white/[0.02] text-zinc-600 border border-white/[0.03] cursor-not-allowed grayscale" 
-                        : `${t.color} text-white hover:scale-105 hover:shadow-lg shadow-inner z-10 group overflow-hidden`
+                    className={`relative aspect-square rounded-2xl flex flex-col items-center justify-center transition-all p-2 ${
+                      isClaimed
+                        ? "glass-panel opacity-30 cursor-not-allowed border-white/5"
+                        : "glass-panel border-white/15 hover:border-amber-400/50 hover:scale-105"
                     }`}
-                    style={{ boxShadow: !isClaimed ? `inset 0 2px 4px rgba(255,255,255,0.2)` : undefined }}
                   >
-                    <span className={`transform transition-transform duration-300 ${!isClaimed && 'group-hover:scale-110 relative z-10'}`}>
+                    <TeamLogo teamId={t.id} size="md" />
+                    <span className="text-xs font-bold text-white mt-1">
                       {t.id}
                     </span>
                     {isClaimed && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/60 rounded-[14px] backdrop-blur-[1px]">
-                        <span className="text-[10px]">❌</span>
+                      <div className="absolute inset-0 bg-black/70 rounded-2xl flex items-center justify-center text-xs font-bold text-red-400">
+                        Claimed
                       </div>
                     )}
                   </button>
@@ -396,27 +461,23 @@ export function AuctionLobby() {
               })}
             </div>
           </div>
-          
+
           {!joinName.trim() && claimedTeams.length < (room?.max_players || 10) && (
-             <div className="flex items-center gap-2 text-xs font-semibold text-amber-500/80 bg-amber-500/10 p-3 rounded-lg border border-amber-500/20">
-               <AlertCircle className="h-4 w-4" /> 
-               Enter a manager alias above before selecting a team.
-             </div>
+            <div className="flex items-center gap-2 text-xs font-medium text-amber-400 bg-amber-500/10 p-3 rounded-xl border border-amber-500/20">
+              <AlertCircle className="h-4 w-4 shrink-0" />
+              Enter your name before selecting a franchise.
+            </div>
           )}
-          
-          <div className="mt-4 border-t border-white/[0.05] pt-6 flex flex-col gap-3">
-             {claimedTeams.length >= (room?.max_players || 10) ? (
-               <div className="text-center">
-                 <p className="text-sm font-bold text-amber-500 mb-3 bg-amber-500/10 py-2 border border-amber-500/20 rounded-lg">All franchises have been claimed!</p>
-               </div>
-             ) : (
-               <p className="text-[10px] text-zinc-500 text-center font-bold uppercase tracking-widest">or</p>
-             )}
-             <Button onClick={handleSpectate} variant="ghost" className="w-full text-zinc-400 border border-white/5 hover:border-white/10 hover:bg-white/5 transition-colors h-12 font-bold tracking-widest">
-                {claimedTeams.length >= (room?.max_players || 10) ? "PROCEED TO SPECTATE" : "JUST SPECTATE"}
-             </Button>
+
+          <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+            <Button
+              onClick={handleSpectate}
+              variant="outline"
+              className="w-full h-11 border-white/15 text-zinc-300 hover:text-white font-semibold text-xs rounded-xl"
+            >
+              Spectate Room
+            </Button>
           </div>
-          
         </div>
       </div>
     </div>
