@@ -141,9 +141,15 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
     } else {
       setPlayerName(storedName);
       setJoinName(storedName);
-      const team = storedTeam || sessionStorage.getItem(`auction_${roomCode}_team`);
+      const roomKey = `auction_${roomCode}_team`;
+      const team = sessionStorage.getItem(roomKey) || (storedTeam && storedTeam !== "Spectator" ? storedTeam : null);
       setPlayerTeam(team);
       playerTeamRef.current = team;
+      if (team) {
+        sessionStorage.setItem(roomKey, team);
+        sessionStorage.setItem("playerTeam", team);
+        window.dispatchEvent(new Event("playerIdentityChanged"));
+      }
     }
   }, [roomCode]);
 
@@ -260,11 +266,12 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
         .on("postgres_changes", { event: "INSERT", schema: "public", table: "room_franchises", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
           setClaimedTeams(prev => {
             const exists = prev.some(t => t.team_id === (p.new as any).team_id);
-            const updated = exists ? prev : [...prev, p.new];
+            if (exists) return prev;
+            addLog(`${(p.new as any).user_name} joined as ${(p.new as any).team_id}`, "join");
+            const updated = [...prev, p.new];
             claimedTeamsRef.current = updated;
             return updated;
           });
-          addLog(`${(p.new as any).user_name} joined as ${(p.new as any).team_id}`, "join");
         })
         .on("postgres_changes", { event: "UPDATE", schema: "public", table: "room_franchises", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
           setClaimedTeams(prev => {
@@ -474,6 +481,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
       setPlayerName(joinName);
       setPlayerTeam(teamId);
       setIsSpectator(false);
+      window.dispatchEvent(new Event("playerIdentityChanged"));
     }
   };
 
@@ -581,7 +589,9 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const isOverseasPlayer = currentPlayer?.is_overseas || currentPlayer?.nationality?.toLowerCase() !== 'indian';
   const isRosterValid = mySquadSize < IPL_RULES.MAX_SQUAD_SIZE && !(isOverseasPlayer && myOverseas >= IPL_RULES.MAX_OVERSEAS);
   const canLegallyBid = isFinanciallyValid && isRosterValid;
-  const isHost = myRecord?.is_host === true;
+  const officialHostOnline = claimedTeams.some(c => c.is_host && onlineUsers.some(u => u.team === c.team_id));
+  const isFirstConnectedTeam = claimedTeams.find(c => onlineUsers.some(u => u.team === c.team_id))?.team_id === playerTeam;
+  const isHost = myRecord?.is_host === true || (!officialHostOnline && isFirstConnectedTeam);
   const timerProgress = timeLeft !== null && room?.timer_duration ? Math.min(100, (timeLeft / (room.timer_duration * 1000)) * 100) : 0;
 
   const handleBid = async (customAmountCr?: number) => {
