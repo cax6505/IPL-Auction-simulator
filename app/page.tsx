@@ -3,26 +3,24 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Trophy,
   Users,
   Check,
-  Sparkles,
+  Shield,
+  ArrowRight,
+  Sliders,
+  ChevronRight,
+  Coins,
+  Clock,
   Zap,
-  LogIn,
-  BookOpen,
-  Globe2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { StepIndicator } from "@/components/ui/StepIndicator";
 import { FranchiseCard } from "@/components/ui/FranchiseCard";
-import { SegmentedControl } from "@/components/ui/SegmentedControl";
-import { FeatureCard } from "@/components/ui/FeatureCard";
-import { IPL_TEAMS, fadeUp, staggerContainer, staggerItem, springTransition, slideVariants } from "@/lib/design-tokens";
-
-const STEP_LABELS = ["Name", "Franchise", "Config", "Play"];
+import { LiveBidTicker } from "@/components/ui/LiveBidTicker";
+import { IPL_TEAMS, getTeam, staggerContainer, staggerItem } from "@/lib/design-tokens";
 
 export default function Home() {
   const router = useRouter();
@@ -32,12 +30,12 @@ export default function Home() {
   const [isCreating, setIsCreating] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
   const [joinError, setJoinError] = useState<string | null>(null);
-  // Room customization
+
+  // Settings
   const [timerDuration, setTimerDuration] = useState(10);
   const [startingPurse, setStartingPurse] = useState(120);
   const [showAdvanced, setShowAdvanced] = useState(false);
 
-  // Restore identity from sessionStorage & check URL parameters
   useEffect(() => {
     const savedName = sessionStorage.getItem("playerName");
     const savedTeam = sessionStorage.getItem("playerTeam");
@@ -51,19 +49,22 @@ export default function Home() {
     }
   }, []);
 
-  // Persist identity to sessionStorage
   useEffect(() => {
-    if (playerName) sessionStorage.setItem("playerName", playerName);
+    if (playerName) {
+      sessionStorage.setItem("playerName", playerName);
+      window.dispatchEvent(new Event("playerIdentityChanged"));
+    }
   }, [playerName]);
 
   useEffect(() => {
-    if (selectedTeam) sessionStorage.setItem("playerTeam", selectedTeam);
+    if (selectedTeam) {
+      sessionStorage.setItem("playerTeam", selectedTeam);
+      window.dispatchEvent(new Event("playerIdentityChanged"));
+    }
   }, [selectedTeam]);
 
   const isReady = playerName.trim().length > 0 && selectedTeam !== null;
-
-  // Derive current step for indicator
-  const currentStep = !playerName.trim() ? 0 : !selectedTeam ? 1 : !showAdvanced && isReady ? 3 : 2;
+  const activeTeamObj = getTeam(selectedTeam);
 
   const handleCreateRoom = async () => {
     if (!isReady) return;
@@ -72,7 +73,13 @@ export default function Home() {
       const res = await fetch("/api/rooms", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ playerName: playerName.trim(), playerTeam: selectedTeam, auctionMode: "mega_auction", timerDuration, startingPurse }),
+        body: JSON.stringify({
+          playerName: playerName.trim(),
+          playerTeam: selectedTeam,
+          auctionMode: "mega_auction",
+          timerDuration,
+          startingPurse,
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to create room");
@@ -100,409 +107,327 @@ export default function Home() {
         setIsJoining(false);
         return;
       }
-      // Try to join
-      const joinRes = await fetch(`/api/rooms/${code}/join`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ playerName: playerName.trim(), playerTeam: selectedTeam }),
-      });
-      const joinData = await joinRes.json();
-      if (!joinRes.ok) {
-        setJoinError(joinData.error || "Could not join room");
-        setIsJoining(false);
-        return;
-      }
       router.push(`/rooms/${code}`);
     } catch (err: any) {
-      setJoinError(err.message);
+      setJoinError(err.message || "Network error");
       setIsJoining(false);
     }
   };
 
-  const selectedTeamData = IPL_TEAMS.find((t) => t.id === selectedTeam);
-
   return (
-    <div className="relative min-h-[calc(100vh-4rem)] surface-0 overflow-hidden">
-      {/* Ambient backgrounds */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute top-[-20%] left-[-10%] h-[50rem] w-[50rem] rounded-full bg-red-600/[0.04] blur-[150px] animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute bottom-[-20%] right-[-10%] h-[40rem] w-[40rem] rounded-full bg-amber-500/[0.03] blur-[120px] animate-float" style={{ animationDuration: '12s' }} />
-        <div className="absolute top-[30%] right-[20%] h-[25rem] w-[25rem] rounded-full bg-blue-600/[0.02] blur-[100px]" />
-      </div>
+    <div className="relative min-h-screen flex flex-col justify-between overflow-x-hidden">
+      {/* Subtle Ambient Background Light */}
+      <div
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] rounded-full blur-[130px] opacity-20 transition-all duration-500"
+        style={{
+          background: activeTeamObj
+            ? `radial-gradient(circle, ${activeTeamObj.color} 0%, transparent 70%)`
+            : "radial-gradient(circle, rgba(220, 38, 38, 0.3) 0%, transparent 70%)",
+        }}
+      />
 
-      <div className="relative z-10 mx-auto max-w-5xl px-4 py-8 sm:py-16 sm:px-6 lg:px-8">
-        {/* Hero */}
-        <motion.div
-          className="text-center mb-10"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
+      <main className="flex-1 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 pb-16 w-full relative z-10">
+        {/* Main Hero & Console Grid */}
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-20">
+          {/* Left Side Copy */}
           <motion.div
-            className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-4 py-1.5 text-[13px] text-red-400 mb-6 font-semibold shadow-inner shadow-red-500/10"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.5 }}
+            className="lg:col-span-6 flex flex-col justify-center space-y-6 pt-2"
+            initial="initial"
+            animate="animate"
+            variants={staggerContainer}
           >
-            <Sparkles className="h-4 w-4" />
-            DraftForge — Auction Simulator 2026
+            <motion.div variants={staggerItem} className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel border border-white/10 w-fit">
+              <span className="h-2 w-2 rounded-full bg-amber-400" />
+              <span className="text-xs font-semibold text-zinc-300">
+                IPL Auction Simulator
+              </span>
+            </motion.div>
+
+            <motion.h1 variants={staggerItem} className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white">
+              Build Your IPL Squad <br />
+              <span
+                className="transition-colors duration-300"
+                style={{
+                  color: activeTeamObj ? activeTeamObj.color : "#DC2626",
+                }}
+              >
+                in Real Time
+              </span>
+            </motion.h1>
+
+            <motion.p variants={staggerItem} className="text-base text-zinc-400 font-normal max-w-xl leading-relaxed">
+              A real-time multiplayer auction simulator. Select your IPL franchise, manage your ₹120 Cr budget, and bid against rival managers.
+            </motion.p>
+
+            {/* Stats Row */}
+            <motion.div variants={staggerItem} className="grid grid-cols-3 gap-4 pt-2">
+              <div className="glass-panel p-4 rounded-2xl border border-white/10">
+                <div className="text-xl sm:text-2xl font-bold font-mono text-amber-400">656+</div>
+                <div className="text-xs font-medium text-zinc-400 mt-0.5">Players</div>
+              </div>
+              <div className="glass-panel p-4 rounded-2xl border border-white/10">
+                <div className="text-xl sm:text-2xl font-bold font-mono text-red-400">₹120 Cr</div>
+                <div className="text-xs font-medium text-zinc-400 mt-0.5">Purse</div>
+              </div>
+              <div className="glass-panel p-4 rounded-2xl border border-white/10">
+                <div className="text-xl sm:text-2xl font-bold font-mono text-cyan-400">Real-Time</div>
+                <div className="text-xs font-medium text-zinc-400 mt-0.5">Live Sync</div>
+              </div>
+            </motion.div>
+
+            {/* Live Mock Bid Ticker */}
+            <motion.div variants={staggerItem} className="pt-2">
+              <LiveBidTicker />
+            </motion.div>
           </motion.div>
-          <motion.h1
-            className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-6 font-display uppercase"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+
+          {/* Right Side Creation Console */}
+          <motion.div
+            className="lg:col-span-6 glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden"
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
           >
-            Build Your{" "}
-            <span className="gradient-text-accent text-glow-accent">
-              Dream XI
-            </span>
-          </motion.h1>
-          <motion.p
-            className="text-zinc-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.5 }}
-          >
-            Create a room, invite friends, and compete in real-time cricket auctions.
-            Scout players, manage your purse, and outbid opponents.
-          </motion.p>
-        </motion.div>
+            {/* Header */}
+            <div className="flex items-center justify-between pb-5 mb-6 border-b border-white/10">
+              <div className="flex items-center gap-3">
+                <div
+                  className="h-10 w-10 rounded-xl flex items-center justify-center font-display font-bold text-white shadow-md transition-colors"
+                  style={{
+                    backgroundColor: activeTeamObj ? activeTeamObj.color : "#DC2626",
+                    color: activeTeamObj ? activeTeamObj.textOnColor : "#ffffff",
+                  }}
+                >
+                  {activeTeamObj ? activeTeamObj.short : <Trophy className="h-5 w-5" />}
+                </div>
+                <div>
+                  <h2 className="font-display text-lg font-bold text-white">
+                    Create or Join a Room
+                  </h2>
+                  <p className="text-xs text-zinc-400">
+                    {activeTeamObj ? activeTeamObj.name : "Pick your franchise to get started"}
+                  </p>
+                </div>
+              </div>
+              <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-zinc-300">
+                {isReady ? "Ready" : "Setup Required"}
+              </span>
+            </div>
 
-        {/* Step Indicator */}
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
-        >
-          <StepIndicator steps={STEP_LABELS} currentStep={currentStep} />
-        </motion.div>
-
-        {/* Main Interface Card */}
-        <motion.div
-          className="max-w-xl mx-auto"
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div className="glass-card rounded-[20px] overflow-hidden bg-noise">
-
-            {/* Step 1: Name */}
-            <div className="relative z-10 p-6 sm:p-8 border-b border-white/[0.04]">
-              <label className="flex items-center gap-3 text-xs font-bold text-zinc-400 uppercase tracking-[0.15em] mb-4">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-red-600/20 to-amber-500/20 text-red-400 text-[11px] font-black border border-red-500/30">1</span>
-                Your Display Name
+            {/* Name Field */}
+            <div className="space-y-2 mb-6">
+              <label className="text-xs font-semibold text-zinc-300 flex items-center gap-2">
+                <Users className="h-4 w-4 text-amber-400" />
+                1. Your Name
               </label>
               <Input
                 type="text"
+                placeholder="Enter your display name"
                 value={playerName}
-                onChange={(e) => setPlayerName(e.target.value.slice(0, 20))}
-                placeholder="Manager alias (e.g. MS Dhoni 07)..."
-                maxLength={20}
-                className="h-13 text-base"
+                onChange={(e) => setPlayerName(e.target.value)}
+                className="bg-black/40 border-white/15 text-white placeholder:text-zinc-500 h-11 rounded-xl text-sm font-sans focus:border-amber-400"
               />
-              <p className="text-[11px] text-zinc-500 mt-2 font-mono text-right">{playerName.length}/20</p>
             </div>
 
-            {/* Step 2: Team */}
-            <div className="relative z-10 p-6 sm:p-8 border-b border-white/[0.04] bg-white/[0.01]">
-              <label className="flex items-center gap-3 text-xs font-bold text-zinc-400 uppercase tracking-[0.15em] mb-4">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-red-600/20 to-amber-500/20 text-red-400 text-[11px] font-black border border-red-500/30">2</span>
-                Choose Your Franchise
-              </label>
-              <motion.div
-                className="grid grid-cols-3 sm:grid-cols-5 gap-3"
-                variants={staggerContainer}
-                initial="initial"
-                animate="animate"
-              >
+            {/* Franchise Field */}
+            <div className="space-y-2 mb-6">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-semibold text-zinc-300 flex items-center gap-2">
+                  <Shield className="h-4 w-4 text-red-400" />
+                  2. Select Franchise
+                </label>
+                {selectedTeam && (
+                  <span className="text-xs font-semibold text-emerald-400">
+                    Selected: {selectedTeam}
+                  </span>
+                )}
+              </div>
+
+              <div className="grid grid-cols-5 gap-2 sm:gap-3">
                 {IPL_TEAMS.map((team) => (
-                  <motion.div key={team.id} variants={staggerItem}>
-                    <FranchiseCard
-                      id={team.id}
-                      name={team.name}
-                      short={team.short}
-                      color={team.color}
-                      textOnColor={team.textOnColor}
-                      isSelected={selectedTeam === team.id}
-                      onSelect={setSelectedTeam}
-                    />
-                  </motion.div>
+                  <FranchiseCard
+                    key={team.id}
+                    id={team.id}
+                    name={team.name}
+                    short={team.short}
+                    color={team.color}
+                    secondaryColor={team.secondaryColor}
+                    textOnColor={team.textOnColor}
+                    isSelected={selectedTeam === team.id}
+                    onSelect={(id) => setSelectedTeam(id)}
+                  />
                 ))}
-              </motion.div>
-              <div className="h-5 mt-3 text-center">
-                <AnimatePresence mode="wait">
-                  {selectedTeamData && (
-                    <motion.p
-                      key={selectedTeamData.id}
-                      className="text-xs text-zinc-400"
-                      initial={{ opacity: 0, y: -6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 6 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      Drafting for <span className="text-white font-bold">{selectedTeamData.name}</span>
-                    </motion.p>
-                  )}
-                </AnimatePresence>
               </div>
             </div>
 
-            {/* Step 3: Room Settings */}
-            <div className="relative z-10 p-6 sm:p-8 border-b border-white/[0.04] bg-white/[0.01]">
+            {/* Settings Accordion */}
+            <div className="space-y-3 mb-6 pt-2 border-t border-white/10">
               <button
+                type="button"
                 onClick={() => setShowAdvanced(!showAdvanced)}
-                className="flex items-center justify-between w-full group"
+                className="flex items-center justify-between w-full text-xs font-semibold text-zinc-400 hover:text-zinc-200"
               >
-                <label className="flex items-center gap-3 text-xs font-bold text-zinc-400 uppercase tracking-[0.15em] cursor-pointer">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-red-600/20 to-amber-500/20 text-red-400 text-[11px] font-black border border-red-500/30">3</span>
-                  Room Configuration
-                </label>
-                <motion.span
-                  className="text-zinc-500 text-xs"
-                  animate={{ rotate: showAdvanced ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  ▼
-                </motion.span>
+                <span className="flex items-center gap-2">
+                  <Sliders className="h-4 w-4 text-cyan-400" />
+                  3. Room Settings (Optional)
+                </span>
+                <ChevronRight className={`h-4 w-4 transition-transform ${showAdvanced ? "rotate-90" : ""}`} />
               </button>
 
-              <AnimatePresence>
-                {showAdvanced && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <div className="space-y-6 pt-5">
-                      {/* Timer Duration */}
-                      <SegmentedControl
-                        label="Bid Timer"
-                        options={[
-                          { value: 5, label: "5s" },
-                          { value: 10, label: "10s" },
-                          { value: 15, label: "15s" },
-                          { value: 20, label: "20s" },
-                          { value: 30, label: "30s" },
-                        ]}
-                        selected={timerDuration}
-                        onChange={setTimerDuration}
-                        displayValue={`${timerDuration}s`}
-                      />
+              {showAdvanced && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2"
+                >
+                  <div className="glass-panel p-3.5 rounded-xl border border-white/10">
+                    <label className="text-xs font-semibold text-zinc-300 flex items-center gap-1.5 mb-2">
+                      <Clock className="h-3.5 w-3.5 text-amber-400" />
+                      Timer: {timerDuration}s
+                    </label>
+                    <input
+                      type="range"
+                      min={5}
+                      max={30}
+                      step={5}
+                      value={timerDuration}
+                      onChange={(e) => setTimerDuration(Number(e.target.value))}
+                      className="w-full accent-amber-400 bg-white/10 rounded-lg cursor-pointer"
+                    />
+                  </div>
 
-                      {/* Starting Purse */}
-                      <SegmentedControl
-                        label="Starting Purse"
-                        options={[
-                          { value: 80, label: "₹80 Cr" },
-                          { value: 100, label: "₹100 Cr" },
-                          { value: 120, label: "₹120 Cr" },
-                          { value: 125, label: "₹125 Cr" },
-                        ]}
-                        selected={startingPurse}
-                        onChange={setStartingPurse}
-                        displayValue={`₹${startingPurse} Cr`}
-                      />
-
-                      {/* Mega Auction badge */}
-                      <div className="flex items-center gap-3 p-3 rounded-xl bg-accent-gradient-subtle border border-red-500/15">
-                        <div className="h-8 w-8 rounded-lg bg-gradient-to-r from-red-600 to-amber-500 flex items-center justify-center text-white">
-                          <Trophy className="h-4 w-4" />
-                        </div>
-                        <div>
-                          <p className="text-xs font-bold text-white">Mega Auction Mode</p>
-                          <p className="text-[10px] text-zinc-500 font-medium">Full squad reset — all players in the pool</p>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Summary pills when collapsed */}
-              <AnimatePresence>
-                {!showAdvanced && (
-                  <motion.div
-                    className="flex flex-wrap gap-2 mt-3"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <span className="text-[10px] bg-white/[0.04] px-2.5 py-1 rounded-md font-mono text-zinc-400 border border-white/[0.06]">
-                      ⏱ {timerDuration}s
-                    </span>
-                    <span className="text-[10px] bg-white/[0.04] px-2.5 py-1 rounded-md font-mono text-zinc-400 border border-white/[0.06]">
-                      💰 ₹{startingPurse} Cr
-                    </span>
-                    <span className="text-[10px] bg-accent-gradient-subtle px-2.5 py-1 rounded-md font-mono text-red-400 border border-red-500/15">
-                      🏏 Mega Auction
-                    </span>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                  <div className="glass-panel p-3.5 rounded-xl border border-white/10">
+                    <label className="text-xs font-semibold text-zinc-300 flex items-center gap-1.5 mb-2">
+                      <Coins className="h-3.5 w-3.5 text-emerald-400" />
+                      Starting Purse: ₹{startingPurse} Cr
+                    </label>
+                    <input
+                      type="range"
+                      min={80}
+                      max={150}
+                      step={10}
+                      value={startingPurse}
+                      onChange={(e) => setStartingPurse(Number(e.target.value))}
+                      className="w-full accent-emerald-400 bg-white/10 rounded-lg cursor-pointer"
+                    />
+                  </div>
+                </motion.div>
+              )}
             </div>
 
-            {/* Step 4: Actions */}
-            <div className="relative z-10 p-6 sm:p-8 space-y-6">
-              <label className="flex items-center gap-3 text-xs font-bold text-zinc-400 uppercase tracking-[0.15em] mb-2">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-r from-red-600/20 to-amber-500/20 text-red-400 text-[11px] font-black border border-red-500/30">4</span>
-                Enter the War Room
-              </label>
+            {/* Form Actions */}
+            <div className="space-y-4 pt-4 border-t border-white/10">
+              <Button
+                onClick={handleCreateRoom}
+                disabled={!isReady || isCreating}
+                className="w-full h-12 rounded-xl text-sm font-semibold tracking-wide bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white shadow-lg disabled:opacity-40 transition-all flex items-center justify-center gap-2"
+              >
+                {isCreating ? (
+                  "Creating Room..."
+                ) : (
+                  <>
+                    Create Auction Room <ArrowRight className="h-4 w-4" />
+                  </>
+                )}
+              </Button>
 
-              {/* Create Room */}
-              <motion.div whileTap={{ scale: 0.97 }} whileHover={{ scale: 1.01 }} transition={springTransition}>
-                <Button
-                  onClick={handleCreateRoom}
-                  disabled={!isReady || isCreating}
-                  variant={isReady ? "primary" : "secondary"}
-                  size="xl"
-                  className={`w-full ${isReady ? "shimmer-btn" : ""}`}
-                >
-                  {isCreating ? (
-                    <div className="h-5 w-5 border-2 border-currentColor border-t-transparent rounded-full animate-spin" />
-                  ) : (
-                    <>
-                      <Zap className="h-5 w-5" />
-                      Create New Room
-                    </>
-                  )}
-                </Button>
-              </motion.div>
-
-              {/* Divider */}
-              <div className="relative flex items-center py-1">
-                <div className="flex-1 border-t border-white/[0.06]"></div>
-                <span className="shrink-0 px-4 text-xs font-medium text-zinc-500 uppercase tracking-widest">Or Join Existing</span>
-                <div className="flex-1 border-t border-white/[0.06]"></div>
+              <div className="relative flex items-center my-3">
+                <div className="flex-grow border-t border-white/10"></div>
+                <span className="flex-shrink mx-3 text-xs font-medium text-zinc-500">
+                  Or join with room code
+                </span>
+                <div className="flex-grow border-t border-white/10"></div>
               </div>
 
-              {/* Join Room */}
-              <div className="flex gap-2.5">
+              <div className="flex gap-2">
                 <Input
                   type="text"
+                  placeholder="6-character room code"
                   value={roomCode}
                   onChange={(e) => {
-                    setRoomCode(e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 6));
+                    setRoomCode(e.target.value.toUpperCase());
                     setJoinError(null);
                   }}
-                  disabled={!isReady}
-                  placeholder="6-DIGIT CODE"
                   maxLength={6}
-                  className="flex-1 h-14 text-center text-lg font-mono tracking-[0.3em] uppercase"
+                  className="bg-black/40 border-white/15 text-white placeholder:text-zinc-500 h-11 rounded-xl text-center font-mono font-bold tracking-widest uppercase text-sm"
                 />
-                <motion.div whileTap={{ scale: 0.97 }} transition={springTransition}>
-                  <Button
-                    onClick={handleJoinRoom}
-                    disabled={!isReady || !roomCode.trim() || isJoining}
-                    variant="outline"
-                    className="h-14 w-[120px] font-bold tracking-wide"
-                  >
-                    {isJoining ? (
-                      <div className="h-5 w-5 border-2 border-zinc-400 border-t-transparent rounded-full animate-spin" />
-                    ) : (
-                      <>
-                        <LogIn className="h-5 w-5 mr-1" />
-                        Join
-                      </>
-                    )}
-                  </Button>
-                </motion.div>
+                <Button
+                  onClick={handleJoinRoom}
+                  disabled={!isReady || !roomCode.trim() || isJoining}
+                  variant="outline"
+                  className="h-11 px-5 rounded-xl font-semibold text-xs border-white/20 hover:bg-white/10 text-white disabled:opacity-40"
+                >
+                  {isJoining ? "Joining..." : "Join"}
+                </Button>
               </div>
 
-              {/* Messages */}
-              <div className="min-h-[24px]">
-                <AnimatePresence mode="wait">
-                  {joinError && (
-                    <motion.p
-                      key="error"
-                      className="text-red-400 text-xs font-semibold flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-[8px] px-3 py-2"
-                      initial={{ opacity: 0, y: -5 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -5 }}
-                    >
-                      <span className="h-4 w-4 flex items-center justify-center rounded-full bg-red-500/20 text-red-400">!</span> {joinError}
-                    </motion.p>
-                  )}
-                  {!isReady && !joinError && (
-                    <motion.p
-                      key="hint"
-                      className="text-xs text-zinc-500 text-center font-medium"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                    >
-                      Complete steps 1 and 2 to unlock room actions
-                    </motion.p>
-                  )}
-                </AnimatePresence>
+              {joinError && (
+                <p className="text-xs text-red-400 text-center font-medium">{joinError}</p>
+              )}
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Feature Highlights */}
+        <section className="pt-12 border-t border-white/10">
+          <div className="text-center max-w-xl mx-auto mb-10">
+            <h2 className="font-display text-2xl font-bold text-white">
+              Key Features
+            </h2>
+            <p className="text-sm text-zinc-400 mt-1">
+              Built for smooth multiplayer auctions with official squad rules and purse limits.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+              <div>
+                <div className="h-10 w-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-4">
+                  <Zap className="h-5 w-5" />
+                </div>
+                <h3 className="font-display text-base font-bold text-white mb-1.5">Real-Time Bidding</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+                  Bid against rival managers in real time with instant synchronization across all connected screens.
+                </p>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/5 text-xs text-amber-400 flex items-center gap-1.5 font-medium">
+                <Check className="h-3.5 w-3.5" /> Instant Sync
+              </div>
+            </div>
+
+            <div className="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+              <div>
+                <div className="h-10 w-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 mb-4">
+                  <Shield className="h-5 w-5" />
+                </div>
+                <h3 className="font-display text-base font-bold text-white mb-1.5">Official Squad Rules</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+                  Enforces 18–25 player squads, up to 8 overseas slots, and remaining purse management.
+                </p>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/5 text-xs text-red-400 flex items-center gap-1.5 font-medium">
+                <Check className="h-3.5 w-3.5" /> Automatic Roster Checks
+              </div>
+            </div>
+
+            <div className="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+              <div>
+                <div className="h-10 w-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4">
+                  <Trophy className="h-5 w-5" />
+                </div>
+                <h3 className="font-display text-base font-bold text-white mb-1.5">Post-Auction Summary</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+                  Review final team rosters, highest bids, and share summary cards after the auction ends.
+                </p>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/5 text-xs text-cyan-400 flex items-center gap-1.5 font-medium">
+                <Check className="h-3.5 w-3.5" /> Shareable Results
               </div>
             </div>
           </div>
-
-          {/* Quick Links */}
-          <motion.div
-            className="mt-6 grid grid-cols-2 gap-4"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.4 }}
-          >
-            <Link
-              href="/rooms"
-              className="flex items-center gap-4 p-4 glass-card hover:glass-card-hover rounded-[14px] transition-all group"
-            >
-              <div className="h-10 w-10 rounded-full bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors border border-blue-500/20">
-                <Globe2 className="h-5 w-5 text-blue-400" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-bold text-zinc-200 group-hover:text-white transition-colors">Browse Rooms</span>
-                <span className="text-[11px] text-zinc-500 font-medium">Find public games</span>
-              </div>
-            </Link>
-            <Link
-              href="/guide"
-              className="flex items-center gap-4 p-4 glass-card hover:glass-card-hover rounded-[14px] transition-all group"
-            >
-              <div className="h-10 w-10 rounded-full bg-amber-500/10 flex items-center justify-center group-hover:bg-amber-500/20 transition-colors border border-amber-500/20">
-                <BookOpen className="h-5 w-5 text-amber-400" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-bold text-zinc-200 group-hover:text-white transition-colors">How to Play</span>
-                <span className="text-[11px] text-zinc-500 font-medium">Rules & Strategy</span>
-              </div>
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        {/* Features Grid */}
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <FeatureCard
-            icon={Zap}
-            title="Real-Time Bidding"
-            description="Multiplayer synchronization powered by Supabase Realtime. Feel the adrenaline rush of live, sub-second bidding wars."
-            accentColor="blue"
-            index={0}
-          />
-          <FeatureCard
-            icon={Trophy}
-            title="Official IPL Tiers"
-            description="Realistic auction dynamics with standard bid increments (20L to 10Cr+), budget constraints, and Right to Match (RTM) cards."
-            accentColor="amber"
-            index={1}
-          />
-          <FeatureCard
-            icon={Users}
-            title="Squad Composition"
-            description="Build a balanced roster of 18-25 players including batters, bowlers, all-rounders, keepers, and max 8 overseas limit."
-            accentColor="purple"
-            index={2}
-          />
-        </div>
-
-        {/* Footer (inline, removed from page — now in layout) */}
-      </div>
+        </section>
+      </main>
     </div>
   );
 }
