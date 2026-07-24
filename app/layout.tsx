@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Oswald } from "next/font/google";
+import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,16 +14,16 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const oswald = Oswald({
+const jakarta = Plus_Jakarta_Sans({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "DraftForge | Auction Simulator",
-  description: "Next-gen Cricket Auction Simulator and Player Dashboard — powered by DraftForge",
+  title: "DraftForge | IPL Auction Simulator",
+  description: "Real-time multiplayer cricket auction simulator",
 };
 
 import { Navbar } from "@/components/layout/Navbar";
@@ -37,9 +37,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} ${oswald.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${jakarta.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col surface-0 text-zinc-100">
+      <body className="min-h-full flex flex-col surface-0 text-zinc-100 font-sans">
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>
         <Footer />
@@ -47,3 +47,4 @@ export default function RootLayout({
     </html>
   );
 }
+
