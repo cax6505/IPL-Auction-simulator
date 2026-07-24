@@ -65,10 +65,22 @@ export default function MySquadDrawer({ isOpen, onClose }: MySquadDrawerProps) {
   const overseasCount = squad.filter(p => p.is_overseas).length;
 
   // Group squad by roles
-  const BAT = squad.filter(p => ['BATSMAN', 'BAT'].includes(String(p.role).toUpperCase()));
-  const WK = squad.filter(p => ['WICKET KEEPER', 'WK', 'BAT/WK'].includes(String(p.role).toUpperCase()));
-  const AR = squad.filter(p => ['ALL-ROUNDER', 'AR'].includes(String(p.role).toUpperCase()));
-  const BOWL = squad.filter(p => ['BOWLER', 'BOWL'].includes(String(p.role).toUpperCase()));
+  const WK = squad.filter(p => {
+    const r = (p.role || '').toUpperCase();
+    return r.includes('KEEP') || r.includes('WK') || r === 'WICKETKEEPER';
+  });
+  const BAT = squad.filter(p => {
+    const r = (p.role || '').toUpperCase();
+    return !WK.includes(p) && (r.includes('BAT') || r.includes('BATSMAN'));
+  });
+  const AR = squad.filter(p => {
+    const r = (p.role || '').toUpperCase();
+    return !WK.includes(p) && (r.includes('ROUND') || r.includes('AR') || r === 'ALL-ROUNDER');
+  });
+  const BOWL = squad.filter(p => {
+    const r = (p.role || '').toUpperCase();
+    return !WK.includes(p) && !AR.includes(p) && (r.includes('BOWL') || r === 'BOWLER');
+  });
   
   const groups = [
     { title: "Batsmen", data: BAT, color: "text-blue-400", bg: "bg-blue-500/5", border: "border-blue-500/10" },
