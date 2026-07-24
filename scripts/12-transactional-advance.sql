@@ -42,8 +42,8 @@ BEGIN
     v_winner_id   := v_room.current_highest_bidder_id;
     v_current_pid := v_room.current_player_id;
 
-    -- 2. Process sale if there was a winning bid
-    IF v_final_bid > 0 AND v_winner_id IS NOT NULL AND v_current_pid IS NOT NULL THEN
+    -- 2. Process sale or record unsold status
+    IF v_current_pid IS NOT NULL THEN
         -- Get overseas status
         SELECT is_overseas INTO v_is_overseas
         FROM players
@@ -51,25 +51,32 @@ BEGIN
 
         v_is_overseas := COALESCE(v_is_overseas, false);
 
-        -- Get current winner franchise record
-        SELECT * INTO v_winner
-        FROM room_franchises
-        WHERE room_id = p_room_id AND team_id = v_winner_id
-        FOR UPDATE;
+        IF v_final_bid > 0 AND v_winner_id IS NOT NULL THEN
+            -- Get current winner franchise record
+            SELECT * INTO v_winner
+            FROM room_franchises
+            WHERE room_id = p_room_id AND team_id = v_winner_id
+            FOR UPDATE;
 
-        IF v_winner IS NOT NULL THEN
-            v_new_purse := ROUND((COALESCE(v_winner.purse_remaining_cr, 120.0) - v_final_bid)::numeric, 2);
-            v_new_squad := COALESCE(v_winner.squad_count, 0) + 1;
-            v_new_os    := COALESCE(v_winner.overseas_count, 0) + (CASE WHEN v_is_overseas THEN 1 ELSE 0 END);
+            IF v_winner IS NOT NULL THEN
+                v_new_purse := ROUND((COALESCE(v_winner.purse_remaining_cr, 120.0) - v_final_bid)::numeric, 2);
+                v_new_squad := COALESCE(v_winner.squad_count, 0) + 1;
+                v_new_os    := COALESCE(v_winner.overseas_count, 0) + (CASE WHEN v_is_overseas THEN 1 ELSE 0 END);
 
-            UPDATE room_franchises
-            SET purse_remaining_cr = v_new_purse,
-                squad_count        = v_new_squad,
-                overseas_count     = v_new_os
-            WHERE room_id = p_room_id AND team_id = v_winner_id;
+                UPDATE room_franchises
+                SET purse_remaining_cr = v_new_purse,
+                    squad_count        = v_new_squad,
+                    overseas_count     = v_new_os
+                WHERE room_id = p_room_id AND team_id = v_winner_id;
 
+                INSERT INTO room_sold_players (room_id, player_id, team_id, sold_price_cr, is_overseas)
+                VALUES (p_room_id, v_current_pid, v_winner_id, v_final_bid, v_is_overseas)
+                ON CONFLICT (room_id, player_id) DO NOTHING;
+            END IF;
+        ELSE
+            -- Record player as UNSOLD to prevent infinite queue loops
             INSERT INTO room_sold_players (room_id, player_id, team_id, sold_price_cr, is_overseas)
-            VALUES (p_room_id, v_current_pid, v_winner_id, v_final_bid, v_is_overseas)
+            VALUES (p_room_id, v_current_pid, 'UNSOLD', 0, v_is_overseas)
             ON CONFLICT (room_id, player_id) DO NOTHING;
         END IF;
     END IF;
