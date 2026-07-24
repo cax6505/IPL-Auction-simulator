@@ -4,19 +4,25 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center justify-center rounded-lg border px-2.5 py-0.5 text-[11px] font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
     variants: {
       variant: {
         default:
-          "border-transparent bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 border-amber-500/20",
+          "border-amber-500/30 bg-amber-500/15 text-amber-300 hover:bg-amber-500/25",
         secondary:
-          "border-transparent bg-zinc-800 text-zinc-300 hover:bg-zinc-700",
+          "border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10",
         destructive:
-          "border-transparent bg-red-500/10 text-red-500 border-red-500/20 hover:bg-red-500/20",
-        outline: "text-zinc-400 border-white/[0.1] bg-white/[0.02]",
-        success: "border-transparent bg-green-500/10 text-green-400 border-green-500/20",
-        blue: "border-transparent bg-blue-500/10 text-blue-400 border-blue-500/20",
+          "border-red-500/30 bg-red-500/15 text-red-400 hover:bg-red-500/25",
+        outline: "border-white/15 text-zinc-400 bg-white/[0.02]",
+        success: "border-emerald-500/30 bg-emerald-500/15 text-emerald-400",
+        blue: "border-cyan-500/30 bg-cyan-500/15 text-cyan-400",
+        marquee: "border-amber-400/50 bg-gradient-to-r from-amber-500/25 to-yellow-500/25 text-amber-300 shadow-[0_0_12px_rgba(245,158,11,0.3)]",
+        bat: "border-blue-500/30 bg-blue-500/15 text-blue-400",
+        bowl: "border-emerald-500/30 bg-emerald-500/15 text-emerald-400",
+        ar: "border-purple-500/30 bg-purple-500/15 text-purple-400",
+        wk: "border-orange-500/30 bg-orange-500/15 text-orange-400",
+        overseas: "border-cyan-400/40 bg-cyan-500/20 text-cyan-300",
       },
     },
     defaultVariants: {
@@ -44,3 +50,4 @@ function Badge({ className, variant, dot, dotColor = "bg-current", children, ...
 }
 
 export { Badge, badgeVariants }
+
