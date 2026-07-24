@@ -70,15 +70,15 @@ export function canAffordBid(purseRemainingCr: number, requiredBidCr: number, cu
   // Check strict purse boundary
   if (purseRemainingCr < requiredBidCr) return false;
 
-  // Calculate minimum required to complete the rest of the squad
-  // Assuming minimum base price of remaining players is roughly 0.20 Cr
-  const remainingSlots = IPL_RULES.MAX_SQUAD_SIZE - currentSquadSize;
-  if (remainingSlots <= 1) return purseRemainingCr >= requiredBidCr;
+  // Calculate minimum required to reach official minimum squad size (18 players)
+  // Assuming minimum base price of remaining players is 0.20 Cr
+  const remainingSlotsToMin = IPL_RULES.MIN_SQUAD_SIZE - (currentSquadSize + 1);
+  if (remainingSlotsToMin <= 0) return purseRemainingCr >= requiredBidCr;
 
-  const minimumRemainingReserve = (remainingSlots - 1) * 0.20;
+  const minimumRemainingReserve = remainingSlotsToMin * 0.20;
 
   if (purseRemainingCr - requiredBidCr < minimumRemainingReserve) {
-    return false; // They would bankrupt themselves and fail squad reqs
+    return false; // They would fail minimum squad requirements (18 players)
   }
 
   return true;
