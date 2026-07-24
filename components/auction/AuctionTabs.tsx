@@ -65,28 +65,28 @@ export function AuctionTabs() {
   };
 
   return (
-    <div className="flex-1 glass-card rounded-[20px] flex flex-col overflow-hidden min-h-[300px] animate-fade-in shadow-2xl">
+    <div className="w-full glass-card rounded-[24px] flex flex-col overflow-hidden min-h-[420px] animate-fade-in shadow-2xl border border-white/10">
       
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full flex flex-col h-full">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full flex flex-col">
         {/* Header Tabs */}
-        <div className="border-b border-white/[0.04] bg-black/40 shrink-0 overflow-x-auto no-scrollbar">
-          <TabsList variant="underline" className="w-full h-14 min-w-max px-2">
-            <TabsTrigger variant="underline" value="chat" className="px-4 shrink-0 h-full gap-2">
-              <MessageCircle className="h-4 w-4" /> Room Chat
+        <div className="border-b border-white/[0.06] bg-black/50 shrink-0 overflow-x-auto no-scrollbar px-2">
+          <TabsList variant="underline" className="w-full h-14 min-w-max flex justify-start sm:justify-center gap-2 sm:gap-8">
+            <TabsTrigger variant="underline" value="chat" className="px-5 shrink-0 h-full gap-2 font-mono text-xs uppercase font-bold tracking-wider">
+              <MessageCircle className="h-4 w-4 text-amber-400" /> Room Chat
             </TabsTrigger>
-            <TabsTrigger variant="underline" value="activity" className="px-4 shrink-0 h-full gap-2">
-              <MessageSquare className="h-4 w-4" /> Activity Feed
+            <TabsTrigger variant="underline" value="activity" className="px-5 shrink-0 h-full gap-2 font-mono text-xs uppercase font-bold tracking-wider">
+              <MessageSquare className="h-4 w-4 text-blue-400" /> Activity Feed
             </TabsTrigger>
-            <TabsTrigger variant="underline" value="squad" className="px-4 shrink-0 h-full gap-2 relative">
-              <Users className="h-4 w-4" /> Franchises
+            <TabsTrigger variant="underline" value="squad" className="px-5 shrink-0 h-full gap-2 font-mono text-xs uppercase font-bold tracking-wider relative">
+              <Users className="h-4 w-4 text-emerald-400" /> Franchises
               <div className={`absolute top-2 right-2 h-2.5 w-2.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)] sm:hidden ${onlineUsers.length > 0 ? 'block' : 'hidden'}`} />
               <Badge variant="outline" className="ml-1 bg-black/50 text-[9px] shadow-inner border-white/10 hidden sm:inline-flex">
                 {onlineUsers.length} Online
               </Badge>
             </TabsTrigger>
             {playerTeam && (
-              <TabsTrigger variant="underline" value="mysquad" className="px-4 shrink-0 h-full gap-2">
-                <ShieldCheck className="h-4 w-4" /> My Squad
+              <TabsTrigger variant="underline" value="mysquad" className="px-5 shrink-0 h-full gap-2 font-mono text-xs uppercase font-bold tracking-wider">
+                <ShieldCheck className="h-4 w-4 text-purple-400" /> My Squad
                 {mySquad.length > 0 && (
                   <Badge variant="outline" className="ml-1 bg-amber-500/10 border-amber-500/20 text-amber-400 text-[9px] shadow-inner hidden sm:inline-flex">
                     {mySquad.length}
@@ -98,14 +98,14 @@ export function AuctionTabs() {
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 overflow-y-auto bg-[#09090b]/50 p-4 min-h-0 flex flex-col">
+        <div className="flex-1 bg-[#09090b]/60 p-4 min-h-[360px] flex flex-col">
           {activeTab === "chat" ? (
-            <div className="flex flex-col h-full">
-              <div className="flex-1 overflow-y-auto space-y-3 mb-4 pr-1 no-scrollbar flex flex-col">
+            <div className="flex flex-col h-[360px]">
+              <div className="flex-1 overflow-y-auto space-y-3 mb-4 pr-1 flex flex-col">
                  {chatMessages.length === 0 && (
                    <div className="h-full flex flex-col items-center justify-center text-zinc-500 py-12 m-auto">
-                      <MessageCircle className="h-8 w-8 mb-3 opacity-20" />
-                      <p className="text-[11px] font-mono tracking-widest uppercase">No messages yet. Start strategizing!</p>
+                      <MessageCircle className="h-8 w-8 mb-3 opacity-20 text-amber-400" />
+                      <p className="text-[11px] font-mono tracking-widest uppercase">No messages yet. Start strategizing with room members!</p>
                    </div>
                  )}
                  <div className="mt-auto">
@@ -139,7 +139,7 @@ export function AuctionTabs() {
               </form>
             </div>
           ) : activeTab === "activity" ? (
-            <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-2.5 h-[360px] overflow-y-auto pr-1">
               {logs.length === 0 && (
                 <div className="h-full flex flex-col items-center justify-center text-zinc-500 py-12">
                   <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse mb-3" />
