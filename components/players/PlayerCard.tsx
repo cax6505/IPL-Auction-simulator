@@ -2,7 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Plane, Star } from "lucide-react";
+import { Star, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 import type { PlayerRecord } from "@/lib/types/player";
 
@@ -25,30 +25,18 @@ export function PlayerCard({ player }: { player: PlayerRecord }) {
     }
     localStorage.setItem("ipl_shortlist", JSON.stringify(updated));
     setIsShortlisted(!isShortlisted);
-    // Dispatch a custom event so the dashboard can react
     window.dispatchEvent(new Event("shortlist-change"));
   };
 
-  // Format price if available
+  const isMarquee = (player.base_price_cr && player.base_price_cr >= 2.0) || player.contract_type_2026 === "RETAINED" || player.auction_set?.includes("M1") || player.auction_set?.includes("M2");
+  const isHighValue = (player.base_price_cr && player.base_price_cr >= 1.5) || (player.sold_price_cr && player.sold_price_cr >= 10.0);
+
   const priceDisplay = player.sold_price_cr 
     ? `₹${player.sold_price_cr} Cr` 
     : player.base_price_cr 
       ? `₹${player.base_price_cr} Cr` 
-      : "TBD";
+      : "₹0.20 Cr";
 
-  // Determine role styling based on exact matches used in ClientDashboard
-  const roleStyles: Record<string, { bg: string, border: string, text: string }> = {
-    BAT: { bg: "bg-blue-500/10", border: "border-blue-500/20", text: "text-blue-400" },
-    BOWL: { bg: "bg-red-500/10", border: "border-red-500/20", text: "text-red-400" },
-    AR: { bg: "bg-green-500/10", border: "border-green-500/20", text: "text-green-400" },
-    WK: { bg: "bg-purple-500/10", border: "border-purple-500/20", text: "text-purple-400" },
-  };
-
-  const roleUpper = player.role.toUpperCase();
-  // Safe fallback to 'BOWL' or whatever if unknown string enters
-  const rStyle = roleStyles[roleUpper] || { bg: "bg-zinc-500/10", border: "border-zinc-500/20", text: "text-zinc-400" };
-
-  // Simple initials generator
   const getInitials = (name: string) => {
     const parts = name.split(" ");
     if (parts.length >= 2) {
@@ -57,76 +45,88 @@ export function PlayerCard({ player }: { player: PlayerRecord }) {
     return (name[0] || "?").toUpperCase();
   };
 
-  return (
-    <Card className={`hover:glass-card-hover group border-l-4 border-l-transparent transition-all h-full p-4 gap-0 relative ${isShortlisted ? 'ring-1 ring-red-500/30 bg-red-500/[0.02]' : ''}`} style={{ borderLeftColor: rStyle.text.replace('text-', '') }}>
-      {/* Shortlist Star */}
-      <button
-        onClick={toggleShortlist}
-        className={`absolute top-3 right-3 h-7 w-7 rounded-lg flex items-center justify-center transition-all duration-300 ease-spring z-10 ${
-          isShortlisted
-            ? "bg-red-500/20 border border-red-500/40 text-red-400 scale-110 shadow-[0_0_10px_rgba(220,38,38,0.3)]"
-            : "bg-white/[0.02] border border-white/[0.04] text-zinc-600 opacity-0 group-hover:opacity-100 hover:text-red-400 hover:bg-red-500/10 hover:border-red-500/20"
-        }`}
-        title={isShortlisted ? "Remove from shortlist" : "Add to shortlist"}
-      >
-        <Star className={`h-3.5 w-3.5 ${isShortlisted ? 'fill-red-400' : ''}`} />
-      </button>
+  const getRoleVariant = (role: string) => {
+    const r = role.toUpperCase();
+    if (r === "BAT") return "bat";
+    if (r === "BOWL") return "bowl";
+    if (r === "AR") return "ar";
+    if (r === "WK") return "wk";
+    return "secondary";
+  };
 
-      <div className="flex items-start justify-between gap-4 w-full mb-4">
-        {/* Compact Horizontal Identity */}
-        <div className="flex items-center gap-3.5">
-           <div className={`shrink-0 h-12 w-12 rounded-[10px] flex items-center justify-center font-black text-lg ${rStyle.bg} ${rStyle.border} border shadow-inner`}>
-             <span className={rStyle.text}>{getInitials(player.name)}</span>
-           </div>
-           <div className="flex flex-col">
-              <h3 className="font-bold text-white text-base tracking-tight leading-tight group-hover:text-white transition-colors line-clamp-1">
+  return (
+    <Card
+      className={`glass-panel p-4 rounded-2xl relative transition-all duration-300 flex flex-col justify-between h-full group overflow-hidden ${
+        isMarquee
+          ? "border-amber-500/30 bg-slate-900/80 shadow-md"
+          : "border-white/10 bg-slate-900/40 hover:border-white/20"
+      } ${isShortlisted ? "ring-2 ring-red-500/50" : ""}`}
+    >
+      {/* Top Identity Row */}
+      <div className="flex items-start justify-between gap-3 mb-3">
+        <div className="flex items-center gap-3">
+          <div
+            className={`h-10 w-10 rounded-xl flex items-center justify-center font-display font-bold text-xs border ${
+              isMarquee
+                ? "bg-amber-500/20 text-amber-300 border-amber-500/30"
+                : "bg-white/5 text-zinc-300 border-white/10"
+            }`}
+          >
+            {getInitials(player.name)}
+          </div>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <h3 className="font-display font-bold text-sm text-white truncate max-w-[140px] group-hover:text-amber-300 transition-colors">
                 {player.name}
               </h3>
-              <span className="text-[11px] font-medium text-zinc-500">{player.nationality}</span>
-           </div>
+              {isMarquee && <Sparkles className="h-3.5 w-3.5 text-amber-400 shrink-0" />}
+            </div>
+            <span className="text-xs text-zinc-400 block mt-0.5">{player.nationality}</span>
+          </div>
         </div>
 
-        {/* Badges Right */}
-        <div className="flex flex-col items-end gap-1.5 align-top pr-8">
-          <Badge className={`${rStyle.bg} ${rStyle.text} ${rStyle.border} shadow-none`}>
-            {player.role}
-          </Badge>
-          {player.is_overseas && (
-            <Badge variant="outline" className="border-orange-500/20 bg-orange-500/10 text-orange-400 flex items-center gap-1 shadow-none">
-              <Plane className="h-2.5 w-2.5" /> OS
-            </Badge>
-          )}
-        </div>
-      </div>
-      
-      {/* Data Row */}
-      <div className="grid grid-cols-2 gap-2 mt-auto mb-4 bg-black/20 p-2.5 rounded-lg border border-white/[0.03]">
-        <div className="flex flex-col">
-           <span className="text-[9px] uppercase tracking-widest text-zinc-500 font-bold">Status</span>
-           <span className="text-xs font-semibold text-zinc-300 capitalize">{player.capped_status}</span>
-        </div>
-        <div className="flex flex-col">
-           <span className="text-[9px] uppercase tracking-widest text-zinc-500 font-bold">Set</span>
-           <span className="text-xs font-semibold text-zinc-300 truncate">{player.auction_set || '—'}</span>
-        </div>
+        {/* Shortlist Star */}
+        <button
+          onClick={toggleShortlist}
+          className={`h-7 w-7 rounded-lg flex items-center justify-center transition-all ${
+            isShortlisted
+              ? "bg-red-500/20 text-red-400 border border-red-500/40"
+              : "bg-white/5 text-zinc-500 hover:text-zinc-200 border border-white/10"
+          }`}
+          title={isShortlisted ? "Remove from shortlist" : "Add to shortlist"}
+        >
+          <Star className={`h-3.5 w-3.5 ${isShortlisted ? "fill-red-400" : ""}`} />
+        </button>
       </div>
 
-      {/* Footer Info Row */}
-      <div className="flex items-center justify-between pt-3 border-t border-white/[0.04]">
-        <div className="flex flex-col">
-          <span className="text-[9px] uppercase tracking-widest text-zinc-500 font-bold mb-0.5">
-            {player.contract_type_2026 === 'RETAINED' ? 'Retained Value' : 'Base Price'}
+      {/* Badges Row */}
+      <div className="flex items-center gap-1.5 flex-wrap mb-3">
+        <Badge variant={getRoleVariant(player.role) as any}>{player.role}</Badge>
+        {player.is_overseas && <Badge variant="overseas">Overseas</Badge>}
+        {isMarquee && <Badge variant="marquee">Marquee</Badge>}
+      </div>
+
+      {/* Valuation & Team Info */}
+      <div className="mt-auto pt-3 border-t border-white/10 flex items-center justify-between">
+        <div>
+          <span className="text-[10px] text-zinc-400 block font-medium">
+            {player.contract_type_2026 === "RETAINED" ? "Retained Price" : "Base Price"}
           </span>
-          <span className={`text-sm font-black font-mono ${player.contract_type_2026 === 'RETAINED' ? 'text-zinc-300' : 'gradient-text-accent'}`}>
+          <span
+            className={`font-mono font-bold text-sm ${
+              isHighValue ? "text-amber-300" : "text-white"
+            }`}
+          >
             {priceDisplay}
           </span>
         </div>
-        <div className="flex flex-col text-right">
-          <span className="text-[9px] uppercase tracking-widest text-zinc-500 font-bold mb-0.5">
+
+        <div className="text-right">
+          <span className="text-[10px] text-zinc-400 block font-medium">
             2025 Team
           </span>
-          <span className="text-xs font-bold text-zinc-400">
-            {player.ipl_team_2025 || 'Unassigned'}
+          <span className="text-xs text-zinc-300 font-medium">
+            {player.ipl_team_2025 || "Unassigned"}
           </span>
         </div>
       </div>
