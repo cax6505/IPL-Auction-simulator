@@ -6,6 +6,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MessageSquare, Users, CheckCircle2, MessageCircle, Send, ShieldCheck, Loader2 } from "lucide-react";
 import { TEAM_MAP, formatPriceCr } from "@/lib/auction-engine";
 import { Badge } from "@/components/ui/badge";
+import { PlayerAvatar } from "@/components/ui/PlayerAvatar";
 import { supabase } from "@/lib/supabase";
 
 export function AuctionTabs() {
@@ -286,6 +287,11 @@ export function AuctionTabs() {
                           {group.data.sort((a: any, b: any) => Number(b.sold_price_cr) - Number(a.sold_price_cr)).map((p: any) => (
                             <div key={p.id} className="flex items-center justify-between bg-black/30 border border-white/[0.03] rounded-lg px-3 py-2 hover:bg-white/[0.02] transition-colors">
                               <div className="flex items-center gap-2 min-w-0">
+                                <PlayerAvatar
+                                  playerId={p.id}
+                                  playerName={p.name}
+                                  size="xs"
+                                />
                                 <span className="text-sm font-bold text-white truncate">{p.name}</span>
                                 {p.is_overseas && <span className="text-[8px] text-orange-400 bg-orange-500/10 px-1.5 py-0.5 rounded font-bold border border-orange-500/20 shrink-0">OS</span>}
                               </div>

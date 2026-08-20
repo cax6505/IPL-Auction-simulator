@@ -83,6 +83,16 @@ export default function Home() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to create room");
+
+      if (selectedTeam) {
+        sessionStorage.setItem(`auction_${data.roomCode}_team`, selectedTeam);
+        sessionStorage.setItem("playerTeam", selectedTeam);
+      }
+      if (playerName.trim()) {
+        sessionStorage.setItem("playerName", playerName.trim());
+      }
+      window.dispatchEvent(new Event("playerIdentityChanged"));
+
       router.push(`/rooms/${data.roomCode}`);
     } catch (err: any) {
       alert(err.message);
@@ -100,13 +110,29 @@ export default function Home() {
     setIsJoining(true);
     setJoinError(null);
     try {
-      const res = await fetch(`/api/rooms/${code}`);
+      const res = await fetch(`/api/rooms/${code}/join`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          playerName: playerName.trim(),
+          playerTeam: selectedTeam,
+        }),
+      });
       const data = await res.json();
       if (!res.ok) {
-        setJoinError(data.error || "Room not found");
+        setJoinError(data.error || "Failed to join room");
         setIsJoining(false);
         return;
       }
+      // Pre-store identity with room-specific key so the lobby can restore it
+      if (selectedTeam) {
+        sessionStorage.setItem(`auction_${code}_team`, selectedTeam);
+        sessionStorage.setItem("playerTeam", selectedTeam);
+      }
+      if (playerName.trim()) {
+        sessionStorage.setItem("playerName", playerName.trim());
+      }
+      window.dispatchEvent(new Event("playerIdentityChanged"));
       router.push(`/rooms/${code}`);
     } catch (err: any) {
       setJoinError(err.message || "Network error");

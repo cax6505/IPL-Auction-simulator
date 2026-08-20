@@ -39,6 +39,7 @@ export function AuctionLobby() {
   } = useAuction();
 
   const [copied, setCopied] = useState(false);
+  const [claimingTeamId, setClaimingTeamId] = useState<string | null>(null);
 
   if (room?.status !== "waiting") return null;
 
@@ -313,15 +314,15 @@ export function AuctionLobby() {
 
                 <Button
                   onClick={handleStartAuction}
-                  disabled={claimedTeams.length < 2}
+                  disabled={claimedTeams.length < 1}
                   className="w-full h-12 bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-semibold text-xs uppercase tracking-wide rounded-xl shadow-lg disabled:opacity-40"
                 >
                   <Play className="h-4 w-4 mr-2" /> Start Auction
                 </Button>
 
                 {claimedTeams.length < 2 && (
-                  <p className="text-xs text-amber-400 font-medium mt-3">
-                    Requires at least 2 claimed franchises to start.
+                  <p className="text-xs text-zinc-400 font-medium mt-3">
+                    {claimedTeams.length === 1 ? "You can start solo or wait for rival managers to join." : "Requires at least 1 claimed franchise to start."}
                   </p>
                 )}
               </>
@@ -436,13 +437,22 @@ export function AuctionLobby() {
             <div className="grid grid-cols-5 gap-2.5">
               {TEAM_MAP.map((t) => {
                 const isClaimed = claimedTeams.some((c) => c.team_id === t.id);
+                const isBeingClaimed = claimingTeamId === t.id;
+                const isDisabled = isClaimed || claimingTeamId !== null;
                 return (
                   <button
                     key={t.id}
-                    disabled={isClaimed}
-                    onClick={() => handleClaim(t.id)}
+                    disabled={isDisabled}
+                    onClick={async () => {
+                      setClaimingTeamId(t.id);
+                      try {
+                        await handleClaim(t.id);
+                      } finally {
+                        setClaimingTeamId(null);
+                      }
+                    }}
                     className={`relative aspect-square rounded-2xl flex flex-col items-center justify-center transition-all p-2 ${
-                      isClaimed
+                      isClaimed || isDisabled
                         ? "glass-panel opacity-30 cursor-not-allowed border-white/5"
                         : "glass-panel border-white/15 hover:border-amber-400/50 hover:scale-105"
                     }`}
@@ -454,6 +464,11 @@ export function AuctionLobby() {
                     {isClaimed && (
                       <div className="absolute inset-0 bg-black/70 rounded-2xl flex items-center justify-center text-xs font-bold text-red-400">
                         Claimed
+                      </div>
+                    )}
+                    {isBeingClaimed && !isClaimed && (
+                      <div className="absolute inset-0 bg-black/70 rounded-2xl flex items-center justify-center text-xs font-bold text-amber-400 animate-pulse">
+                        Claiming...
                       </div>
                     )}
                   </button>

@@ -2,6 +2,7 @@
 
 import { useAuction } from "./AuctionContext";
 import { Badge } from "@/components/ui/badge";
+import { PlayerAvatar } from "@/components/ui/PlayerAvatar";
 import { ChevronRight } from "lucide-react";
 
 const ROLE_COLORS: Record<string, string> = {
@@ -52,12 +53,12 @@ export function UpcomingQueue() {
               }`}
               style={{ animationDelay: `${index * 0.05}s` }}
             >
-              {/* Number */}
-              <div className="h-6 w-6 rounded-md bg-black/40 border border-white/[0.06] flex items-center justify-center shrink-0">
-                <span className="text-[10px] font-mono font-bold text-zinc-400">
-                  {index === 0 ? "→" : index + 1}
-                </span>
-              </div>
+              {/* Player Avatar */}
+              <PlayerAvatar
+                playerId={player.id}
+                playerName={player.name}
+                size="xs"
+              />
 
               {/* Info */}
               <div className="flex flex-col min-w-0 flex-1">

@@ -137,34 +137,39 @@ export async function GET() {
       filteredRooms = filteredRooms.filter((r: any) => !r.is_private);
     }
 
-    // Augment with player counts and creator names
-    const roomsWithDetails = await Promise.all(
-      filteredRooms.map(async (room: any) => {
-        const { count } = await supabase
-          .from("room_franchises")
-          .select("*", { count: "exact", head: true })
-          .eq("room_id", room.id);
+    if (filteredRooms.length === 0) {
+      return NextResponse.json({ rooms: [] });
+    }
 
-        const { data: hostData } = await supabase
-          .from("room_franchises")
-          .select("user_name")
-          .eq("room_id", room.id)
-          .eq("is_host", true)
-          .maybeSingle();
+    // Batch-fetch all franchises for these rooms in ONE query (eliminates N+1)
+    const roomIds = filteredRooms.map((r: any) => r.id);
+    const { data: allFranchises } = await supabase
+      .from("room_franchises")
+      .select("room_id, user_name, is_host")
+      .in("room_id", roomIds);
 
-        return {
-          ...room,
-          playerCount: count || 0,
-          creatorName: hostData?.user_name || "Unknown Manager"
-        };
-      })
-    );
+    // Build lookup maps: room_id -> count, room_id -> host name
+    const countMap: Record<string, number> = {};
+    const hostMap: Record<string, string> = {};
+    for (const f of allFranchises || []) {
+      countMap[f.room_id] = (countMap[f.room_id] || 0) + 1;
+      if (f.is_host) {
+        hostMap[f.room_id] = f.user_name;
+      }
+    }
+
+    // Augment rooms with counts and host names
+    const roomsWithDetails = filteredRooms.map((room: any) => ({
+      ...room,
+      playerCount: countMap[room.id] || 0,
+      creatorName: hostMap[room.id] || "Unknown Manager",
+    }));
 
     // ONLY return valid rooms that actually have at least 1 claimed franchise!
     // This eliminates ghost / abandoned / un-created rooms.
     const activeValidRooms = roomsWithDetails.filter((r: any) => r.playerCount > 0);
 
-    // Clean up empty ghost rooms (0 players) older than 30 mins in the background
+    // Clean up empty ghost rooms (0 players) in the background
     const emptyRoomIds = roomsWithDetails.filter((r: any) => r.playerCount === 0).map((r: any) => r.id);
     if (emptyRoomIds.length > 0) {
       supabase.from("rooms").delete().in("id", emptyRoomIds).then(() => {}, () => {});

@@ -1,14 +1,15 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Trophy, Globe2, BookOpen, Users, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IPL_TEAMS } from "@/lib/design-tokens";
 import { TeamLogo } from "@/components/ui/TeamLogo";
 
-export function Navbar() {
+const NavbarInner = React.memo(function NavbarInner() {
   const pathname = usePathname();
   const [identity, setIdentity] = useState<{ name: string; team: string } | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -39,11 +40,18 @@ export function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
+    let rafId: number;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 15);
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 15);
+      });
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const navLinks = [
@@ -170,6 +178,8 @@ export function Navbar() {
       </div>
     </nav>
   );
+});
+
+export function Navbar() {
+  return <NavbarInner />;
 }
-
-

@@ -4,6 +4,7 @@ import { useAuction } from "./AuctionContext";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { X, ShieldCheck, BadgeCent, Users, AlertTriangle, ShieldAlert } from "lucide-react";
+import { PlayerAvatar } from "@/components/ui/PlayerAvatar";
 import { TEAM_MAP, formatPriceCr, IPL_RULES } from "@/lib/auction-engine";
 
 interface MySquadDrawerProps {
@@ -215,6 +216,11 @@ export default function MySquadDrawer({ isOpen, onClose }: MySquadDrawerProps) {
                         className="flex items-center justify-between bg-zinc-950/60 border border-white/[0.03] rounded-xl px-3.5 py-2.5 hover:bg-zinc-900/50 transition-colors group"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
+                          <PlayerAvatar
+                            playerId={player.id}
+                            playerName={player.name}
+                            size="sm"
+                          />
                           <div className="flex flex-col min-w-0">
                             <span className="text-sm font-bold text-white group-hover:text-amber-400 transition-colors truncate">{player.name}</span>
                             <span className="text-[9px] text-zinc-600 font-bold uppercase tracking-wider">{player.nationality}</span>

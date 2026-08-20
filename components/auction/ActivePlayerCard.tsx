@@ -3,6 +3,7 @@
 import { useAuction } from "./AuctionContext";
 import { formatPriceCr } from "@/lib/auction-engine";
 import { Badge } from "@/components/ui/badge";
+import { PlayerAvatar } from "@/components/ui/PlayerAvatar";
 import { Plane, Star, Sparkles, Gavel, Shield, Timer, Clock } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -151,23 +152,31 @@ export function ActivePlayerCard() {
       {/* Player Core & Compact Price Bar */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         {/* Left: Player Identity */}
-        <div className="flex flex-col justify-center">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-mono font-bold text-zinc-400 uppercase tracking-widest">
-              {currentPlayer.nationality}
-            </span>
-            {currentPlayer.ipl_team_2025 && (
-              <span className="text-xs font-mono text-zinc-500">
-                · Ex-{currentPlayer.ipl_team_2025}
+        <div className="flex items-center gap-5 flex-1">
+          <PlayerAvatar
+            playerId={currentPlayer.id}
+            playerName={currentPlayer.name}
+            size="2xl"
+            marquee={!!isMarquee}
+          />
+          <div className="flex flex-col justify-center">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xs font-mono font-bold text-zinc-400 uppercase tracking-widest">
+                {currentPlayer.nationality}
               </span>
-            )}
+              {currentPlayer.ipl_team_2025 && (
+                <span className="text-xs font-mono text-zinc-500">
+                  · Ex-{currentPlayer.ipl_team_2025}
+                </span>
+              )}
+            </div>
+            <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-none mb-2">
+              {currentPlayer.name}
+            </h2>
+            <p className="text-xs sm:text-sm text-zinc-400 font-sans">
+              Base Price: <span className="font-mono font-bold text-zinc-200">₹{safeBasePrice.toFixed(2)} Cr</span>
+            </p>
           </div>
-          <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-none mb-2">
-            {currentPlayer.name}
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 font-sans">
-            Base Price: <span className="font-mono font-bold text-zinc-200">₹{safeBasePrice.toFixed(2)} Cr</span>
-          </p>
         </div>
 
         {/* Right: Compact, Sleek Price Display */}

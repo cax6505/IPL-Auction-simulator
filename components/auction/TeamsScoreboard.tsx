@@ -35,8 +35,8 @@ export function TeamsScoreboard() {
               {/* Purse & Roster fill info */}
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-xs font-mono font-bold text-white truncate max-w-[85px]">
-                    {team.user_name}
+                  <span className="text-xs font-mono font-bold text-white truncate max-w-[85px]" title={team.user_name || team.team_id}>
+                    {team.user_name || team.team_id}
                   </span>
                   <div
                     className={`h-1.5 w-1.5 rounded-full ${

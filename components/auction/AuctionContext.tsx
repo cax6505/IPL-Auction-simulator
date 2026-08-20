@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState, useRef, useCallback, ReactNode } from "react";
+import React, { createContext, useContext, useEffect, useState, useRef, useCallback, useMemo, ReactNode } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import { calculateNextBid, canAffordBid, formatPriceCr, IPL_RULES, TEAM_MAP } from "@/lib/auction-engine";
@@ -19,7 +19,7 @@ interface AuctionContextType {
   logs: any[];
   chatMessages: { id: string; sender: string; text: string; timestamp: number }[];
   timeLeft: number | null;
-  showSoldFlash: { team: string; name: string; amount: number } | null;
+  showSoldFlash: { team: string; name: string; amount: number; playerId: string } | null;
   showUnsoldFlash: { name: string } | null;
   showSquadsModal: string | null;
   squadsMap: Record<string, any[]>;
@@ -83,7 +83,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const [logs, setLogs] = useState<{ id: string; text: string; type: "bid" | "join" | "sys" }[]>([]);
   const [chatMessages, setChatMessages] = useState<{ id: string; sender: string; text: string; timestamp: number }[]>([]);
   const [timeLeft, setTimeLeft] = useState<number | null>(null);
-  const [showSoldFlash, setShowSoldFlash] = useState<{ team: string; name: string; amount: number } | null>(null);
+  const [showSoldFlash, setShowSoldFlash] = useState<{ team: string; name: string; amount: number; playerId: string } | null>(null);
   const [showUnsoldFlash, setShowUnsoldFlash] = useState<{ name: string } | null>(null);
   const [showSquadsModal, setShowSquadsModal] = useState<string | null>(null);
   const [squadsMap, setSquadsMap] = useState<Record<string, any[]>>({});
@@ -124,7 +124,6 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   // Hydrate Identity
   useEffect(() => {
     const storedName = sessionStorage.getItem("playerName") || "";
-    const storedTeam = sessionStorage.getItem("playerTeam");
     
     // Check if auto-spectate is requested in URL query params
     const searchParams = new URLSearchParams(window.location.search);
@@ -141,22 +140,32 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
     } else {
       setPlayerName(storedName);
       setJoinName(storedName);
+      // Only restore team from room-specific key to avoid cross-room pollution
       const roomKey = `auction_${roomCode}_team`;
-      const team = sessionStorage.getItem(roomKey) || (storedTeam && storedTeam !== "Spectator" ? storedTeam : null);
+      const team = sessionStorage.getItem(roomKey) || null;
       setPlayerTeam(team);
       playerTeamRef.current = team;
       if (team) {
-        sessionStorage.setItem(roomKey, team);
         sessionStorage.setItem("playerTeam", team);
         window.dispatchEvent(new Event("playerIdentityChanged"));
       }
     }
   }, [roomCode]);
 
-  // Init + Realtime
+  // Track whether initial data fetch has completed (to prevent re-fetching)
+  const initCompletedRef = useRef(false);
+  const playerNameRef = useRef(playerName);
+  const isSpectatorRef = useRef(isSpectator);
+  useEffect(() => { playerNameRef.current = playerName; }, [playerName]);
+  useEffect(() => { isSpectatorRef.current = isSpectator; }, [isSpectator]);
+
+  // Init + Realtime — depends only on stable identifiers, NOT on playerTeam
+  // playerTeam changes are handled via presence re-tracking without re-subscribing
   useEffect(() => {
     // Allow spectators (no team) to initialize if they have a name or are flagged
     if (!playerName && !isSpectator) return;
+    // Prevent duplicate initialization
+    if (initCompletedRef.current) return;
 
     let isMounted = true;
     let activeChannel: any = null;
@@ -177,6 +186,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
 
       setRoom(roomData);
       roomRef.current = roomData;
+      initCompletedRef.current = true;
 
       if (roomData.status === "completed") setIsAuctionComplete(true);
 
@@ -191,8 +201,20 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
         setClaimedTeams(franchises);
         claimedTeamsRef.current = franchises;
 
-        const myEntry = franchises.find((f: any) => f.team_id === playerTeam);
-        if (!myEntry && roomData.status !== "waiting") {
+        // Validate stored team against actual DB records
+        const currentTeam = playerTeamRef.current;
+        if (currentTeam) {
+          const myEntry = franchises.find((f: any) => f.team_id === currentTeam);
+          if (!myEntry) {
+            // Stored team not actually claimed in this room — clear it
+            if (roomData.status !== "waiting") {
+              setIsSpectator(true);
+            }
+            setPlayerTeam(null);
+            playerTeamRef.current = null;
+            sessionStorage.removeItem(`auction_${roomCode}_team`);
+          }
+        } else if (roomData.status !== "waiting") {
           setIsSpectator(true);
         }
 
@@ -229,17 +251,18 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
         setSoldPlayerIds(new Set(soldData.map((s: any) => s.player_id)));
       }
 
-      // Mega Auction: fetch all players
-      let playerQuery = supabase
-        .from("players")
-        .select("id, name, base_price_cr, role, is_overseas, nationality, contract_type_2026, auction_set")
-        .order("base_price_cr", { ascending: false })
-        .order("id", { ascending: true });
-
-      const { data: players } = await playerQuery;
-      if (players) {
-        setAllPlayers(players);
-        allPlayersRef.current = players;
+      // Lazy-load players: only fetch full player list if auction is active/paused
+      // For "waiting" rooms, defer this expensive query until auction starts
+      if (roomData.status !== "waiting") {
+        const { data: players } = await supabase
+          .from("players")
+          .select("id, name, base_price_cr, role, is_overseas, nationality, contract_type_2026, auction_set")
+          .order("base_price_cr", { ascending: false })
+          .order("id", { ascending: true });
+        if (players) {
+          setAllPlayers(players);
+          allPlayersRef.current = players;
+        }
       }
 
       setLoading(false);
@@ -262,6 +285,21 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
           setRoom((prev: any) => (prev && p.new ? { ...prev, ...p.new } : p.new));
           roomRef.current = roomRef.current && p.new ? { ...roomRef.current, ...p.new } : p.new;
           if ((p.new as any).status === "completed") setIsAuctionComplete(true);
+
+          // When status transitions to "active", lazy-load players if not already loaded
+          if ((p.new as any).status === "active" && allPlayersRef.current.length === 0) {
+            supabase
+              .from("players")
+              .select("id, name, base_price_cr, role, is_overseas, nationality, contract_type_2026, auction_set")
+              .order("base_price_cr", { ascending: false })
+              .order("id", { ascending: true })
+              .then(({ data: players }) => {
+                if (players) {
+                  setAllPlayers(players);
+                  allPlayersRef.current = players;
+                }
+              });
+          }
         })
         .on("postgres_changes", { event: "INSERT", schema: "public", table: "room_franchises", filter: `room_id=eq.${roomData.id}` }, (p: any) => {
           setClaimedTeams(prev => {
@@ -313,9 +351,9 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
           if (status === "SUBSCRIBED" && isMounted) {
             await activeChannel.track({
               online_at: new Date().toISOString(),
-              team: playerTeam || "Spectator",
-              name: playerName,
-              spectator: isSpectator,
+              team: playerTeamRef.current || "Spectator",
+              name: playerNameRef.current,
+              spectator: isSpectatorRef.current,
             });
           }
         });
@@ -327,13 +365,15 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
 
     return () => {
       isMounted = false;
+      initCompletedRef.current = false;
       if (activeChannel) {
         activeChannel.untrack();
         supabase.removeChannel(activeChannel);
       }
       activeChannelRef.current = null;
     };
-  }, [playerName, playerTeam, roomCode, router, addLog, isSpectator]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playerName, roomCode, router, addLog, isSpectator]);
 
   // Player Sync
   useEffect(() => {
@@ -415,7 +455,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
 
             if (finalBid > 0 && winnerId) {
               const cp = currentPlayer;
-              setShowSoldFlash({ team: winnerId, name: cp?.name || "", amount: finalBid });
+              setShowSoldFlash({ team: winnerId, name: cp?.name || "", amount: finalBid, playerId: cp?.id || "" });
               setTimeout(() => setShowSoldFlash(null), 3000);
               addLog(`✅ SOLD to ${winnerId} for ${formatPriceCr(finalBid)}`, "sys");
             } else {
@@ -439,7 +479,7 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
       };
 
       tick();
-      interval = setInterval(tick, 100);
+      interval = setInterval(tick, 250);
     } else {
       setTimeLeft(null);
     }
@@ -453,35 +493,81 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
     };
   }, [room?.status, room?.timer_ends_at, advanceAuction, addLog, currentPlayer]);
 
-  // Actions
+  // Actions — use server-side API for team claiming to prevent race conditions
+  const [isClaiming, setIsClaiming] = useState(false);
+
   const handleClaim = async (teamId: string) => {
     if (!joinName) return alert("Enter a name first!");
     const currentRoom = roomRef.current;
     if (!currentRoom) return;
 
-    if (claimedTeams.length >= (currentRoom.max_players || 10)) {
+    // Prevent double-clicks
+    if (isClaiming) return;
+
+    // Client-side pre-check (fast fail)
+    if (claimedTeamsRef.current.some(c => c.team_id === teamId)) {
+      alert(`${teamId} is already claimed!`);
+      return;
+    }
+
+    if (claimedTeamsRef.current.length >= (currentRoom.max_players || 10)) {
       alert("Room is full!");
       return;
     }
 
-    const { error } = await supabase.from("room_franchises").insert([{
-      room_id: currentRoom.id,
-      team_id: teamId,
-      user_name: joinName,
-      is_host: claimedTeams.length === 0,
-      purse_remaining_cr: 120.0,
-      squad_count: 0,
-      overseas_count: 0
-    }]);
+    setIsClaiming(true);
+    try {
+      // Use server-side API which has proper duplicate-team validation
+      const res = await fetch(`/api/rooms/${currentRoom.room_code}/join`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          playerName: joinName,
+          playerTeam: teamId,
+        }),
+      });
 
-    if (!error) {
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.error || "Failed to claim team");
+        // Refresh claimed teams from DB to get latest state
+        const { data: freshFranchises } = await supabase
+          .from("room_franchises")
+          .select("*")
+          .eq("room_id", currentRoom.id)
+          .order("joined_at", { ascending: true });
+        if (freshFranchises) {
+          setClaimedTeams(freshFranchises);
+          claimedTeamsRef.current = freshFranchises;
+        }
+        return;
+      }
+
+      // Success — update local state
       sessionStorage.setItem("playerName", joinName);
       sessionStorage.setItem("playerTeam", teamId);
       sessionStorage.setItem(`auction_${currentRoom.room_code}_team`, teamId);
       setPlayerName(joinName);
       setPlayerTeam(teamId);
+      playerTeamRef.current = teamId;
       setIsSpectator(false);
       window.dispatchEvent(new Event("playerIdentityChanged"));
+
+      // Re-track presence with new team identity (no re-subscribe needed)
+      if (activeChannelRef.current) {
+        await activeChannelRef.current.track({
+          online_at: new Date().toISOString(),
+          team: teamId,
+          name: joinName,
+          spectator: false,
+        });
+      }
+    } catch (err: any) {
+      console.error("handleClaim error:", err);
+      alert("Failed to claim team. Please try again.");
+    } finally {
+      setIsClaiming(false);
     }
   };
 
@@ -497,7 +583,22 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
 
   const handleStartAuction = async () => {
     const currentRoom = roomRef.current;
-    const players = allPlayersRef.current;
+    let players = allPlayersRef.current;
+
+    // If players haven't been loaded yet (lazy-load during waiting), fetch them now
+    if (players.length === 0) {
+      const { data: fetchedPlayers } = await supabase
+        .from("players")
+        .select("id, name, base_price_cr, role, is_overseas, nationality, contract_type_2026, auction_set")
+        .order("base_price_cr", { ascending: false })
+        .order("id", { ascending: true });
+      if (fetchedPlayers) {
+        setAllPlayers(fetchedPlayers);
+        allPlayersRef.current = fetchedPlayers;
+        players = fetchedPlayers;
+      }
+    }
+
     if (!currentRoom || players.length === 0) return;
 
     // Fetch sold players to avoid starting with a sold player
@@ -525,9 +626,14 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   const handlePause = async (pause: boolean) => {
     const currentRoom = roomRef.current;
     if (!currentRoom?.id) return;
-    // Only the host can pause/resume the auction
-    const meHost = claimedTeamsRef.current.find(c => c.team_id === playerTeamRef.current)?.is_host === true;
+    // Check host permissions including fallback host if official host is offline
+    const meClaim = claimedTeamsRef.current.find(c => c.team_id === playerTeamRef.current);
+    const isOfficialHost = meClaim?.is_host === true;
+    const officialHostOnline = claimedTeamsRef.current.some(c => c.is_host && onlineUsers.some(u => u.team === c.team_id));
+    const isFirstConnected = claimedTeamsRef.current.find(c => onlineUsers.some(u => u.team === c.team_id))?.team_id === playerTeamRef.current;
+    const meHost = isOfficialHost || (!officialHostOnline && isFirstConnected);
     if (!meHost) return;
+
     try {
       if (pause) {
         // Clear any pending advance timeout immediately to prevent race conditions
@@ -560,9 +666,14 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
   };
 
   const handleEndAuction = async () => {
-    // Only the host can end the auction
-    const meHost = claimedTeamsRef.current.find(c => c.team_id === playerTeamRef.current)?.is_host === true;
+    // Check host permissions including fallback host if official host is offline
+    const meClaim = claimedTeamsRef.current.find(c => c.team_id === playerTeamRef.current);
+    const isOfficialHost = meClaim?.is_host === true;
+    const officialHostOnline = claimedTeamsRef.current.some(c => c.is_host && onlineUsers.some(u => u.team === c.team_id));
+    const isFirstConnected = claimedTeamsRef.current.find(c => onlineUsers.some(u => u.team === c.team_id))?.team_id === playerTeamRef.current;
+    const meHost = isOfficialHost || (!officialHostOnline && isFirstConnected);
     if (!meHost) return;
+
     if (window.confirm("End auction? This cannot be undone.")) {
       try {
         const { error } = await supabase.from("rooms").update({ status: "completed" }).eq("id", roomRef.current?.id);
@@ -575,23 +686,31 @@ export function AuctionProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  // Memoize derived values to prevent recalculation on every render
   const currentBid = Number(room?.current_bid_cr) || 0;
-  const isHighest = room?.current_highest_bidder_id === playerTeam;
   const safeBasePrice = Number(currentPlayer?.base_price_cr) || 2.0;
-  const nextCalculated = currentPlayer ? (currentBid === 0 ? safeBasePrice : calculateNextBid(currentBid, safeBasePrice)) : 0;
-  
-  const myRecord = claimedTeams.find(c => c.team_id === playerTeam);
-  const myPurse = Number(myRecord?.purse_remaining_cr) || 120.0;
-  const mySquadSize = myRecord?.squad_count || 0;
-  const myOverseas = myRecord?.overseas_count || 0;
-  
-  const isFinanciallyValid = canAffordBid(myPurse, nextCalculated, mySquadSize);
-  const isOverseasPlayer = currentPlayer?.is_overseas || currentPlayer?.nationality?.toLowerCase() !== 'indian';
-  const isRosterValid = mySquadSize < IPL_RULES.MAX_SQUAD_SIZE && !(isOverseasPlayer && myOverseas >= IPL_RULES.MAX_OVERSEAS);
-  const canLegallyBid = isFinanciallyValid && isRosterValid;
-  const officialHostOnline = claimedTeams.some(c => c.is_host && onlineUsers.some(u => u.team === c.team_id));
-  const isFirstConnectedTeam = claimedTeams.find(c => onlineUsers.some(u => u.team === c.team_id))?.team_id === playerTeam;
-  const isHost = myRecord?.is_host === true || (!officialHostOnline && isFirstConnectedTeam);
+
+  const derivedValues = useMemo(() => {
+    const isHighest = room?.current_highest_bidder_id === playerTeam;
+    const nextCalculated = currentPlayer ? (currentBid === 0 ? safeBasePrice : calculateNextBid(currentBid, safeBasePrice)) : 0;
+    
+    const myRecord = claimedTeams.find(c => c.team_id === playerTeam);
+    const myPurse = Number(myRecord?.purse_remaining_cr) || 120.0;
+    const mySquadSize = myRecord?.squad_count || 0;
+    const myOverseas = myRecord?.overseas_count || 0;
+    
+    const isOverseasPlayer = currentPlayer?.is_overseas || currentPlayer?.nationality?.toLowerCase() !== 'indian';
+    const isFinanciallyValid = canAffordBid(myPurse, nextCalculated, mySquadSize);
+    const isRosterValid = mySquadSize < IPL_RULES.MAX_SQUAD_SIZE && !(isOverseasPlayer && myOverseas >= IPL_RULES.MAX_OVERSEAS);
+    const canLegallyBid = isFinanciallyValid && isRosterValid;
+    const officialHostOnline = claimedTeams.some(c => c.is_host && onlineUsers.some(u => u.team === c.team_id));
+    const isFirstConnectedTeam = claimedTeams.find(c => onlineUsers.some(u => u.team === c.team_id))?.team_id === playerTeam;
+    const isHost = myRecord?.is_host === true || (!officialHostOnline && isFirstConnectedTeam);
+
+    return { isHighest, nextCalculated, myRecord, myPurse, mySquadSize, myOverseas, isFinanciallyValid, isOverseasPlayer, isRosterValid, canLegallyBid, isHost };
+  }, [room?.current_highest_bidder_id, playerTeam, currentPlayer, currentBid, safeBasePrice, claimedTeams, onlineUsers]);
+
+  const { isHighest, nextCalculated, myRecord, myPurse, mySquadSize, myOverseas, isFinanciallyValid, isOverseasPlayer, isRosterValid, canLegallyBid, isHost } = derivedValues;
   const timerProgress = timeLeft !== null && room?.timer_duration ? Math.min(100, (timeLeft / (room.timer_duration * 1000)) * 100) : 0;
 
   const handleBid = async (customAmountCr?: number) => {

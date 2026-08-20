@@ -3,20 +3,23 @@
 import { useAuction } from "./AuctionContext";
 import { Square, Flame, Shield, X, Trophy, Users, Loader2, Share2, RotateCcw, Home } from "lucide-react";
 import { TEAM_MAP, formatPriceCr, IPL_RULES } from "@/lib/auction-engine";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Badge } from "@/components/ui/badge";
+import { PlayerAvatar } from "@/components/ui/PlayerAvatar";
 import { supabase } from "@/lib/supabase";
 import { Confetti } from "@/components/ui/Confetti";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
 export function AuctionOverlays() {
+  const { showSoldFlash, showUnsoldFlash, showSquadsModal, isAuctionComplete } = useAuction();
+
   return (
     <>
-      <SoldFlash />
-      <UnsoldFlash />
-      <SquadDashboard />
-      <ResultsScreen />
+      {showSoldFlash && <SoldFlash />}
+      {showUnsoldFlash && <UnsoldFlash />}
+      {showSquadsModal && <SquadDashboard />}
+      {isAuctionComplete && <ResultsScreen />}
     </>
   );
 }
@@ -50,6 +53,18 @@ function SoldFlash() {
         
         <div className="mt-12 flex flex-col md:flex-row items-center gap-8 md:gap-12 bg-black/40 backdrop-blur border border-white/10 p-8 rounded-[32px] shadow-2xl relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.05] to-transparent pointer-events-none" />
+          
+          {/* Player Photo in SOLD overlay */}
+          {showSoldFlash.playerId && (
+            <div className="z-10">
+              <PlayerAvatar
+                playerId={showSoldFlash.playerId}
+                playerName={showSoldFlash.name}
+                size="2xl"
+                marquee
+              />
+            </div>
+          )}
           
           <div className={`h-36 w-36 rounded-[24px] flex justify-center items-center font-black text-5xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border-2 border-white/20 ${teamMeta?.color || "bg-zinc-700"} ${teamMeta?.textDark ? "text-zinc-900" : "text-white"} z-10`}>
             {showSoldFlash.team}
@@ -245,11 +260,18 @@ function SquadDashboard() {
                         const currentDelay = delayIndex++;
                         return (
                           <div key={p.id} className="glass-card hover:glass-card-hover p-4 rounded-xl flex items-center justify-between transition-all animate-scale-in border border-white/[0.03]" style={{ animationDelay: `${Math.min(currentDelay * 0.03, 0.4)}s` }}>
-                            <div className="flex flex-col min-w-0">
-                              <span className="text-white font-bold text-sm tracking-tight truncate">{p.name}</span>
-                              <div className="flex gap-2 mt-1.5">
-                                <span className="text-[9px] text-zinc-400 uppercase font-bold tracking-widest bg-black/50 px-2 py-0.5 rounded-md border border-white/[0.04]">{p.role}</span>
-                                {p.is_overseas && <span className="text-[9px] text-orange-400 uppercase font-bold tracking-widest bg-orange-500/10 px-2 py-0.5 rounded-md border border-orange-500/20">OS</span>}
+                            <div className="flex items-center gap-3 min-w-0">
+                              <PlayerAvatar
+                                playerId={p.id}
+                                playerName={p.name}
+                                size="sm"
+                              />
+                              <div className="flex flex-col min-w-0">
+                                <span className="text-white font-bold text-sm tracking-tight truncate">{p.name}</span>
+                                <div className="flex gap-2 mt-1.5">
+                                  <span className="text-[9px] text-zinc-400 uppercase font-bold tracking-widest bg-black/50 px-2 py-0.5 rounded-md border border-white/[0.04]">{p.role}</span>
+                                  {p.is_overseas && <span className="text-[9px] text-orange-400 uppercase font-bold tracking-widest bg-orange-500/10 px-2 py-0.5 rounded-md border border-orange-500/20">OS</span>}
+                                </div>
                               </div>
                             </div>
                             <div className="flex flex-col items-end shrink-0 pl-4">
@@ -518,13 +540,20 @@ function ResultsScreen() {
                             .map((p) => (
                               <div key={p.id} className="flex items-center justify-between bg-black/40 border border-white/[0.04] p-4 rounded-[12px] hover:bg-white/[0.03] transition-colors relative overflow-hidden group">
                                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-amber-500/50 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                <div>
-                                  <span className="text-sm font-bold text-white flex items-center gap-2 truncate">
-                                    {p.name}
-                                  </span>
-                                  <div className="flex gap-2 mt-1.5">
-                                    <span className="text-[9px] text-zinc-500 uppercase font-bold tracking-widest">{p.role}</span>
-                                    {p.is_overseas && <span className="text-[9px] text-orange-400/80 font-bold uppercase tracking-widest">OS</span>}
+                                <div className="flex items-center gap-3">
+                                  <PlayerAvatar
+                                    playerId={p.id}
+                                    playerName={p.name}
+                                    size="sm"
+                                  />
+                                  <div>
+                                    <span className="text-sm font-bold text-white flex items-center gap-2 truncate">
+                                      {p.name}
+                                    </span>
+                                    <div className="flex gap-2 mt-1.5">
+                                      <span className="text-[9px] text-zinc-500 uppercase font-bold tracking-widest">{p.role}</span>
+                                      {p.is_overseas && <span className="text-[9px] text-orange-400/80 font-bold uppercase tracking-widest">OS</span>}
+                                    </div>
                                   </div>
                                 </div>
                                 <span className="text-amber-500 font-black font-mono text-sm shrink-0">{formatPriceCr(Number(p.sold_price_cr))}</span>

@@ -55,14 +55,22 @@ export async function POST(
   // Check if team is already taken in this room
   const { data: existingTeam } = await supabase
     .from("room_franchises")
-    .select("id")
+    .select("id, user_name")
     .eq("room_id", room.id)
     .eq("team_id", playerTeam)
-    .single();
+    .maybeSingle();
 
   if (existingTeam) {
+    if (existingTeam.user_name?.trim().toLowerCase() === playerName.trim().toLowerCase()) {
+      // Same user reconnecting / re-joining their own team
+      return NextResponse.json({
+        roomId: room.id,
+        roomCode: room.room_code,
+        isSpectator: false,
+      });
+    }
     return NextResponse.json(
-      { error: `${playerTeam} is already claimed in this room.` },
+      { error: `${playerTeam} is already claimed by ${existingTeam.user_name}.` },
       { status: 400 }
     );
   }
